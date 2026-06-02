@@ -116,18 +116,45 @@ const schema = `{
   </section>
 
   <!-- VIDEO -->
-  <section class="section">
+  <section class="section section--video">
     <div class="container">
-      <div class="reveal" style="max-width: 900px; margin: 0 auto;">
-        <div class="video-responsive">
-          <iframe
-            src="https://www.youtube.com/embed/XfZIRXEgTic?si=91urGfxE9zNFPZjk"
-            title="Meet the Wernex Pest Control team — Southern Utah"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-            referrerpolicy="strict-origin-when-cross-origin"
-            allowfullscreen
-            loading="lazy">
-          </iframe>
+      <div class="text-center reveal" style="margin-bottom: 40px;">
+        <span class="section-label">Watch &amp; Learn</span>
+        <h2>Meet the Team Behind 30+ Years of Service</h2>
+        <p class="mx-auto" style="margin-top: 14px; color: var(--gray); max-width: 58ch;">Get to know the people protecting Southern Utah homes — straight from our crew. Press play to see how we work.</p>
+      </div>
+
+      <div class="video-wrap reveal">
+        <div
+          class="video-card"
+          id="aboutVideo"
+          role="button"
+          tabindex="0"
+          aria-label="Play video: Meet the Wernex Pest Control team"
+          data-embed="https://www.youtube-nocookie.com/embed/XfZIRXEgTic?autoplay=1&amp;rel=0&amp;si=91urGfxE9zNFPZjk"
+          data-title="Meet the Wernex Pest Control team — Southern Utah">
+          <img
+            src="https://i.ytimg.com/vi/XfZIRXEgTic/maxresdefault.jpg"
+            alt="Meet the Wernex Pest Control team — Southern Utah"
+            class="video-thumb"
+            loading="lazy"
+            onerror="this.onerror=null;this.src='https://i.ytimg.com/vi/XfZIRXEgTic/hqdefault.jpg';">
+          <span class="video-play" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+          </span>
+          <span class="video-badge">▶ Watch the video</span>
+        </div>
+      </div>
+
+      <!-- Interactive stat cards (count up on scroll) -->
+      <div class="video-stats reveal" aria-label="Wernex by the numbers">
+        <div class="video-stat">
+          <div class="video-stat__num" data-target="30" data-suffix="+">0</div>
+          <div class="video-stat__label">Years in Southern Utah</div>
+        </div>
+        <div class="video-stat">
+          <div class="video-stat__num" data-target="4.9" data-decimals="1" data-suffix="★">0</div>
+          <div class="video-stat__label">Average Review Rating</div>
         </div>
       </div>
     </div>
@@ -192,3 +219,214 @@ const schema = `{
 
   <!-- ═══ FOOTER ═══ -->
 </BaseLayout>
+
+<style>
+  .section--video {
+    background: linear-gradient(180deg, var(--white) 0%, var(--off-white) 100%);
+  }
+
+  /* ── Video card (click-to-play facade) ── */
+  .video-wrap { max-width: 900px; margin: 0 auto; }
+
+  .video-card {
+    position: relative;
+    aspect-ratio: 16 / 9;
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    cursor: pointer;
+    background: var(--green-dark);
+    box-shadow: var(--shadow-lg);
+    border: 1px solid rgba(13, 40, 24, 0.06);
+    transition: transform var(--transition), box-shadow var(--transition);
+  }
+  .video-card:hover,
+  .video-card:focus-visible {
+    transform: translateY(-6px);
+    box-shadow: 0 24px 60px rgba(13, 40, 24, 0.28);
+    outline: none;
+  }
+  .video-card:focus-visible { box-shadow: 0 0 0 4px var(--lime), var(--shadow-lg); }
+
+  .video-thumb {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.6s ease, filter var(--transition);
+  }
+  .video-card:hover .video-thumb { transform: scale(1.05); filter: brightness(0.82); }
+
+  .video-card::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, rgba(13,40,24,0) 45%, rgba(13,40,24,0.55) 100%);
+    pointer-events: none;
+  }
+
+  .video-play {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 88px;
+    height: 88px;
+    display: grid;
+    place-items: center;
+    border-radius: 50%;
+    background: var(--lime);
+    color: var(--green-dark);
+    z-index: 2;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.35);
+    transition: transform var(--transition), background var(--transition);
+  }
+  .video-play svg { width: 38px; height: 38px; margin-left: 4px; }
+  .video-card:hover .video-play,
+  .video-card:focus-visible .video-play {
+    transform: translate(-50%, -50%) scale(1.1);
+    background: var(--lime-bright);
+  }
+  .video-play::before {
+    content: '';
+    position: absolute;
+    inset: -10px;
+    border-radius: 50%;
+    border: 2px solid rgba(174, 234, 0, 0.6);
+    animation: videoPulse 2.2s ease-out infinite;
+  }
+  @keyframes videoPulse {
+    0%   { transform: scale(1);   opacity: 0.8; }
+    100% { transform: scale(1.5); opacity: 0;   }
+  }
+
+  .video-badge {
+    position: absolute;
+    bottom: 16px;
+    left: 16px;
+    z-index: 2;
+    background: rgba(13, 40, 24, 0.8);
+    color: var(--white);
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: 0.85rem;
+    padding: 7px 14px;
+    border-radius: 999px;
+    backdrop-filter: blur(4px);
+  }
+
+  .video-card iframe {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    border: 0;
+  }
+
+  /* ── Interactive stat cards ── */
+  .video-stats {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 16px;
+    max-width: 900px;
+    margin: 36px auto 0;
+  }
+  .video-stat {
+    flex: 1 1 180px;
+    max-width: 210px;
+    background: var(--white);
+    border: 1px solid var(--gray-light);
+    border-radius: var(--radius);
+    padding: 22px 18px;
+    text-align: center;
+    transition: transform var(--transition), box-shadow var(--transition), border-color var(--transition);
+  }
+  .video-stat:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow);
+    border-color: var(--lime);
+  }
+  .video-stat__num {
+    font-family: var(--font-display);
+    font-weight: 800;
+    font-size: 2.1rem;
+    color: var(--green-light);
+    line-height: 1;
+  }
+  .video-stat__label {
+    margin-top: 8px;
+    font-size: 0.82rem;
+    color: var(--gray);
+    font-weight: 500;
+  }
+
+  @media (max-width: 560px) {
+    .video-play { width: 68px; height: 68px; }
+    .video-play svg { width: 30px; height: 30px; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .video-play::before { animation: none; }
+    .video-thumb, .video-card, .video-stat { transition: none; }
+  }
+</style>
+
+<script>
+  // ── Click-to-play YouTube facade ──
+  const card = document.getElementById('aboutVideo');
+  if (card) {
+    const play = () => {
+      const src = card.getAttribute('data-embed');
+      const title = card.getAttribute('data-title') || 'Video';
+      if (!src) return;
+      const iframe = document.createElement('iframe');
+      iframe.src = src;
+      iframe.title = title;
+      iframe.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share';
+      iframe.setAttribute('referrerpolicy', 'strict-origin-when-cross-origin');
+      iframe.allowFullscreen = true;
+      card.innerHTML = '';
+      card.appendChild(iframe);
+      card.style.cursor = 'default';
+      card.removeAttribute('role');
+      card.removeAttribute('tabindex');
+    };
+    card.addEventListener('click', play);
+    card.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); play(); }
+    });
+  }
+
+  // ── Count-up animation for stat numbers ──
+  const nums = document.querySelectorAll('.video-stat__num[data-target]');
+  if (nums.length) {
+    const animate = (el: HTMLElement) => {
+      const target = parseFloat(el.getAttribute('data-target') || '0');
+      const decimals = parseInt(el.getAttribute('data-decimals') || '0', 10);
+      const suffix = el.getAttribute('data-suffix') || '';
+      const duration = 1400;
+      let startTime: number | null = null;
+      const step = (now: number) => {
+        if (startTime === null) startTime = now;
+        const progress = Math.min((now - startTime) / duration, 1);
+        const eased = 1 - Math.pow(1 - progress, 3); // easeOutCubic
+        const value = target * eased;
+        el.textContent = value.toLocaleString('en-US', {
+          minimumFractionDigits: decimals,
+          maximumFractionDigits: decimals,
+        }) + suffix;
+        if (progress < 1) requestAnimationFrame(step);
+      };
+      requestAnimationFrame(step);
+    };
+
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          animate(entry.target as HTMLElement);
+          io.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.5 });
+    nums.forEach((n) => io.observe(n));
+  }
+</script>
