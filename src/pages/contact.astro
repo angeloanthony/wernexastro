@@ -1,0 +1,244 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const title = 'Contact Wernex Pest Control — Free Inspections &amp; Same-Day Service in St. George UT';
+const description = 'Schedule a free pest inspection in St. George & Southern Utah. Same-day and 24/7 emergency service. Book online or call (435) 673-9503 — no contracts, no obligation.';
+const canonical = 'https://www.wernexpestcontrol.com/contact.html';
+const active = 'contact.html';
+const og = { "og:title": 'Contact Wernex Pest Control — Free Inspections in St. George UT', "og:description": 'Schedule a free pest inspection. Same-day and 24/7 emergency service. Book online or call (435) 673-9503.', "og:type": 'website', "og:url": 'https://www.wernexpestcontrol.com/contact.html', "og:locale": 'en_US', "og:site_name": 'Wernex Termite & Pest Control' };
+const schema = `{
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "ContactPage",
+        "@id": "https://www.wernexpestcontrol.com/contact.html#contactpage",
+        "url": "https://www.wernexpestcontrol.com/contact.html",
+        "name": "Contact Wernex Termite & Pest Control",
+        "description": "Schedule a free pest inspection, request a quote, or reach the Wernex team by phone, email, or live chat. Serving St. George, Washington, Hurricane, and Southern Utah.",
+        "isPartOf": { "@id": "https://www.wernexpestcontrol.com/#website" },
+        "about": { "@id": "https://www.wernexpestcontrol.com/#business" }
+      },
+      {
+        "@type": "LocalBusiness",
+        "@id": "https://www.wernexpestcontrol.com/#business",
+        "name": "Wernex Termite & Pest Control, Inc.",
+        "telephone": "+1-435-673-9503",
+        "email": "wernexpestcontrol@gmail.com",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "6097 Dry Fork Canyon Rd",
+          "addressLocality": "Vernal",
+          "addressRegion": "UT",
+          "postalCode": "84078",
+          "addressCountry": "US"
+        },
+        "openingHoursSpecification": [
+          { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday"], "opens": "07:00", "closes": "19:00" },
+          { "@type": "OpeningHoursSpecification", "dayOfWeek": "Saturday", "opens": "08:00", "closes": "17:00" }
+        ]
+      }
+    ]
+  }`;
+---
+<BaseLayout title={title} description={description} canonical={canonical} og={og} schema={schema} active={active}>
+<!-- CONTACT FORM + INFO -->
+  <section class="section" id="contact" style="padding-top: 160px;">
+    <div class="container">
+      <div class="contact-grid">
+
+        <!-- LEFT: Contact Methods -->
+        <div>
+          <div class="reveal">
+            <span class="section-label">Reach Us</span>
+            <h2>Schedule Your Free Consultation</h2>
+            <p style="color: var(--gray); margin: 12px 0 32px;"><strong>Simple, reliable pest control with flexible scheduling and no contracts.</strong> Serving St. George, Washington, Hurricane, and all of Southern Utah. Choose whichever method works best — or browse our <a href="services.html">services</a> first.</p>
+          </div>
+
+          <div class="contact-method reveal">
+            <div class="contact-method__icon">📞</div>
+            <div>
+              <h4>Call Us — 24/7</h4>
+              <a href="tel:+14356739503">(435) 673-9503</a>
+              <p>Fastest way to get help. Emergency service available.</p>
+            </div>
+          </div>
+
+          <div class="contact-method reveal">
+            <div class="contact-method__icon">✉️</div>
+            <div>
+              <h4>Email</h4>
+              <a href="mailto:wernexpestcontrol@gmail.com">wernexpestcontrol@gmail.com</a>
+              <p>We respond within 1 business hour.</p>
+            </div>
+          </div>
+
+          <div class="contact-method reveal">
+            <div class="contact-method__icon">📍</div>
+            <div>
+              <h4>Visit Our Office</h4>
+              <p>6097 Dry Fork Canyon Rd, Vernal, UT 84078</p>
+              <p>Mon–Fri 7am–7pm, Sat 8am–5pm</p>
+            </div>
+          </div>
+
+          <div class="contact-method reveal">
+            <div class="contact-method__icon">💬</div>
+            <div>
+              <h4>Live Chat</h4>
+              <p>Click the chat icon in the bottom right corner for instant help.</p>
+            </div>
+          </div>
+
+          <!-- GUARANTEE (Trust trigger §7.3) -->
+          <div class="guarantee-badge reveal" style="margin-top: 12px;">
+            <div class="guarantee-badge__icon">🛡️</div>
+            <div class="guarantee-badge__text">
+              <strong>100% Satisfaction Guarantee</strong>
+              <span>Free re-service if pests return within 30 days</span>
+            </div>
+          </div>
+
+          <!-- Trust triggers near CTA §7.3 -->
+          <p class="reveal" style="margin-top: 16px; font-size: 0.88rem; color: var(--gray);">⭐ 4.9 stars · 87+ Google reviews · 30+ years serving Southern Utah · <a href="about.html">BBB A+ accredited</a></p>
+        </div>
+
+        <!-- RIGHT: Cal.com Booking -->
+        <div class="reveal">
+          <div class="quote-form">
+            <h3>Book a Free Consultation</h3>
+            <p>Pick a time that works for you — we'll confirm within minutes.</p>
+            <div style="background: #fff8e1; border: 1px solid #ffd54f; border-left: 4px solid #f9a825; border-radius: 8px; padding: 14px 16px; margin: 0 0 20px;">
+              <p style="margin: 0; font-weight: 700; color: #5d4037;">📞 Please call or text us before scheduling an appointment.</p>
+              <p style="margin: 6px 0 0; font-size: 0.9rem; color: #6d4c41;">Reach us first at <a href="tel:+14356739503" style="font-weight: 700;">(435) 673-9503</a> so we can confirm availability and get you the fastest service.</p>
+            </div>
+            <div style="width:100%; min-height: 600px; overflow:scroll;" id="my-cal-inline"></div>
+            <script type="text/javascript">
+              (function (C, A, L) {
+                let p = function (a, ar) { a.q.push(ar); };
+                let d = C.document;
+                C.Cal = C.Cal || function () {
+                  let cal = C.Cal; let ar = arguments;
+                  if (!cal.loaded) { cal.ns = {}; cal.q = cal.q || []; d.head.appendChild(d.createElement("script")).src = A; cal.loaded = true; }
+                  if (ar[0] === L) { const api = function () { p(api, arguments); }; const namespace = ar[1]; api.q = api.q || []; typeof namespace === "string" ? (cal.ns[namespace] = api) && p(api, ar) : p(cal, ar); return; }
+                  p(cal, ar);
+                };
+              })(window, "https://app.cal.com/embed/embed.js", "init");
+              Cal("init", { origin: "https://app.cal.com" });
+              Cal("inline", { elementOrSelector: "#my-cal-inline", calLink: "wernexpestcontrol/free-consultation" });
+              Cal("ui", { styles: { branding: { brandColor: "#2e7d32" } }, hideEventTypeDetails: false });
+            </script>
+            <p style="text-align: center; margin-top: 12px; font-size: 0.82rem; color: var(--gray);">🔒 Your information is secure and never shared.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- MAP -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+        integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
+  <section class="section section--alt" style="padding-top: 0;">
+    <div class="container">
+      <div class="reveal" style="border-radius: 16px; overflow: hidden; box-shadow: 0 4px 24px rgba(0,0,0,0.10);">
+        <div id="service-map" style="width: 100%; height: 480px;"></div>
+      </div>
+      <p style="text-align:center; margin-top: 14px; color: var(--gray); font-size: 0.88rem;">
+        📍 Serving <strong>St. George</strong>, <strong>Washington</strong>, <strong>Hurricane</strong>, and <strong>Uintah County</strong> — see our <a href="pest-control-southern-utah.html">complete Southern Utah service area</a>.
+      </p>
+    </div>
+  </section>
+
+  <!-- AREAS SERVED (Real community names §2.1) -->
+  <section class="section">
+    <div class="container">
+      <div class="text-center reveal">
+        <span class="section-label">Service Area</span>
+        <h2>Communities We Serve</h2>
+      </div>
+      <div class="areas-grid" style="margin-top: 32px;">
+        <a href="#" class="reveal">St. George</a>
+        <a href="#" class="reveal">Washington</a>
+        <a href="#" class="reveal">Hurricane</a>
+        <a href="#" class="reveal">Ivins</a>
+        <a href="#" class="reveal">Santa Clara</a>
+        <a href="#" class="reveal">LaVerkin</a>
+        <a href="#" class="reveal">Toquerville</a>
+        <a href="#" class="reveal">Leeds</a>
+        <a href="#" class="reveal">Springdale</a>
+        <a href="#" class="reveal">Cedar City</a>
+        <a href="#" class="reveal">Enterprise</a>
+        <a href="#" class="reveal">Hildale</a>
+        <a href="#" class="reveal">Vernal</a>
+        <a href="#" class="reveal">Naples</a>
+        <a href="#" class="reveal">Jensen</a>
+        <a href="#" class="reveal">Roosevelt</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ QUICK LINKS TO SERVICES (Internal linking hub §4.2) ═══ -->
+  <section class="section" style="padding-top:40px; padding-bottom:40px; background:var(--gray-light, #f5f5f5);">
+    <div class="container" style="max-width: 880px;">
+      <div class="text-center reveal" style="margin-bottom: 20px;">
+        <span class="section-label">Before You Book</span>
+        <h3 style="margin-top: 8px; margin-bottom: 0;">Explore Our Most-Requested Services</h3>
+      </div>
+      <ul style="list-style:none; padding:0; margin:0; display:flex; flex-wrap:wrap; justify-content:center; gap:12px 28px;">
+        <li><a href="same-day-pest-control-st-george.html">Same-Day Pest Control</a></li>
+        <li><a href="affordable-pest-control-st-george.html">Affordable Pest Control St. George</a></li>
+        <li><a href="pest-control-southern-utah.html">Southern Utah Service Area</a></li>
+        <li><a href="services.html">All Services</a></li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ═══ FOOTER (Standardized) ═══ -->
+
+  <!-- SERVICE AREA MAP (Leaflet + OpenStreetMap — no API key required) -->
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+          integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin="" is:inline></script>
+  <script is:inline>
+    (function () {
+      function initServiceMap() {
+        var el = document.getElementById('service-map');
+        if (!el || typeof L === 'undefined' || el.dataset.mapReady) return;
+        el.dataset.mapReady = '1';
+
+        var places = [
+          { name: 'St. George', lat: 37.0965, lng: -113.5684 },
+          { name: 'Washington', lat: 37.1303, lng: -113.5083 },
+          { name: 'Hurricane', lat: 37.1753, lng: -113.2899 },
+          { name: 'Ivins', lat: 37.1683, lng: -113.6794 },
+          { name: 'Santa Clara', lat: 37.1336, lng: -113.6543 },
+          { name: 'LaVerkin', lat: 37.2008, lng: -113.2683 },
+          { name: 'Vernal', lat: 40.4555, lng: -109.5287 },
+          { name: 'Naples', lat: 40.4313, lng: -109.4943 },
+          { name: 'Roosevelt', lat: 40.2994, lng: -110.0093 }
+        ];
+
+        var map = L.map('service-map', { scrollWheelZoom: false });
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+          maxZoom: 18,
+          attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+        }).addTo(map);
+
+        var bounds = [];
+        places.forEach(function (p) {
+          L.marker([p.lat, p.lng]).addTo(map).bindPopup('<strong>' + p.name + '</strong><br>Pest control by Wernex');
+          bounds.push([p.lat, p.lng]);
+        });
+        map.fitBounds(bounds, { padding: [40, 40] });
+
+        // Re-measure once the container is laid out (avoids gray tiles).
+        setTimeout(function () { map.invalidateSize(); }, 200);
+      }
+
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', initServiceMap);
+      } else {
+        initServiceMap();
+      }
+    })();
+  </script>
+</BaseLayout>

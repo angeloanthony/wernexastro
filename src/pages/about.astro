@@ -1,0 +1,194 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const title = 'About Wernex Pest Control — 30+ Years Serving Southern Utah | Licensed &amp; Eco-Friendly';
+const description = 'Family-owned pest control with 30+ years in Southern Utah. BBB A+ accredited, QualityPro certified, eco-friendly IPM treatments. Meet the Wernex team — call (435) 673-9503.';
+const canonical = 'https://www.wernexpestcontrol.com/about.html';
+const active = 'about.html';
+const og = { "og:title": 'About Wernex Pest Control — 30+ Years in Southern Utah', "og:description": 'Family-owned, BBB A+ accredited, QualityPro certified pest control. Meet the team behind 30+ years of trusted service.', "og:type": 'website', "og:url": 'https://www.wernexpestcontrol.com/about.html', "og:locale": 'en_US', "og:site_name": 'Wernex Termite & Pest Control' };
+const schema = `{
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "AboutPage",
+        "@id": "https://www.wernexpestcontrol.com/about.html#aboutpage",
+        "url": "https://www.wernexpestcontrol.com/about.html",
+        "name": "About Wernex Termite & Pest Control",
+        "description": "Learn about Wernex Termite & Pest Control — our 30+ year history, certifications, eco-friendly approach, and the team protecting Southern Utah homes and businesses.",
+        "isPartOf": { "@id": "https://www.wernexpestcontrol.com/#website" },
+        "about": { "@id": "https://www.wernexpestcontrol.com/#business" }
+      },
+      {
+        "@type": "Organization",
+        "@id": "https://www.wernexpestcontrol.com/#organization",
+        "name": "Wernex Termite & Pest Control, Inc.",
+        "url": "https://www.wernexpestcontrol.com/",
+        "logo": "https://www.wernexpestcontrol.com/images/Logo.webp",
+        "foundingDate": "1994",
+        "description": "Professional termite and pest control for residential and commercial properties in Southern Utah. Licensed, insured, BBB A+ accredited, and QualityPro certified.",
+        "areaServed": {
+          "@type": "State",
+          "name": "Utah",
+          "sameAs": "https://en.wikipedia.org/wiki/Utah"
+        },
+        "memberOf": [
+          { "@type": "Organization", "name": "National Pest Management Association (NPMA)" },
+          { "@type": "Organization", "name": "Better Business Bureau" },
+          { "@type": "Organization", "name": "QualityPro" }
+        ],
+        "hasCredential": [
+          { "@type": "EducationalOccupationalCredential", "credentialCategory": "license", "name": "Utah State Pest Control License" },
+          { "@type": "EducationalOccupationalCredential", "credentialCategory": "certification", "name": "QualityPro Certified" },
+          { "@type": "EducationalOccupationalCredential", "credentialCategory": "certification", "name": "BBB A+ Accredited" }
+        ],
+        "sameAs": [
+          "https://www.facebook.com/wernexpestcontrol",
+          "https://www.instagram.com/wernexpestcontrol",
+          "https://www.youtube.com/@wernexpestcontrol"
+        ]
+      }
+    ]
+  }`;
+---
+<BaseLayout title={title} description={description} canonical={canonical} og={og} schema={schema} active={active}>
+<!-- HEADER -->
+  <div class="page-header">
+    <h1>About Wernex Termite And Pest Control</h1>
+    <p>Family-owned, community-trusted, eco-conscious pest protection serving Southern Utah since 1994.</p>
+  </div>
+
+  <!-- ═══ AI SUMMARY BLOCK (Layer 1) ═══ -->
+  <section class="section" style="padding-bottom:0;">
+    <div class="container">
+      <div class="reveal" style="max-width: 800px; margin: 0 auto; background: var(--gray-light, #f5f5f5); border-radius: 12px; padding: 24px 28px;">
+        <p style="margin:0; color: var(--dark, #1a1a1a); line-height: 1.7;"><strong>Wernex Termite &amp; Pest Control</strong> is a family-owned, Southern Utah pest control company with over 30 years of experience. We are BBB A+ accredited, QualityPro certified, and a member of the National Pest Management Association. Every technician is state-licensed and uses Integrated Pest Management methods to deliver effective, eco-friendly results for <a href="services.html#residential">residential</a> and <a href="services.html#commercial">commercial</a> properties across St. George, Washington, Hurricane, and <a href="pest-control-southern-utah.html">surrounding Southern Utah communities</a>.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- OUR STORY (E-E-A-T: Owner Story §2.1 — 150+ words, first-person, local ties) -->
+  <section class="section">
+    <div class="container">
+      <div class="two-col">
+        <div class="reveal">
+          <span class="section-label">Our Story</span>
+          <h2>Built on Trust, Driven by Results</h2>
+          <p style="margin: 16px 0;">We started Wernex Pest Control with one truck, one technician, and a simple promise: treat every home like our own. Growing up in Southern Utah, I saw firsthand how quickly pests can turn a comfortable home into a source of stress — especially during the hot summers when scorpions, ants, and termites are most active along the Red Cliffs and in neighborhoods from St. George to Hurricane.</p>
+          <p style="color: var(--gray);">Over three decades later, we've grown into a team of certified professionals serving thousands of homes and businesses across Washington County and beyond — but the promise hasn't changed. We still use the latest science-backed methods, including our <a href="services.html">Integrated Pest Management approach</a>, and eco-friendly products to deliver real results you can count on. Every technician on our team is state-licensed, background-checked, and trained to explain what we're doing and why — because transparency is just as important as effectiveness.</p>
+        </div>
+        <div class="reveal">
+          <img src="images/14.webp" alt="Wernex pest control team standing in front of branded service truck in Southern Utah" class="about-story-img" loading="lazy">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- VALUES -->
+  <section class="section section--alt">
+    <div class="container text-center">
+      <div class="reveal">
+        <span class="section-label">What Sets Us Apart</span>
+        <h2>Our Core Values</h2>
+      </div>
+      <div class="service-cards" style="margin-top: 40px;">
+        <div class="service-card reveal">
+          <div class="service-card__icon service-card__icon--green">🎯</div>
+          <h3>Precision</h3>
+          <p>We identify the exact pest and use targeted treatments — no unnecessary chemicals. Our <a href="pest-library.html">pest library</a> helps you understand what we're treating.</p>
+        </div>
+        <div class="service-card reveal">
+          <div class="service-card__icon service-card__icon--green">🌿</div>
+          <h3>Sustainability</h3>
+          <p>IPM-first approach. We minimize environmental impact while maximizing results — safe for your family, pets, and the Southern Utah landscape we all share.</p>
+        </div>
+        <div class="service-card reveal">
+          <div class="service-card__icon service-card__icon--amber">🤝</div>
+          <h3>Integrity</h3>
+          <p>Honest assessments, upfront pricing, no hidden fees. What we say is what we do. Read what our customers say in our <a href="testimonials.html">verified reviews</a>.</p>
+        </div>
+        <div class="service-card reveal">
+          <div class="service-card__icon service-card__icon--amber">⚡</div>
+          <h3>Responsiveness</h3>
+          <p>Same-day service for emergencies. We know pests don't wait, so neither do we. <a href="contact.html">Schedule your appointment</a> or call <a href="tel:+14356739503">(435) 673-9503</a>.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- VIDEO -->
+  <section class="section">
+    <div class="container">
+      <div class="reveal" style="max-width: 900px; margin: 0 auto;">
+        <div class="video-responsive">
+          <iframe
+            src="https://www.youtube.com/embed/XfZIRXEgTic?si=91urGfxE9zNFPZjk"
+            title="Meet the Wernex Pest Control team — Southern Utah"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            referrerpolicy="strict-origin-when-cross-origin"
+            allowfullscreen
+            loading="lazy">
+          </iframe>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CERTIFICATIONS (E-E-A-T: Staff Credentials §2.1) -->
+  <section class="section section--alt">
+    <div class="container text-center">
+      <div class="reveal">
+        <span class="section-label">Credentials</span>
+        <h2>Certifications &amp; Memberships</h2>
+        <p class="mx-auto" style="margin-top: 12px; color: var(--gray);">All technicians are state-licensed and follow strict EPA guidelines. Wernex holds the following industry credentials:</p>
+      </div>
+      <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 32px; margin-top: 40px;">
+        <div class="cert-logo-box reveal">
+          <img src="images/Logo.webp" alt="NPMA member — National Pest Management Association" loading="lazy">
+        </div>
+        <div class="cert-logo-box cert-logo-box--text reveal">
+          BBB<span></span>
+        </div>
+        <div class="cert-logo-box cert-logo-box--text reveal">
+          QualityPro<span>Certified</span>
+        </div>
+        <div class="cert-logo-box cert-logo-box--text reveal">
+          Utah State<span>Licensed</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="section">
+    <div class="container">
+      <div class="cta-banner reveal">
+        <div>
+          <h2>Want to Join Our Team?</h2>
+          <p>We're always looking for great people. See open positions.</p>
+        </div>
+        <div class="cta-banner__buttons">
+          <a href="contact.html" class="btn btn--primary">Get in Touch →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ AREAS WE SERVE (Internal linking hub §4.2) ═══ -->
+  <section class="section" style="padding-top:40px; padding-bottom:40px; background:var(--gray-light, #f5f5f5);">
+    <div class="container" style="max-width: 880px;">
+      <div class="text-center reveal" style="margin-bottom: 20px;">
+        <span class="section-label">Where We Work</span>
+        <h3 style="margin-top: 8px; margin-bottom: 0;">See All Areas We Serve</h3>
+      </div>
+      <ul style="list-style:none; padding:0; margin:0; display:flex; flex-wrap:wrap; justify-content:center; gap:12px 28px;">
+        <li><a href="pest-control-southern-utah.html">Pest Control Across Southern Utah</a></li>
+        <li><a href="best-pest-control-st-george.html">St. George</a></li>
+        <li><a href="pest-control-washington-ut.html">Washington</a></li>
+        <li><a href="pest-control-hurricane-ut.html">Hurricane</a></li>
+        <li><a href="pest-control-vernal.html">Vernal</a></li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ═══ FOOTER ═══ -->
+</BaseLayout>

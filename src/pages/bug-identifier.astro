@@ -1,0 +1,234 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const title = 'AI Bug Identifier — Upload a Photo for Instant Pest ID | Wernex Pest Control';
+const description = 'Free AI-powered bug identification — upload a photo and get instant results from two AI systems. No login required. From Wernex Pest Control, serving Southern Utah for 30+ years.';
+const canonical = 'https://www.wernexpestcontrol.com/bug-identifier.html';
+const active = 'bug-identifier.html';
+const og = { "og:title": 'AI Bug Identifier — Instant Pest ID from a Photo | Wernex', "og:description": 'Free AI-powered bug identification. Upload a photo, get instant results from two AI systems. No login required.', "og:type": 'website', "og:url": 'https://www.wernexpestcontrol.com/bug-identifier.html', "og:locale": 'en_US', "og:site_name": 'Wernex Termite & Pest Control' };
+const schema = `{
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebApplication",
+        "name": "Wernex AI Bug Identifier",
+        "url": "https://www.wernexpestcontrol.com/bug-identifier.html",
+        "description": "Free AI-powered pest identification tool. Upload a photo of any bug and receive instant identification from two independent AI systems, including species name, threat level, behavior, and treatment recommendations.",
+        "applicationCategory": "UtilityApplication",
+        "operatingSystem": "Web",
+        "offers": {
+          "@type": "Offer",
+          "price": "0",
+          "priceCurrency": "USD"
+        },
+        "provider": { "@id": "https://www.wernexpestcontrol.com/#business" },
+        "isPartOf": { "@id": "https://www.wernexpestcontrol.com/#website" }
+      },
+      {
+        "@type": "WebPage",
+        "url": "https://www.wernexpestcontrol.com/bug-identifier.html",
+        "name": "AI Bug Identifier — Wernex Termite & Pest Control",
+        "description": "Upload a photo of any bug and get instant AI-powered identification with species name, threat level, behavior, and recommended treatment.",
+        "isPartOf": { "@id": "https://www.wernexpestcontrol.com/#website" }
+      }
+    ]
+  }`;
+---
+<BaseLayout title={title} description={description} canonical={canonical} og={og} schema={schema} active={active}>
+<!-- ═══ HERO ═══ -->
+  <div class="id-hero">
+    <div class="container">
+      <span class="section-label" style="color: var(--lime-bright);">Dual AI-Powered Tools</span>
+      <h1>Identify <span>Any Bug</span> with Two AI Systems</h1>
+      <p>Upload a photo and get results from two different AI models for the most accurate identification possible.</p>
+    </div>
+  </div>
+
+  <!-- ═══ MAIN CONTENT ═══ -->
+  <section class="section">
+    <div class="container">
+
+      <!-- Comparison Banner -->
+      <div class="comparison-banner reveal">
+        <h3>🤖 Double AI Verification</h3>
+        <p>Compare results from two advanced AI systems for maximum accuracy and confidence</p>
+      </div>
+
+      <!-- Two Identifiers Side by Side -->
+      <div class="dual-identifier-layout">
+
+        <!-- ═══ IDENTIFIER 1: Primary AI ═══ -->
+        <div>
+          <div class="upload-card reveal">
+            <div class="upload-card__glare"></div>
+            <div class="upload-card__header">
+              <h2>🔬 AI System #1 - Advanced Vision</h2>
+              <p>Specialized in detailed pest identification</p>
+            </div>
+            <div class="upload-card__body">
+
+              <div
+                class="drop-zone"
+                id="dropZone1"
+                onclick="document.getElementById('bugPhotoInput1').click()"
+                ondragover="event.preventDefault(); this.classList.add('drag-over');"
+                ondragleave="this.classList.remove('drag-over');"
+                ondrop="handleDrop1(event)"
+              >
+                <div class="drop-zone__icon">📷</div>
+                <div class="drop-zone__title">Upload Bug Photo</div>
+                <div class="drop-zone__sub">JPG, PNG, or WEBP — max 5 MB</div>
+                <button type="button" class="drop-zone__btn">Choose Photo</button>
+                <span class="drop-zone__or">or drag &amp; drop here</span>
+                <input type="file" id="bugPhotoInput1" accept="image/*" capture="environment" hidden onchange="handleFileSelect1(event)">
+              </div>
+
+              <div class="preview-area" id="previewArea1">
+                <img id="previewImg1" src="" alt="Your uploaded bug photo">
+                <div class="preview-actions">
+                  <button class="btn-identify" id="identifyBtn1" onclick="identifyBug1()">🔍 Identify This Bug</button>
+                  <button class="btn-reset" onclick="resetUpload1()">↺ New Photo</button>
+                </div>
+              </div>
+
+              <div class="result-card" id="resultCard1">
+                <div class="result-card__header">
+                  <span style="font-size:1.2rem;">🐞</span>
+                  <h3>AI System #1 Result</h3>
+                </div>
+                <div class="result-card__body" id="resultContent1"></div>
+                <div class="result-card__cta">
+                  <a href="contact.html" class="btn btn--primary btn--sm">Need Help? Contact Wernex →</a>
+                </div>
+              </div>
+
+              <div class="error-box" id="errorBox1">
+                ⚠️ <span id="errorMsg1"></span>
+              </div>
+
+            </div>
+          </div>
+        </div>
+
+        <!-- ═══ IDENTIFIER 2: Secondary AI ═══ -->
+        <div>
+          <div class="upload-card reveal">
+            <div class="upload-card__header upload-card__header--alt">
+              <h2>🧬 AI System #2 - Species Expert</h2>
+              <p>Cross-reference for verification</p>
+            </div>
+            <div class="upload-card__body">
+
+              <div
+                class="drop-zone"
+                id="dropZone2"
+                onclick="document.getElementById('bugPhotoInput2').click()"
+                ondragover="event.preventDefault(); this.classList.add('drag-over');"
+                ondragleave="this.classList.remove('drag-over');"
+                ondrop="handleDrop2(event)"
+              >
+                <div class="drop-zone__icon">📷</div>
+                <div class="drop-zone__title">Upload Bug Photo</div>
+                <div class="drop-zone__sub">JPG, PNG, or WEBP — max 5 MB</div>
+                <button type="button" class="drop-zone__btn">Choose Photo</button>
+                <span class="drop-zone__or">or drag &amp; drop here</span>
+                <input type="file" id="bugPhotoInput2" accept="image/*" capture="environment" hidden onchange="handleFileSelect2(event)">
+              </div>
+
+              <div class="preview-area" id="previewArea2">
+                <img id="previewImg2" src="" alt="Your uploaded bug photo">
+                <div class="preview-actions">
+                  <button class="btn-identify" id="identifyBtn2" onclick="identifyBug2()">🔍 Identify This Bug</button>
+                  <button class="btn-reset" onclick="resetUpload2()">↺ New Photo</button>
+                </div>
+              </div>
+
+              <div class="result-card" id="resultCard2">
+                <div class="result-card__header result-card__header--blue">
+                  <span style="font-size:1.2rem;">🐞</span>
+                  <h3>AI System #2 Result</h3>
+                </div>
+                <div class="result-card__body" id="resultContent2"></div>
+                <div class="result-card__cta">
+                  <a href="contact.html" class="btn btn--primary btn--sm">Need Help? Contact Wernex →</a>
+                </div>
+              </div>
+
+              <div class="error-box" id="errorBox2">
+                ⚠️ <span id="errorMsg2"></span>
+              </div>
+
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Trust note -->
+      <p class="text-center reveal" style="margin-top: 20px; color: var(--gray); font-size: 0.82rem;">
+        🔒 Your photos are never stored. AI results are for reference only — contact us for a professional assessment.
+      </p>
+
+      <!-- Tips Section -->
+      <div class="tips-section reveal">
+        <div class="tips-section__header">
+          <h3>📋 Tips for Best Results</h3>
+        </div>
+        <div class="tips-section__body">
+
+          <div class="tip-item">
+            <div class="tip-icon">💡</div>
+            <div>
+              <h4>Good Lighting</h4>
+              <p>Natural daylight works best. Avoid flash which washes out colors and details.</p>
+            </div>
+          </div>
+
+          <div class="tip-item">
+            <div class="tip-icon">📏</div>
+            <div>
+              <h4>Get Close</h4>
+              <p>Fill the frame with the bug. The more detail visible, the more accurate the ID.</p>
+            </div>
+          </div>
+
+          <div class="tip-item">
+            <div class="tip-icon">📐</div>
+            <div>
+              <h4>Top-Down Angle</h4>
+              <p>Shoot from directly above if possible — this shows body shape, color patterns, and leg count.</p>
+            </div>
+          </div>
+
+          <div class="tip-item">
+            <div class="tip-icon">🔄</div>
+            <div>
+              <h4>Use Same Photo</h4>
+              <p>Upload the same image to both AI systems to compare their analysis and verify accuracy.</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ═══ CTA ═══ -->
+  <section class="section section--alt">
+    <div class="container">
+      <div class="cta-banner reveal">
+        <div>
+          <h2>AI Can't Replace an Expert</h2>
+          <p>Our technicians have 30+ years of experience identifying and treating pests in Southern Utah.</p>
+        </div>
+        <div class="cta-banner__buttons">
+          <a href="contact.html" class="btn btn--primary">Get a Free Quote →</a>
+          <a href="tel:+14356739503" class="btn btn--white">📞 (435) 673-9503</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ FOOTER ═══ -->
+</BaseLayout>

@@ -1,0 +1,82 @@
+---
+// src/layouts/BaseLayout.astro
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import { WERNEX } from '../data/business';
+import '../styles/global.css';
+
+interface Props {
+  title: string;
+  description: string;
+  canonical: string;
+  og?: Record<string, string>;
+  schema?: string | null;
+  active?: string;
+}
+const { title, description, canonical, og = {}, schema = null, active = '' } = Astro.props;
+---
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- SEO: TITLE TAG -->
+  <title set:html={title}></title>
+
+  <!-- SEO: META DESCRIPTION -->
+  <meta name="description" content={description}>
+
+  <!-- SEO: CANONICAL -->
+  <link rel="canonical" href={canonical}>
+
+  <!-- SEO: OPEN GRAPH (preserved per-page) -->
+  {og['og:title'] && <meta property="og:title" content={og['og:title']} />}
+  {og['og:description'] && <meta property="og:description" content={og['og:description']} />}
+  {og['og:type'] && <meta property="og:type" content={og['og:type']} />}
+  {og['og:url'] && <meta property="og:url" content={og['og:url']} />}
+  {og['og:locale'] && <meta property="og:locale" content={og['og:locale']} />}
+  {og['og:site_name'] && <meta property="og:site_name" content={og['og:site_name']} />}
+
+  <!-- FAVICON -->
+  <link rel="icon" href="/favicon.ico">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="manifest" href="/site.webmanifest">
+
+  <!-- SEO: JSON-LD SCHEMA (migrated verbatim from the original page) -->
+  {schema && <script type="application/ld+json" set:html={schema} is:inline></script>}
+</head>
+<body>
+
+  <Header active={active} />
+
+  <slot />
+
+  <Footer />
+
+  <!-- FLOATING MOBILE CTA -->
+  <a href={`tel:${WERNEX.phoneTel}`} class="floating-cta">📞 Call Now — Free Quote</a>
+
+  <!-- CHAT WIDGET -->
+  <div class="chat-widget">
+    <div class="chat-widget__panel">
+      <div class="chat-widget__header">
+        <span>💬 Wernex Chat</span>
+        <button class="chat-widget__close">✕</button>
+      </div>
+      <div class="chat-widget__messages">
+        <div class="bot-msg">Hi! 👋 How can we help? Tell us about your pest problem or ask about Wernex services.</div>
+      </div>
+      <div class="chat-widget__input">
+        <input type="text" placeholder="Type your question...">
+        <button>→</button>
+      </div>
+    </div>
+    <button class="chat-widget__btn" aria-label="Open chat">💬</button>
+  </div>
+
+  <script src="/script.js" is:inline></script>
+</body>
+</html>

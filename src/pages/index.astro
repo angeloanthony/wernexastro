@@ -1,0 +1,620 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const title = 'Pest Control in St. George UT — Same-Day Service &amp; Eco-Friendly Treatments | Wernex';
+const description = '4.9-star rated pest control in St. George, UT. Same-day inspections, eco-friendly treatments, and a 30-day satisfaction guarantee. Call (435) 673-9503 for a free quote.';
+const canonical = 'https://www.wernexpestcontrol.com/';
+const active = 'index.html';
+const og = { "og:title": 'Pest Control in St. George UT — Same-Day Service | Wernex', "og:description": '4.9-star rated pest control in St. George. Same-day inspections, eco-friendly treatments, and a 30-day satisfaction guarantee.', "og:type": 'website', "og:url": 'https://www.wernexpestcontrol.com/', "og:locale": 'en_US', "og:site_name": 'Wernex Termite & Pest Control' };
+const schema = `{
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "LocalBusiness",
+        "@id": "https://www.wernexpestcontrol.com/#business",
+        "name": "Wernex Termite & Pest Control, Inc.",
+        "alternateName": "Wernex Pest Control",
+        "url": "https://www.wernexpestcontrol.com/",
+        "telephone": "+1-435-673-9503",
+        "email": "wernexpestcontrol@gmail.com",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "6097 Dry Fork Canyon Rd",
+          "addressLocality": "Vernal",
+          "addressRegion": "UT",
+          "postalCode": "84078",
+          "addressCountry": "US"
+        },
+        "geo": {
+          "@type": "GeoCoordinates",
+          "latitude": 40.4555,
+          "longitude": -109.5287
+        },
+        "areaServed": [
+          { "@type": "City", "name": "St. George", "sameAs": "https://en.wikipedia.org/wiki/St._George,_Utah" },
+          { "@type": "City", "name": "Washington" },
+          { "@type": "City", "name": "Hurricane" },
+          { "@type": "City", "name": "Ivins" },
+          { "@type": "City", "name": "Santa Clara" },
+          { "@type": "City", "name": "LaVerkin" },
+          { "@type": "City", "name": "Toquerville" },
+          { "@type": "City", "name": "Leeds" },
+          { "@type": "City", "name": "Cedar City" },
+          { "@type": "City", "name": "Springdale" },
+          { "@type": "City", "name": "Enterprise" },
+          { "@type": "City", "name": "Hildale" }
+        ],
+        "openingHoursSpecification": [
+          {
+            "@type": "OpeningHoursSpecification",
+            "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday"],
+            "opens": "07:00",
+            "closes": "19:00"
+          },
+          {
+            "@type": "OpeningHoursSpecification",
+            "dayOfWeek": "Saturday",
+            "opens": "08:00",
+            "closes": "17:00"
+          }
+        ],
+        "aggregateRating": {
+          "@type": "AggregateRating",
+          "ratingValue": "4.9",
+          "bestRating": "5",
+          "ratingCount": "87"
+        },
+        "priceRange": "$$",
+        "image": "https://www.wernexpestcontrol.com/images/Logo.webp",
+        "logo": "https://www.wernexpestcontrol.com/images/Logo.webp",
+        "description": "Professional termite and pest control for residential and commercial properties in Southern Utah. Licensed, insured, 30+ years of experience, eco-friendly treatments, and a 100% satisfaction guarantee.",
+        "foundingDate": "1994",
+        "knowsAbout": ["Pest Control","Termite Treatment","Rodent Control","Integrated Pest Management","Commercial Pest Control"],
+        "hasOfferCatalog": {
+          "@type": "OfferCatalog",
+          "name": "Pest Control Services",
+          "itemListElement": [
+            {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "Service",
+                "name": "Residential Pest Control",
+                "url": "https://www.wernexpestcontrol.com/services.html#residential"
+              }
+            },
+            {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "Service",
+                "name": "Commercial Pest Control",
+                "url": "https://www.wernexpestcontrol.com/services.html#commercial"
+              }
+            },
+            {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "Service",
+                "name": "Termite Solutions",
+                "url": "https://www.wernexpestcontrol.com/services.html#termites"
+              }
+            },
+            {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "Service",
+                "name": "Rodent Control",
+                "url": "https://www.wernexpestcontrol.com/services.html#rodent"
+              }
+            }
+          ]
+        },
+        "sameAs": [
+          "https://www.facebook.com/wernexpestcontrol",
+          "https://www.instagram.com/wernexpestcontrol",
+          "https://www.youtube.com/@wernexpestcontrol"
+        ]
+      },
+      {
+        "@type": "WebSite",
+        "@id": "https://www.wernexpestcontrol.com/#website",
+        "url": "https://www.wernexpestcontrol.com/",
+        "name": "Wernex Termite & Pest Control",
+        "publisher": { "@id": "https://www.wernexpestcontrol.com/#business" }
+      },
+      {
+        "@type": "FAQPage",
+        "@id": "https://www.wernexpestcontrol.com/#faq",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "How quickly can Wernex respond to a pest emergency in St. George?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Wernex offers same-day inspections and emergency service for the St. George, Washington, Hurricane, and surrounding Southern Utah areas. Call (435) 673-9503 and a licensed technician can typically be at your property within hours."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Are Wernex pest control treatments safe for children and pets?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes. Wernex uses an Integrated Pest Management (IPM) approach that prioritizes eco-friendly, low-toxicity products. All treatments are EPA-compliant, and our technicians will advise you on any specific precautions based on the products used in your home."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What does a termite inspection include?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "A Wernex termite inspection covers the full interior and exterior of your property, including foundation walls, crawl spaces, attics, and wood-to-soil contact points. We check for live termites, mud tubes, frass, and structural damage. A detailed report with findings and treatment recommendations is provided after every inspection."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Does Wernex offer a satisfaction guarantee?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes. Wernex provides a 100% satisfaction guarantee. If pests return within 30 days of treatment, we will re-service your property at no additional cost."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What areas does Wernex Pest Control serve?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Wernex serves St. George, Washington, Hurricane, Ivins, Santa Clara, LaVerkin, Toquerville, Leeds, Springdale, Cedar City, Enterprise, Hildale, and surrounding Southern Utah communities."
+            }
+          }
+        ]
+      }
+    ]
+  }`;
+---
+<BaseLayout title={title} description={description} canonical={canonical} og={og} schema={schema} active={active}>
+<!-- ═══ HERO ═══ -->
+  <section class="hero">
+    <div class="hero__bg-gradient"></div>
+
+    <!-- decorative blobs -->
+    <div class="hero__blob hero__blob--1"></div>
+    <div class="hero__blob hero__blob--2"></div>
+
+    <div class="container hero__split">
+
+      <!-- LEFT — copy -->
+      <div class="hero__content reveal" style="--delay:0">
+        <div class="hero__pre-label">
+          <span class="hero__dot"></span>
+          Licensed &amp; Insured • Southern Utah
+        </div>
+        <h1>Pests Out.<br><span>Peace of Mind In.</span></h1>
+
+        <!-- ═══ SEO: AI SUMMARY BLOCK (Layer 1) ═══ -->
+        <p>Wernex Termite &amp; Pest Control delivers <a href="same-day-pest-control-st-george.html">same-day pest control in St. George</a>, <a href="affordable-pest-control-st-george.html">affordable treatment plans</a>, eco-friendly products, and a 100% satisfaction guarantee to homes and businesses across St. George, Washington, Hurricane, and all of <a href="pest-control-southern-utah.html">Southern Utah</a>. With 30+ years of experience and a 4.9-star Google rating, we combine IPM-based science with responsive, honest service — so you get results you can trust.</p>
+
+        <div class="hero__buttons">
+          <a href="contact.html" class="btn btn--primary">Get a Free Quote →</a>
+          <a href="tel:+14356739503" class="btn btn--white">📞 Call Now — 24/7</a>
+        </div>
+        <div class="hero__badges">
+          <div class="hero__badge">
+            <div class="hero__badge-icon">✓</div>
+            <span>Licensed &amp; Insured</span>
+          </div>
+          <div class="hero__badge">
+            <div class="hero__badge-icon">🌿</div>
+            <span>Eco-Friendly Options</span>
+          </div>
+          <div class="hero__badge">
+            <div class="hero__badge-icon">⏱️</div>
+            <span>Same-Day Service</span>
+          </div>
+          <div class="hero__badge">
+            <div class="hero__badge-icon">🔒</div>
+            <span>Satisfaction Guaranteed</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- RIGHT — 3D video frame -->
+      <div class="hero__video-wrap reveal" style="--delay:2">
+
+        <!-- decorative rings (behind card) -->
+        <div class="hero__ring hero__ring--outer"></div>
+        <div class="hero__ring hero__ring--inner"></div>
+
+        <div class="video-3d-float-wrap">
+          <div class="video-3d-card" id="video3d">
+
+            <!-- macOS-style chrome bar -->
+            <div class="video-3d-card__chrome">
+              <span class="chrome-dot chrome-dot--red"></span>
+              <span class="chrome-dot chrome-dot--yellow"></span>
+              <span class="chrome-dot chrome-dot--green"></span>
+              <span class="chrome-label">Wernex — See Us in Action</span>
+            </div>
+
+            <!-- glare sheen (decorative) -->
+            <div class="video-3d-card__glare"></div>
+
+            <!-- YouTube iframe — 16:9 responsive wrapper -->
+            <div class="video-3d-card__frame">
+              <iframe
+                src="https://www.youtube.com/embed/IIv8FRTy3b4?si=xzA8YjO6ivOqH3V8"
+                title="Wernex Pest Control professional treatment demonstration in Southern Utah"
+                frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                referrerpolicy="strict-origin-when-cross-origin"
+                allowfullscreen>
+              </iframe>
+            </div>
+
+            <!-- bottom label strip -->
+            <div class="video-3d-card__footer">
+              <span>🛡️ Professional Treatment Demo</span>
+              <span class="video-3d-card__live">▶ Watch Now</span>
+            </div>
+
+          </div><!-- /.video-3d-card -->
+        </div><!-- /.video-3d-float-wrap -->
+
+        <!-- floating stat chip -->
+        <div class="hero__chip hero__chip--tl">
+          <span class="chip-num">4.9★</span>
+          <span class="chip-lbl">Google Rating</span>
+        </div>
+
+      </div><!-- /.hero__video-wrap -->
+
+    </div><!-- /.hero__split -->
+  </section>
+
+  <!-- ═══ STATS BAR ═══ -->
+  <section class="section--dark">
+    <div class="container">
+      <div class="stats-bar">
+        <div class="stat reveal">
+          <div class="stat__number">30+</div>
+          <div class="stat__label">Years of Experience</div>
+        </div>
+        <div class="stat reveal">
+          <div class="stat__number">4.9★</div>
+          <div class="stat__label">Average Rating</div>
+        </div>
+        <div class="stat reveal">
+          <div class="stat__number">24/7</div>
+          <div class="stat__label">Emergency Service</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+ <!-- ═══ SERVICES OVERVIEW ═══ -->
+<!-- SEO: Body-content links to all core service pages (§5.1) -->
+<section class="section" id="services">
+  <div class="container">
+    <div class="text-center reveal">
+      <span class="section-label">What We Do</span>
+      <h2>Protection for Every Pest Problem</h2>
+      <p class="mx-auto" style="margin-top:12px; color:var(--gray);">
+        From routine prevention and <a href="ant-control-st-george.html">ant control</a> to emergency infestations — Wernex provides
+        <a href="services.html">full-spectrum pest control services</a>
+        for Southern Utah homes and businesses.
+      </p>
+    </div>
+
+    <!-- SERVICE CARDS GRID -->
+    <div class="svc-grid" style="margin-top: 52px;">
+
+      <!-- Residential -->
+      <a href="services.html#residential" class="svc-tile reveal">
+        <img src="images/44.webp" alt="Residential Pest Control – St. George home protection" class="svc-tile__bg" loading="lazy">
+        <div class="svc-tile__overlay"></div>
+        <div class="svc-tile__body">
+          <span class="svc-tile__tag">Homes</span>
+          <h3 class="svc-tile__title">Residential Pest Control</h3>
+          <p class="svc-tile__desc">Year-round protection plans tailored to your property and local pest pressure in St. George &amp; Washington County.</p>
+          <span class="svc-tile__cta">Learn More →</span>
+        </div>
+      </a>
+
+      <!-- Commercial -->
+      <a href="services.html#commercial" class="svc-tile reveal">
+        <img src="images/45.webp" alt="Commercial Pest Control – restaurants, offices, warehouses" class="svc-tile__bg" loading="lazy">
+        <div class="svc-tile__overlay"></div>
+        <div class="svc-tile__body">
+          <span class="svc-tile__tag">Business</span>
+          <h3 class="svc-tile__title">Commercial Pest Control</h3>
+          <p class="svc-tile__desc">Custom programs for restaurants, offices, and warehouses — keep your business pest-free year-round.</p>
+          <span class="svc-tile__cta">Learn More →</span>
+        </div>
+      </a>
+
+      <!-- Termites -->
+      <a href="services.html#termites" class="svc-tile reveal">
+        <img src="images/46.webp" alt="Termite Solutions – liquid barriers and WDI inspections" class="svc-tile__bg" loading="lazy">
+        <div class="svc-tile__overlay"></div>
+        <div class="svc-tile__body">
+          <span class="svc-tile__tag">Termites</span>
+          <h3 class="svc-tile__title">Termite Solutions</h3>
+          <p class="svc-tile__desc">Advanced liquid barriers and WDI inspections to stop termites before they cause costly structural damage.</p>
+          <span class="svc-tile__cta">Learn More →</span>
+        </div>
+      </a>
+
+      <!-- Rodent -->
+      <a href="services.html#rodent" class="svc-tile reveal">
+        <img src="images/47.webp" alt="Rodent Control – exclusion, trapping, monitoring" class="svc-tile__bg" loading="lazy">
+        <div class="svc-tile__overlay"></div>
+        <div class="svc-tile__body">
+          <span class="svc-tile__tag">Rodents</span>
+          <h3 class="svc-tile__title">Rodent Control</h3>
+          <p class="svc-tile__desc">Exclusion sealing, trapping, and monitoring to keep mice and rats out of your St. George home for good.</p>
+          <span class="svc-tile__cta">Learn More →</span>
+        </div>
+      </a>
+
+    </div>
+    <!-- /SERVICE CARDS GRID -->
+
+    <div class="text-center" style="margin-top: 48px;">
+      <a href="services.html" class="btn btn--outline">View All Services →</a>
+    </div>
+  </div>
+</section>
+
+  <!-- ═══ HOW IT WORKS ═══ -->
+<section class="section section--alt">
+  <div class="container">
+    <div class="text-center reveal">
+      <span class="section-label">How It Works</span>
+      <h2>Two Simple Steps</h2>
+    </div>
+    <div style="display:grid; grid-template-columns:1fr 1fr; gap:28px; margin-top:48px; max-width:900px; margin-left:auto; margin-right:auto;">
+      <div class="card reveal">
+        <img src="images/12.webp" alt="Wernex technician applying targeted pest treatment inside a Southern Utah home" style="width:100%; height:240px; object-fit:cover; border-radius: var(--radius-lg) var(--radius-lg) 0 0; display:block;" loading="lazy">
+        <div class="card__body">
+          <h3>1. Custom Treatment</h3>
+          <p>We design a plan specific to your home using the safest, most effective methods — including <a href="services.html">eco-friendly IPM options</a>.</p>
+        </div>
+      </div>
+      <div class="card reveal">
+        <img src="images/13.webp" alt="Family enjoying a pest-free home after Wernex treatment in St. George Utah" style="width:100%; height:240px; object-fit:cover; border-radius: var(--radius-lg) var(--radius-lg) 0 0; display:block;" loading="lazy">
+        <div class="card__body">
+          <h3>2. Ongoing Protection</h3>
+          <p>Regular follow-ups and monitoring ensure pests stay gone — backed by our <strong>30-day satisfaction guarantee</strong>.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+  <!-- ═══ VIDEO SECTION ═══ -->
+  <section class="section">
+    <div class="container">
+      <div class="two-col">
+        <div class="reveal">
+          <span class="section-label">See Us in Action</span>
+          <h2>Watch How We Protect Your Home</h2>
+          <p style="margin: 16px 0 24px; color: var(--gray);">Our state-licensed technicians use EPA-compliant equipment and eco-friendly products to deliver lasting results across Southern Utah. <a href="about.html">Meet the Wernex team</a>.</p>
+          <div class="guarantee-badge">
+            <div class="guarantee-badge__icon">🛡️</div>
+            <div class="guarantee-badge__text">
+              <strong>100% Satisfaction Guarantee</strong>
+              <span>Free re-service if pests return within 30 days</span>
+            </div>
+          </div>
+        </div>
+        <div class="video-section reveal">
+          <div style="position:relative; width:100%; padding-bottom:56.25%; overflow:hidden; border-radius:var(--radius-lg);">
+            <iframe
+              src="https://www.youtube.com/embed/zGKiWheRQFU?si=lmNXmPjr73z0A8fa"
+              title="Wernex Pest Control home protection process — Southern Utah"
+              frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              referrerpolicy="strict-origin-when-cross-origin"
+              allowfullscreen
+              loading="lazy"
+              style="position:absolute; inset:0; width:100%; height:100%; border:none;">
+            </iframe>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ TESTIMONIALS ═══ -->
+  <section class="section section--dark">
+    <div class="container">
+      <div class="text-center reveal">
+        <span class="section-label">What Our Customers Say</span>
+        <h2>Trusted by Thousands of Southern Utah Homeowners</h2>
+      </div>
+      <div class="testimonial-grid" style="margin-top: 40px;">
+        <div class="testimonial reveal">
+          <div class="testimonial__stars">★★★★★</div>
+          <p class="testimonial__text">"They came out the same day I called and completely solved our ant problem. Haven't seen a single one since!"</p>
+          <div class="testimonial__author">
+            <div class="testimonial__avatar">JM</div>
+            <div>
+              <div class="testimonial__name">Jessica M.</div>
+              <div class="testimonial__loc">Homeowner, St. George</div>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial reveal">
+          <div class="testimonial__stars">★★★★★</div>
+          <p class="testimonial__text">"Professional, on time, and they explained everything. Best pest control service we've ever used."</p>
+          <div class="testimonial__author">
+            <div class="testimonial__avatar">RK</div>
+            <div>
+              <div class="testimonial__name">Robert K.</div>
+              <div class="testimonial__loc">Restaurant Owner, Washington</div>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial reveal">
+          <div class="testimonial__stars">★★★★★</div>
+          <p class="testimonial__text">"I love that they use eco-friendly products. Safe for my kids and pets, but the bugs are gone."</p>
+          <div class="testimonial__author">
+            <div class="testimonial__avatar">ST</div>
+            <div>
+              <div class="testimonial__name">Sarah T.</div>
+              <div class="testimonial__loc">Homeowner, Hurricane</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="text-center" style="margin-top: 36px;">
+        <a href="testimonials.html" class="btn btn--lime">Read All Reviews →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ PEST IDENTIFIER ═══ -->
+  <section class="section section--alt">
+    <div class="container text-center">
+      <div class="reveal">
+        <span class="section-label">Identify Your Pest</span>
+        <h2>What's Bugging You?</h2>
+        <p class="mx-auto" style="margin: 12px auto 32px; color: var(--gray);">Use our <a href="bug-identifier.html">AI-powered bug identifier</a> to snap a photo of any pest, or search our <a href="pest-library.html">full pest library</a> for treatment information specific to Southern Utah.</p>
+      </div>
+      <div class="pest-search reveal">
+        <span class="pest-search__icon">🔍</span>
+        <input type="text" placeholder="Search for a pest (e.g. ants, termites, spiders...)">
+        <div class="pest-search__results"></div>
+      </div>
+      <div style="margin-top: 32px;">
+        <a href="pest-library.html" class="btn btn--outline">Browse Full Pest Library →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ FAQ SECTION (SEO: Layer 2 — Structured Q&A) ═══ -->
+  <section class="section">
+    <div class="container">
+      <div class="text-center reveal">
+        <span class="section-label">Common Questions</span>
+        <h2>Pest Control FAQs</h2>
+      </div>
+      <div style="max-width: 800px; margin: 36px auto 0;">
+
+        <div class="faq-item reveal" style="border-bottom: 1px solid var(--gray-light); padding: 24px 0;">
+          <h3 style="margin-bottom: 8px;">How quickly can Wernex respond to a pest emergency in St. George?</h3>
+          <p style="color: var(--gray);">Wernex offers same-day inspections and emergency service for the St. George, Washington, Hurricane, and surrounding Southern Utah areas. Call <a href="tel:+14356739503">(435) 673-9503</a> and a licensed technician can typically be at your property within hours.</p>
+        </div>
+
+        <div class="faq-item reveal" style="border-bottom: 1px solid var(--gray-light); padding: 24px 0;">
+          <h3 style="margin-bottom: 8px;">Are your pest control treatments safe for children and pets?</h3>
+          <p style="color: var(--gray);">Yes. Wernex uses an Integrated Pest Management (IPM) approach that prioritizes eco-friendly, low-toxicity products. All treatments are EPA-compliant, and our technicians will advise you on any specific precautions based on the products used in your home. Read more about <a href="about.html">our eco-friendly approach</a>.</p>
+        </div>
+
+        <div class="faq-item reveal" style="border-bottom: 1px solid var(--gray-light); padding: 24px 0;">
+          <h3 style="margin-bottom: 8px;">What does a termite inspection include?</h3>
+          <p style="color: var(--gray);">A Wernex <a href="services.html#termites">termite inspection</a> covers the full interior and exterior of your property, including foundation walls, crawl spaces, attics, and wood-to-soil contact points. We check for live termites, mud tubes, frass, and structural damage. A detailed report with findings and treatment recommendations is provided after every inspection.</p>
+        </div>
+
+        <div class="faq-item reveal" style="border-bottom: 1px solid var(--gray-light); padding: 24px 0;">
+          <h3 style="margin-bottom: 8px;">Does Wernex offer a satisfaction guarantee?</h3>
+          <p style="color: var(--gray);">Yes. Wernex provides a 100% satisfaction guarantee. If pests return within 30 days of treatment, we will re-service your property at no additional cost. <a href="contact.html">Schedule your free inspection</a> to get started.</p>
+        </div>
+
+        <div class="faq-item reveal" style="padding: 24px 0;">
+          <h3 style="margin-bottom: 8px;">What areas does Wernex Pest Control serve?</h3>
+          <p style="color: var(--gray);">Wernex serves St. George, Washington, Hurricane, Ivins, Santa Clara, LaVerkin, Toquerville, Leeds, Springdale, Cedar City, Enterprise, Hildale, and surrounding Southern Utah communities. <a href="contact.html">Contact us</a> to confirm coverage in your area.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ CTA BANNER ═══ -->
+  <section class="section section--alt">
+    <div class="container">
+      <div class="cta-banner reveal">
+        <div>
+          <h2>Ready to Reclaim<br>Your Space?</h2>
+          <p>Same-day service available. No obligation. 4.9★ rated on Google.</p>
+        </div>
+        <div class="cta-banner__buttons">
+          <a href="contact.html" class="btn btn--primary">Get Your Free Quote →</a>
+          <a href="tel:+14356739503" class="btn btn--white">📞 (435) 673-9503</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ AREAS SERVED (SEO: Real community names, not placeholders) ═══ -->
+  <section class="section">
+    <div class="container">
+      <div class="text-center reveal">
+        <span class="section-label">Service Area</span>
+        <h2>Proudly Serving Southern Utah and North Eastern Utah</h2>
+      </div>
+      <div class="areas-grid" style="margin-top: 36px;">
+        <a href="contact.html" class="reveal">St. George</a>
+        <a href="contact.html" class="reveal">Washington</a>
+        <a href="contact.html" class="reveal">Hurricane</a>
+        <a href="contact.html" class="reveal">Ivins</a>
+        <a href="contact.html" class="reveal">Santa Clara</a>
+        <a href="contact.html" class="reveal">LaVerkin</a>
+        <a href="contact.html" class="reveal">Toquerville</a>
+        <a href="contact.html" class="reveal">Leeds</a>
+        <a href="contact.html" class="reveal">Springdale</a>
+        <a href="contact.html" class="reveal">Cedar City</a>
+        <a href="contact.html" class="reveal">Enterprise</a>
+        <a href="contact.html" class="reveal">Hildale</a>
+        <a href="contact.html" class="reveal">Duchesne County</a>
+        <a href="contact.html" class="reveal">Uintah County</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ BLOG TEASERS (SEO: Internal links to supporting content §5.1) ═══ -->
+  <section class="section section--alt">
+    <div class="container">
+      <div class="text-center reveal">
+        <span class="section-label">From Our Blog</span>
+        <h2>Pest Control Tips &amp; Guides</h2>
+      </div>
+      <div class="cards-grid" style="margin-top: 36px; max-width: 960px; margin-left:auto; margin-right:auto;">
+        <div class="card reveal">
+          <div class="card__body">
+            <h3><a href="blog.html" style="color:inherit;">Spring Pest Season Is Here: What You Need to Know</a></h3>
+            <p style="color:var(--gray);">As temperatures rise, so does pest activity. Learn which pests emerge first and simple prevention steps.</p>
+            <a href="blog.html" class="card__link">Read More →</a>
+          </div>
+        </div>
+        <div class="card reveal">
+          <div class="card__body">
+            <h3><a href="blog.html" style="color:inherit;">IPM Explained: What Is Integrated Pest Management?</a></h3>
+            <p style="color:var(--gray);">How science-based pest management reduces chemical use while delivering better results for your family.</p>
+            <a href="blog.html" class="card__link">Read More →</a>
+          </div>
+        </div>
+      </div>
+      <div class="text-center" style="margin-top: 28px;">
+        <a href="blog.html" class="btn btn--outline">Read All Articles →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ RELATED PEST CONTROL SERVICES (Internal linking hub §4.2) ═══ -->
+  <section class="section" style="padding-top:40px; padding-bottom:40px; background:var(--gray-light, #f5f5f5);">
+    <div class="container" style="max-width: 880px;">
+      <div class="text-center reveal" style="margin-bottom: 20px;">
+        <span class="section-label">Explore More</span>
+        <h3 style="margin-top: 8px; margin-bottom: 0;">Related Pest Control Services</h3>
+      </div>
+      <ul style="list-style:none; padding:0; margin:0; display:flex; flex-wrap:wrap; justify-content:center; gap:12px 28px;">
+        <li><a href="pest-control-southern-utah.html">Pest Control in Southern Utah</a></li>
+        <li><a href="ant-control-st-george.html">Ant Control St. George</a></li>
+        <li><a href="same-day-pest-control-st-george.html">Same-Day Pest Control</a></li>
+        <li><a href="affordable-pest-control-st-george.html">Affordable Pest Control</a></li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ═══ FOOTER ═══ -->
+</BaseLayout>

@@ -1,0 +1,229 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const title = 'Pest Control Blog — Tips, Guides &amp; Seasonal Alerts for Southern Utah | Wernex';
+const description = 'Expert pest prevention tips, termite guides, and seasonal alerts from Wernex — 30+ years protecting Southern Utah homes. Browse articles and stay pest-free year-round.';
+const canonical = 'https://www.wernexpestcontrol.com/blog.html';
+const active = 'blog.html';
+const og = { "og:title": 'Pest Control Blog — Tips & Guides | Wernex Pest Control', "og:description": 'Expert pest prevention tips, termite guides, and seasonal alerts from 30+ years of protecting Southern Utah homes.', "og:type": 'website', "og:url": 'https://www.wernexpestcontrol.com/blog.html', "og:locale": 'en_US', "og:site_name": 'Wernex Termite & Pest Control' };
+const schema = `{
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "CollectionPage",
+        "@id": "https://www.wernexpestcontrol.com/blog.html#blogpage",
+        "url": "https://www.wernexpestcontrol.com/blog.html",
+        "name": "Pest Control Blog — Wernex Termite & Pest Control",
+        "description": "Expert pest prevention tips, termite inspection guides, IPM explainers, and seasonal alerts from the Wernex team in Southern Utah.",
+        "isPartOf": { "@id": "https://www.wernexpestcontrol.com/#website" },
+        "about": { "@id": "https://www.wernexpestcontrol.com/#business" }
+      },
+      {
+        "@type": "Article",
+        "headline": "Spring Pest Season Is Here: What You Need to Know",
+        "datePublished": "2026-03-15",
+        "dateModified": "2026-03-15",
+        "author": {
+          "@type": "Organization",
+          "name": "Wernex Termite & Pest Control",
+          "@id": "https://www.wernexpestcontrol.com/#business"
+        },
+        "publisher": {
+          "@type": "Organization",
+          "name": "Wernex Termite & Pest Control",
+          "logo": { "@type": "ImageObject", "url": "https://www.wernexpestcontrol.com/images/Logo.webp" }
+        },
+        "description": "As temperatures rise in Southern Utah, pest activity increases. Learn which pests emerge first in spring, warning signs to watch for, and prevention steps.",
+        "image": "https://www.wernexpestcontrol.com/images/35.webp",
+        "mainEntityOfPage": "https://www.wernexpestcontrol.com/blog.html"
+      },
+      {
+        "@type": "Article",
+        "headline": "What to Expect During a Termite Inspection",
+        "datePublished": "2026-02-28",
+        "dateModified": "2026-02-28",
+        "author": { "@type": "Organization", "name": "Wernex Termite & Pest Control", "@id": "https://www.wernexpestcontrol.com/#business" },
+        "publisher": { "@type": "Organization", "name": "Wernex Termite & Pest Control", "logo": { "@type": "ImageObject", "url": "https://www.wernexpestcontrol.com/images/Logo.webp" } },
+        "description": "A step-by-step walkthrough of what Wernex technicians look for during a termite inspection and how we assess structural damage.",
+        "image": "https://www.wernexpestcontrol.com/images/Termite_Structural_Damage.webp"
+      },
+      {
+        "@type": "Article",
+        "headline": "Are Pest Control Chemicals Safe for Pets?",
+        "datePublished": "2026-02-10",
+        "dateModified": "2026-02-10",
+        "author": { "@type": "Organization", "name": "Wernex Termite & Pest Control", "@id": "https://www.wernexpestcontrol.com/#business" },
+        "publisher": { "@type": "Organization", "name": "Wernex Termite & Pest Control", "logo": { "@type": "ImageObject", "url": "https://www.wernexpestcontrol.com/images/Logo.webp" } },
+        "description": "Everything you need to know about keeping your furry friends safe during and after professional pest control treatment."
+      },
+      {
+        "@type": "Article",
+        "headline": "5 Things Attracting Ants to Your Kitchen",
+        "datePublished": "2026-01-22",
+        "dateModified": "2026-01-22",
+        "author": { "@type": "Organization", "name": "Wernex Termite & Pest Control", "@id": "https://www.wernexpestcontrol.com/#business" },
+        "publisher": { "@type": "Organization", "name": "Wernex Termite & Pest Control", "logo": { "@type": "ImageObject", "url": "https://www.wernexpestcontrol.com/images/Logo.webp" } },
+        "description": "Simple fixes that make a huge difference in keeping ants away from your food in Southern Utah homes."
+      },
+      {
+        "@type": "Article",
+        "headline": "IPM Explained: What Is Integrated Pest Management?",
+        "datePublished": "2026-01-08",
+        "dateModified": "2026-01-08",
+        "author": { "@type": "Organization", "name": "Wernex Termite & Pest Control", "@id": "https://www.wernexpestcontrol.com/#business" },
+        "publisher": { "@type": "Organization", "name": "Wernex Termite & Pest Control", "logo": { "@type": "ImageObject", "url": "https://www.wernexpestcontrol.com/images/Logo.webp" } },
+        "description": "How science-based Integrated Pest Management reduces chemical use while delivering better, longer-lasting results."
+      },
+      {
+        "@type": "Article",
+        "headline": "How to Check Your Hotel Room for Bed Bugs",
+        "datePublished": "2025-12-15",
+        "dateModified": "2025-12-15",
+        "author": { "@type": "Organization", "name": "Wernex Termite & Pest Control", "@id": "https://www.wernexpestcontrol.com/#business" },
+        "publisher": { "@type": "Organization", "name": "Wernex Termite & Pest Control", "logo": { "@type": "ImageObject", "url": "https://www.wernexpestcontrol.com/images/Logo.webp" } },
+        "description": "A quick 5-minute hotel room inspection routine to check for bed bugs before unpacking."
+      },
+      {
+        "@type": "Article",
+        "headline": "How Poor Lawn Care Invites Pests Into Your Home",
+        "datePublished": "2025-11-30",
+        "dateModified": "2025-11-30",
+        "author": { "@type": "Organization", "name": "Wernex Termite & Pest Control", "@id": "https://www.wernexpestcontrol.com/#business" },
+        "publisher": { "@type": "Organization", "name": "Wernex Termite & Pest Control", "logo": { "@type": "ImageObject", "url": "https://www.wernexpestcontrol.com/images/Logo.webp" } },
+        "description": "The connection between yard maintenance and indoor pest problems — and what Southern Utah homeowners can do about it."
+      }
+    ]
+  }`;
+---
+<BaseLayout title={title} description={description} canonical={canonical} og={og} schema={schema} active={active}>
+<!-- FEATURED POST -->
+  <section class="section">
+    <div class="container">
+      <div class="two-col reveal">
+        <div>
+          <img src="images/35.webp" alt="Spring pest season in Southern Utah — ants, termites, and scorpions emerging as temperatures rise" style="width: 100%; border-radius: 12px; object-fit: cover;" loading="lazy">
+        </div>
+        <div>
+          <span class="blog-card__tag">Featured</span>
+          <h2>Spring Pest Season Is Here: What You Need to Know</h2>
+          <div class="blog-card__meta" style="margin: 12px 0;">
+            <span>📅 March 15, 2026</span>
+            <span>⏱ 5 min read</span>
+          </div>
+          <p style="color: var(--gray);">As temperatures rise across St. George and Southern Utah, so does pest activity. Learn which pests emerge first in spring, the warning signs to watch for, and simple prevention steps that save you money and headaches. If you're already seeing activity, <a href="contact.html">schedule a same-day inspection</a>.</p>
+          <a href="#" class="btn btn--outline btn--sm" style="margin-top: 20px;">Read Article →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- BLOG GRID -->
+  <section class="section section--alt">
+    <div class="container">
+      <div class="blog-grid">
+
+        <article class="blog-card reveal">
+          <img src="images/Termite_Structural_Damage.webp" alt="Termite structural damage discovered during a Wernex inspection in Southern Utah" loading="lazy">
+          <div class="blog-card__body">
+            <span class="blog-card__tag">Termites</span>
+            <div class="blog-card__meta">
+              <span>📅 Feb 28, 2026</span>
+              <span>⏱ 4 min</span>
+            </div>
+            <h3>What to Expect During a Termite Inspection</h3>
+            <p>A step-by-step walkthrough of what our technicians look for and how we assess damage. Related: <a href="services.html#termites">our termite treatment options</a>.</p>
+            <a href="#" class="card__link">Read More →</a>
+          </div>
+        </article>
+
+        <article class="blog-card reveal">
+          <img src="images/38.webp" alt="Pet-safe pest control products used by Wernex technicians" loading="lazy">
+          <div class="blog-card__body">
+            <span class="blog-card__tag">Safety</span>
+            <div class="blog-card__meta">
+              <span>📅 Feb 10, 2026</span>
+              <span>⏱ 3 min</span>
+            </div>
+            <h3>Are Pest Control Chemicals Safe for Pets?</h3>
+            <p>Everything you need to know about keeping your furry friends safe during and after treatment. Learn about <a href="about.html">our eco-friendly IPM approach</a>.</p>
+            <a href="#" class="card__link">Read More →</a>
+          </div>
+        </article>
+
+        <article class="blog-card reveal">
+          <img src="images/41.webp" alt="Ants attracted to kitchen food — common Southern Utah ant species" loading="lazy">
+          <div class="blog-card__body">
+            <span class="blog-card__tag">DIY Tips</span>
+            <div class="blog-card__meta">
+              <span>📅 Jan 22, 2026</span>
+              <span>⏱ 4 min</span>
+            </div>
+            <h3>5 Things Attracting Ants to Your Kitchen</h3>
+            <p>Simple fixes that make a huge difference in keeping ants away from your food. When DIY isn't enough, <a href="services.html#residential">our residential plans</a> provide year-round protection.</p>
+            <a href="#" class="card__link">Read More →</a>
+          </div>
+        </article>
+
+        <article class="blog-card reveal">
+          <img src="images/39.webp" alt="Integrated Pest Management diagram showing eco-friendly treatment cycle" loading="lazy">
+          <div class="blog-card__body">
+            <span class="blog-card__tag">Green</span>
+            <div class="blog-card__meta">
+              <span>📅 Jan 8, 2026</span>
+              <span>⏱ 5 min</span>
+            </div>
+            <h3>IPM Explained: What Is Integrated Pest Management?</h3>
+            <p>How science-based pest management reduces chemical use while delivering better results. See how Wernex applies <a href="services.html">IPM across all our services</a>.</p>
+            <a href="#" class="card__link">Read More →</a>
+          </div>
+        </article>
+
+        <article class="blog-card reveal">
+          <img src="images/42.webp" alt="How to check a hotel room for bed bugs — quick inspection checklist" loading="lazy">
+          <div class="blog-card__body">
+            <span class="blog-card__tag">Bed Bugs</span>
+            <div class="blog-card__meta">
+              <span>📅 Dec 15, 2025</span>
+              <span>⏱ 6 min</span>
+            </div>
+            <h3>How to Check Your Hotel Room for Bed Bugs</h3>
+            <p>Travel smart with this quick inspection routine that takes less than 5 minutes. Found bed bugs at home? <a href="contact.html">Contact us for treatment</a>.</p>
+            <a href="#" class="card__link">Read More →</a>
+          </div>
+        </article>
+
+        <article class="blog-card reveal">
+          <img src="images/43.webp" alt="Lawn care and pest prevention — overgrown yard attracting pests in Utah" loading="lazy">
+          <div class="blog-card__body">
+            <span class="blog-card__tag">Prevention</span>
+            <div class="blog-card__meta">
+              <span>📅 Nov 30, 2025</span>
+              <span>⏱ 4 min</span>
+            </div>
+            <h3>How Poor Lawn Care Invites Pests Into Your Home</h3>
+            <p>The connection between yard maintenance and indoor pest problems — and what Southern Utah homeowners can do about it. Browse our <a href="pest-library.html">pest library</a> for species-specific tips.</p>
+            <a href="#" class="card__link">Read More →</a>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- NEWSLETTER -->
+  <section class="section">
+    <div class="container text-center">
+      <div class="reveal" style="max-width: 540px; margin: 0 auto;">
+        <span class="section-label">Stay Informed</span>
+        <h2>Get Pest Tips in Your Inbox</h2>
+        <p style="color: var(--gray); margin: 12px 0 28px;">Monthly tips, seasonal alerts for Southern Utah, and exclusive offers. No spam, ever.</p>
+        <div style="display: flex; gap: 12px; flex-wrap: wrap;">
+          <input type="email" placeholder="Your email address" aria-label="Email address for newsletter signup" style="flex:1; min-width: 200px; padding: 14px 20px; border: 2px solid var(--gray-light); border-radius: 50px; font-family: var(--font-body); font-size: 1rem;">
+          <button type="button" class="btn btn--primary">Subscribe →</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ FOOTER ═══ -->
+</BaseLayout>

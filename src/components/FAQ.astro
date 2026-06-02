@@ -1,0 +1,44 @@
+---
+// src/components/FAQ.astro
+// Renders FAQ items AND the matching FAQPage JSON-LD from the SAME source data,
+// so the visible Q&A and the structured data can never disagree.
+import { WERNEX } from '../data/business';
+
+export interface FaqItem { q: string; a: string; }
+interface Props {
+  items: FaqItem[];
+  label?: string;
+  heading?: string;
+  /** Set false on pages that already define FAQPage schema elsewhere to avoid duplicates. */
+  emitSchema?: boolean;
+}
+const { items, label = 'Common Questions', heading = 'Pest Control FAQs', emitSchema = true } = Astro.props;
+
+const faqSchema = JSON.stringify({
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  '@id': `${WERNEX.website}/#faq`,
+  mainEntity: items.map((it) => ({
+    '@type': 'Question',
+    name: it.q,
+    acceptedAnswer: { '@type': 'Answer', text: it.a },
+  })),
+});
+---
+<section class="section">
+  <div class="container">
+    <div class="text-center reveal">
+      <span class="section-label">{label}</span>
+      <h2>{heading}</h2>
+    </div>
+    <div style="max-width: 800px; margin: 36px auto 0;">
+      {items.map((it, i) => (
+        <div class="faq-item reveal" style={`${i < items.length - 1 ? 'border-bottom: 1px solid var(--gray-light);' : ''} padding: 24px 0;`}>
+          <h3 style="margin-bottom: 8px;" set:html={it.q}></h3>
+          <p style="color: var(--gray);" set:html={it.a}></p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+{emitSchema && <script type="application/ld+json" set:html={faqSchema} is:inline></script>}

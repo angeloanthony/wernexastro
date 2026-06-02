@@ -1,0 +1,30 @@
+---
+// src/components/ServiceArea.astro
+// Reusable service-area coverage grid. Defaults to the canonical SERVICE_AREAS list.
+import { SERVICE_AREAS } from '../data/business';
+interface Props {
+  areas?: readonly string[];
+  label?: string;
+  heading?: string;
+  linkHref?: string;
+}
+const {
+  areas = SERVICE_AREAS,
+  label = 'Service Area',
+  heading = 'Proudly Serving Southern Utah and North Eastern Utah',
+  linkHref = 'contact.html',
+} = Astro.props;
+---
+<section class="section">
+  <div class="container">
+    <div class="text-center reveal">
+      <span class="section-label">{label}</span>
+      <h2>{heading}</h2>
+    </div>
+    <div class="areas-grid" style="margin-top: 36px;">
+      {areas.map((a) => (
+        <a href={linkHref} class="reveal">{a}</a>
+      ))}
+    </div>
+  </div>
+</section>

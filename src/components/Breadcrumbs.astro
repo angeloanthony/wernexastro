@@ -1,0 +1,36 @@
+---
+// src/components/Breadcrumbs.astro
+// Renders the visual breadcrumb trail AND the BreadcrumbList JSON-LD together.
+import { WERNEX } from '../data/business';
+
+export interface Crumb { name: string; href: string; }
+interface Props { items: Crumb[]; }
+const { items } = Astro.props;
+
+const abs = (href: string) =>
+  href.startsWith('http') ? href : `${WERNEX.website}/${href.replace(/^\//, '')}`;
+
+const schema = JSON.stringify({
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: items.map((c, i) => ({
+    '@type': 'ListItem',
+    position: i + 1,
+    name: c.name,
+    item: abs(c.href),
+  })),
+});
+---
+<nav class="breadcrumbs" aria-label="Breadcrumb">
+  <div class="container">
+    <ol style="list-style:none; display:flex; flex-wrap:wrap; gap:8px; padding:0; margin:0; font-size:0.9rem;">
+      {items.map((c, i) => (
+        <li style="display:flex; gap:8px; align-items:center;">
+          {i < items.length - 1 ? <a href={c.href}>{c.name}</a> : <span aria-current="page">{c.name}</span>}
+          {i < items.length - 1 && <span aria-hidden="true">/</span>}
+        </li>
+      ))}
+    </ol>
+  </div>
+</nav>
+<script type="application/ld+json" set:html={schema} is:inline></script>

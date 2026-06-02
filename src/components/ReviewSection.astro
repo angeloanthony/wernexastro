@@ -1,0 +1,46 @@
+---
+// src/components/ReviewSection.astro
+// Reusable testimonials / reviews grid (matches the .testimonial markup).
+export interface Review {
+  text: string;
+  initials: string;
+  name: string;
+  loc: string;
+  stars?: number;
+}
+interface Props {
+  reviews: Review[];
+  label?: string;
+  heading?: string;
+  dark?: boolean;
+}
+const {
+  reviews,
+  label = 'What Our Customers Say',
+  heading = 'Trusted by Thousands of Southern Utah Homeowners',
+  dark = true,
+} = Astro.props;
+---
+<section class={`section ${dark ? 'section--dark' : ''}`}>
+  <div class="container">
+    <div class="text-center reveal">
+      <span class="section-label">{label}</span>
+      <h2>{heading}</h2>
+    </div>
+    <div class="testimonial-grid" style="margin-top: 40px;">
+      {reviews.map((r) => (
+        <div class="testimonial reveal">
+          <div class="testimonial__stars">{'★'.repeat(r.stars ?? 5)}</div>
+          <p class="testimonial__text">{r.text}</p>
+          <div class="testimonial__author">
+            <div class="testimonial__avatar">{r.initials}</div>
+            <div>
+              <div class="testimonial__name">{r.name}</div>
+              <div class="testimonial__loc">{r.loc}</div>
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

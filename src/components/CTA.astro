@@ -1,0 +1,28 @@
+---
+// src/components/CTA.astro
+// Reusable call-to-action banner (phone + free quote + service-area messaging).
+// Mirrors the .cta-banner markup used across the original site.
+import { WERNEX } from '../data/business';
+interface Props {
+  heading?: string;
+  subtext?: string;
+}
+const {
+  heading = 'Ready to Reclaim<br>Your Space?',
+  subtext = 'Same-day service available. No obligation. 4.9★ rated on Google.',
+} = Astro.props;
+---
+<section class="section section--alt">
+  <div class="container">
+    <div class="cta-banner reveal">
+      <div>
+        <h2 set:html={heading}></h2>
+        <p>{subtext}</p>
+      </div>
+      <div class="cta-banner__buttons">
+        <a href="contact.html" class="btn btn--primary">Get Your Free Quote →</a>
+        <a href={`tel:${WERNEX.phoneTel}`} class="btn btn--white">📞 {WERNEX.phone}</a>
+      </div>
+    </div>
+  </div>
+</section>

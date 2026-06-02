@@ -1,0 +1,326 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const title = 'Pest Library — Identify Ants, Termites, Spiders &amp; More in Southern Utah | Wernex';
+const description = 'Identify 15+ common Southern Utah pests with photos, facts, and prevention tips. Ants, termites, scorpions, rodents, bed bugs & more. Free AI bug ID tool. Call (435) 673-9503.';
+const canonical = 'https://www.wernexpestcontrol.com/pest-library.html';
+const active = 'pest-library.html';
+const og = { "og:title": 'Pest Library — Identify Common Pests in Southern Utah | Wernex', "og:description": 'Photos, facts, and prevention tips for 15+ common Southern Utah pests. Free AI bug identifier included.', "og:type": 'website', "og:url": 'https://www.wernexpestcontrol.com/pest-library.html', "og:locale": 'en_US', "og:site_name": 'Wernex Termite & Pest Control' };
+const schema = `{
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "CollectionPage",
+        "url": "https://www.wernexpestcontrol.com/pest-library.html",
+        "name": "Pest Library — Wernex Termite & Pest Control",
+        "description": "Comprehensive pest identification library for 15+ pests common in Southern Utah, with photos, behavior facts, and prevention tips.",
+        "isPartOf": { "@id": "https://www.wernexpestcontrol.com/#website" },
+        "about": { "@id": "https://www.wernexpestcontrol.com/#business" }
+      },
+      {
+        "@type": "ItemList",
+        "name": "Southern Utah Pest Identification Guide",
+        "numberOfItems": 15,
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1,  "name": "Ants",                "url": "https://www.wernexpestcontrol.com/pest-library.html#ants" },
+          { "@type": "ListItem", "position": 2,  "name": "Termites",            "url": "https://www.wernexpestcontrol.com/pest-library.html#termites" },
+          { "@type": "ListItem", "position": 3,  "name": "Mice & Rats",         "url": "https://www.wernexpestcontrol.com/pest-library.html#rodents" },
+          { "@type": "ListItem", "position": 4,  "name": "Bed Bugs",            "url": "https://www.wernexpestcontrol.com/pest-library.html#bedbugs" },
+          { "@type": "ListItem", "position": 5,  "name": "Silverfish",          "url": "https://www.wernexpestcontrol.com/pest-library.html#silverfish" },
+          { "@type": "ListItem", "position": 6,  "name": "Beetles",             "url": "https://www.wernexpestcontrol.com/pest-library.html#beetles" },
+          { "@type": "ListItem", "position": 7,  "name": "Scorpions",           "url": "https://www.wernexpestcontrol.com/pest-library.html#scorpions" },
+          { "@type": "ListItem", "position": 8,  "name": "Mosquitoes",          "url": "https://www.wernexpestcontrol.com/pest-library.html#mosquitoes" },
+          { "@type": "ListItem", "position": 9,  "name": "Wasps & Yellow Jackets", "url": "https://www.wernexpestcontrol.com/pest-library.html#wasps" },
+          { "@type": "ListItem", "position": 10, "name": "Cockroaches",         "url": "https://www.wernexpestcontrol.com/pest-library.html#cockroaches" },
+          { "@type": "ListItem", "position": 11, "name": "Spiders",             "url": "https://www.wernexpestcontrol.com/pest-library.html#spiders" },
+          { "@type": "ListItem", "position": 12, "name": "Fleas & Ticks",       "url": "https://www.wernexpestcontrol.com/pest-library.html#fleas" },
+          { "@type": "ListItem", "position": 13, "name": "Flies",               "url": "https://www.wernexpestcontrol.com/pest-library.html#flies" },
+          { "@type": "ListItem", "position": 14, "name": "Earwigs",             "url": "https://www.wernexpestcontrol.com/pest-library.html#earwigs" },
+          { "@type": "ListItem", "position": 15, "name": "Centipedes",          "url": "https://www.wernexpestcontrol.com/pest-library.html#centipedes" }
+        ]
+      }
+    ]
+  }`;
+---
+<BaseLayout title={title} description={description} canonical={canonical} og={og} schema={schema} active={active}>
+<!-- ═══ INTRO + SEARCH ═══ -->
+  <section class="section" style="padding-bottom: 0;">
+    <div class="container text-center">
+      <div class="reveal" style="max-width: 760px; margin: 0 auto 32px;">
+        <p style="color: var(--gray); line-height: 1.7;">Browse the pests most commonly found in homes and businesses across <a href="pest-control-southern-utah.html">Southern Utah</a>. Tap any pest to learn about behavior, damage signs, and treatment — or call <a href="tel:+14356739503">(435) 673-9503</a> for same-day help.</p>
+      </div>
+      <div class="pest-search reveal" style="margin-bottom: 48px;">
+        <span class="pest-search__icon">🔍</span>
+        <input type="text" placeholder="Search for a pest (e.g. ants, termites, spiders...)">
+        <div class="pest-search__results"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ PEST GRID ═══ -->
+  <section class="section" style="padding-top: 0;">
+    <div class="container">
+      <div class="pest-grid">
+
+        <div class="pest-item reveal" id="ants">
+          <img src="images/Ant_CloseUp.webp" alt="Close-up of an ant" loading="lazy">
+          <div class="pest-item__name">Ants</div>
+        </div>
+
+        <div class="pest-item reveal" id="termites">
+          <img src="images/Termite_home_invasion.webp" alt="Termite close-up showing damage" loading="lazy">
+          <div class="pest-item__name">Termites</div>
+        </div>
+
+        <div class="pest-item reveal" id="rodents">
+          <img src="images/Mouse_Home_Invasion.webp" alt="Mouse in a home setting" loading="lazy">
+          <div class="pest-item__name">Mice &amp; Rats</div>
+        </div>
+
+        <div class="pest-item reveal" id="bedbugs">
+          <img src="images/bed_bugs_invasion.webp" alt="Bed bug close-up" loading="lazy">
+          <div class="pest-item__name">Bed Bugs</div>
+        </div>
+
+        <div class="pest-item reveal" id="silverfish">
+          <img src="images/Silverfish_at_Home.webp" alt="Silverfish close-up" loading="lazy">
+          <div class="pest-item__name">Silverfish</div>
+        </div>
+
+        <div class="pest-item reveal" id="beetles">
+          <img src="images/Beetle_CloseUp.webp" alt="Beetle close-up" loading="lazy">
+          <div class="pest-item__name">Beetles</div>
+        </div>
+
+        <div class="pest-item reveal" id="scorpions">
+          <img src="images/Scorpion_Infestation.webp" alt="Scorpion close-up" loading="lazy">
+          <div class="pest-item__name">Scorpions</div>
+        </div>
+
+        <div class="pest-item reveal" id="scorpions">
+          <img src="images/fire_ants_invasion.webp" alt="Scorpion close-up" loading="lazy">
+          <div class="pest-item__name">fire ants</div>
+        </div>
+
+        <div class="pest-item reveal" id="scorpions">
+          <img src="images/Black_Widow.webp" alt="Scorpion close-up" loading="lazy">
+          <div class="pest-item__name">Black Widow</div>
+        </div>
+
+        <div class="pest-item reveal" id="scorpions">
+          <img src="images/Emerald_Ash_Borer.webp" alt="Scorpion close-up" loading="lazy">
+          <div class="pest-item__name">Emerald Ash Borer</div>
+        </div>
+
+        <div class="pest-item reveal" id="mosquitoes">
+          <img src="images/mosquitoe_closeup.webp" alt="Mosquito close-up" loading="lazy">
+          <div class="pest-item__name">Mosquitoes</div>
+        </div>
+
+        <div class="pest-item reveal" id="wasps">
+          <img src="images/wasps_closeup.webp" alt="Yellow jacket wasp close-up" loading="lazy">
+          <div class="pest-item__name">Wasps &amp; Yellow Jackets</div>
+        </div>
+
+        <div class="pest-item reveal" id="cockroaches">
+          <img src="images/Cockroach_Infestation.webp" alt="Cockroach close-up" loading="lazy">
+          <div class="pest-item__name">Cockroaches</div>
+        </div>
+
+        <div class="pest-item reveal" id="spiders">
+          <img src="images/Spider_Home_Infestation.webp" alt="Spider close-up" loading="lazy">
+          <div class="pest-item__name">Spiders</div>
+        </div>
+
+        <div class="pest-item reveal" id="fleas">
+          <img src="images/Flea_on_Skin.webp" alt="Flea close-up on skin" loading="lazy">
+          <div class="pest-item__name">Fleas &amp; Ticks</div>
+        </div>
+
+        <div class="pest-item reveal" id="flies">
+          <img src="images/Fly_CloseUp.webp" alt="House fly close-up" loading="lazy">
+          <div class="pest-item__name">Flies</div>
+        </div>
+
+        <div class="pest-item reveal" id="earwigs">
+          <img src="images/Earwig_CloseUp.webp" alt="Earwig close-up" loading="lazy">
+          <div class="pest-item__name">Earwigs</div>
+        </div>
+
+        <div class="pest-item reveal" id="centipedes">
+          <img src="images/Centipedes_CloseUp.webp" alt="Centipede close-up" loading="lazy">
+          <div class="pest-item__name">Centipedes</div>
+        </div>
+
+        <div class="pest-item reveal" id="centipedes">
+          <img src="images/aphid.webp" alt="Centipede close-up" loading="lazy">
+          <div class="pest-item__name">Aphid</div>
+        </div>
+
+        <div class="pest-item reveal" id="centipedes">
+          <img src="images/Borers.webp" alt="Centipede close-up" loading="lazy">
+          <div class="pest-item__name">Borers</div>
+        </div>
+
+      </div>
+
+      <!-- Contextual treatment links -->
+      <div class="reveal" style="max-width: 760px; margin: 40px auto 0; text-align:center;">
+        <p style="color: var(--gray); line-height: 1.7;">Need treatment for a specific pest? We offer specialized <a href="ant-control-st-george.html">ant control</a> and <a href="spider-control-st-george.html">spider control</a> in St. George, plus <a href="wasp-removal-st-george.html">wasp and bee removal</a> across Southern Utah — all backed by our 30-day satisfaction guarantee.</p>
+      </div>
+
+      <!-- Crosslink to dedicated identifier page -->
+      <div class="reveal text-center" style="margin-top: 40px;">
+        <a href="bug-identifier.html" class="btn btn--primary" style="font-size: 1.05rem; padding: 16px 36px;">
+          📷 Don't See Your Pest? Upload a Photo →
+        </a>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ═══ AI BUG IDENTIFIER ═══ -->
+  <section class="section section--alt" id="bug-identifier">
+    <div class="container">
+
+      <div class="text-center reveal" style="margin-bottom: 40px;">
+        <span class="section-label">AI-Powered Tool</span>
+        <h2>Not Sure What Bug You Found?</h2>
+        <p style="color: var(--gray); max-width: 560px; margin: 12px auto 0;">
+          Upload a photo and our AI identifier will tell you exactly what pest you're dealing with — instantly, for free.
+        </p>
+      </div>
+
+      <div class="reveal" style="
+        max-width: 780px;
+        margin: 0 auto;
+        background: #fff;
+        border-radius: 16px;
+        box-shadow: 0 4px 24px rgba(0,0,0,0.10);
+        overflow: hidden;
+      ">
+
+        <!-- Tab Switcher -->
+        <div style="display: flex; border-bottom: 2px solid #e8f5e9; background: #f9fdf9;">
+          <button id="tab-upload" onclick="switchTab('upload')" style="flex:1;padding:16px;border:none;background:#2c6e2f;color:#fff;font-size:0.95rem;font-weight:600;cursor:pointer;transition:background 0.2s;">
+            📷 Upload a Photo
+          </button>
+          <button id="tab-iframe" onclick="switchTab('iframe')" style="flex:1;padding:16px;border:none;background:#f9fdf9;color:#2c6e2f;font-size:0.95rem;font-weight:600;cursor:pointer;transition:background 0.2s;">
+            🌐 Open Full Identifier
+          </button>
+        </div>
+
+        <!-- TAB 1: Claude Vision Upload (via Cloudflare Worker) -->
+        <div id="panel-upload" style="padding: 36px; text-align: center;">
+
+          <div
+            id="dropZone"
+            onclick="document.getElementById('bugPhotoInput').click()"
+            ondragover="event.preventDefault(); this.style.borderColor='#2c6e2f';"
+            ondragleave="this.style.borderColor='#c8e6c9';"
+            ondrop="handleDrop(event)"
+            style="border:2px dashed #c8e6c9;border-radius:12px;padding:40px 20px;cursor:pointer;transition:border-color 0.2s,background 0.2s;background:#f9fdf9;">
+            <div style="font-size: 2.8rem; margin-bottom: 10px;">🐛</div>
+            <p style="color:#2c6e2f;font-weight:600;margin:0 0 6px;">Click or drag &amp; drop a bug photo</p>
+            <p style="color:#aaa;font-size:0.85rem;margin:0;">JPG, PNG, or WEBP — max 5 MB</p>
+            <input type="file" id="bugPhotoInput" accept="image/*" hidden onchange="handleFileSelect(event)">
+          </div>
+
+          <div id="previewWrap" style="display:none;margin-top:20px;">
+            <img id="previewImg" src="" alt="Uploaded pest photo" style="max-width:100%;max-height:260px;border-radius:10px;object-fit:cover;box-shadow:0 2px 12px rgba(0,0,0,0.12);">
+          </div>
+
+          <button id="identifyBtn" onclick="identifyBug()" style="display:none;margin-top:20px;background:#2c6e2f;color:#fff;border:none;padding:13px 36px;border-radius:8px;font-size:1rem;font-weight:600;cursor:pointer;transition:background 0.2s;">
+            🔍 Identify This Bug
+          </button>
+
+          <div id="resultBox" style="display:none;margin-top:24px;background:#f0f7f0;border-left:4px solid #2c6e2f;border-radius:10px;padding:20px 24px;text-align:left;">
+            <h3 style="color:#2c6e2f;margin:0 0 14px;font-size:1.1rem;">🐞 Identification Result</h3>
+            <div id="resultContent" style="font-size:0.95rem;color:#333;line-height:1.7;"></div>
+            <a href="contact.html" class="btn btn--primary btn--sm" style="margin-top:16px;display:inline-block;">Need Help? Contact Wernex →</a>
+          </div>
+
+          <div id="errorBox" style="display:none;margin-top:20px;background:#fff3f3;border-left:4px solid #e53935;border-radius:10px;padding:16px 20px;text-align:left;color:#c62828;font-size:0.9rem;">
+            ⚠️ <span id="errorMsg"></span>
+          </div>
+
+        </div><!-- /panel-upload -->
+
+        <!-- TAB 2: Iframe Embed -->
+        <div id="panel-iframe" style="display:none;padding:24px;">
+          <p style="color:var(--gray);text-align:center;margin-bottom:16px;font-size:0.9rem;">Powered by Galaxy AI — no login required.</p>
+          <iframe src="https://image.galaxy.ai/ai-bug-identifier" width="100%" height="620px" style="border:none;border-radius:12px;display:block;" allow="camera" title="AI Bug Identifier by Galaxy AI" loading="lazy"></iframe>
+        </div><!-- /panel-iframe -->
+
+      </div><!-- /identifier card -->
+
+      <p class="text-center reveal" style="margin-top:20px;color:#aaa;font-size:0.82rem;">
+        🔒 Photos are not stored by Wernex. AI results are for reference only — contact us for a professional assessment.
+      </p>
+
+    </div>
+  </section>
+  <!-- ═══ END AI BUG IDENTIFIER ═══ -->
+
+  <!-- ═══ FEATURED PEST DETAIL ═══ -->
+  <section class="section section--alt">
+    <div class="container">
+      <div class="two-col reveal">
+        <div>
+          <img src="images/fire_ants_invasion.webp" alt="Carpenter ant identification showing body segments" style="width:100%;border-radius:12px;object-fit:cover;">
+        </div>
+        <div>
+          <span class="section-label">Featured Pest</span>
+          <h2>Carpenter Ants</h2>
+          <p style="margin:16px 0;color:var(--gray);">
+            Carpenter ants excavate wood to build nests, causing structural damage similar to termites.
+            They prefer moist, decaying wood and are most active at night.
+          </p>
+          <h4 style="margin-top:20px;">Signs of Infestation</h4>
+          <p style="color:var(--gray);margin-top:8px;">
+            Sawdust-like shavings near baseboards, rustling sounds in walls, and winged ants emerging indoors — especially in spring.
+          </p>
+          <h4 style="margin-top:20px;">Prevention Tips</h4>
+          <p style="color:var(--gray);margin-top:8px;">
+            Fix leaks promptly, store firewood away from the house, trim branches touching the roof, and seal cracks in the foundation.
+          </p>
+          <a href="contact.html" class="btn btn--primary btn--sm" style="margin-top:24px;">Got Carpenter Ants? Get Help →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ CTA ═══ -->
+  <section class="section">
+    <div class="container">
+      <div class="cta-banner reveal">
+        <div>
+          <h2>Can't Identify Your Pest?</h2>
+          <p>Send us a photo and our experts will ID it for free.</p>
+        </div>
+        <div class="cta-banner__buttons">
+          <a href="contact.html" class="btn btn--primary">Contact Us →</a>
+          <a href="tel:+14356739503" class="btn btn--white">📞 (435) 673-9503</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ RELATED PEST CONTROL SERVICES (Internal linking hub §4.2) ═══ -->
+  <section class="section" style="padding-top:40px; padding-bottom:40px; background:var(--gray-light, #f5f5f5);">
+    <div class="container" style="max-width: 880px;">
+      <div class="text-center reveal" style="margin-bottom: 20px;">
+        <span class="section-label">Get Treatment</span>
+        <h3 style="margin-top: 8px; margin-bottom: 0;">Related Pest Control Services</h3>
+      </div>
+      <ul style="list-style:none; padding:0; margin:0; display:flex; flex-wrap:wrap; justify-content:center; gap:12px 28px;">
+        <li><a href="pest-control-southern-utah.html">Pest Control Across Southern Utah</a></li>
+        <li><a href="ant-control-st-george.html">St. George Ant Control</a></li>
+        <li><a href="spider-control-st-george.html">Spider Treatment St. George</a></li>
+        <li><a href="wasp-removal-st-george.html">Wasp &amp; Bee Removal</a></li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ═══ FOOTER ═══ -->
+</BaseLayout>
