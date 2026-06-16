@@ -18,7 +18,11 @@ export const WERNEX = {
   zip: "84078",
   website: "https://www.wernexpestcontrol.com",
   geo: { lat: 40.4555, lng: -109.5287 },
-  rating: { value: "4.9", count: "87", best: "5" },
+  // NOTE: Verified Google Business Profile rating as of June 2026 = 4.5 stars / 27 reviews.
+  // aggregateRating structured data is rendered ONLY on testimonials.html, where the actual
+  // reviews are displayed on-page (the policy-correct place for it). It is intentionally NOT
+  // on the other pages. If you re-add a `rating` field here for the schema.ts helper, keep it
+  // in sync with the live GBP numbers — stale/invented counts risk a structured-data violation.
   foundingDate: "1994",
   priceRange: "$$",
   logo: "https://www.wernexpestcontrol.com/images/Logo.webp",

@@ -1,11 +1,11 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 
-const title = 'Customer Reviews — 4.9★ Rated Pest Control in St. George UT | Wernex';
-const description = 'Read 500+ real customer reviews of Wernex Pest Control. 4.9-star average across Google, Yelp, and Facebook. See why Southern Utah homeowners trust Wernex — call (435) 673-9503.';
+const title = 'Customer Reviews — 4.5★ Rated Pest Control in St. George UT | Wernex';
+const description = 'Read real Google reviews of Wernex Termite & Pest Control — a 4.5-star rating across 27 reviews. See why Southern Utah homeowners have trusted Wernex for 30+ years. Call (435) 673-9503.';
 const canonical = 'https://www.wernexpestcontrol.com/testimonials.html';
 const active = 'testimonials.html';
-const og = { "og:title": 'Customer Reviews — 4.9★ Rated Pest Control | Wernex', "og:description": '500+ real customer reviews. 4.9-star average. See why Southern Utah homeowners trust Wernex.', "og:type": 'website', "og:url": 'https://www.wernexpestcontrol.com/testimonials.html', "og:locale": 'en_US', "og:site_name": 'Wernex Termite & Pest Control' };
+const og = { "og:title": 'Customer Reviews — 4.5★ Rated Pest Control | Wernex', "og:description": 'Real Google reviews of Wernex Termite & Pest Control. 4.5-star rating. See why Southern Utah homeowners trust Wernex.', "og:type": 'website', "og:url": 'https://www.wernexpestcontrol.com/testimonials.html', "og:locale": 'en_US', "og:site_name": 'Wernex Termite & Pest Control' };
 const schema = `{
     "@context": "https://schema.org",
     "@type": "LocalBusiness",
@@ -13,49 +13,83 @@ const schema = `{
     "name": "Wernex Termite & Pest Control, Inc.",
     "url": "https://www.wernexpestcontrol.com/",
     "telephone": "+1-435-673-9503",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "6097 Dry Fork Canyon Rd",
+      "addressLocality": "Vernal",
+      "addressRegion": "UT",
+      "postalCode": "84078",
+      "addressCountry": "US"
+    },
     "aggregateRating": {
       "@type": "AggregateRating",
-      "ratingValue": "4.9",
+      "ratingValue": "4.5",
       "bestRating": "5",
-      "ratingCount": "500",
-      "reviewCount": "500"
+      "ratingCount": "27"
     },
     "review": [
       {
         "@type": "Review",
-        "author": { "@type": "Person", "name": "Jessica M." },
+        "author": { "@type": "Person", "name": "Jeannie Turpin" },
+        "datePublished": "2020-08-08",
         "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
-        "reviewBody": "They came out the same day I called. The technician was friendly, thorough, and explained everything. Haven't seen a single ant since!"
+        "reviewBody": "Friendly & efficient! Helped me when I had a huge ant problem when my old company wouldn't even call me back! Wernex is my go to pest control company!"
       },
       {
         "@type": "Review",
-        "author": { "@type": "Person", "name": "Robert K." },
+        "author": { "@type": "Person", "name": "Sue Stout" },
+        "datePublished": "2018-03-13",
         "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
-        "reviewBody": "Best pest control company I've ever used. On time, professional, and the prices are very fair. They even came back for a free follow-up."
+        "reviewBody": "Brooks is always on time, very efficient and very pleasant and informative young man. Cody on the phone always seems to be able to set up the times I need inside and out. I have used Wernex for 14 yrs."
       },
       {
         "@type": "Review",
-        "author": { "@type": "Person", "name": "Sarah T." },
+        "author": { "@type": "Person", "name": "Mathew Shoup" },
+        "datePublished": "2018-01-06",
         "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
-        "reviewBody": "I was worried about chemicals around my kids and pets, but they used eco-friendly products and were super careful. Highly recommend!"
+        "reviewBody": "The cockroaches are awful here in Saint George and we never see any in our house since Wernex started spraying for us. Thanks for the great work!"
       },
       {
         "@type": "Review",
-        "author": { "@type": "Person", "name": "Mike P." },
+        "author": { "@type": "Person", "name": "Holly Ewell" },
+        "datePublished": "2018-01-10",
         "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
-        "reviewBody": "Had a serious termite issue we didn't even know about. Their inspection caught it early and saved us thousands in damage."
+        "reviewBody": "These guys are awesome! When I had an issue with mice, Cody helped me determine the best route to help get rid of them. I will definitely be using them again! Thanks, Cody and the Wernex team!"
       },
       {
         "@type": "Review",
-        "author": { "@type": "Person", "name": "Lisa D." },
+        "author": { "@type": "Person", "name": "Shawn Herd" },
+        "datePublished": "2017-12-13",
         "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
-        "reviewBody": "We run a hotel and can't afford pest issues. Wernex's monthly program keeps everything under control. Total peace of mind."
+        "reviewBody": "We've used Wernex Pest Control service throughout the years. They use quality products and are always reliable. I would recommend this company to anyone looking for pest control services in St George."
       },
       {
         "@type": "Review",
-        "author": { "@type": "Person", "name": "Tom W." },
-        "reviewRating": { "@type": "Rating", "ratingValue": "4", "bestRating": "5" },
-        "reviewBody": "Quick response, thorough treatment. Only reason it's not 5 stars is the first appointment got rescheduled, but they made it right."
+        "author": { "@type": "Person", "name": "Judy Bell" },
+        "datePublished": "2018-02-21",
+        "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
+        "reviewBody": "I love the staff at Wernex & the friendly prompt service. I love the price. I have used them for years & have been very satisfied. They are great."
+      },
+      {
+        "@type": "Review",
+        "author": { "@type": "Person", "name": "Rick Schankel" },
+        "datePublished": "2017-11-06",
+        "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
+        "reviewBody": "Wernex has consistently kept the insects and scorpions under control at our home. Rodents too."
+      },
+      {
+        "@type": "Review",
+        "author": { "@type": "Person", "name": "Ken Schoonover" },
+        "datePublished": "2018-02-20",
+        "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
+        "reviewBody": "Great service. Brooks services us and is always punctual and pleasant. Great guy, great service."
+      },
+      {
+        "@type": "Review",
+        "author": { "@type": "Person", "name": "Clint Draper" },
+        "datePublished": "2018-02-23",
+        "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
+        "reviewBody": "The best pest control service I have ever had."
       }
     ]
   }`;
@@ -64,84 +98,78 @@ const schema = `{
 <!-- RATING SUMMARY -->
   <section class="section" style="padding-bottom: 0;">
     <div class="container text-center">
-      <div class="reveal" style="max-width: 500px; margin: 0 auto;">
-        <div style="font-size: 4rem; font-family: var(--font-display); font-weight: 900; color: var(--text-dark);">4.9 ★</div>
-        <p style="color: var(--gray); margin-top: 8px;">Based on 500+ reviews across Google, Yelp, and Facebook</p>
-        <p style="margin-top: 12px; font-size: 0.9rem; color: var(--gray);">Serving St. George, Washington, Hurricane, and Southern Utah for 30+ years. <a href="about.html">Learn about our team</a>.</p>
-        <div style="display: flex; justify-content: center; gap: 24px; margin-top: 20px;">
-          <div class="placeholder reveal" style="width: 100px; height: 50px; border-radius: 8px; font-size: 0.7rem;">LOGO<br>Google</div>
-          <div class="placeholder reveal" style="width: 100px; height: 50px; border-radius: 8px; font-size: 0.7rem;">LOGO<br>Yelp</div>
-          <div class="placeholder reveal" style="width: 100px; height: 50px; border-radius: 8px; font-size: 0.7rem;">LOGO<br>BBB</div>
+      <div class="reveal" style="max-width: 540px; margin: 0 auto;">
+        <div style="font-size: 4rem; font-family: var(--font-display); font-weight: 900; color: var(--text-dark);">4.5 ★</div>
+        <p style="color: var(--gray); margin-top: 8px;">Based on 27 verified Google reviews</p>
+        <p style="margin-top: 12px; font-size: 0.9rem; color: var(--gray);">Family-owned and serving St. George, Southern Utah, and the Uintah Basin for 30+ years. <a href="about.html">Learn about our team</a>.</p>
+        <div style="margin-top: 20px;">
+          <a href="https://www.google.com/search?q=wernex+pest+control" target="_blank" rel="noopener" class="btn btn--outline">Read our reviews on Google →</a>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- VIDEO TESTIMONIAL -->
-  <section class="section">
-    <div class="container">
-      <div class="text-center reveal">
-        <span class="section-label">Video Reviews</span>
-        <h2>Hear From Happy Homeowners</h2>
-      </div>
-      <div class="cards-grid" style="margin-top: 36px; max-width: 960px; margin-left: auto; margin-right: auto;">
-        <div class="card reveal">
-          <div class="placeholder placeholder--card placeholder--video" style="min-height: 240px;">🎬 VIDEO TESTIMONIAL<br>Customer talking about<br>their ant problem being solved</div>
-          <div class="card__body">
-            <h3>The Johnsons — Ant Infestation, St. George</h3>
-            <p>"They saved our kitchen. Completely gone within a week." <a href="services.html#residential">View residential services</a>.</p>
-          </div>
-        </div>
-        <div class="card reveal">
-          <div class="placeholder placeholder--card placeholder--video" style="min-height: 240px;">🎬 VIDEO TESTIMONIAL<br>Business owner discussing<br>commercial pest management</div>
-          <div class="card__body">
-            <h3>Marco's Restaurant — Commercial, Washington</h3>
-            <p>"Professional, discreet, and passed every health inspection since." <a href="services.html#commercial">View commercial services</a>.</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- WRITTEN REVIEWS (Real community names replacing placeholders) -->
+  <!-- WRITTEN REVIEWS (Real Google reviews) -->
   <section class="section section--alt">
     <div class="container">
+      <div class="text-center reveal" style="margin-bottom: 36px;">
+        <span class="section-label">In Their Words</span>
+        <h2>What Our Customers Say</h2>
+      </div>
       <div class="testimonial-grid">
 
         <div class="testimonial reveal">
           <div class="testimonial__stars">★★★★★</div>
-          <p class="testimonial__text">"They came out the same day I called. The technician was friendly, thorough, and explained everything. Haven't seen a single ant since!"</p>
-          <div class="testimonial__author"><div class="testimonial__avatar">JM</div><div><div class="testimonial__name">Jessica M.</div><div class="testimonial__loc">Homeowner — St. George</div></div></div>
+          <p class="testimonial__text">"Friendly &amp; efficient! Helped me when I had a huge ant problem when my old company wouldn't even call me back! Wernex is my go to pest control company!"</p>
+          <div class="testimonial__author"><div class="testimonial__avatar">JT</div><div><div class="testimonial__name">Jeannie Turpin</div><div class="testimonial__loc">Verified Google Review</div></div></div>
         </div>
 
         <div class="testimonial reveal">
           <div class="testimonial__stars">★★★★★</div>
-          <p class="testimonial__text">"Best pest control company I've ever used. On time, professional, and the prices are very fair. They even came back for a free follow-up."</p>
-          <div class="testimonial__author"><div class="testimonial__avatar">RK</div><div><div class="testimonial__name">Robert K.</div><div class="testimonial__loc">Restaurant Owner — Washington</div></div></div>
+          <p class="testimonial__text">"Brooks is always on time, very efficient and very pleasant and informative young man. Cody on the phone always seems to be able to set up the times I need inside and out. I have used Wernex for 14 yrs."</p>
+          <div class="testimonial__author"><div class="testimonial__avatar">SS</div><div><div class="testimonial__name">Sue Stout</div><div class="testimonial__loc">Verified Google Review</div></div></div>
         </div>
 
         <div class="testimonial reveal">
           <div class="testimonial__stars">★★★★★</div>
-          <p class="testimonial__text">"I was worried about chemicals around my kids and pets, but they used eco-friendly products and were super careful. Highly recommend!"</p>
-          <div class="testimonial__author"><div class="testimonial__avatar">ST</div><div><div class="testimonial__name">Sarah T.</div><div class="testimonial__loc">Homeowner — Hurricane</div></div></div>
+          <p class="testimonial__text">"The cockroaches are awful here in Saint George and we never see any in our house since Wernex started spraying for us. Thanks for the great work!"</p>
+          <div class="testimonial__author"><div class="testimonial__avatar">MS</div><div><div class="testimonial__name">Mathew Shoup</div><div class="testimonial__loc">Verified Google Review</div></div></div>
         </div>
 
         <div class="testimonial reveal">
           <div class="testimonial__stars">★★★★★</div>
-          <p class="testimonial__text">"Had a serious termite issue we didn't even know about. Their inspection caught it early and saved us thousands in damage."</p>
-          <div class="testimonial__author"><div class="testimonial__avatar">MP</div><div><div class="testimonial__name">Mike P.</div><div class="testimonial__loc">Homeowner — Ivins</div></div></div>
+          <p class="testimonial__text">"These guys are awesome! When I had an issue with mice, Cody helped me determine the best route to help get rid of them. I will definitely be using them again! Thanks, Cody and the Wernex team!"</p>
+          <div class="testimonial__author"><div class="testimonial__avatar">HE</div><div><div class="testimonial__name">Holly Ewell</div><div class="testimonial__loc">Verified Google Review</div></div></div>
         </div>
 
         <div class="testimonial reveal">
           <div class="testimonial__stars">★★★★★</div>
-          <p class="testimonial__text">"We run a hotel and can't afford pest issues. Wernex's monthly program keeps everything under control. Total peace of mind."</p>
-          <div class="testimonial__author"><div class="testimonial__avatar">LD</div><div><div class="testimonial__name">Lisa D.</div><div class="testimonial__loc">Hotel Manager — Cedar City</div></div></div>
+          <p class="testimonial__text">"We've used Wernex Pest Control service throughout the years. They use quality products and are always reliable. I would recommend this company to anyone looking for pest control services in St George."</p>
+          <div class="testimonial__author"><div class="testimonial__avatar">SH</div><div><div class="testimonial__name">Shawn Herd</div><div class="testimonial__loc">Verified Google Review</div></div></div>
         </div>
 
         <div class="testimonial reveal">
-          <div class="testimonial__stars">★★★★☆</div>
-          <p class="testimonial__text">"Quick response, thorough treatment. Only reason it's not 5 stars is the first appointment got rescheduled, but they made it right."</p>
-          <div class="testimonial__author"><div class="testimonial__avatar">TW</div><div><div class="testimonial__name">Tom W.</div><div class="testimonial__loc">Homeowner — Santa Clara</div></div></div>
+          <div class="testimonial__stars">★★★★★</div>
+          <p class="testimonial__text">"I love the staff at Wernex &amp; the friendly prompt service. I love the price. I have used them for years &amp; have been very satisfied. They are great."</p>
+          <div class="testimonial__author"><div class="testimonial__avatar">JB</div><div><div class="testimonial__name">Judy Bell</div><div class="testimonial__loc">Verified Google Review</div></div></div>
+        </div>
+
+        <div class="testimonial reveal">
+          <div class="testimonial__stars">★★★★★</div>
+          <p class="testimonial__text">"Wernex has consistently kept the insects and scorpions under control at our home. Rodents too."</p>
+          <div class="testimonial__author"><div class="testimonial__avatar">RS</div><div><div class="testimonial__name">Rick Schankel</div><div class="testimonial__loc">Verified Google Review</div></div></div>
+        </div>
+
+        <div class="testimonial reveal">
+          <div class="testimonial__stars">★★★★★</div>
+          <p class="testimonial__text">"Great service. Brooks services us and is always punctual and pleasant. Great guy, great service."</p>
+          <div class="testimonial__author"><div class="testimonial__avatar">KS</div><div><div class="testimonial__name">Ken Schoonover</div><div class="testimonial__loc">Verified Google Review</div></div></div>
+        </div>
+
+        <div class="testimonial reveal">
+          <div class="testimonial__stars">★★★★★</div>
+          <p class="testimonial__text">"The best pest control service I have ever had."</p>
+          <div class="testimonial__author"><div class="testimonial__avatar">CD</div><div><div class="testimonial__name">Clint Draper</div><div class="testimonial__loc">Verified Google Review</div></div></div>
         </div>
 
       </div>
@@ -156,8 +184,7 @@ const schema = `{
         <h2>Had a Great Experience?</h2>
         <p style="color: var(--gray); margin: 12px 0 28px; max-width: 480px;" class="mx-auto">We'd love to hear from you! Leave us a review and help your neighbors find trusted pest control. Or <a href="contact.html">schedule your own free inspection</a>.</p>
         <div style="display: flex; justify-content: center; gap: 16px; flex-wrap: wrap;">
-          <a href="#" class="btn btn--primary">Leave a Google Review →</a>
-          <a href="#" class="btn btn--outline">Review on Yelp →</a>
+          <a href="https://www.google.com/search?q=wernex+pest+control" target="_blank" rel="noopener" class="btn btn--primary">Leave a Google Review →</a>
         </div>
       </div>
     </div>

@@ -33,12 +33,8 @@ export function localBusiness() {
       { '@type': 'OpeningHoursSpecification', dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'], opens: '07:00', closes: '19:00' },
       { '@type': 'OpeningHoursSpecification', dayOfWeek: 'Saturday', opens: '08:00', closes: '17:00' },
     ],
-    aggregateRating: {
-      '@type': 'AggregateRating',
-      ratingValue: WERNEX.rating.value,
-      bestRating: WERNEX.rating.best,
-      ratingCount: WERNEX.rating.count,
-    },
+    // aggregateRating intentionally omitted — see note in business.ts. Re-add only with
+    // verified, live Google review numbers.
     priceRange: WERNEX.priceRange,
     image: WERNEX.logo,
     logo: WERNEX.logo,
