@@ -3,7 +3,8 @@
    Design: Bold green authority + lime energy + amber CTAs
    ═══════════════════════════════════════════════ */
 
-@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&family=DM+Sans:ital,wght@0,400;0,500;0,700;1,400&display=swap');
+/* Fonts are loaded in BaseLayout.astro <head> via preconnect + async <link>
+   (non-render-blocking). The old render-blocking @import was removed. */
 
 /* ── CSS Variables ── */
 :root {
