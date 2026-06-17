@@ -94,5 +94,24 @@ const { title, description, canonical, og = {}, schema = null, active = '' } = A
   </div>
 
   <script src="/script.js" is:inline></script>
+
+  <!-- Click-to-load YouTube facades: swaps in the iframe only on click -->
+  <script>
+    document.querySelectorAll('.yt-facade').forEach((el) => {
+      const load = () => {
+        const src = el.getAttribute('data-embed');
+        if (!src) return;
+        const iframe = document.createElement('iframe');
+        iframe.src = src;
+        iframe.title = el.getAttribute('data-title') || 'Video';
+        iframe.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share';
+        iframe.setAttribute('referrerpolicy', 'strict-origin-when-cross-origin');
+        iframe.allowFullscreen = true;
+        iframe.style.cssText = 'position:absolute;inset:0;width:100%;height:100%;border:0;';
+        el.replaceWith(iframe);
+      };
+      el.addEventListener('click', load);
+    });
+  </script>
 </body>
 </html>
