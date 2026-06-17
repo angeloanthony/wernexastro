@@ -1436,6 +1436,15 @@ p { max-width: 65ch; }
 /* ── Smooth load stagger ── */
 body.loaded .reveal { transition-delay: calc(var(--delay, 0) * 0.1s); }
 
+/* LCP: the hero is above the fold — paint it immediately instead of waiting
+   for the JS-driven reveal animation (which leaves it opacity:0 until script
+   runs). Scroll-reveal still applies to everything below the fold. */
+.hero .reveal {
+  opacity: 1;
+  transform: none;
+  transition: none;
+}
+
 /* ── Guarantee Badge ── */
 .guarantee-badge {
   display: inline-flex;
