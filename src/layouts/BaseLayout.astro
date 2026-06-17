@@ -30,6 +30,9 @@ const { title, description, canonical, og = {}, schema = null, active = '' } = A
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+  <!-- Speed up the hero video thumbnail (LCP) fetch -->
+  <link rel="preconnect" href="https://i.ytimg.com">
+
   <!-- FONTS: preconnect + non-render-blocking load (replaces the old CSS @import) -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>

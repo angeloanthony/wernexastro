@@ -240,7 +240,7 @@ const schema = `{
             <!-- YouTube facade — 16:9 wrapper, loads iframe only on click -->
             <div class="video-3d-card__frame">
               <button type="button" class="yt-facade" data-embed="https://www.youtube-nocookie.com/embed/IIv8FRTy3b4?autoplay=1&amp;rel=0" data-title="Wernex Pest Control professional treatment demonstration in Southern Utah" aria-label="Play video: Wernex Pest Control professional treatment demonstration">
-                <img src="https://i.ytimg.com/vi/IIv8FRTy3b4/maxresdefault.jpg" alt="Wernex Pest Control professional treatment demonstration in Southern Utah" loading="lazy" width="1280" height="720" onerror="this.onerror=null;this.src='https://i.ytimg.com/vi/IIv8FRTy3b4/hqdefault.jpg';">
+                <img src="https://i.ytimg.com/vi/IIv8FRTy3b4/maxresdefault.jpg" alt="Wernex Pest Control professional treatment demonstration in Southern Utah" fetchpriority="high" decoding="async" width="1280" height="720" onerror="this.onerror=null;this.src='https://i.ytimg.com/vi/IIv8FRTy3b4/hqdefault.jpg';">
                 <span class="yt-facade__play" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span>
               </button>
             </div>
