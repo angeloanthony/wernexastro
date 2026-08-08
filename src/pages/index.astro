@@ -4,7 +4,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 const title = 'Pest Control in St. George UT — Same-Day Service &amp; Eco-Friendly Treatments | Wernex';
 const description = '4.5-star rated pest control in St. George, UT. Same-day inspections, eco-friendly treatments, and a 30-day satisfaction guarantee. Call (435) 673-9503 for a free quote.';
 const canonical = 'https://www.wernexpestcontrol.com/';
-const active = 'index.html';
+const active = '/';
 const og = { "og:title": 'Pest Control in St. George UT — Same-Day Service | Wernex', "og:description": '4.5-star rated pest control in St. George. Same-day inspections, eco-friendly treatments, and a 30-day satisfaction guarantee.', "og:type": 'website', "og:url": 'https://www.wernexpestcontrol.com/', "og:locale": 'en_US', "og:site_name": 'Wernex Termite & Pest Control' };
 const schema = `{
     "@context": "https://schema.org",
@@ -79,7 +79,7 @@ const schema = `{
               "itemOffered": {
                 "@type": "Service",
                 "name": "Residential Pest Control",
-                "url": "https://www.wernexpestcontrol.com/services.html#residential"
+                "url": "https://www.wernexpestcontrol.com/services#residential"
               }
             },
             {
@@ -87,7 +87,7 @@ const schema = `{
               "itemOffered": {
                 "@type": "Service",
                 "name": "Commercial Pest Control",
-                "url": "https://www.wernexpestcontrol.com/services.html#commercial"
+                "url": "https://www.wernexpestcontrol.com/services#commercial"
               }
             },
             {
@@ -95,7 +95,7 @@ const schema = `{
               "itemOffered": {
                 "@type": "Service",
                 "name": "Termite Solutions",
-                "url": "https://www.wernexpestcontrol.com/services.html#termites"
+                "url": "https://www.wernexpestcontrol.com/services#termites"
               }
             },
             {
@@ -103,7 +103,7 @@ const schema = `{
               "itemOffered": {
                 "@type": "Service",
                 "name": "Rodent Control",
-                "url": "https://www.wernexpestcontrol.com/services.html#rodent"
+                "url": "https://www.wernexpestcontrol.com/services#rodent"
               }
             }
           ]
@@ -190,10 +190,10 @@ const schema = `{
         <h1>Pests Out.<br><span>Peace of Mind In.</span></h1>
 
         <!-- ═══ SEO: AI SUMMARY BLOCK (Layer 1) ═══ -->
-        <p>Wernex Termite &amp; Pest Control delivers <a href="same-day-pest-control-st-george.html">same-day pest control in St. George</a>, <a href="affordable-pest-control-st-george.html">affordable treatment plans</a>, eco-friendly products, and a 100% satisfaction guarantee to homes and businesses across St. George, Washington, Hurricane, and all of <a href="pest-control-southern-utah.html">Southern Utah</a>. With 30+ years of experience and a 4.5-star Google rating, we combine IPM-based science with responsive, honest service — so you get results you can trust.</p>
+        <p>Wernex Termite &amp; Pest Control delivers <a href="/same-day-pest-control-st-george">same-day pest control in St. George</a>, <a href="/affordable-pest-control-st-george">affordable treatment plans</a>, eco-friendly products, and a 100% satisfaction guarantee to homes and businesses across St. George, Washington, Hurricane, and all of <a href="/pest-control-southern-utah">Southern Utah</a>. With 30+ years of experience and a 4.5-star Google rating, we combine IPM-based science with responsive, honest service — so you get results you can trust.</p>
 
         <div class="hero__buttons">
-          <a href="contact.html" class="btn btn--primary">Get a Free Quote →</a>
+          <a href="/contact" class="btn btn--primary">Get a Free Quote →</a>
           <a href="tel:+14356739503" class="btn btn--white">📞 Call Now — 24/7</a>
         </div>
         <div class="hero__badges">
@@ -293,8 +293,8 @@ const schema = `{
       <span class="section-label">What We Do</span>
       <h2>Protection for Every Pest Problem</h2>
       <p class="mx-auto" style="margin-top:12px; color:var(--gray);">
-        From routine prevention and <a href="ant-control-st-george.html">ant control</a> to emergency infestations — Wernex provides
-        <a href="services.html">full-spectrum pest control services</a>
+        From routine prevention and <a href="/ant-control-st-george">ant control</a> to emergency infestations — Wernex provides
+        <a href="/services">full-spectrum pest control services</a>
         for Southern Utah homes and businesses.
       </p>
     </div>
@@ -303,7 +303,7 @@ const schema = `{
     <div class="svc-grid" style="margin-top: 52px;">
 
       <!-- Residential -->
-      <a href="services.html#residential" class="svc-tile reveal">
+      <a href="/services#residential" class="svc-tile reveal">
         <img src="images/44.webp" srcset="images/44-480.webp 480w, images/44-960.webp 960w, images/44.webp 1400w" sizes="(max-width: 768px) 100vw, 588px" alt="Residential Pest Control – St. George home protection" class="svc-tile__bg" loading="lazy" width="1400" height="933">
         <div class="svc-tile__overlay"></div>
         <div class="svc-tile__body">
@@ -315,7 +315,7 @@ const schema = `{
       </a>
 
       <!-- Commercial -->
-      <a href="services.html#commercial" class="svc-tile reveal">
+      <a href="/services#commercial" class="svc-tile reveal">
         <img src="images/45.webp" srcset="images/45-480.webp 480w, images/45-960.webp 960w, images/45.webp 1400w" sizes="(max-width: 768px) 100vw, 588px" alt="Commercial Pest Control – restaurants, offices, warehouses" class="svc-tile__bg" loading="lazy" width="1400" height="933">
         <div class="svc-tile__overlay"></div>
         <div class="svc-tile__body">
@@ -327,7 +327,7 @@ const schema = `{
       </a>
 
       <!-- Termites -->
-      <a href="services.html#termites" class="svc-tile reveal">
+      <a href="/services#termites" class="svc-tile reveal">
         <img src="images/46.webp" srcset="images/46-480.webp 480w, images/46-960.webp 960w, images/46.webp 1400w" sizes="(max-width: 768px) 100vw, 588px" alt="Termite Solutions – liquid barriers and WDI inspections" class="svc-tile__bg" loading="lazy" width="1400" height="933">
         <div class="svc-tile__overlay"></div>
         <div class="svc-tile__body">
@@ -339,7 +339,7 @@ const schema = `{
       </a>
 
       <!-- Rodent -->
-      <a href="services.html#rodent" class="svc-tile reveal">
+      <a href="/services#rodent" class="svc-tile reveal">
         <img src="images/47.webp" srcset="images/47-480.webp 480w, images/47-960.webp 960w, images/47.webp 1400w" sizes="(max-width: 768px) 100vw, 588px" alt="Rodent Control – exclusion, trapping, monitoring" class="svc-tile__bg" loading="lazy" width="1400" height="933">
         <div class="svc-tile__overlay"></div>
         <div class="svc-tile__body">
@@ -354,7 +354,7 @@ const schema = `{
     <!-- /SERVICE CARDS GRID -->
 
     <div class="text-center" style="margin-top: 48px;">
-      <a href="services.html" class="btn btn--outline">View All Services →</a>
+      <a href="/services" class="btn btn--outline">View All Services →</a>
     </div>
   </div>
 </section>
@@ -371,7 +371,7 @@ const schema = `{
         <img src="images/12.webp" srcset="images/12-480.webp 480w, images/12.webp 933w" sizes="(max-width: 900px) 45vw, 436px" alt="Wernex technician applying targeted pest treatment inside a Southern Utah home" width="933" height="1400" style="width:100%; height:240px; object-fit:cover; border-radius: var(--radius-lg) var(--radius-lg) 0 0; display:block;" loading="lazy">
         <div class="card__body">
           <h3>1. Custom Treatment</h3>
-          <p>We design a plan specific to your home using the safest, most effective methods — including <a href="services.html">eco-friendly IPM options</a>.</p>
+          <p>We design a plan specific to your home using the safest, most effective methods — including <a href="/services">eco-friendly IPM options</a>.</p>
         </div>
       </div>
       <div class="card reveal">
@@ -393,7 +393,7 @@ const schema = `{
         <div class="reveal">
           <span class="section-label">See Us in Action</span>
           <h2>Watch How We Protect Your Home</h2>
-          <p style="margin: 16px 0 24px; color: var(--gray);">Our state-licensed technicians use EPA-compliant equipment and eco-friendly products to deliver lasting results across Southern Utah. <a href="about.html">Meet the Wernex team</a>.</p>
+          <p style="margin: 16px 0 24px; color: var(--gray);">Our state-licensed technicians use EPA-compliant equipment and eco-friendly products to deliver lasting results across Southern Utah. <a href="/about">Meet the Wernex team</a>.</p>
           <div class="guarantee-badge">
             <div class="guarantee-badge__icon">🛡️</div>
             <div class="guarantee-badge__text">
@@ -457,7 +457,7 @@ const schema = `{
         </div>
       </div>
       <div class="text-center" style="margin-top: 36px;">
-        <a href="testimonials.html" class="btn btn--lime">Read All Reviews →</a>
+        <a href="/testimonials" class="btn btn--lime">Read All Reviews →</a>
       </div>
     </div>
   </section>
@@ -468,7 +468,7 @@ const schema = `{
       <div class="reveal">
         <span class="section-label">Identify Your Pest</span>
         <h2>What's Bugging You?</h2>
-        <p class="mx-auto" style="margin: 12px auto 32px; color: var(--gray);">Use our <a href="bug-identifier.html">AI-powered bug identifier</a> to snap a photo of any pest, or search our <a href="pest-library.html">full pest library</a> for treatment information specific to Southern Utah.</p>
+        <p class="mx-auto" style="margin: 12px auto 32px; color: var(--gray);">Use our <a href="/bug-identifier">AI-powered bug identifier</a> to snap a photo of any pest, or search our <a href="/pest-library">full pest library</a> for treatment information specific to Southern Utah.</p>
       </div>
       <div class="pest-search reveal">
         <span class="pest-search__icon">🔍</span>
@@ -476,7 +476,7 @@ const schema = `{
         <div class="pest-search__results"></div>
       </div>
       <div style="margin-top: 32px;">
-        <a href="pest-library.html" class="btn btn--outline">Browse Full Pest Library →</a>
+        <a href="/pest-library" class="btn btn--outline">Browse Full Pest Library →</a>
       </div>
     </div>
   </section>
@@ -497,22 +497,22 @@ const schema = `{
 
         <div class="faq-item reveal" style="border-bottom: 1px solid var(--gray-light); padding: 24px 0;">
           <h3 style="margin-bottom: 8px;">Are your pest control treatments safe for children and pets?</h3>
-          <p style="color: var(--gray);">Yes. Wernex uses an Integrated Pest Management (IPM) approach that prioritizes eco-friendly, low-toxicity products. All treatments are EPA-compliant, and our technicians will advise you on any specific precautions based on the products used in your home. Read more about <a href="about.html">our eco-friendly approach</a>.</p>
+          <p style="color: var(--gray);">Yes. Wernex uses an Integrated Pest Management (IPM) approach that prioritizes eco-friendly, low-toxicity products. All treatments are EPA-compliant, and our technicians will advise you on any specific precautions based on the products used in your home. Read more about <a href="/about">our eco-friendly approach</a>.</p>
         </div>
 
         <div class="faq-item reveal" style="border-bottom: 1px solid var(--gray-light); padding: 24px 0;">
           <h3 style="margin-bottom: 8px;">What does a termite inspection include?</h3>
-          <p style="color: var(--gray);">A Wernex <a href="services.html#termites">termite inspection</a> covers the full interior and exterior of your property, including foundation walls, crawl spaces, attics, and wood-to-soil contact points. We check for live termites, mud tubes, frass, and structural damage. A detailed report with findings and treatment recommendations is provided after every inspection.</p>
+          <p style="color: var(--gray);">A Wernex <a href="/services#termites">termite inspection</a> covers the full interior and exterior of your property, including foundation walls, crawl spaces, attics, and wood-to-soil contact points. We check for live termites, mud tubes, frass, and structural damage. A detailed report with findings and treatment recommendations is provided after every inspection.</p>
         </div>
 
         <div class="faq-item reveal" style="border-bottom: 1px solid var(--gray-light); padding: 24px 0;">
           <h3 style="margin-bottom: 8px;">Does Wernex offer a satisfaction guarantee?</h3>
-          <p style="color: var(--gray);">Yes. Wernex provides a 100% satisfaction guarantee. If pests return within 30 days of treatment, we will re-service your property at no additional cost. <a href="contact.html">Schedule your free inspection</a> to get started.</p>
+          <p style="color: var(--gray);">Yes. Wernex provides a 100% satisfaction guarantee. If pests return within 30 days of treatment, we will re-service your property at no additional cost. <a href="/contact">Schedule your free inspection</a> to get started.</p>
         </div>
 
         <div class="faq-item reveal" style="padding: 24px 0;">
           <h3 style="margin-bottom: 8px;">What areas does Wernex Pest Control serve?</h3>
-          <p style="color: var(--gray);">Wernex serves St. George, Washington, Hurricane, Ivins, Santa Clara, LaVerkin, Toquerville, Leeds, Springdale, Cedar City, Enterprise, Hildale, and surrounding Southern Utah communities. <a href="contact.html">Contact us</a> to confirm coverage in your area.</p>
+          <p style="color: var(--gray);">Wernex serves St. George, Washington, Hurricane, Ivins, Santa Clara, LaVerkin, Toquerville, Leeds, Springdale, Cedar City, Enterprise, Hildale, and surrounding Southern Utah communities. <a href="/contact">Contact us</a> to confirm coverage in your area.</p>
         </div>
 
       </div>
@@ -528,7 +528,7 @@ const schema = `{
           <p>Same-day service available. No obligation. 4.5★ rated on Google.</p>
         </div>
         <div class="cta-banner__buttons">
-          <a href="contact.html" class="btn btn--primary">Get Your Free Quote →</a>
+          <a href="/contact" class="btn btn--primary">Get Your Free Quote →</a>
           <a href="tel:+14356739503" class="btn btn--white">📞 (435) 673-9503</a>
         </div>
       </div>
@@ -543,20 +543,20 @@ const schema = `{
         <h2>Proudly Serving Southern Utah and North Eastern Utah</h2>
       </div>
       <div class="areas-grid" style="margin-top: 36px;">
-        <a href="contact.html" class="reveal">St. George</a>
-        <a href="contact.html" class="reveal">Washington</a>
-        <a href="contact.html" class="reveal">Hurricane</a>
-        <a href="contact.html" class="reveal">Ivins</a>
-        <a href="contact.html" class="reveal">Santa Clara</a>
-        <a href="contact.html" class="reveal">LaVerkin</a>
-        <a href="contact.html" class="reveal">Toquerville</a>
-        <a href="contact.html" class="reveal">Leeds</a>
-        <a href="contact.html" class="reveal">Springdale</a>
-        <a href="contact.html" class="reveal">Cedar City</a>
-        <a href="contact.html" class="reveal">Enterprise</a>
-        <a href="contact.html" class="reveal">Hildale</a>
-        <a href="contact.html" class="reveal">Duchesne County</a>
-        <a href="contact.html" class="reveal">Uintah County</a>
+        <a href="/contact" class="reveal">St. George</a>
+        <a href="/contact" class="reveal">Washington</a>
+        <a href="/contact" class="reveal">Hurricane</a>
+        <a href="/contact" class="reveal">Ivins</a>
+        <a href="/contact" class="reveal">Santa Clara</a>
+        <a href="/contact" class="reveal">LaVerkin</a>
+        <a href="/contact" class="reveal">Toquerville</a>
+        <a href="/contact" class="reveal">Leeds</a>
+        <a href="/contact" class="reveal">Springdale</a>
+        <a href="/contact" class="reveal">Cedar City</a>
+        <a href="/contact" class="reveal">Enterprise</a>
+        <a href="/contact" class="reveal">Hildale</a>
+        <a href="/contact" class="reveal">Duchesne County</a>
+        <a href="/contact" class="reveal">Uintah County</a>
       </div>
     </div>
   </section>
@@ -571,21 +571,21 @@ const schema = `{
       <div class="cards-grid" style="margin-top: 36px; max-width: 960px; margin-left:auto; margin-right:auto;">
         <div class="card reveal">
           <div class="card__body">
-            <h3><a href="blog.html" style="color:inherit;">Spring Pest Season Is Here: What You Need to Know</a></h3>
+            <h3><a href="/blog" style="color:inherit;">Spring Pest Season Is Here: What You Need to Know</a></h3>
             <p style="color:var(--gray);">As temperatures rise, so does pest activity. Learn which pests emerge first and simple prevention steps.</p>
-            <a href="blog.html" class="card__link">Read More →</a>
+            <a href="/blog" class="card__link">Read More →</a>
           </div>
         </div>
         <div class="card reveal">
           <div class="card__body">
-            <h3><a href="blog.html" style="color:inherit;">IPM Explained: What Is Integrated Pest Management?</a></h3>
+            <h3><a href="/blog" style="color:inherit;">IPM Explained: What Is Integrated Pest Management?</a></h3>
             <p style="color:var(--gray);">How science-based pest management reduces chemical use while delivering better results for your family.</p>
-            <a href="blog.html" class="card__link">Read More →</a>
+            <a href="/blog" class="card__link">Read More →</a>
           </div>
         </div>
       </div>
       <div class="text-center" style="margin-top: 28px;">
-        <a href="blog.html" class="btn btn--outline">Read All Articles →</a>
+        <a href="/blog" class="btn btn--outline">Read All Articles →</a>
       </div>
     </div>
   </section>
@@ -598,10 +598,10 @@ const schema = `{
         <h3 style="margin-top: 8px; margin-bottom: 0;">Related Pest Control Services</h3>
       </div>
       <ul style="list-style:none; padding:0; margin:0; display:flex; flex-wrap:wrap; justify-content:center; gap:12px 28px;">
-        <li><a href="pest-control-southern-utah.html">Pest Control in Southern Utah</a></li>
-        <li><a href="ant-control-st-george.html">Ant Control St. George</a></li>
-        <li><a href="same-day-pest-control-st-george.html">Same-Day Pest Control</a></li>
-        <li><a href="affordable-pest-control-st-george.html">Affordable Pest Control</a></li>
+        <li><a href="/pest-control-southern-utah">Pest Control in Southern Utah</a></li>
+        <li><a href="/ant-control-st-george">Ant Control St. George</a></li>
+        <li><a href="/same-day-pest-control-st-george">Same-Day Pest Control</a></li>
+        <li><a href="/affordable-pest-control-st-george">Affordable Pest Control</a></li>
       </ul>
     </div>
   </section>

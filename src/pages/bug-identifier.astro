@@ -3,16 +3,16 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 
 const title = 'AI Bug Identifier — Upload a Photo for Instant Pest ID | Wernex Pest Control';
 const description = 'Free AI-powered bug identification — upload a photo and get instant results from two AI systems. No login required. From Wernex Pest Control, serving Southern Utah for 30+ years.';
-const canonical = 'https://www.wernexpestcontrol.com/bug-identifier.html';
-const active = 'bug-identifier.html';
-const og = { "og:title": 'AI Bug Identifier — Instant Pest ID from a Photo | Wernex', "og:description": 'Free AI-powered bug identification. Upload a photo, get instant results from two AI systems. No login required.', "og:type": 'website', "og:url": 'https://www.wernexpestcontrol.com/bug-identifier.html', "og:locale": 'en_US', "og:site_name": 'Wernex Termite & Pest Control' };
+const canonical = 'https://www.wernexpestcontrol.com/bug-identifier';
+const active = '/bug-identifier';
+const og = { "og:title": 'AI Bug Identifier — Instant Pest ID from a Photo | Wernex', "og:description": 'Free AI-powered bug identification. Upload a photo, get instant results from two AI systems. No login required.', "og:type": 'website', "og:url": 'https://www.wernexpestcontrol.com/bug-identifier', "og:locale": 'en_US', "og:site_name": 'Wernex Termite & Pest Control' };
 const schema = `{
     "@context": "https://schema.org",
     "@graph": [
       {
         "@type": "WebApplication",
         "name": "Wernex AI Bug Identifier",
-        "url": "https://www.wernexpestcontrol.com/bug-identifier.html",
+        "url": "https://www.wernexpestcontrol.com/bug-identifier",
         "description": "Free AI-powered pest identification tool. Upload a photo of any bug and receive instant identification from two independent AI systems, including species name, threat level, behavior, and treatment recommendations.",
         "applicationCategory": "UtilityApplication",
         "operatingSystem": "Web",
@@ -26,7 +26,7 @@ const schema = `{
       },
       {
         "@type": "WebPage",
-        "url": "https://www.wernexpestcontrol.com/bug-identifier.html",
+        "url": "https://www.wernexpestcontrol.com/bug-identifier",
         "name": "AI Bug Identifier — Wernex Termite & Pest Control",
         "description": "Upload a photo of any bug and get instant AI-powered identification with species name, threat level, behavior, and recommended treatment.",
         "isPartOf": { "@id": "https://www.wernexpestcontrol.com/#website" }
@@ -98,7 +98,7 @@ const schema = `{
                 </div>
                 <div class="result-card__body" id="resultContent1"></div>
                 <div class="result-card__cta">
-                  <a href="contact.html" class="btn btn--primary btn--sm">Need Help? Contact Wernex →</a>
+                  <a href="/contact" class="btn btn--primary btn--sm">Need Help? Contact Wernex →</a>
                 </div>
               </div>
 
@@ -150,7 +150,7 @@ const schema = `{
                 </div>
                 <div class="result-card__body" id="resultContent2"></div>
                 <div class="result-card__cta">
-                  <a href="contact.html" class="btn btn--primary btn--sm">Need Help? Contact Wernex →</a>
+                  <a href="/contact" class="btn btn--primary btn--sm">Need Help? Contact Wernex →</a>
                 </div>
               </div>
 
@@ -223,7 +223,7 @@ const schema = `{
           <p>Our technicians have 30+ years of experience identifying and treating pests in Southern Utah.</p>
         </div>
         <div class="cta-banner__buttons">
-          <a href="contact.html" class="btn btn--primary">Get a Free Quote →</a>
+          <a href="/contact" class="btn btn--primary">Get a Free Quote →</a>
           <a href="tel:+14356739503" class="btn btn--white">📞 (435) 673-9503</a>
         </div>
       </div>

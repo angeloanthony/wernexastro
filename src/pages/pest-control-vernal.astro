@@ -3,9 +3,9 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 
 const title = 'Pest Control in Vernal, UT — Your Local Uintah Basin Exterminator | Wernex';
 const description = 'Wernex is Vernal’s local, family-owned pest control company — based right here in the Uintah Basin since 1994. Rodents, spiders, ants, wasps, box elder bugs &amp; more. Call (435) 673-9503.';
-const canonical = 'https://www.wernexpestcontrol.com/pest-control-vernal.html';
+const canonical = 'https://www.wernexpestcontrol.com/pest-control-vernal';
 const active = '';
-const og = { "og:title": 'Pest Control in Vernal, UT — Your Local Uintah Basin Exterminator | Wernex', "og:description": 'Family-owned and based in Vernal since 1994. Wernex protects Uintah Basin homes and businesses from rodents, spiders, ants, wasps, and seasonal invaders.', "og:type": 'website', "og:url": 'https://www.wernexpestcontrol.com/pest-control-vernal.html', "og:locale": 'en_US', "og:site_name": 'Wernex Termite & Pest Control' };
+const og = { "og:title": 'Pest Control in Vernal, UT — Your Local Uintah Basin Exterminator | Wernex', "og:description": 'Family-owned and based in Vernal since 1994. Wernex protects Uintah Basin homes and businesses from rodents, spiders, ants, wasps, and seasonal invaders.', "og:type": 'website', "og:url": 'https://www.wernexpestcontrol.com/pest-control-vernal', "og:locale": 'en_US', "og:site_name": 'Wernex Termite & Pest Control' };
 const schema = `{
   "@context": "https://schema.org",
   "@graph": [
@@ -33,7 +33,7 @@ const schema = `{
     },
     {
       "@type": "Service",
-      "@id": "https://www.wernexpestcontrol.com/pest-control-vernal.html#service",
+      "@id": "https://www.wernexpestcontrol.com/pest-control-vernal#service",
       "name": "Pest Control in Vernal, Utah",
       "description": "Residential and commercial pest control in Vernal and the Uintah Basin, including rodent control, spiders, ants, wasps and hornets, box elder bugs, and year-round prevention plans.",
       "provider": { "@id": "https://www.wernexpestcontrol.com/#business" },
@@ -45,7 +45,7 @@ const schema = `{
         { "@type": "AdministrativeArea", "name": "Uintah County" }
       ],
       "serviceType": "Pest Control",
-      "url": "https://www.wernexpestcontrol.com/pest-control-vernal.html",
+      "url": "https://www.wernexpestcontrol.com/pest-control-vernal",
       "offers": {
         "@type": "Offer",
         "description": "Free pest control quote with no obligation",
@@ -55,23 +55,23 @@ const schema = `{
     },
     {
       "@type": "WebPage",
-      "@id": "https://www.wernexpestcontrol.com/pest-control-vernal.html#webpage",
-      "url": "https://www.wernexpestcontrol.com/pest-control-vernal.html",
+      "@id": "https://www.wernexpestcontrol.com/pest-control-vernal#webpage",
+      "url": "https://www.wernexpestcontrol.com/pest-control-vernal",
       "name": "Pest Control in Vernal, UT \\u2014 Your Local Uintah Basin Exterminator | Wernex",
       "about": { "@id": "https://www.wernexpestcontrol.com/#business" },
-      "breadcrumb": { "@id": "https://www.wernexpestcontrol.com/pest-control-vernal.html#breadcrumb" }
+      "breadcrumb": { "@id": "https://www.wernexpestcontrol.com/pest-control-vernal#breadcrumb" }
     },
     {
       "@type": "BreadcrumbList",
-      "@id": "https://www.wernexpestcontrol.com/pest-control-vernal.html#breadcrumb",
+      "@id": "https://www.wernexpestcontrol.com/pest-control-vernal#breadcrumb",
       "itemListElement": [
         { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.wernexpestcontrol.com/" },
-        { "@type": "ListItem", "position": 2, "name": "Pest Control Vernal", "item": "https://www.wernexpestcontrol.com/pest-control-vernal.html" }
+        { "@type": "ListItem", "position": 2, "name": "Pest Control Vernal", "item": "https://www.wernexpestcontrol.com/pest-control-vernal" }
       ]
     },
     {
       "@type": "FAQPage",
-      "@id": "https://www.wernexpestcontrol.com/pest-control-vernal.html#faq",
+      "@id": "https://www.wernexpestcontrol.com/pest-control-vernal#faq",
       "mainEntity": [
         {
           "@type": "Question",
@@ -161,32 +161,32 @@ const schema = `{
         <p class="mx-auto" style="margin-top:12px;color:var(--gray);">The Basin's high-desert climate and rural surroundings bring a predictable set of seasonal invaders. Here are the ones we treat most.</p>
       </div>
       <div class="service-cards" style="margin-top: 40px;">
-        <a href="rodent-control-vernal.html" class="service-card reveal">
+        <a href="/rodent-control-vernal" class="service-card reveal">
           <div class="service-card__icon service-card__icon--green">🐭</div>
           <h3>Mice &amp; Rodents</h3>
-          <p>Deer mice and voles are our number-one cold-weather call. They slip into homes, garages, barns, and outbuildings through gaps the width of a pencil. We trap, exclude, and seal entry points — see our dedicated <a href="rodent-control-vernal.html">Vernal rodent control</a> page.</p>
+          <p>Deer mice and voles are our number-one cold-weather call. They slip into homes, garages, barns, and outbuildings through gaps the width of a pencil. We trap, exclude, and seal entry points — see our dedicated <a href="/rodent-control-vernal">Vernal rodent control</a> page.</p>
         </a>
-        <a href="contact.html" class="service-card reveal">
+        <a href="/contact" class="service-card reveal">
           <div class="service-card__icon service-card__icon--amber">🕷️</div>
           <h3>Spiders</h3>
           <p>From harmless cellar and wolf spiders to the occasional black widow in garages and woodpiles, spiders are a year-round nuisance in the Basin. We remove webs and egg sacs and treat the harborage areas where they hide.</p>
         </a>
-        <a href="contact.html" class="service-card reveal">
+        <a href="/contact" class="service-card reveal">
           <div class="service-card__icon service-card__icon--green">🐜</div>
           <h3>Ants</h3>
           <p>Ants forage indoors for food and moisture, especially in kitchens. We target the colony — not just the trail — so the problem doesn't simply come back a week later.</p>
         </a>
-        <a href="contact.html" class="service-card reveal">
+        <a href="/contact" class="service-card reveal">
           <div class="service-card__icon service-card__icon--amber">🐝</div>
           <h3>Wasps &amp; Hornets</h3>
           <p>Paper wasps and hornets build nests under eaves, in sheds, and around play areas through the summer. We remove nests safely and treat to discourage them from rebuilding.</p>
         </a>
-        <a href="contact.html" class="service-card reveal">
+        <a href="/contact" class="service-card reveal">
           <div class="service-card__icon service-card__icon--green">🪲</div>
           <h3>Box Elder Bugs</h3>
           <p>Each fall, box elder bugs swarm sunny south- and west-facing walls and work their way inside to overwinter. Exterior treatment timed to the season keeps them out before they get in.</p>
         </a>
-        <a href="contact.html" class="service-card reveal">
+        <a href="/contact" class="service-card reveal">
           <div class="service-card__icon service-card__icon--amber">🪰</div>
           <h3>Cluster Flies &amp; Others</h3>
           <p>Cluster flies, earwigs, silverfish, and other occasional invaders show up with the seasons. A prevention plan handles them as part of routine service instead of one emergency at a time.</p>
@@ -208,7 +208,7 @@ const schema = `{
           <p style="margin: 16px 0; color: var(--gray);">Good pest control is more than spraying a baseboard. We use an integrated approach that finds the source of the problem, removes it, and then keeps it from coming back — so you spend less over time and deal with fewer surprises.</p>
           <p style="color: var(--gray);"><strong>Inspect &amp; identify.</strong> Every job starts with a walk-through of your property. We pinpoint where pests are getting in, where they're nesting, and what's drawing them — moisture, food, clutter, or gaps in the structure.</p>
           <p style="color: var(--gray);"><strong>Treat &amp; exclude.</strong> We apply targeted treatments where pests actually live and travel, and we seal the entry points that let them in. For rodents in particular, exclusion — closing up those pencil-width gaps — is what keeps them out for good.</p>
-          <p style="color: var(--gray);"><strong>Prevent year-round.</strong> Because Basin pests move with the seasons, our prevention plans time service to the calendar: barrier treatments before the fall rodent and box elder push, and follow-ups in spring as activity rebuilds. If something shows up between visits, we come back. <a href="contact.html">Get a free quote</a> to get started.</p>
+          <p style="color: var(--gray);"><strong>Prevent year-round.</strong> Because Basin pests move with the seasons, our prevention plans time service to the calendar: barrier treatments before the fall rodent and box elder push, and follow-ups in spring as activity rebuilds. If something shows up between visits, we come back. <a href="/contact">Get a free quote</a> to get started.</p>
         </div>
       </div>
     </div>
@@ -283,7 +283,7 @@ const schema = `{
         </div>
       </div>
       <div class="text-center" style="margin-top: 36px;">
-        <a href="testimonials.html" class="btn btn--lime">Read All Reviews →</a>
+        <a href="/testimonials" class="btn btn--lime">Read All Reviews →</a>
       </div>
     </div>
   </section>
@@ -319,7 +319,7 @@ const schema = `{
 
         <div class="faq-item reveal" style="padding: 24px 0;">
           <h3 style="margin-bottom: 8px;">How much does pest control cost in Vernal?</h3>
-          <p style="color: var(--gray);">Cost depends on the size of your property, the pests involved, and whether you choose a one-time treatment or an ongoing prevention plan. Wernex provides free, no-obligation quotes for Vernal homeowners and businesses. <a href="contact.html">Contact us</a> or call <a href="tel:+14356739503">(435) 673-9503</a> and we'll give you straightforward pricing with no pressure.</p>
+          <p style="color: var(--gray);">Cost depends on the size of your property, the pests involved, and whether you choose a one-time treatment or an ongoing prevention plan. Wernex provides free, no-obligation quotes for Vernal homeowners and businesses. <a href="/contact">Contact us</a> or call <a href="tel:+14356739503">(435) 673-9503</a> and we'll give you straightforward pricing with no pressure.</p>
         </div>
 
       </div>
@@ -335,7 +335,7 @@ const schema = `{
           <p>Free quotes. Fast local response. No obligation. 4.5★ rated on Google.</p>
         </div>
         <div class="cta-banner__buttons">
-          <a href="contact.html" class="btn btn--primary">Get a Free Quote →</a>
+          <a href="/contact" class="btn btn--primary">Get a Free Quote →</a>
           <a href="tel:+14356739503" class="btn btn--white">📞 (435) 673-9503</a>
         </div>
       </div>
@@ -350,18 +350,18 @@ const schema = `{
         <h2>Pest Control Across the Uintah Basin</h2>
       </div>
       <div class="areas-grid" style="margin-top: 36px;">
-        <a href="contact.html" class="reveal">Vernal</a>
-        <a href="contact.html" class="reveal">Naples</a>
-        <a href="contact.html" class="reveal">Maeser</a>
-        <a href="contact.html" class="reveal">Ballard</a>
-        <a href="contact.html" class="reveal">Jensen</a>
-        <a href="contact.html" class="reveal">Lapoint</a>
-        <a href="contact.html" class="reveal">Roosevelt</a>
-        <a href="contact.html" class="reveal">Duchesne</a>
-        <a href="contact.html" class="reveal">Tridell</a>
-        <a href="contact.html" class="reveal">Whiterocks</a>
-        <a href="contact.html" class="reveal">Uintah County</a>
-        <a href="contact.html" class="reveal">Duchesne County</a>
+        <a href="/contact" class="reveal">Vernal</a>
+        <a href="/contact" class="reveal">Naples</a>
+        <a href="/contact" class="reveal">Maeser</a>
+        <a href="/contact" class="reveal">Ballard</a>
+        <a href="/contact" class="reveal">Jensen</a>
+        <a href="/contact" class="reveal">Lapoint</a>
+        <a href="/contact" class="reveal">Roosevelt</a>
+        <a href="/contact" class="reveal">Duchesne</a>
+        <a href="/contact" class="reveal">Tridell</a>
+        <a href="/contact" class="reveal">Whiterocks</a>
+        <a href="/contact" class="reveal">Uintah County</a>
+        <a href="/contact" class="reveal">Duchesne County</a>
       </div>
     </div>
   </section>
@@ -374,10 +374,10 @@ const schema = `{
         <h3 style="margin-top: 8px; margin-bottom: 0;">More From Wernex</h3>
       </div>
       <ul style="list-style:none; padding:0; margin:0; display:flex; flex-wrap:wrap; justify-content:center; gap:12px 28px;">
-        <li><a href="rodent-control-vernal.html">Rodent Control in Vernal</a></li>
-        <li><a href="services.html">Full Service List</a></li>
-        <li><a href="pest-library.html">Pest Library</a></li>
-        <li><a href="contact.html">Schedule an Appointment</a></li>
+        <li><a href="/rodent-control-vernal">Rodent Control in Vernal</a></li>
+        <li><a href="/services">Full Service List</a></li>
+        <li><a href="/pest-library">Pest Library</a></li>
+        <li><a href="/contact">Schedule an Appointment</a></li>
       </ul>
     </div>
   </section>

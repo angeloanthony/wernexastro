@@ -3,15 +3,15 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 
 const title = 'Pest Library — Identify Ants, Termites, Spiders &amp; More in Southern Utah | Wernex';
 const description = 'Identify 15+ common Southern Utah pests with photos, facts, and prevention tips. Ants, termites, scorpions, rodents, bed bugs & more. Free AI bug ID tool. Call (435) 673-9503.';
-const canonical = 'https://www.wernexpestcontrol.com/pest-library.html';
-const active = 'pest-library.html';
-const og = { "og:title": 'Pest Library — Identify Common Pests in Southern Utah | Wernex', "og:description": 'Photos, facts, and prevention tips for 15+ common Southern Utah pests. Free AI bug identifier included.', "og:type": 'website', "og:url": 'https://www.wernexpestcontrol.com/pest-library.html', "og:locale": 'en_US', "og:site_name": 'Wernex Termite & Pest Control' };
+const canonical = 'https://www.wernexpestcontrol.com/pest-library';
+const active = '/pest-library';
+const og = { "og:title": 'Pest Library — Identify Common Pests in Southern Utah | Wernex', "og:description": 'Photos, facts, and prevention tips for 15+ common Southern Utah pests. Free AI bug identifier included.', "og:type": 'website', "og:url": 'https://www.wernexpestcontrol.com/pest-library', "og:locale": 'en_US', "og:site_name": 'Wernex Termite & Pest Control' };
 const schema = `{
     "@context": "https://schema.org",
     "@graph": [
       {
         "@type": "CollectionPage",
-        "url": "https://www.wernexpestcontrol.com/pest-library.html",
+        "url": "https://www.wernexpestcontrol.com/pest-library",
         "name": "Pest Library — Wernex Termite & Pest Control",
         "description": "Comprehensive pest identification library for 15+ pests common in Southern Utah, with photos, behavior facts, and prevention tips.",
         "isPartOf": { "@id": "https://www.wernexpestcontrol.com/#website" },
@@ -22,21 +22,21 @@ const schema = `{
         "name": "Southern Utah Pest Identification Guide",
         "numberOfItems": 15,
         "itemListElement": [
-          { "@type": "ListItem", "position": 1,  "name": "Ants",                "url": "https://www.wernexpestcontrol.com/pest-library.html#ants" },
-          { "@type": "ListItem", "position": 2,  "name": "Termites",            "url": "https://www.wernexpestcontrol.com/pest-library.html#termites" },
-          { "@type": "ListItem", "position": 3,  "name": "Mice & Rats",         "url": "https://www.wernexpestcontrol.com/pest-library.html#rodents" },
-          { "@type": "ListItem", "position": 4,  "name": "Bed Bugs",            "url": "https://www.wernexpestcontrol.com/pest-library.html#bedbugs" },
-          { "@type": "ListItem", "position": 5,  "name": "Silverfish",          "url": "https://www.wernexpestcontrol.com/pest-library.html#silverfish" },
-          { "@type": "ListItem", "position": 6,  "name": "Beetles",             "url": "https://www.wernexpestcontrol.com/pest-library.html#beetles" },
-          { "@type": "ListItem", "position": 7,  "name": "Scorpions",           "url": "https://www.wernexpestcontrol.com/pest-library.html#scorpions" },
-          { "@type": "ListItem", "position": 8,  "name": "Mosquitoes",          "url": "https://www.wernexpestcontrol.com/pest-library.html#mosquitoes" },
-          { "@type": "ListItem", "position": 9,  "name": "Wasps & Yellow Jackets", "url": "https://www.wernexpestcontrol.com/pest-library.html#wasps" },
-          { "@type": "ListItem", "position": 10, "name": "Cockroaches",         "url": "https://www.wernexpestcontrol.com/pest-library.html#cockroaches" },
-          { "@type": "ListItem", "position": 11, "name": "Spiders",             "url": "https://www.wernexpestcontrol.com/pest-library.html#spiders" },
-          { "@type": "ListItem", "position": 12, "name": "Fleas & Ticks",       "url": "https://www.wernexpestcontrol.com/pest-library.html#fleas" },
-          { "@type": "ListItem", "position": 13, "name": "Flies",               "url": "https://www.wernexpestcontrol.com/pest-library.html#flies" },
-          { "@type": "ListItem", "position": 14, "name": "Earwigs",             "url": "https://www.wernexpestcontrol.com/pest-library.html#earwigs" },
-          { "@type": "ListItem", "position": 15, "name": "Centipedes",          "url": "https://www.wernexpestcontrol.com/pest-library.html#centipedes" }
+          { "@type": "ListItem", "position": 1,  "name": "Ants",                "url": "https://www.wernexpestcontrol.com/pest-library#ants" },
+          { "@type": "ListItem", "position": 2,  "name": "Termites",            "url": "https://www.wernexpestcontrol.com/pest-library#termites" },
+          { "@type": "ListItem", "position": 3,  "name": "Mice & Rats",         "url": "https://www.wernexpestcontrol.com/pest-library#rodents" },
+          { "@type": "ListItem", "position": 4,  "name": "Bed Bugs",            "url": "https://www.wernexpestcontrol.com/pest-library#bedbugs" },
+          { "@type": "ListItem", "position": 5,  "name": "Silverfish",          "url": "https://www.wernexpestcontrol.com/pest-library#silverfish" },
+          { "@type": "ListItem", "position": 6,  "name": "Beetles",             "url": "https://www.wernexpestcontrol.com/pest-library#beetles" },
+          { "@type": "ListItem", "position": 7,  "name": "Scorpions",           "url": "https://www.wernexpestcontrol.com/pest-library#scorpions" },
+          { "@type": "ListItem", "position": 8,  "name": "Mosquitoes",          "url": "https://www.wernexpestcontrol.com/pest-library#mosquitoes" },
+          { "@type": "ListItem", "position": 9,  "name": "Wasps & Yellow Jackets", "url": "https://www.wernexpestcontrol.com/pest-library#wasps" },
+          { "@type": "ListItem", "position": 10, "name": "Cockroaches",         "url": "https://www.wernexpestcontrol.com/pest-library#cockroaches" },
+          { "@type": "ListItem", "position": 11, "name": "Spiders",             "url": "https://www.wernexpestcontrol.com/pest-library#spiders" },
+          { "@type": "ListItem", "position": 12, "name": "Fleas & Ticks",       "url": "https://www.wernexpestcontrol.com/pest-library#fleas" },
+          { "@type": "ListItem", "position": 13, "name": "Flies",               "url": "https://www.wernexpestcontrol.com/pest-library#flies" },
+          { "@type": "ListItem", "position": 14, "name": "Earwigs",             "url": "https://www.wernexpestcontrol.com/pest-library#earwigs" },
+          { "@type": "ListItem", "position": 15, "name": "Centipedes",          "url": "https://www.wernexpestcontrol.com/pest-library#centipedes" }
         ]
       }
     ]
@@ -47,7 +47,7 @@ const schema = `{
   <section class="section" style="padding-bottom: 0;">
     <div class="container text-center">
       <div class="reveal" style="max-width: 760px; margin: 0 auto 32px;">
-        <p style="color: var(--gray); line-height: 1.7;">Browse the pests most commonly found in homes and businesses across <a href="pest-control-southern-utah.html">Southern Utah</a>. Tap any pest to learn about behavior, damage signs, and treatment — or call <a href="tel:+14356739503">(435) 673-9503</a> for same-day help.</p>
+        <p style="color: var(--gray); line-height: 1.7;">Browse the pests most commonly found in homes and businesses across <a href="/pest-control-southern-utah">Southern Utah</a>. Tap any pest to learn about behavior, damage signs, and treatment — or call <a href="tel:+14356739503">(435) 673-9503</a> for same-day help.</p>
       </div>
       <div class="pest-search reveal" style="margin-bottom: 48px;">
         <span class="pest-search__icon">🔍</span>
@@ -166,12 +166,12 @@ const schema = `{
 
       <!-- Contextual treatment links -->
       <div class="reveal" style="max-width: 760px; margin: 40px auto 0; text-align:center;">
-        <p style="color: var(--gray); line-height: 1.7;">Need treatment for a specific pest? We offer specialized <a href="ant-control-st-george.html">ant control</a> and <a href="spider-control-st-george.html">spider control</a> in St. George, plus <a href="wasp-removal-st-george.html">wasp and bee removal</a> across Southern Utah — all backed by our 30-day satisfaction guarantee.</p>
+        <p style="color: var(--gray); line-height: 1.7;">Need treatment for a specific pest? We offer specialized <a href="/ant-control-st-george">ant control</a> and <a href="/spider-control-st-george">spider control</a> in St. George, plus <a href="/wasp-removal-st-george">wasp and bee removal</a> across Southern Utah — all backed by our 30-day satisfaction guarantee.</p>
       </div>
 
       <!-- Crosslink to dedicated identifier page -->
       <div class="reveal text-center" style="margin-top: 40px;">
-        <a href="bug-identifier.html" class="btn btn--primary" style="font-size: 1.05rem; padding: 16px 36px;">
+        <a href="/bug-identifier" class="btn btn--primary" style="font-size: 1.05rem; padding: 16px 36px;">
           📷 Don't See Your Pest? Upload a Photo →
         </a>
       </div>
@@ -237,7 +237,7 @@ const schema = `{
           <div id="resultBox" style="display:none;margin-top:24px;background:#f0f7f0;border-left:4px solid #2c6e2f;border-radius:10px;padding:20px 24px;text-align:left;">
             <h3 style="color:#2c6e2f;margin:0 0 14px;font-size:1.1rem;">🐞 Identification Result</h3>
             <div id="resultContent" style="font-size:0.95rem;color:#333;line-height:1.7;"></div>
-            <a href="contact.html" class="btn btn--primary btn--sm" style="margin-top:16px;display:inline-block;">Need Help? Contact Wernex →</a>
+            <a href="/contact" class="btn btn--primary btn--sm" style="margin-top:16px;display:inline-block;">Need Help? Contact Wernex →</a>
           </div>
 
           <div id="errorBox" style="display:none;margin-top:20px;background:#fff3f3;border-left:4px solid #e53935;border-radius:10px;padding:16px 20px;text-align:left;color:#c62828;font-size:0.9rem;">
@@ -284,7 +284,7 @@ const schema = `{
           <p style="color:var(--gray);margin-top:8px;">
             Fix leaks promptly, store firewood away from the house, trim branches touching the roof, and seal cracks in the foundation.
           </p>
-          <a href="contact.html" class="btn btn--primary btn--sm" style="margin-top:24px;">Got Carpenter Ants? Get Help →</a>
+          <a href="/contact" class="btn btn--primary btn--sm" style="margin-top:24px;">Got Carpenter Ants? Get Help →</a>
         </div>
       </div>
     </div>
@@ -299,7 +299,7 @@ const schema = `{
           <p>Send us a photo and our experts will ID it for free.</p>
         </div>
         <div class="cta-banner__buttons">
-          <a href="contact.html" class="btn btn--primary">Contact Us →</a>
+          <a href="/contact" class="btn btn--primary">Contact Us →</a>
           <a href="tel:+14356739503" class="btn btn--white">📞 (435) 673-9503</a>
         </div>
       </div>
@@ -314,10 +314,10 @@ const schema = `{
         <h3 style="margin-top: 8px; margin-bottom: 0;">Related Pest Control Services</h3>
       </div>
       <ul style="list-style:none; padding:0; margin:0; display:flex; flex-wrap:wrap; justify-content:center; gap:12px 28px;">
-        <li><a href="pest-control-southern-utah.html">Pest Control Across Southern Utah</a></li>
-        <li><a href="ant-control-st-george.html">St. George Ant Control</a></li>
-        <li><a href="spider-control-st-george.html">Spider Treatment St. George</a></li>
-        <li><a href="wasp-removal-st-george.html">Wasp &amp; Bee Removal</a></li>
+        <li><a href="/pest-control-southern-utah">Pest Control Across Southern Utah</a></li>
+        <li><a href="/ant-control-st-george">St. George Ant Control</a></li>
+        <li><a href="/spider-control-st-george">Spider Treatment St. George</a></li>
+        <li><a href="/wasp-removal-st-george">Wasp &amp; Bee Removal</a></li>
       </ul>
     </div>
   </section>

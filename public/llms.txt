@@ -39,33 +39,33 @@
 ## Key Pages
 
 - [Homepage](https://www.wernexpestcontrol.com/): Overview of Wernex pest control services across Southern Utah.
-- [Services](https://www.wernexpestcontrol.com/services.html): Full list of residential, commercial, and specialty pest control services.
-- [About Us](https://www.wernexpestcontrol.com/about.html): Company history, team, and certifications.
-- [Pest Library](https://www.wernexpestcontrol.com/pest-library.html): Identification guides for common Southern Utah pests.
-- [AI Bug Identifier](https://www.wernexpestcontrol.com/bug-identifier.html): Upload a photo to identify a bug.
-- [Blog](https://www.wernexpestcontrol.com/blog.html): Pest prevention tips and seasonal guides.
-- [Reviews](https://www.wernexpestcontrol.com/testimonials.html): Real Google customer reviews (4.5 stars).
-- [Contact / Schedule](https://www.wernexpestcontrol.com/contact.html): Book a free inspection or quote.
+- [Services](https://www.wernexpestcontrol.com/services): Full list of residential, commercial, and specialty pest control services.
+- [About Us](https://www.wernexpestcontrol.com/about): Company history, team, and certifications.
+- [Pest Library](https://www.wernexpestcontrol.com/pest-library): Identification guides for common Southern Utah pests.
+- [AI Bug Identifier](https://www.wernexpestcontrol.com/bug-identifier): Upload a photo to identify a bug.
+- [Blog](https://www.wernexpestcontrol.com/blog): Pest prevention tips and seasonal guides.
+- [Reviews](https://www.wernexpestcontrol.com/testimonials): Real Google customer reviews (4.5 stars).
+- [Contact / Schedule](https://www.wernexpestcontrol.com/contact): Book a free inspection or quote.
 
 ## Location & Service Pages
 
-- [Pest Control Southern Utah (Hub)](https://www.wernexpestcontrol.com/pest-control-southern-utah.html): Region-wide pest control overview.
-- [Termite Control St. George](https://www.wernexpestcontrol.com/termite-control-st-george.html): Termite inspections, liquid barrier treatments, and WDI reports.
-- [Pest Control Vernal](https://www.wernexpestcontrol.com/pest-control-vernal.html): Local pest control for Vernal and the Uintah Basin.
-- [Rodent Control Vernal](https://www.wernexpestcontrol.com/rodent-control-vernal.html): Mouse and rat removal, exclusion, and trapping in the Uintah Basin.
-- [Bed Bug Treatment Southern Utah](https://www.wernexpestcontrol.com/bed-bug-treatment-southern-utah.html): Heat and targeted bed bug treatments for homes and rentals.
-- [Pest Control Hurricane UT](https://www.wernexpestcontrol.com/pest-control-hurricane-ut.html): Pest control for Hurricane and the Sand Hollow area.
-- [Pest Control Washington UT](https://www.wernexpestcontrol.com/pest-control-washington-ut.html): Pest control for Washington City.
-- [Pest Control Near Zion National Park](https://www.wernexpestcontrol.com/pest-control-near-zion-national-park.html): Service for the Zion Corridor and vacation rentals.
-- [Scorpion Control St. George](https://www.wernexpestcontrol.com/scorpion-control-st-george.html): Bark scorpion detection and elimination.
-- [Commercial Pest Control Southern Utah](https://www.wernexpestcontrol.com/commercial-pest-control-southern-utah.html): Programs for businesses and facilities.
-- [Best Pest Control St. George](https://www.wernexpestcontrol.com/best-pest-control-st-george.html): How to choose a pest control company in St. George.
-- [Ant Control St. George](https://www.wernexpestcontrol.com/ant-control-st-george.html): Ant colony elimination and prevention.
-- [Spider Control St. George](https://www.wernexpestcontrol.com/spider-control-st-george.html): Black widow and desert spider control.
-- [Wasp Removal St. George](https://www.wernexpestcontrol.com/wasp-removal-st-george.html): Wasp and hornet nest removal.
-- [Pest Control Ivins UT](https://www.wernexpestcontrol.com/pest-control-ivins-ut.html): Pest control near Snow Canyon.
-- [Pest Control Santa Clara UT](https://www.wernexpestcontrol.com/pest-control-santa-clara-ut.html): Pest control for Santa Clara.
-- [Pest Control LaVerkin UT](https://www.wernexpestcontrol.com/pest-control-laverkin-ut.html): Pest control for the LaVerkin/Toquerville area.
-- [Affordable Pest Control St. George](https://www.wernexpestcontrol.com/affordable-pest-control-st-george.html): Budget-friendly treatment plans.
-- [Same-Day Pest Control St. George](https://www.wernexpestcontrol.com/same-day-pest-control-st-george.html): Emergency same-day service.
-- [Vacation Rental Pest Control Southern Utah](https://www.wernexpestcontrol.com/pest-control-vacation-rentals-southern-utah.html): Turnover-scheduled treatments for Airbnb/VRBO hosts.
+- [Pest Control Southern Utah (Hub)](https://www.wernexpestcontrol.com/pest-control-southern-utah): Region-wide pest control overview.
+- [Termite Control St. George](https://www.wernexpestcontrol.com/termite-control-st-george): Termite inspections, liquid barrier treatments, and WDI reports.
+- [Pest Control Vernal](https://www.wernexpestcontrol.com/pest-control-vernal): Local pest control for Vernal and the Uintah Basin.
+- [Rodent Control Vernal](https://www.wernexpestcontrol.com/rodent-control-vernal): Mouse and rat removal, exclusion, and trapping in the Uintah Basin.
+- [Bed Bug Treatment Southern Utah](https://www.wernexpestcontrol.com/bed-bug-treatment-southern-utah): Heat and targeted bed bug treatments for homes and rentals.
+- [Pest Control Hurricane UT](https://www.wernexpestcontrol.com/pest-control-hurricane-ut): Pest control for Hurricane and the Sand Hollow area.
+- [Pest Control Washington UT](https://www.wernexpestcontrol.com/pest-control-washington-ut): Pest control for Washington City.
+- [Pest Control Near Zion National Park](https://www.wernexpestcontrol.com/pest-control-near-zion-national-park): Service for the Zion Corridor and vacation rentals.
+- [Scorpion Control St. George](https://www.wernexpestcontrol.com/scorpion-control-st-george): Bark scorpion detection and elimination.
+- [Commercial Pest Control Southern Utah](https://www.wernexpestcontrol.com/commercial-pest-control-southern-utah): Programs for businesses and facilities.
+- [Best Pest Control St. George](https://www.wernexpestcontrol.com/best-pest-control-st-george): How to choose a pest control company in St. George.
+- [Ant Control St. George](https://www.wernexpestcontrol.com/ant-control-st-george): Ant colony elimination and prevention.
+- [Spider Control St. George](https://www.wernexpestcontrol.com/spider-control-st-george): Black widow and desert spider control.
+- [Wasp Removal St. George](https://www.wernexpestcontrol.com/wasp-removal-st-george): Wasp and hornet nest removal.
+- [Pest Control Ivins UT](https://www.wernexpestcontrol.com/pest-control-ivins-ut): Pest control near Snow Canyon.
+- [Pest Control Santa Clara UT](https://www.wernexpestcontrol.com/pest-control-santa-clara-ut): Pest control for Santa Clara.
+- [Pest Control LaVerkin UT](https://www.wernexpestcontrol.com/pest-control-laverkin-ut): Pest control for the LaVerkin/Toquerville area.
+- [Affordable Pest Control St. George](https://www.wernexpestcontrol.com/affordable-pest-control-st-george): Budget-friendly treatment plans.
+- [Same-Day Pest Control St. George](https://www.wernexpestcontrol.com/same-day-pest-control-st-george): Emergency same-day service.
+- [Vacation Rental Pest Control Southern Utah](https://www.wernexpestcontrol.com/pest-control-vacation-rentals-southern-utah): Turnover-scheduled treatments for Airbnb/VRBO hosts.

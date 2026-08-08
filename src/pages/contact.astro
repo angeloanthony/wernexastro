@@ -3,16 +3,16 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 
 const title = 'Contact Wernex Pest Control — Free Inspections &amp; Same-Day Service in St. George UT';
 const description = 'Schedule a free pest inspection in St. George & Southern Utah. Same-day and 24/7 emergency service. Book online or call (435) 673-9503 — no contracts, no obligation.';
-const canonical = 'https://www.wernexpestcontrol.com/contact.html';
-const active = 'contact.html';
-const og = { "og:title": 'Contact Wernex Pest Control — Free Inspections in St. George UT', "og:description": 'Schedule a free pest inspection. Same-day and 24/7 emergency service. Book online or call (435) 673-9503.', "og:type": 'website', "og:url": 'https://www.wernexpestcontrol.com/contact.html', "og:locale": 'en_US', "og:site_name": 'Wernex Termite & Pest Control' };
+const canonical = 'https://www.wernexpestcontrol.com/contact';
+const active = '/contact';
+const og = { "og:title": 'Contact Wernex Pest Control — Free Inspections in St. George UT', "og:description": 'Schedule a free pest inspection. Same-day and 24/7 emergency service. Book online or call (435) 673-9503.', "og:type": 'website', "og:url": 'https://www.wernexpestcontrol.com/contact', "og:locale": 'en_US', "og:site_name": 'Wernex Termite & Pest Control' };
 const schema = `{
     "@context": "https://schema.org",
     "@graph": [
       {
         "@type": "ContactPage",
-        "@id": "https://www.wernexpestcontrol.com/contact.html#contactpage",
-        "url": "https://www.wernexpestcontrol.com/contact.html",
+        "@id": "https://www.wernexpestcontrol.com/contact#contactpage",
+        "url": "https://www.wernexpestcontrol.com/contact",
         "name": "Contact Wernex Termite & Pest Control",
         "description": "Schedule a free pest inspection, request a quote, or reach the Wernex team by phone, email, or live chat. Serving St. George, Washington, Hurricane, and Southern Utah.",
         "isPartOf": { "@id": "https://www.wernexpestcontrol.com/#website" },
@@ -51,7 +51,7 @@ const schema = `{
           <div class="reveal">
             <span class="section-label">Reach Us</span>
             <h2>Schedule Your Free Consultation</h2>
-            <p style="color: var(--gray); margin: 12px 0 32px;"><strong>Simple, reliable pest control with flexible scheduling and no contracts.</strong> Serving St. George, Washington, Hurricane, and all of Southern Utah. Choose whichever method works best — or browse our <a href="services.html">services</a> first.</p>
+            <p style="color: var(--gray); margin: 12px 0 32px;"><strong>Simple, reliable pest control with flexible scheduling and no contracts.</strong> Serving St. George, Washington, Hurricane, and all of Southern Utah. Choose whichever method works best — or browse our <a href="/services">services</a> first.</p>
           </div>
 
           <div class="contact-method reveal">
@@ -99,7 +99,7 @@ const schema = `{
           </div>
 
           <!-- Trust triggers near CTA §7.3 -->
-          <p class="reveal" style="margin-top: 16px; font-size: 0.88rem; color: var(--gray);">⭐ 4.5 stars · 27 Google reviews · 30+ years serving Southern Utah · <a href="about.html">BBB A+ accredited</a></p>
+          <p class="reveal" style="margin-top: 16px; font-size: 0.88rem; color: var(--gray);">⭐ 4.5 stars · 27 Google reviews · 30+ years serving Southern Utah · <a href="/about">BBB A+ accredited</a></p>
         </div>
 
         <!-- RIGHT: Cal.com Booking -->
@@ -144,7 +144,7 @@ const schema = `{
         <div id="service-map" style="width: 100%; height: 480px;"></div>
       </div>
       <p style="text-align:center; margin-top: 14px; color: var(--gray); font-size: 0.88rem;">
-        📍 Serving <strong>St. George</strong>, <strong>Washington</strong>, <strong>Hurricane</strong>, and <strong>Uintah County</strong> — see our <a href="pest-control-southern-utah.html">complete Southern Utah service area</a>.
+        📍 Serving <strong>St. George</strong>, <strong>Washington</strong>, <strong>Hurricane</strong>, and <strong>Uintah County</strong> — see our <a href="/pest-control-southern-utah">complete Southern Utah service area</a>.
       </p>
     </div>
   </section>
@@ -185,10 +185,10 @@ const schema = `{
         <h3 style="margin-top: 8px; margin-bottom: 0;">Explore Our Most-Requested Services</h3>
       </div>
       <ul style="list-style:none; padding:0; margin:0; display:flex; flex-wrap:wrap; justify-content:center; gap:12px 28px;">
-        <li><a href="same-day-pest-control-st-george.html">Same-Day Pest Control</a></li>
-        <li><a href="affordable-pest-control-st-george.html">Affordable Pest Control St. George</a></li>
-        <li><a href="pest-control-southern-utah.html">Southern Utah Service Area</a></li>
-        <li><a href="services.html">All Services</a></li>
+        <li><a href="/same-day-pest-control-st-george">Same-Day Pest Control</a></li>
+        <li><a href="/affordable-pest-control-st-george">Affordable Pest Control St. George</a></li>
+        <li><a href="/pest-control-southern-utah">Southern Utah Service Area</a></li>
+        <li><a href="/services">All Services</a></li>
       </ul>
     </div>
   </section>
