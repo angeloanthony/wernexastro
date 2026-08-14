@@ -1,5 +1,5 @@
 # Wernex Termite & Pest Control — robots.txt
-# Updated: 2026-03-31
+# Updated: 2026-08-14
 
 User-agent: *
 Allow: /
@@ -30,7 +30,19 @@ Allow: /
 User-agent: ClaudeBot
 Allow: /
 
+User-agent: Claude-SearchBot
+Allow: /
+
+User-agent: Claude-User
+Allow: /
+
 User-agent: PerplexityBot
+Allow: /
+
+User-agent: Perplexity-User
+Allow: /
+
+User-agent: DuckAssistBot
 Allow: /
 
 # Sitemap

@@ -24,7 +24,7 @@ export const WERNEX = {
   // on the other pages. If you re-add a `rating` field here for the schema.ts helper, keep it
   // in sync with the live GBP numbers — stale/invented counts risk a structured-data violation.
   foundingDate: "1994",
-  priceRange: "$$",
+  priceRange: "$",
   logo: "https://www.wernexpestcontrol.com/images/Logo.webp",
   hours: {
     weekday: "Mon–Fri 7am–7pm",
