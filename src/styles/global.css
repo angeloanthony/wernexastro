@@ -111,6 +111,15 @@ p { max-width: 65ch; }
 }
 .btn svg { width: 18px; height: 18px; flex-shrink: 0; }
 
+/* long-text CTA variant — wraps instead of overflowing on narrow screens */
+.btn--wrap {
+  white-space: normal;
+  text-align: center;
+}
+@media (max-width: 480px) {
+  .btn--wrap { padding: 14px 24px !important; font-size: 0.95rem !important; }
+}
+
 .btn--primary {
   background: var(--amber);
   color: #fff;
@@ -452,7 +461,7 @@ p { max-width: 65ch; }
   .hero__split {
     grid-template-columns: 1fr;
     gap: 48px;
-    padding-top: 60px;
+    padding-top: 32px;
     padding-bottom: 60px;
   }
 }
