@@ -503,10 +503,21 @@ p { max-width: 65ch; }
   font-size: 1.15rem;
   margin-bottom: 32px;
 }
+/* AI summary paragraph lives in the hero on desktop (room for it);
+   on mobile it moves to its own card below the hero — see .hero__ai-summary-mobile */
+.hero__ai-summary-mobile { display: none; }
+@media (max-width: 900px) {
+  .hero__ai-summary { display: none; }
+  .hero__ai-summary-mobile { display: block; }
+}
 .hero__buttons {
   display: flex;
   flex-wrap: wrap;
   gap: 16px;
+}
+/* redundant on mobile — the floating CTA bar (see .floating-cta) already covers call/quote */
+@media (max-width: 900px) {
+  .hero__buttons { display: none; }
 }
 .hero__badges {
   display: flex;
@@ -515,6 +526,12 @@ p { max-width: 65ch; }
   margin-top: 48px;
   padding-top: 32px;
   border-top: 1px solid rgba(255,255,255,0.12);
+}
+/* mobile duplicate lives after the video (see markup); desktop copy stays inside .hero__content */
+.hero__badges--mobile { display: none; }
+@media (max-width: 900px) {
+  .hero__content .hero__badges { display: none; }
+  .hero__badges--mobile { display: flex; margin-top: 32px; }
 }
 .hero__badge {
   display: flex;
