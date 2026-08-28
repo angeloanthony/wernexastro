@@ -1,59 +1,61 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import { VISIBLE_PESTS } from '../data/pests';
+import { buildPestIndex } from '../lib/pestIndex';
 
-const title = 'Pest Library — Identify Ants, Termites, Spiders &amp; More in Southern Utah | Wernex';
-const description = 'Identify 15+ common Southern Utah pests with photos, facts, and prevention tips. Ants, termites, scorpions, rodents, bed bugs & more. Free AI bug ID tool. Call (435) 673-9503.';
+const SITE = 'https://www.wernexpestcontrol.com';
+const PEST_COUNT = VISIBLE_PESTS.length;
+
+const title = 'Utah Pest Library — Identify Ants, Termites, Spiders &amp; More | Wernex';
+const description = `Identify ${PEST_COUNT} pests common in Utah homes with photos, facts, and prevention tips. Ants, termites, scorpions, rodents, bed bugs & more. Free AI bug ID tool. Call (435) 673-9503.`;
 const canonical = 'https://www.wernexpestcontrol.com/pest-library';
 const active = '/pest-library';
-const og = { "og:title": 'Pest Library — Identify Common Pests in Southern Utah | Wernex', "og:description": 'Photos, facts, and prevention tips for 15+ common Southern Utah pests. Free AI bug identifier included.', "og:type": 'website', "og:url": 'https://www.wernexpestcontrol.com/pest-library', "og:locale": 'en_US', "og:site_name": 'Wernex Termite & Pest Control' };
-const schema = `{
-    "@context": "https://schema.org",
-    "@graph": [
-      {
-        "@type": "CollectionPage",
-        "url": "https://www.wernexpestcontrol.com/pest-library",
-        "name": "Pest Library — Wernex Termite & Pest Control",
-        "description": "Comprehensive pest identification library for 15+ pests common in Southern Utah, with photos, behavior facts, and prevention tips.",
-        "isPartOf": { "@id": "https://www.wernexpestcontrol.com/#website" },
-        "about": { "@id": "https://www.wernexpestcontrol.com/#business" }
-      },
-      {
-        "@type": "ItemList",
-        "name": "Southern Utah Pest Identification Guide",
-        "numberOfItems": 15,
-        "itemListElement": [
-          { "@type": "ListItem", "position": 1,  "name": "Ants",                "url": "https://www.wernexpestcontrol.com/pest-library#ants" },
-          { "@type": "ListItem", "position": 2,  "name": "Termites",            "url": "https://www.wernexpestcontrol.com/pest-library#termites" },
-          { "@type": "ListItem", "position": 3,  "name": "Mice & Rats",         "url": "https://www.wernexpestcontrol.com/pest-library#rodents" },
-          { "@type": "ListItem", "position": 4,  "name": "Bed Bugs",            "url": "https://www.wernexpestcontrol.com/pest-library#bedbugs" },
-          { "@type": "ListItem", "position": 5,  "name": "Silverfish",          "url": "https://www.wernexpestcontrol.com/pest-library#silverfish" },
-          { "@type": "ListItem", "position": 6,  "name": "Beetles",             "url": "https://www.wernexpestcontrol.com/pest-library#beetles" },
-          { "@type": "ListItem", "position": 7,  "name": "Scorpions",           "url": "https://www.wernexpestcontrol.com/pest-library#scorpions" },
-          { "@type": "ListItem", "position": 8,  "name": "Mosquitoes",          "url": "https://www.wernexpestcontrol.com/pest-library#mosquitoes" },
-          { "@type": "ListItem", "position": 9,  "name": "Wasps & Yellow Jackets", "url": "https://www.wernexpestcontrol.com/pest-library#wasps" },
-          { "@type": "ListItem", "position": 10, "name": "Cockroaches",         "url": "https://www.wernexpestcontrol.com/pest-library#cockroaches" },
-          { "@type": "ListItem", "position": 11, "name": "Spiders",             "url": "https://www.wernexpestcontrol.com/pest-library#spiders" },
-          { "@type": "ListItem", "position": 12, "name": "Fleas & Ticks",       "url": "https://www.wernexpestcontrol.com/pest-library#fleas" },
-          { "@type": "ListItem", "position": 13, "name": "Flies",               "url": "https://www.wernexpestcontrol.com/pest-library#flies" },
-          { "@type": "ListItem", "position": 14, "name": "Earwigs",             "url": "https://www.wernexpestcontrol.com/pest-library#earwigs" },
-          { "@type": "ListItem", "position": 15, "name": "Centipedes",          "url": "https://www.wernexpestcontrol.com/pest-library#centipedes" }
-        ]
-      }
-    ]
-  }`;
+const og = { "og:title": 'Utah Pest Library — Identify Common Household Pests | Wernex', "og:description": `Photos, facts, and prevention tips for ${PEST_COUNT} pests common in Utah homes. Free AI bug identifier included.`, "og:type": 'website', "og:url": 'https://www.wernexpestcontrol.com/pest-library', "og:locale": 'en_US', "og:site_name": 'Wernex Termite & Pest Control' };
+
+// ItemList is generated from VISIBLE_PESTS so it can never again describe a
+// different inventory than the one rendered below. Each item points at its own
+// anchor today; when Wave 1 publishes, swap the url to `/pest-library/${p.slug}`.
+const schema = JSON.stringify({
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "CollectionPage",
+      "url": `${SITE}/pest-library`,
+      "name": "Utah Pest Library — Wernex Termite & Pest Control",
+      "description": `Pest identification library covering ${PEST_COUNT} pests common in Utah homes and businesses, with photos, behavior facts, and prevention tips.`,
+      "isPartOf": { "@id": `${SITE}/#website` },
+      "about": { "@id": `${SITE}/#business` },
+    },
+    {
+      "@type": "ItemList",
+      "name": "Utah Pest Identification Guide",
+      "numberOfItems": PEST_COUNT,
+      "itemListElement": VISIBLE_PESTS.map((p, i) => ({
+        "@type": "ListItem",
+        "position": i + 1,
+        "name": p.name,
+        "url": `${SITE}/pest-library#${p.slug}`,
+      })),
+    },
+  ],
+});
 ---
 <BaseLayout title={title} description={description} canonical={canonical} og={og} schema={schema} active={active}>
 <!-- ═══ INTRO + SEARCH ═══ -->
   <section class="section" style="padding-bottom: 0;">
     <div class="container text-center">
       <div class="reveal" style="max-width: 760px; margin: 0 auto 32px;">
-        <p style="color: var(--gray); line-height: 1.7;">Browse the pests most commonly found in homes and businesses across <a href="/pest-control-southern-utah">Southern Utah</a>. Tap any pest to learn about behavior, damage signs, and treatment — or call <a href="tel:+14356739503">(435) 673-9503</a> for same-day help.</p>
+        <p style="color: var(--gray); line-height: 1.7;">Browse the pests most commonly found in homes and businesses across <a href="/pest-control-southern-utah">Southern Utah</a> and the <a href="/pest-control-vernal">Uintah Basin</a>. Tap any pest to learn about behavior, damage signs, and treatment — or call <a href="tel:+14356739503">(435) 673-9503</a> for same-day help.</p>
       </div>
       <div class="pest-search reveal" style="margin-bottom: 48px;">
         <span class="pest-search__icon">🔍</span>
         <input type="text" placeholder="Search for a pest (e.g. ants, termites, spiders...)">
         <div class="pest-search__results"></div>
       </div>
+      {/* Search index emitted from the same source as the grid, so script.js can
+          never drift out of sync with what is on the page. Built by the shared
+          lib/pestIndex helper — the same index the Bug Identifier mapping uses. */}
+      <script type="application/json" id="pest-index" is:inline set:html={JSON.stringify(buildPestIndex())}></script>
     </div>
   </section>
 
@@ -62,105 +64,19 @@ const schema = `{
     <div class="container">
       <div class="pest-grid">
 
-        <div class="pest-item reveal" id="ants">
-          <img src="images/Ant_CloseUp.webp" alt="Close-up of an ant" loading="lazy">
-          <div class="pest-item__name">Ants</div>
-        </div>
-
-        <div class="pest-item reveal" id="termites">
-          <img src="images/Termite_home_invasion.webp" alt="Termite close-up showing damage" loading="lazy">
-          <div class="pest-item__name">Termites</div>
-        </div>
-
-        <div class="pest-item reveal" id="rodents">
-          <img src="images/Mouse_Home_Invasion.webp" alt="Mouse in a home setting" loading="lazy">
-          <div class="pest-item__name">Mice &amp; Rats</div>
-        </div>
-
-        <div class="pest-item reveal" id="bedbugs">
-          <img src="images/bed_bugs_invasion.webp" alt="Bed bug close-up" loading="lazy">
-          <div class="pest-item__name">Bed Bugs</div>
-        </div>
-
-        <div class="pest-item reveal" id="silverfish">
-          <img src="images/Silverfish_at_Home.webp" alt="Silverfish close-up" loading="lazy">
-          <div class="pest-item__name">Silverfish</div>
-        </div>
-
-        <div class="pest-item reveal" id="beetles">
-          <img src="images/Beetle_CloseUp.webp" alt="Beetle close-up" loading="lazy">
-          <div class="pest-item__name">Beetles</div>
-        </div>
-
-        <div class="pest-item reveal" id="scorpions">
-          <img src="images/Scorpion_Infestation.webp" alt="Scorpion close-up" loading="lazy">
-          <div class="pest-item__name">Scorpions</div>
-        </div>
-
-        <div class="pest-item reveal" id="scorpions">
-          <img src="images/fire_ants_invasion.webp" alt="Scorpion close-up" loading="lazy">
-          <div class="pest-item__name">fire ants</div>
-        </div>
-
-        <div class="pest-item reveal" id="scorpions">
-          <img src="images/Black_Widow.webp" alt="Scorpion close-up" loading="lazy">
-          <div class="pest-item__name">Black Widow</div>
-        </div>
-
-        <div class="pest-item reveal" id="scorpions">
-          <img src="images/Emerald_Ash_Borer.webp" alt="Scorpion close-up" loading="lazy">
-          <div class="pest-item__name">Emerald Ash Borer</div>
-        </div>
-
-        <div class="pest-item reveal" id="mosquitoes">
-          <img src="images/mosquitoe_closeup.webp" alt="Mosquito close-up" loading="lazy">
-          <div class="pest-item__name">Mosquitoes</div>
-        </div>
-
-        <div class="pest-item reveal" id="wasps">
-          <img src="images/wasps_closeup.webp" alt="Yellow jacket wasp close-up" loading="lazy">
-          <div class="pest-item__name">Wasps &amp; Yellow Jackets</div>
-        </div>
-
-        <div class="pest-item reveal" id="cockroaches">
-          <img src="images/Cockroach_Infestation.webp" alt="Cockroach close-up" loading="lazy">
-          <div class="pest-item__name">Cockroaches</div>
-        </div>
-
-        <div class="pest-item reveal" id="spiders">
-          <img src="images/Spider_Home_Infestation.webp" alt="Spider close-up" loading="lazy">
-          <div class="pest-item__name">Spiders</div>
-        </div>
-
-        <div class="pest-item reveal" id="fleas">
-          <img src="images/Flea_on_Skin.webp" alt="Flea close-up on skin" loading="lazy">
-          <div class="pest-item__name">Fleas &amp; Ticks</div>
-        </div>
-
-        <div class="pest-item reveal" id="flies">
-          <img src="images/Fly_CloseUp.webp" alt="House fly close-up" loading="lazy">
-          <div class="pest-item__name">Flies</div>
-        </div>
-
-        <div class="pest-item reveal" id="earwigs">
-          <img src="images/Earwig_CloseUp.webp" alt="Earwig close-up" loading="lazy">
-          <div class="pest-item__name">Earwigs</div>
-        </div>
-
-        <div class="pest-item reveal" id="centipedes">
-          <img src="images/Centipedes_CloseUp.webp" alt="Centipede close-up" loading="lazy">
-          <div class="pest-item__name">Centipedes</div>
-        </div>
-
-        <div class="pest-item reveal" id="centipedes">
-          <img src="images/aphid.webp" alt="Centipede close-up" loading="lazy">
-          <div class="pest-item__name">Aphid</div>
-        </div>
-
-        <div class="pest-item reveal" id="centipedes">
-          <img src="images/Borers.webp" alt="Centipede close-up" loading="lazy">
-          <div class="pest-item__name">Borers</div>
-        </div>
+        {VISIBLE_PESTS.map((pest) => {
+          const Tile = pest.href ? 'a' : 'div';
+          return (
+            <Tile
+              class:list={['pest-item', 'reveal', !pest.href && 'pest-item--static']}
+              id={pest.slug}
+              href={pest.href ?? undefined}
+            >
+              <img src={pest.image} alt={pest.alt} loading="lazy" />
+              <div class="pest-item__name">{pest.name}</div>
+            </Tile>
+          );
+        })}
 
       </div>
 
@@ -267,7 +183,9 @@ const schema = `{
     <div class="container">
       <div class="two-col reveal">
         <div>
-          <img src="images/fire_ants_invasion.webp" alt="Carpenter ant identification showing body segments" style="width:100%;border-radius:12px;object-fit:cover;">
+          {/* Was images/fire_ants_invasion.webp mislabeled as carpenter ants — an
+              accuracy bug given fire ants are not established in Utah. */}
+          <img src="/images/Ant_CloseUp.webp" alt="Close-up of an ant" style="width:100%;border-radius:12px;object-fit:cover;">
         </div>
         <div>
           <span class="section-label">Featured Pest</span>

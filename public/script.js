@@ -57,11 +57,11 @@ document.addEventListener('DOMContentLoaded', () => {
       'bed bug': "We offer thorough bed bug treatments with heat and targeted applications. Want to schedule an inspection?",
       'termite': "Termites can cause serious damage! We provide free termite inspections. Shall I help you book one?",
       'ant': "Ant infestations are very common. Our barrier treatments keep them out for good. Ready for a free quote?",
-      'roach': "We use targeted gel baits and barrier sprays for cockroaches. Want to schedule service?",
+      'roach': "Cockroaches are covered under our residential and commercial pest control. The first step is identifying the species, because a kitchen roach and an outdoor one need different work. Want a free inspection?",
       'mouse': "Our rodent control includes exclusion sealing and baiting. Let's get you a free inspection!",
       'rat': "Our rodent control includes exclusion sealing and baiting. Let's get you a free inspection!",
       'spider': "Most spiders are harmless but we can eliminate them! Would you like a free quote?",
-      'mosquito': "Our mosquito abatement program treats breeding sites and applies barrier sprays. Want details?",
+      'mosquito': "Good news: both the St. George area and the Uintah Basin are served by public mosquito abatement districts that respond to service requests. For other biting or invading pests, we can help — want a free quote?",
       'price': "We offer free inspections and competitive pricing! Fill out our quote form or call us directly.",
       'emergency': "We offer same-day emergency service! Please call us directly for fastest response.",
       'default': "Thanks for reaching out! Tell me about your pest issue and I'll point you in the right direction, or call us for immediate help."
@@ -109,32 +109,33 @@ document.addEventListener('DOMContentLoaded', () => {
   // ── Pest Search / Identifier ──
   const pestSearchInput = document.querySelector('.pest-search input');
   const pestResults = document.querySelector('.pest-search__results');
-  const pests = [
-    { name: 'Ants', emoji: '🐜', link: '#ants' },
-    { name: 'Termites', emoji: '🪵', link: '#termites' },
-    { name: 'Cockroaches', emoji: '🪳', link: '#cockroaches' },
-    { name: 'Bed Bugs', emoji: '🛏️', link: '#bedbugs' },
-    { name: 'Spiders', emoji: '🕷️', link: '#spiders' },
-    { name: 'Mice & Rats', emoji: '🐀', link: '#rodents' },
-    { name: 'Mosquitoes', emoji: '🦟', link: '#mosquitoes' },
-    { name: 'Wasps & Bees', emoji: '🐝', link: '#wasps' },
-    { name: 'Fleas & Ticks', emoji: '🪲', link: '#fleas' },
-    { name: 'Silverfish', emoji: '🐛', link: '#silverfish' },
-    { name: 'Flies', emoji: '🪰', link: '#flies' },
-    { name: 'Earwigs', emoji: '🐛', link: '#earwigs' },
-    { name: 'Scorpions', emoji: '🦂', link: '#scorpions' },
-    { name: 'Beetles', emoji: '🪲', link: '#beetles' },
-    { name: 'Centipedes', emoji: '🐛', link: '#centipedes' },
-  ];
+  // The index is emitted by pest-library.astro from src/data/pests.ts — the same
+  // source that renders the tiles and the ItemList schema. This used to be a
+  // hardcoded copy here and had drifted to 15 entries against 20 visible tiles,
+  // so searching "black widow" or "aphid" returned nothing.
+  const pestIndexEl = document.getElementById('pest-index');
+  let pests = [];
+  if (pestIndexEl) {
+    try {
+      pests = JSON.parse(pestIndexEl.textContent);
+    } catch (err) {
+      pests = [];
+    }
+  }
 
-  if (pestSearchInput && pestResults) {
+  if (pestSearchInput && pestResults && pests.length) {
     pestSearchInput.addEventListener('input', (e) => {
-      const query = e.target.value.toLowerCase();
+      const query = e.target.value.toLowerCase().trim();
       if (query.length < 1) {
         pestResults.classList.remove('open');
         return;
       }
-      const matches = pests.filter(p => p.name.toLowerCase().includes(query));
+      // Match the display name or any alias, so "mouse", "roach" and "hourglass
+      // spider" all resolve the way people actually type them.
+      const matches = pests.filter(p =>
+        p.name.toLowerCase().includes(query) ||
+        (p.aliases || []).some(a => a.toLowerCase().includes(query))
+      );
       if (matches.length) {
         pestResults.innerHTML = matches.map(p => `
           <a href="${p.link}">

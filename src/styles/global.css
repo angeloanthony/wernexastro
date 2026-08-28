@@ -992,6 +992,15 @@ p { max-width: 65ch; }
   transform: translateY(-4px);
   box-shadow: var(--shadow-lg);
 }
+/* Tiles render as <a> when a destination exists — keep the card look, not link chrome. */
+a.pest-item {
+  display: block;
+  color: inherit;
+  text-decoration: none;
+}
+/* Tiles with no destination yet (pest page not published). Not clickable, so don't
+   promise a click. Remove the modifier as each Wave 1 page goes live. */
+.pest-item--static { cursor: default; }
 .pest-item .placeholder { min-height: 160px; border-radius: 0; }
 .pest-item__name {
   padding: 16px;

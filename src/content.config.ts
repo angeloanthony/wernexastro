@@ -1,0 +1,233 @@
+// src/content.config.ts — Astro 5/6 load the content config from THIS path only.
+// (It previously sat at the project root, where Astro never read it, so none of
+// these schemas or guardrails were actually enforced. Moved Aug 2026.)
+// Uses glob loader + astro/zod.
+import { defineCollection } from 'astro:content';
+import { glob } from 'astro/loaders';
+import { z } from 'astro/zod';
+
+// ── Blog: informational/traffic articles ──────────────────────────────
+const blog = defineCollection({
+  loader: glob({ pattern: '**/*.{md,mdx}', base: './src/content/blog' }),
+  schema: z.object({
+    title: z.string(),
+    description: z.string(),
+    summary: z.string(),                  // AI-pullable TL;DR block (required)
+    pubDate: z.coerce.date(),
+    updatedDate: z.coerce.date().optional(),
+    canonical: z.string().url().optional(),
+    faqs: z.array(z.object({ q: z.string(), a: z.string() })).min(3).optional(),
+  }),
+});
+
+// ── Cities: local landing pages — guardrails against doorway pages ─────
+// A town cannot enter the build unless it supplies genuinely unique local content.
+const cities = defineCollection({
+  loader: glob({ pattern: '**/*.{md,mdx}', base: './src/content/cities' }),
+  schema: z.object({
+    title: z.string(),
+    description: z.string(),
+    canonical: z.string().url(),
+    city: z.string(),
+    county: z.string(),
+    localStat: z.string().min(40),                 // forces real local data
+    landmarks: z.array(z.string()).min(2),         // specific local references
+    faqs: z.array(z.object({ q: z.string(), a: z.string() })).min(3),
+    testimonial: z.string().min(60).optional(),    // E-E-A-T signal
+  }),
+});
+
+// ── Services: service detail pages ─────────────────────────────────────
+const services = defineCollection({
+  loader: glob({ pattern: '**/*.{md,mdx}', base: './src/content/services' }),
+  schema: z.object({
+    title: z.string(),
+    description: z.string(),
+    canonical: z.string().url(),
+    serviceType: z.string(),
+    summary: z.string(),
+    faqs: z.array(z.object({ q: z.string(), a: z.string() })).min(3).optional(),
+    offerPrice: z.string().optional(),
+  }),
+});
+
+// ── Pest library entries ───────────────────────────────────────────────
+// Three-layer taxonomy. A `speciesOf` value makes the entry Layer 2 (an individual
+// species); its absence makes it Layer 1 (a pest category). Layer 3 — commercial
+// local intent — stays in the hand-authored /*-control-* pages and is reached via
+// `relatedServices`, so an informational pest page never competes with the page
+// that is actually meant to convert.
+//
+// Guardrails mirror the `cities` collection: a pest cannot enter the build without
+// the Utah-specific substance that justifies its existence. `utahDistribution` is
+// the geographic-accuracy gate — Wernex serves both Washington County and the
+// Uintah Basin, and most pests are not relevant to both.
+const pestLibrary = defineCollection({
+  loader: glob({ pattern: '**/*.{md,mdx}', base: './src/content/pest-library' }),
+  schema: z.object({
+    name: z.string(),
+    /**
+     * SERP title. Capped at 65 characters because Google truncates around there —
+     * a title that truncates loses the part that earns the click, and every one of
+     * these pages is competing on intent rather than brand. Site suffix included.
+     */
+    title: z.string().max(65, 'title truncates in search results — keep it ≤65 characters'),
+    /**
+     * Meta description. Capped at 165 for the same reason; floored at 110 so a page
+     * cannot ship with a stub description that forfeits the snippet to Google's
+     * auto-generated text.
+     */
+    description: z
+      .string()
+      .min(110, 'description is too thin to control the SERP snippet')
+      .max(165, 'description truncates in search results — keep it ≤165 characters'),
+    canonical: z.string().url().optional(),
+    emoji: z.string().optional(),
+    summary: z.string(),
+    /**
+     * Publish gate. Defaults to false (draft). Drafts build ONLY in `astro dev` or
+     * when the PEST_PREVIEW=1 env var is set on a local build — a normal production
+     * build (what Cloudflare Pages runs) generates no route for them, so an
+     * accidental deploy during the canonical measurement window cannot expose them.
+     * Flipping this to true is the deliberate act of publishing a pest URL.
+     */
+    published: z.boolean().default(false),
+    /**
+     * Hero image path. Set it ONLY when the image is verified to depict this exact
+     * species — no image beats the wrong animal on an identification page. Species
+     * pages (speciesOf set) get no fallback; category pages fall back to their
+     * tile image in src/data/pests.ts, which depicts the group.
+     */
+    image: z.string().optional(),
+    imageAlt: z.string().optional(),
+    signs: z.array(z.string()).optional(),
+    treatment: z.string().optional(),
+
+    // ── Taxonomy ──────────────────────────────────────────────────────
+    /** Layer 1 grouping this entry belongs to (slug form, e.g. 'ants'). */
+    parentCategory: z.string(),
+    /** Set on Layer 2 species pages: the category slug this is a species of. */
+    speciesOf: z.string().optional(),
+    /** Binomial name, e.g. 'Centruroides sculpturatus'. Layer 2 pages should have one. */
+    scientificName: z.string().optional(),
+
+    // ── Utah accuracy gate ────────────────────────────────────────────
+    /**
+     * Which parts of the SERVICE AREA this pest is relevant to. This field routes
+     * and segments; it is not a distribution finding. The route used to render it
+     * verbatim as the "Where in Utah" fact, which is how `brown-recluse` — a page
+     * whose entire purpose is that the species does not live here — shipped a Quick
+     * Facts line reading "Found throughout Utah". Set `rangeNote` on any entry whose
+     * real range does not match one of these labels.
+     */
+    regions: z.array(z.enum(['southwest-utah', 'uintah-basin', 'statewide'])).min(1),
+    /**
+     * Overrides the rendered "Where in Utah" fact with an authored one. Required on
+     * myth entries and on any entry whose `utahDistribution` hedges, narrows, or
+     * denies what `regions` implies — the scannable fact in Quick Facts is the line
+     * a reader (or an AI summarizer) lifts, so it must never assert more than the
+     * prose below it does.
+     */
+    rangeNote: z.string().min(20).optional(),
+    /** Prose on where in Utah it is found and where it is not. Forces real local data. */
+    utahDistribution: z.string().min(80),
+    /**
+     * How this entry earns a page:
+     *   'treatable'    — Wernex services it; commercial framing is honest.
+     *   'informational' — real Utah pest, no direct service line; identification only.
+     *   'myth'         — commonly searched but not established in Utah (e.g. recluse
+     *                    spiders). Page exists to correct the misconception, and must
+     *                    NOT carry treatment framing.
+     */
+    intent: z.enum(['treatable', 'informational', 'myth']),
+    /** When it is active and searched for. Drives seasonal internal linking. */
+    seasonality: z.string().optional(),
+
+    // ── Internal link graph ───────────────────────────────────────────
+    /** Slugs of sibling/related pest entries. */
+    relatedPests: z.array(z.string()).optional(),
+    /** Absolute paths to existing service/location pages, e.g. '/scorpion-control-st-george'. */
+    relatedServices: z.array(z.string()).optional(),
+
+    /**
+     * Authoritative sources backing this page's Utah claims. USU Extension, UDAF,
+     * Utah DHHS, CDC, USDA, EPA, and other land-grant extension programs count.
+     * Pest-control blogs and SEO sites do not. `note` records what a non-authoritative
+     * source (e.g. local news) is being used for, so the page can label it honestly.
+     *
+     * Required to PUBLISH — see the refine below. A draft may accumulate sources as
+     * research lands, but a live URL that makes Utah distribution or health claims
+     * without citations is exactly the thin, unaccountable page this library exists
+     * not to be.
+     */
+    sources: z
+      .array(
+        z.object({
+          label: z.string(),
+          url: z.string().url(),
+          /** Set when the source is NOT authoritative, saying what it does and does not establish. */
+          note: z.string().optional(),
+        }),
+      )
+      .optional(),
+
+    faqs: z.array(z.object({ q: z.string(), a: z.string() })).min(3),
+  })
+  // A 'myth' entry must not point at a commercial page — that is the exact
+  // bait-and-switch the intent gate exists to prevent.
+  .refine((d) => d.intent !== 'myth' || !d.relatedServices?.length, {
+    message: "intent:'myth' entries must not set relatedServices — they have no treatment market.",
+    path: ['relatedServices'],
+  })
+  // ...and neither must an 'informational' entry. This closes the hole the Aug 2026 QA
+  // found the hard way: `arizona-bark-scorpion` reached a commercial CTA for a species it
+  // had just told the reader they probably do not have, simply by declaring
+  // intent:'treatable'. The schema only policed 'myth', so nothing stopped it. An
+  // informational page says "here is what this is" — the moment it also says "and here is
+  // where to buy treatment for it", it is a treatable page and must justify itself as one.
+  .refine((d) => d.intent !== 'informational' || !d.relatedServices?.length, {
+    message:
+      "intent:'informational' entries must not set relatedServices — if Wernex genuinely " +
+      'services this pest, the entry is treatable and must be able to say so honestly.',
+    path: ['relatedServices'],
+  })
+  // A myth page asserts the species is NOT established here, so it can never let the
+  // `regions` enum speak for it — "Found throughout Utah" in Quick Facts would refute
+  // the page from inside its own summary box.
+  .refine((d) => d.intent !== 'myth' || !!d.rangeNote, {
+    message:
+      "intent:'myth' entries must set `rangeNote` — otherwise Quick Facts renders the " +
+      '`regions` enum as a presence claim the page exists to deny.',
+    path: ['rangeNote'],
+  })
+  // `treatment` renders under a "How Wernex Treats X" heading, so it is a service claim.
+  // Only a treatable entry may carry one; anything else is a treatment claim wearing an
+  // informational label.
+  .refine((d) => d.intent === 'treatable' || !d.treatment, {
+    message:
+      "only intent:'treatable' entries may set `treatment` — it renders as a Wernex service claim.",
+    path: ['treatment'],
+  })
+  // Publishing gate, second lock. The first (`published`) controls whether a URL exists;
+  // this one controls whether it has earned the right to. Two authoritative sources is the
+  // floor for a page asserting where a species lives in Utah and whether it can hurt you.
+  .refine((d) => !d.published || (d.sources?.length ?? 0) >= 2, {
+    message:
+      'a published pest page needs at least 2 sources — flip `published` only once the ' +
+      'Utah distribution and risk claims are cited.',
+    path: ['sources'],
+  })
+  // An image without alt text is an accessibility failure; an image whose alt does not
+  // describe the pictured animal is an accuracy failure. Require the pair.
+  .refine((d) => !d.image || !!d.imageAlt, {
+    message: 'an entry that sets `image` must set `imageAlt` describing what is actually pictured.',
+    path: ['imageAlt'],
+  })
+  // Layer 2 pages declare their species relationship consistently.
+  .refine((d) => !d.speciesOf || d.speciesOf === d.parentCategory, {
+    message: 'speciesOf must match parentCategory.',
+    path: ['speciesOf'],
+  }),
+});
+
+export const collections = { blog, cities, services, pestLibrary };
