@@ -1,7 +1,7 @@
 ---
 name: Turkestan Cockroach
-title: Turkestan Cockroach — The Southwest's Spreading Outdoor Roach | Wernex
-description: The Turkestan cockroach has spread rapidly across the urban Southwest. What it looks like, how it differs from Utah's established roaches, and what to watch for in the St. George area.
+title: "Turkestan Cockroach: Is It in Utah Yet? | Wernex"
+description: The Turkestan cockroach has spread across the urban Southwest, but no Utah record exists. What it looks like, and what to do if you think you've found one.
 emoji: 🪳
 summary: The Turkestan cockroach is an outdoor roach that has spread rapidly through cities across the desert Southwest, often displacing the Oriental cockroach in water-meter boxes and landscape hardscape. Utah's universities have not documented it as established in the state, so we present it as a species worth recognizing — especially in Utah's warm Dixie corner — rather than a confirmed local pest.
 signs:
@@ -11,7 +11,6 @@ signs:
 parentCategory: cockroaches
 speciesOf: cockroaches
 scientificName: Blatta lateralis
-imageAlt: A cockroach close-up shown for general reference — not a confirmed Turkestan cockroach; see the identification notes below
 regions:
   - southwest-utah
 utahDistribution: The Turkestan cockroach is well documented across the urban Southwest — including neighboring Nevada and Arizona — where it has become the dominant outdoor roach in many cities. Utah is a different story so far. We are not aware of a Utah State University or state agency record establishing it in Utah, so the honest description is a species to watch for in the St. George area rather than a confirmed resident, with any suspected find worth photographing and reporting for identification.
@@ -20,6 +19,13 @@ seasonality: In the Southwest it is most conspicuous on warm summer nights, when
 relatedPests:
   - german-cockroach
   - cockroaches
+sources:
+  - label: USU Extension — Cockroaches (Pest Press)
+    url: https://extension.usu.edu/planthealth/schoolipm/files/pest-press-fact-sheets/pdf/cockroaches_pestpress.pdf
+  - label: UC IPM — Turkestan Cockroach
+    url: https://ipm.ucanr.edu/Invasive-and-Exotic-Pests/Turkestan-Cockroach/
+  - label: Journal of Economic Entomology 106(6) — Life History and Biology of the Invasive Turkestan Cockroach
+    url: https://academic.oup.com/jee/article/106/6/2428/813184
 faqs:
   - q: Is the Turkestan cockroach established in Utah?
     a: Not as far as the public record shows. It is abundant in urban areas of Arizona, Nevada, and California, and its range has expanded quickly — but we have not found Utah State University Extension or state agency documentation establishing it in Utah. Given how fast it has moved through the Southwest and how much traffic connects St. George with Las Vegas and Arizona, watching for it in Utah's Dixie is sensible. Calling it common here is not something the evidence currently supports.

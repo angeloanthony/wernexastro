@@ -1,7 +1,7 @@
 ---
 name: Boxelder Bugs
 title: Boxelder Bugs in Utah — Fall Wall Swarms & Prevention | Wernex
-description: Boxelder bugs are Utah's classic fall invader — harmless, but overwhelming when they mass on sunny walls each autumn. Identification, the boxelder tree connection, and prevention that works.
+description: Boxelder bugs are Utah's classic fall invader — harmless, but overwhelming when they mass on sunny walls. Identification, the tree link, and prevention.
 emoji: 🐛
 summary: Every October, sunny south-facing walls across Utah host the same event — boxelder bugs massing by the hundreds as they hunt for winter shelter. They're native, harmless to people and structures, and spectacularly annoying — and because the ones you see in fall want to spend the winter inside your walls, timing is everything in keeping them out.
 signs:
@@ -11,23 +11,26 @@ signs:
   - Bright red nymphs clustered on and under boxelder and maple trees through summer
 parentCategory: boxelder-bug
 scientificName: Boisea trivittata
-image: /images/boxelder.webp
-imageAlt: Boxelder bug close-up — black with red-orange lines on the thorax and wing edges
 regions:
   - statewide
-utahDistribution: Boxelder bugs are native and common throughout Utah — the boxelder tree they feed on is itself a widespread Utah native, abundant along streams, in windbreaks, and in older neighborhoods statewide. Both service areas know the fall ritual well; the Uintah Basin's tree-lined farmsteads and Vernal's established neighborhoods see notable swarms, and the same scene plays out around Washington County. Populations boom in hot, dry summers, so swarm intensity varies year to year.
+utahDistribution: Boxelder bugs are native and common throughout Utah — the boxelder tree they feed on is itself a widespread Utah native, abundant along streams, in windbreaks, and in older neighborhoods statewide. USU Extension notes that "large populations generally develop only on female (seed-bearing) boxelder trees," which is why one tree can make one property miserable while a neighbor two doors down barely notices. Both service areas know the fall ritual well; the Uintah Basin's tree-lined farmsteads and Vernal's established neighborhoods see notable swarms, and the same scene plays out around Washington County. Populations boom in hot, dry summers, so swarm intensity varies year to year.
 intent: treatable
 seasonality: Conspicuous in fall, when adults mass on warm walls seeking overwintering shelter; hidden in walls over winter; re-emergent on warm days and dispersing back to trees in spring
 relatedPests:
   - elm-seed-bug
 relatedServices:
   - /pest-control-vernal
-treatment: The honest version — fall exterior treatment, applied to the sunny staging walls before the bugs work into the structure, meaningfully reduces how many overwinter in your walls — and treatment after they're inside is mostly theater, which is why our approach centers on timing exterior applications for the September push, sealing entry gaps, and setting realistic expectations. Wernex times Basin fall barrier services around exactly this cycle, bundling boxelder work with pre-winter rodent exclusion, since both problems come through the same gaps at the same time of year.
+treatment: "Timing is the whole service, and we would rather set expectations honestly than oversell it: exterior treatment applied to the sunny staging walls in September, before the bugs work into the structure, meaningfully reduces how many overwinter in your walls, while treatment applied after they are already inside mostly is not worth doing. In the Basin we time the fall barrier round around this cycle and bundle it with pre-winter rodent exclusion, since both problems come through the same gaps in the same few weeks."
+sources:
+  - label: USU Extension — Boxelder Bug
+    url: https://extension.usu.edu/planthealth/ipm/ornamental-pest-guide/arthopods/plant-lace-seed-bugs/boxelder-bug
+  - label: USU Extension — Elm Seed Bug
+    url: https://extension.usu.edu/planthealth/research/elm-seed-bug
 faqs:
   - q: Are boxelder bugs harmful to anything?
     a: Effectively no. They don't bite or sting people or pets, don't breed indoors, don't eat structures or stored food, and do only cosmetic damage to the boxelder and maple trees they feed on. Their two real offenses are showing up in overwhelming numbers and leaving stains when crushed on fabric or light walls. That makes them a pure nuisance pest — worth managing when numbers are high, never worth panic.
   - q: Why are they all over the south wall of my house every fall?
-    a: Warmth and geometry. As nights cool, adult boxelder bugs seek sun-warmed vertical surfaces to gather on before slipping into cracks for winter — and a light-colored, south- or west-facing wall is the warmest structure on most properties. The massing is a staging behavior; the bugs you see on the wall in October are the ones that will be inside the wall by November if the gaps are open.
+    a: Warmth and geometry. USU describes bugs that "overwinter in cracks and crevices of buildings, especially in unshaded, sunny sides/areas of exterior walls," and notes people mostly notice them once they start "sunning" themselves on structures, "particularly the southern-facing walls." A light-colored south- or west-facing wall is the warmest surface on most properties. The massing is a staging behavior; the bugs you see on the wall in October are the ones that will be inside the wall by November if the gaps are open.
   - q: They're appearing inside in January. Are they breeding in my walls?
     a: No — they can't breed indoors, and there's no winter population growth happening. The bugs emerging around your windows on warm winter days are the same individuals that entered in fall, roused from dormancy by wall-void warmth. Vacuum them up and take comfort that the supply is finite. It also means insecticide inside the house in winter is pointless; the fix for next year happens at the walls next September.
   - q: Does removing a boxelder tree end the problem?

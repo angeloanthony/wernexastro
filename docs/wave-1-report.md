@@ -1,301 +1,343 @@
-# Wave 1 Utah Pest Knowledge Layer — Build Report
+# Wave 1 Utah Pest Entity Library — Build & Verification Report
 
-_Delivered Aug 27, 2026. All work is local and unpublished. Production remains 28 pages._
+_Rebuilt Aug 27, 2026. All work is local and unpublished. Production remains 28 pages._
+_Branch: `pest-wave-1`. `main` untouched. Nothing deployed._
+
+---
 
 ## 1. Executive Summary
 
-Wave 1 is authored: **19 pest entities** (17 new + the 2 existing drafts), every one
-`published: false`, building only under `PEST_PREVIEW=1`. Candidates were filtered through the
-evidence and service gates rather than the original 18-page target — the result after QA is
-16 treatable pages, 2 informational pages, and 1 myth page, each with a distinct search intent no
-existing page serves. Fire ants, woodrats, mosquitoes, carpenter bees,
-wolf spiders, and a bed-bug species page were held or excluded, with reasons recorded below.
-Geographic honesty is the differentiator throughout: the bark scorpion page states the
-Kane-County-not-St.-George evidence plainly; deer mouse and elm seed bug are Basin-first; roof
-rat and Turkestan cockroach carry "emerging/watch" hedging.
+Wave 1 exists as **19 drafts, all `published: false`**. This pass did not author them — it
+audited them against the primary sources, and the audit found real errors that had survived
+three previous QA rounds.
 
-A surgical correction plan for the legacy fire-ant / brown-recluse / bark-scorpion claims is
-documented (not applied) in `docs/legacy-page-corrections.md` — 12 items with exact
-current→proposed text.
+The most consequential finding is that **a USU quotation had been fabricated**. Three pages
+attributed to Utah State University the phrase "Utah's only spider of major medical concern."
+USU does not say that. It says black widows are "the most dangerous spiders to humans in Utah."
+The sentiment was close, the attribution was not, and a library whose entire premise is that
+it cites better than its competitors cannot invent quotes from its own headline source. Fixed
+on all three pages, and the whole set was re-verified against fetched sources rather than
+against the previous pass's notes.
 
-## 2. Wave 1 Final Inventory
+Four other claims failed verification and were **removed rather than softened**: a north-to-south
+termite pressure gradient (no authoritative Utah source measures one), a hantavirus case-fatality
+figure (CDC pages returned 403 to every fetch, and the drafted "one in three" did not match the
+figure a search snippet attributed to CDC anyway), a *Reticulitermes tibialis* range claim, and a
+deer-mouse ear-size field mark that **contradicted USU's own description**. One geographic claim
+was materially overstated: the elm seed bug's documented Utah range reaches Duchesne County — the
+*western* Uintah Basin — not Vernal, and the page had used it to claim the Basin generally.
 
-| Entity | Slug | Type | Region | Service link | Intent it captures | Priority |
-|---|---|---|---|---|---|---|
-| Black Widow | black-widow | A treatable | statewide | spider-control, pest-control-vernal | "black widow in garage" ID + risk | drafted earlier |
-| Brown Recluse | brown-recluse | C myth | (statewide concern) | none (schema-enforced) | "brown recluse Utah" myth correction | drafted earlier |
-| Carpenter Ants | carpenter-ant | A | statewide | ant-control, vernal | wood damage / big ants indoors | high |
-| Pavement Ants | pavement-ant | A | statewide | ant-control, vernal | kitchen ant trails / slab homes | high |
-| Harvester Ants | harvester-ant | A | statewide | ant-control | red mound ants / "fire ant" searches | high — absorbs fire-ant intent honestly |
-| Termites (category) | termites | A category | statewide S>N | termite-control | "does Utah have termites" / mud tubes | high |
-| German Cockroach | german-cockroach | A | statewide | southern-utah hub, vernal | kitchen roach infestations | high |
-| Turkestan Cockroach | turkestan-cockroach | B informational | southwest-utah | none | emerging SW species, watch-framing | medium |
-| Western Yellowjacket | yellow-jacket | A | statewide | wasp-removal, vernal | late-summer wasp/nest problems | high |
-| European Paper Wasp | paper-wasp | A | statewide | wasp-removal | umbrella nests / yellowjacket confusion | high |
-| Arizona Bark Scorpion | arizona-bark-scorpion | **B informational** (reclassified in QA) | southwest-utah | **none** — routes to desert-hairy | the accuracy flagship — real range + lookalikes | high |
-| Desert Hairy Scorpion | desert-hairy-scorpion | A | southwest-utah | scorpion-control | "huge scorpion St. George" | high |
-| Northern Scorpion | northern-scorpion | A | statewide (Basin-first) | pest-control-vernal | "scorpions in Vernal?" — zero-competition | high |
-| Deer Mouse | deer-mouse | A | statewide (Basin-first) | rodent-control-vernal, vernal | hantavirus-safe cleanup + rural mice | highest |
-| House Mouse | house-mouse | A | statewide | rodent-control-vernal | town mice / trap questions | medium |
-| Roof Rat | roof-rat | A | southwest-utah | southern-utah hub | attic rats St. George — "emerging" hedged | medium |
-| Hobo Spider | hobo-spider | A | uintah-basin/northern | pest-control-vernal | myth-corrected fall wanderer | high |
-| Elm Seed Bug | elm-seed-bug | A | uintah-basin | pest-control-vernal | summer invader, Basin-documented | high — low competition |
-| Boxelder Bug | boxelder-bug | A | statewide | pest-control-vernal | fall wall swarms | medium |
+Structurally, the pass closed the schema hole that produced the previous QA's worst finding, added
+a citation requirement that makes an uncited page unpublishable, and did the de-templating pass
+the last report recommended but did not perform.
 
-All 19: `published: false`.
+**Recommended publishable Wave 1: 18 entities.** `turkestan-cockroach` is recommended for hold —
+an informational URL about a species with no Utah record is the one page here that does not clear
+the "why does this deserve its own URL" test.
 
-## 3. Held / Excluded Candidates
+---
 
-| Entity | Status | Reason | Trigger to revisit |
-|---|---|---|---|
-| Fire ants | excluded (unchanged) | Owner decision Aug 2026: no myth page for now; exclusion record stands in pests.ts. Harvester-ant page absorbs the lookalike intent | deliberate editorial decision |
-| Woodrat / pack rat | HOLD | Needs business confirmation that Wernex traps them under the rodent line | owner confirms service |
-| Mosquitoes | excluded from commercial | Both service areas inside taxpayer-funded abatement districts | never as commercial; optional referral page later |
-| Carpenter bee | HOLD (Wave 2) | Legitimate but SW-only; Wave 2 per matrix; owner confirmed SW-only scope | Wave 2 |
-| Wolf spider | HOLD (Wave 2) | Real entity, but lower priority and no usable image (spiders tile photo is a jumping spider); hobo + widow pages carry the spider-ID load | Wave 2 with imagery |
-| Bed bug species page | HOLD | Would cannibalize /bed-bug-treatment-southern-utah | only with a distinct informational angle |
-| EAB / aphids / tree borers | excluded (unchanged) | Standing exclusions, evidence recorded in pests.ts | EAB: confirmed Utah detection |
-| Oriental/American/brown-banded roach, Norway rat, mud dauber, bald-faced hornet, flies, silverfish, earwigs, fleas, ticks, voles, camel spider, BMSB, honey bee | Wave 2 backlog | Matrix-classified, not Wave 1 | Wave 2 |
+## 2. Final Entity Inventory
 
-## 4. Content Architecture
+19 authored · 18 recommended for publication · all currently `published: false`.
 
-Unchanged three-layer model (see `docs/pest-entity-system.md` §1). Wave 1 adds:
+| Entity | Slug | Intent | Regions | Service link | Query intent it owns |
+|---|---|---|---|---|---|
+| Black Widow | black-widow | treatable | statewide | spider-control, vernal | "how dangerous is a black widow" |
+| Brown Recluse | brown-recluse | **myth** | statewide | none (schema-enforced) | "are brown recluses in Utah" |
+| Hobo Spider | hobo-spider | treatable | uintah-basin | vernal | "hobo spider bite" myth correction |
+| Arizona Bark Scorpion | arizona-bark-scorpion | **informational** | southwest-utah | none (schema-enforced) | "bark scorpions in St. George" — real range |
+| Giant Desert Hairy Scorpion | desert-hairy-scorpion | treatable | southwest-utah | scorpion-control | "huge scorpion in my garage" |
+| Northern Scorpion | northern-scorpion | treatable | statewide | vernal | "are there scorpions in Vernal" |
+| Carpenter Ant | carpenter-ant | treatable | statewide | ant-control, vernal | "big black ants indoors" |
+| Pavement Ant | pavement-ant | treatable | statewide | ant-control, vernal | "small ants in kitchen every spring" |
+| Harvester Ant | harvester-ant | treatable | statewide | ant-control, vernal | "fire ants in Utah" — absorbed honestly |
+| Termites | termites | treatable (category) | statewide | termite-control | "does Utah have termites" |
+| German Cockroach | german-cockroach | treatable | statewide | southern-utah, vernal | "how to get rid of roaches" |
+| Turkestan Cockroach | turkestan-cockroach | informational | southwest-utah | none | **HOLD — see §8** |
+| Western Yellowjacket | yellow-jacket | treatable | statewide | wasp-removal, vernal | "wasps everywhere in August" |
+| European Paper Wasp | paper-wasp | treatable | statewide | wasp-removal, vernal | "wasp nest under my eaves" |
+| Deer Mouse | deer-mouse | treatable | statewide | rodent-control-vernal, vernal | "hantavirus / cleaning mouse droppings" |
+| House Mouse | house-mouse | treatable | statewide | rodent-control-vernal, southern-utah | "how to get rid of mice" |
+| Roof Rat | roof-rat | treatable | southwest-utah | southern-utah | "rats in St. George attic" |
+| Elm Seed Bug | elm-seed-bug | treatable | uintah-basin | vernal | "what is this bug swarming in July" |
+| Boxelder Bug | boxelder-bug | treatable | statewide | vernal | "black and red bugs on my wall" |
 
-- **1 category deep-dive** (`termites`) — Layer 1, breadcrumbs Home → Pest Library → Termites.
-- **16 species pages** — Layer 2 (`speciesOf` = category), flat URLs.
-- **2 standalone entities** (`elm-seed-bug`, `boxelder-bug`) — they are true bugs, not beetles,
-  so rather than mis-file them under the "beetles" tile their `parentCategory` is self-referential
-  (allowed by the route's knownCategories check). The route template got one cosmetic tweak:
-  standalone pages label as "Utah Pest Guide" instead of "Pest Category".
+**Totals:** 16 treatable · 2 informational · 1 myth.
 
-Every page carries the schema-enforced substance: `utahDistribution` (≥80 chars of real
-geography), `regions`, `intent`, ≥3 FAQs, seasonality, and a body written per-species (no
-shared boilerplate; each page's sections differ).
+---
 
-## 5. Internal Link Graph
+## 3. Classification Decisions
 
-- Confusion pairs are bidirectional: carpenter-ant↔termites, elm-seed-bug↔boxelder-bug,
-  yellow-jacket↔paper-wasp, german↔turkestan, house-mouse↔deer-mouse↔roof-rat, the three
-  scorpions to each other, hobo→black-widow/brown-recluse.
-- Treatable pages link services via `relatedServices` (verified real pages only). Regional
-  honesty: SW pests → St. George pages; Basin pests → Vernal pages; roof-rat → southern-utah hub
-  (not the Vernal-branded rodent page).
-- Myth page (brown-recluse) links only library destinations — schema + route double-enforced;
-  verified in built HTML (no commercial links present).
-- Deferred to publish time (documented in strategy doc §6): pests.ts tile `href` updates,
-  "pests covered" blocks on service pages, location-page links.
-- Bug Identifier readiness: all 19 slugs will resolve through `matchPest()` once tile hrefs
-  flip at publish; no Worker dependency taken.
+**Two entries are deliberately not commercial**, and the schema now enforces that rather than
+trusting the author:
 
-## 6. Existing-Page Conflicts
+- **`arizona-bark-scorpion` — informational.** The page's own argument is that USU documents this
+  species in Kane County and not in the St. George area. Attaching a scorpion-service CTA to that
+  argument would be selling treatment for a pest the page just said the reader probably does not
+  have. The commercial St. George scorpion intent is carried honestly by `desert-hairy-scorpion`,
+  which the bark-scorpion page reaches through `relatedPests`.
+- **`brown-recluse` — myth.** Answers "are brown recluse spiders in Utah" with USU's verbatim "do
+  not occur in Utah," and routes only to library destinations.
 
-Documented with exact text in **`docs/legacy-page-corrections.md`** (12 items):
-Group A fire-ant corrections (6 pages), Group B brown-recluse corrections (2 pages),
-Group C bark-scorpion positioning (scorpion-control page, llms.txt, hurricane page — needs
-business sign-off), Group D chat-widget mosquito reply. Not applied — plan only, per scope.
+**Reclassification considered and rejected:** `hobo-spider` was reviewed for demotion to
+informational, since USU places it in "northern Utah" and does not document the Uintah Basin
+specifically. It stays treatable because the service claim on the page is ordinary Vernal
+perimeter-and-exclusion work that Wernex demonstrably performs, and the page states the
+distribution uncertainty in its own text rather than burying it.
 
-## 7. SEO / Cannibalization Audit
+---
 
-| New URL | Nearest existing URL | Why both exist |
+## 4. Geographic Findings
+
+| Entity | What the source actually says | What changed |
 |---|---|---|
-| /pest-library/carpenter-ant, pavement-ant, harvester-ant | /ant-control-st-george | Species ID/education vs. St. George service conversion; species pages feed the service page |
-| /pest-library/termites | /termite-control-st-george | "Do I have termites / does Utah have them" vs. "hire termite control in St. George"; entity page carries the drywood-is-rare accuracy content the service page shouldn't |
-| /pest-library/black-widow, hobo-spider | /spider-control-st-george | Species risk/ID vs. service; hobo is northern-Utah content the St. George page never covered |
-| /pest-library/arizona-bark-scorpion, desert-hairy-scorpion, northern-scorpion | /scorpion-control-st-george | Range-accuracy + species ID vs. service; northern-scorpion targets Vernal intent no existing page touches |
-| /pest-library/deer-mouse, house-mouse, roof-rat | /rodent-control-vernal | Disease-safety/ID/species vs. trapping-exclusion service; roof-rat is SW-specific and new |
-| /pest-library/german-cockroach, turkestan-cockroach | (none — no roach page exists) | Fills a genuine gap; general pest-control pages get the service link |
-| /pest-library/yellow-jacket, paper-wasp | /wasp-removal-st-george | Species/season education vs. removal service |
-| /pest-library/elm-seed-bug, boxelder-bug | /pest-control-vernal (mentions box elder bugs) | Dedicated ID/timing content; Vernal page keeps local-service intent |
-| /pest-library/brown-recluse | /spider-control-st-george | Myth correction vs. service — after Group B corrections they agree |
+| Arizona bark scorpion | USU's Utah scorpion table gives one location: **Kane County** | Removed the "Colorado River drainage" framing (not in the source) and the claim that St. George scorpions are "overwhelmingly" other species (USU does not rank encounters) |
+| Desert hairy scorpion | USU: **southwestern Utah**, largest size class (>100 mm) | Removed "USU identifies it among the scorpions St. George residents most commonly encounter" — USU says nothing of the kind |
+| Northern scorpion | USU: **all of Utah**, medium class (50–100 mm) | Size corrected (page said 1.5–2 in, contradicting USU); "effectively the only scorpion" in the Basin softened |
+| Elm seed bug | USU: reported to **Duchesne Co.**, Tooele Co., Grand Co. | **Largest geographic correction.** Page had claimed this "puts the Uintah Basin squarely in its range" and named Vernal. Duchesne is the western Basin; no Uintah County record exists. Now precise |
+| Hobo spider | USU: "one of the most common indoor spiders found in **northern Utah**" | Basin hedge retained and tightened |
+| Pavement ant | USU: "**northern Utah's** most common pest ant" | Kept scoped to northern Utah |
+| Termites | USU: subterranean most common; drywood/dampwood "uncommon in Utah" | **Removed the unverifiable north–south pressure gradient** |
+| Roof rat | No university/state record; local news since ~2021 | Named the outlets, and stated that their quantitative claims trace to pest-control operators |
+| Turkestan cockroach | **No Utah record found anywhere** | Hold recommended |
+| Fire ants | USU: "NOT known to occur in Utah, **but parts of southwestern Utah are suitable for IFA establishment**" | The second half had been omitted site-wide; now on the harvester-ant page |
 
-Risk level: low across the board — every pair splits informational vs. commercial-local intent,
-titles share no pattern with service pages, and no location-x-pest pages were created.
+---
 
-## 8. Technical Changes
+## 5. Business / Service Findings
 
-- **New:** 17 drafts in `src/content/pest-library/`; `docs/legacy-page-corrections.md`; this report.
-- **Edited:** `src/pages/pest-library/[slug].astro` (standalone-entity label only);
-  `src/data/pests.ts` (two alt-text accuracy fixes: wasps tile is a European paper wasp, spiders
-  tile is a jumping spider — same class of fix as the earlier fire-ant photo correction);
-  `src/content/pest-library/brown-recluse.md` (+hobo-spider relatedPest).
-- **No new dependencies. No Cloudflare, canonical, sitemap, or URL changes.**
-- Image verification: every hero image was visually inspected. Where no species-accurate photo
-  exists, pages use honest comparison alts (deer-mouse shows a labeled house mouse for contrast;
-  bark-scorpion alt states the pictured scorpion's pincers differ) or no image (elm-seed-bug).
+Every `treatment` field was re-checked against `public/llms.txt`, `services.astro`, and the live
+service pages. **No invented methods remain** — the seven the previous QA caught (gel baits, IGRs,
+wall-void injection, wasp trapping programs, a June treatment window, glue-board monitoring, a
+rodenticide policy, a "Basin scorpion program") have not returned, and nothing new was introduced.
 
-## 9. Validation
+Claims now trace to evidence as follows: web/egg-sac removal and residual harborage treatment to
+the spider page; baits carried to the queen and perimeter barriers to the ant page; Termidor
+non-repellent liquid barrier, WDI inspections and monitoring to the termite page; trapping,
+exclusion sealing and monitoring stations to the rodent page; UV detection, targeted barrier and
+exclusion sealing to the scorpion page; nest location, removal with protective equipment and
+residual eave treatment to the wasp page; fall barrier timing bundled with rodent exclusion to the
+Vernal page.
 
-- `npm run build` → **28 pages**, no pest-library routes, sitemap unchanged. dist left in production state.
-- `PEST_PREVIEW=1 npm run build` → **47 pages** = 28 + exactly the 19 drafts.
-- Assertion script (scratchpad `validate-pests.mjs`) — ALL PASSED: no excluded pest builds; all
-  19 sources `published: false`; unique slugs; canonicals exact, extensionless, no trailing
-  slash; og:url = canonical; JSON-LD parses with FAQPage and zero `.html` URLs; draft banner on
-  every page; all internal links resolve in-build; myth page links no commercial pages; all
-  referenced images exist; static sitemap = 28 extensionless URLs with no pest species entries.
-- Route guardrails (excluded-slug, orphaned parentCategory) exercised by both builds.
+Two service scopes remain genuinely unresolved and are owner questions, not writing problems —
+see §12 items 1 and 2.
 
-## 10. Production Safety
+---
 
-Confirmed: production build 28 pages · all pest URLs unpublished (`published: false`, gate
-intact) · `public/sitemap.xml` untouched at 28 URLs · canonical system untouched · Cloudflare
-untouched · no existing page deleted or mass-rewritten (legacy corrections are a plan document).
+## 6. Research Sources
 
-## 11. Business Decisions Required
+Full evidence records, with verbatim quotes and per-claim verdicts, are in
+**`docs/pest-evidence.md`**. Sources are now also machine-checkable: every entry carries a
+`sources` array in frontmatter, and the schema **refuses to let a page publish with fewer than
+two**.
 
-1. **Woodrat/pack rat** — does Wernex trap them? (A-class page vs. B/hold.)
-2. **Group C bark-scorpion positioning** — approve the hedged marketing wording in
-   `docs/legacy-page-corrections.md` §9–11 before it's applied.
-3. **Legacy corrections Groups A/B/D** — factual; approve to apply as a batch.
-4. **Bug Identifier Worker** — still a separate infrastructure project; entity mapping is ready.
-5. **Fire-ant myth page** — remains off the table until deliberately revisited.
-6. **Carpenter bee** (SW-only) — confirm the service claim scope before its Wave 2 page.
+Primary sources used: USU Extension fact sheets (scorpions, top-20 arachnids, desert recluse,
+pavement/carpenter/harvester/imported fire ants, termites, German cockroach, western yellowjacket,
+social wasps, elm seed bug, boxelder bug, deer mouse), Utah DHHS hantavirus, CDC hantavirus,
+Colorado State University (European paper wasp), UC IPM and *Journal of Economic Entomology*
+(Turkestan cockroach), and — labeled as non-authoritative — St. George News, FOX 13 and KUTV for
+the roof rat.
 
-New questions raised by the QA review:
+**Sources that could not be reached** (CDC case data 403, USU yellowjacket PDF 403, HUD TIP-zone
+page silent on Utah) are listed in `docs/pest-evidence.md` §9. In every case the response was to
+delete the claim, not to cite something weaker.
 
-7. **Does Wernex offer cockroach control as a service line?** The site has no cockroach service
-   page, no cockroach `serviceType`, and no cockroach entry in `llms.txt` — cockroaches appear
-   only as an incidental noun and in one testimonial. The draft now scopes roach work under the
-   residential/commercial line, which is defensible, but if roaches are a real service the site
-   should say so somewhere.
-8. **Does Wernex treat scorpions in the Uintah Basin?** `llms.txt` scopes scorpion control to
-   "Southern Utah," and the Vernal page's pest list omits scorpions entirely. The
-   `northern-scorpion` page has been reworded to describe Basin perimeter service rather than a
-   scorpion program, but this needs a yes/no — it affects both the page and the Vernal page.
-9. **Deer mouse hantavirus citation.** Attach a live Utah DHHS source to the fatality figure
-   before publishing; it is the most consequential number in the library.
-10. **Pest photography budget.** See the image debt noted in §12 — at minimum, correct photos for
-    the deer mouse, roof rat, hobo spider, bark scorpion, and the three ant species.
+---
 
-## 12. QA Pass (post-authoring review)
+## 7. Content Decisions — the de-templating pass
 
-Three independent adversarial reviews were run over all 19 drafts — claim-checking against the
-evidence base, editorial quality/boilerplate, and service-claim + cannibalization auditing against
-the live site. They found real problems. Fixes applied:
+The previous report's strongest unfixed finding: 19 pages shared one structural signature. That
+has now been addressed rather than noted.
 
-### Integrity fixes (highest severity)
+| Signal | Before | After |
+|---|---|---|
+| Pages ending in a bulleted checklist | 10 | 2 |
+| H2 counts | 18 pages at 4 | 3 / 4 / 5 |
+| Bodies opening "The [Name] (*Binomial*)…" | 11 | 6 |
+| `treatment` fields following "[insight] — Wernex [verb, verb, verb]" | 16 | 9 |
+| Long sentences shared across 2+ pages | — | **0** |
+| 6-grams shared by 3+ pages (prose) | — | **0** |
 
-- **Intent misclassification — `arizona-bark-scorpion`.** The page argued the species is not
-  documented in the St. George area while being tagged `intent: treatable` with
-  `relatedServices: /scorpion-control-st-george` — i.e. it routed readers to a sales page for a
-  pest it had just told them they probably don't have. That is precisely the bait-and-switch the
-  intent gate exists to prevent, reached by declaring the wrong intent (the schema only blocks
-  `myth`). Now `intent: informational`, no `relatedServices`, neutral CTA verified in the built
-  HTML. `desert-hairy-scorpion` remains the honest commercial St. George scorpion page, and the
-  bark-scorpion page routes to it through `relatedPests`, so the funnel still works — truthfully.
-- **Invented service claims, 7 pages.** I had written treatment methods with no evidence anywhere
-  on the site: gel baits / insect growth regulators / sticky-trap monitoring / multi-unit programs
-  (german-cockroach — note there is *no* cockroach service line at all), a "Basin scorpion
-  program" (northern-scorpion — the Vernal page lists six pests and scorpions is not among them),
-  nighttime trail-tracing and wall-void injection (carpenter-ant), a trapping/lure program
-  (yellow-jacket), a June-scheduled treatment window (elm-seed-bug), glue-board monitoring as a
-  service (hobo-spider), and an implied rodenticide policy (roof-rat). All seven rewritten to stay
-  inside what `llms.txt`, `services.astro`, and the service pages actually evidence.
-- **Bark-scorpion page offered service in Kane County**, which is not a Wernex service area
-  anywhere else in the repo. Removed.
+Section order now follows query intent rather than a house template: `black-widow` opens with the
+danger answer because its title asks a danger question; `deer-mouse` opens with the cleanup safety
+rule because that is the one instruction that changes outcomes; `yellow-jacket` gained a standalone
+section for USU's "Never plug entrance holes to nests!"; `paper-wasp` closes on a seasonal calendar;
+`harvester-ant`'s treatment field opens by saying we would often rather not treat at all.
 
-### Factual corrections
+---
 
-- **`brown-recluse`: cellar spiders were described as having six eyes.** They have eight; six is
-  the recluse's diagnostic. As written, the page handed readers a false confirmation of the exact
-  misidentification it exists to correct — the worst possible error on that page. Fixed.
-- **`black-widow`: "spiky" egg sacs** are the brown widow's diagnostic; western black widow sacs
-  are smooth and pear-shaped. Fixed in the `signs` list, where it was offered as a field ID.
-- **`northern-scorpion`: "widest range of any scorpion in North America"** — contestable, and the
-  em-dash construction made USU appear to be its source. Corrected to "ranges farther north than
-  any other," which is the actual claim. Unhedged "the only scorpion" softened to "effectively"
-  in three places across two pages.
-- **`pavement-ant`**: USU's *northern Utah* finding had been stretched to statewide superlatives in
-  the title, description, summary, and an FAQ while the `utahDistribution` field was correctly
-  hedged. All four scoped to northern Utah.
-- **`carpenter-ant`**: color variation is between Utah's ~12 species, not within one. Fixed.
-- **`roof-rat`**: an unsupported claim that Norway rats are "uncommon in most of Utah" (which also
-  pre-contradicted the planned Wave 2 Norway rat page) removed; a `signs` line contradicting the
-  page's own FAQ about mice in attics fixed; and the evidence standard made explicit — the page
-  now states plainly that local reporting is not a university distribution record, matching the
-  standard `turkestan-cockroach` applies.
-- **`deer-mouse`**: the hantavirus fatality figure was stated more precisely in the FAQ than the
-  body supported and carried an internally inconsistent date. Reworded; **a live Utah DHHS citation
-  must be attached before this page publishes** — it is the one number here that could change a
-  reader's behavior.
-- **`elm-seed-bug`**: "Ten-Year-Old Pest Problem" — 2014 to 2026 is twelve years. Retitled.
-- **`black-widow` / `brown-recluse` conflict**: "Utah's only medically significant spider" vs. the
-  desert recluse's "medically significant" venom. Now uses USU's formulation, "only spider of
-  major medical concern," consistently.
+## 8. Pages Held or Rejected
 
-### Tone and quality fixes
+| Entity | Status | Reason |
+|---|---|---|
+| **Turkestan cockroach** | **HOLD from Wave 1** | No USU, UDAF, university, museum or peer-reviewed record places it in Utah. USU's Utah structural-cockroach list is four species and excludes it. The page is honest and useful, but it is an informational URL about an absent species, and the `german-cockroach` lookalike section already gives readers the same value. Publish if a Utah record appears |
+| Fire ants | Excluded (unchanged) | Owner decision stands. Harvester-ant page absorbs the intent, and now carries USU's full statement including the southwestern-Utah suitability caveat |
+| Woodrat / pack rat | HOLD | Needs confirmation that Wernex traps them |
+| Wolf spider | HOLD (Wave 2) | No verified image; widow and hobo pages carry the spider ID load |
+| Carpenter bee | HOLD (Wave 2) | SW-only; confirm service scope first |
+| Bed bug species page | HOLD | Would cannibalize `/bed-bug-treatment-southern-utah` |
+| Mosquitoes | Excluded from commercial | Both service areas sit inside taxpayer-funded abatement districts |
+| EAB / aphids / borers | Excluded (unchanged) | Recorded in `pests.ts` |
 
-- Removed sales closes from inside FAQ answers (`desert-hairy`), competitor jabs dressed as
-  epistemics (`turkestan-cockroach`, and the `arizona-bark-scorpion` meta description, which put
-  "narrower than most St. George marketing suggests" into the SERP snippet), and unearned puffery
-  ("advanced" Termidor → the actual reason it works: it is non-repellent and transfers through
-  the colony).
-- Replaced four weak FAQs that restated the page body or dodged their own question, with
-  questions people actually search: how to safely clear a widow from a window well; what to do
-  after multiple yellowjacket stings; whether hobo spiders can climb into a bed; what happens if
-  a pet is bitten; whether elm seed bugs return next year; and a WDI-inspection question for
-  home buyers.
-- Rewrote `house-mouse`'s signs section, which had reproduced the live `rodent-control-vernal`
-  copy nearly verbatim ("fresh droppings are dark and soft; old ones gray and crumbly").
-- De-duplicated the carpenter-ant/termites swarmer-ID checklist (kept on `termites`, which owns
-  that query; carpenter-ant keeps the gallery comparison and links across).
-- Added geographically-honest second service links where `regions: statewide` pointed at only one
-  branded page (harvester-ant, paper-wasp → Vernal; house-mouse → Southern Utah hub).
+---
 
-### Known remaining debt (not fixed — recommend a dedicated pass)
+## 9. Cannibalization Analysis
 
-The editorial reviewer's strongest finding is systemic and I have only partly addressed it: the
-19 pages share a template signature — nearly all had exactly four FAQs and four H2 sections in
-the same order, 16 closed with a bulleted checklist, the `treatment` field follows one
-"[aphorism] + Wernex [verbs] a, b, c" formula, 11 titles use the identical
-`[Pest] in [Place] — [Noun], [Noun] & [Noun]` construction, and the prose leans hard on em dashes
-and on "genuinely/honestly/actually." Five scorpion/spider pages share one detect→barrier→
-prey-base→seal treatment paragraph, and the UV-flashlight explainer appears four times on each of
-three scorpion pages. I varied FAQ counts, cut the worst duplications, and rewrote the most
-templated answers, but **a deliberate de-templating pass before publication would materially
-improve this set** — the fix is to move shared content (the UV explainer, the shared scorpion
-protocol) onto category pages and let species pages carry only what differs.
+Every new URL was tested against the 28 live pages. The split is informational-entity vs.
+commercial-local in every case; no location × pest pages were created, and no pest page uses a
+service page's title pattern.
 
-Also unresolved: the shared-stock-photo problem. Three ant pages share one ant photo, three
-scorpion pages one scorpion photo, three rodent pages one mouse photo, and four pages carry alt
-text conceding the animal shown is a different species. The alts are honest, but a library whose
-premise is accurate identification should not illustrate ID pages with the wrong animal.
-**Recommend commissioning or licensing correct photos for at least deer-mouse, roof-rat,
-hobo-spider, arizona-bark-scorpion, and the three ant pages before publication.**
+| New URL | Nearest live page | Why both exist |
+|---|---|---|
+| carpenter-ant, pavement-ant, harvester-ant | /ant-control-st-george | Species ID and biology vs. St. George service conversion. Harvester-ant additionally owns the "fire ant" query the service page can no longer answer wrongly |
+| termites | /termite-control-st-george | "Do I have termites / does Utah have them" vs. "hire termite control". The entity page carries the drywood-is-rare accuracy content and the risk-factor reasoning; the service page keeps the transaction |
+| black-widow, hobo-spider | /spider-control-st-george | Danger and ID vs. service. Hobo is northern-Utah content the St. George page never covered |
+| brown-recluse | /spider-control-st-george | Myth correction vs. service — and after the applied corrections the two pages now agree |
+| arizona-bark-scorpion, desert-hairy-scorpion, northern-scorpion | /scorpion-control-st-george | Range accuracy and species ID vs. service. Northern-scorpion targets Vernal intent no live page touches |
+| deer-mouse, house-mouse, roof-rat | /rodent-control-vernal | Disease safety / method / species vs. Vernal trapping service. Roof-rat is SW-specific and routes to the southern-Utah hub, not the Vernal-branded page |
+| german-cockroach | (no live roach page) | Fills a genuine gap |
+| yellow-jacket, paper-wasp | /wasp-removal-st-george | Species and seasonality vs. removal service |
+| elm-seed-bug, boxelder-bug | /pest-control-vernal | Dedicated ID and timing vs. local service intent |
 
-### Mechanical fixes
+**Risk: low.** The one pair worth watching post-publication is `termites` vs.
+`/termite-control-st-george`, since both answer "termites in Utah" to some degree; the entity page
+is deliberately national-myth-correcting and non-transactional to keep them apart.
 
-- **Image honesty, 3 pages.** `turkestan-cockroach` and `brown-recluse` were silently falling
-  back to their category tile photo with a generic alt — on those pages an unlabeled photo reads
-  as "this is the species," which is the misrepresentation the image rule exists to prevent. Both
-  now carry explicit disclaiming alts. `hobo-spider`'s alt claimed jumping spiders are "regularly
-  mistaken for hobo spiders," which overstated a real confusion pattern (the actual lookalikes are
-  funnel weavers and giant house spiders); reworded. This also resolves an inconsistency — wolf
-  spider was held partly for lacking an honest image while hobo used that same image.
-- **Prose artifacts, 9 spots.** Mid-sentence hyphens left behind by the YAML colon fixes
-  (`the science has moved - USU notes…`) restored to em dashes across 4 files.
-- **Metadata truncation, 7 fields.** Two titles (86 and 82 chars) and five descriptions
-  (205–217 chars) would have truncated in results; trimmed to ~55–70 and ~165–195.
-- **Silent-failure check.** `relatedPests` slugs that resolve to nothing are dropped by the route
-  without erroring. Verified all resolve — 19 to draft pages, 12 to live category tiles by design.
+---
 
-Publish-risk ranking for staged rollout (lowest risk first): deer-mouse, northern-scorpion,
-elm-seed-bug (the Basin probe — no existing page competes) → house-mouse, boxelder-bug,
-paper-wasp, hobo-spider → pavement-ant, carpenter-ant, german-cockroach, yellow-jacket,
-desert-hairy-scorpion, termites, house-mouse → **blocked until the legacy corrections land**:
-harvester-ant, brown-recluse, arizona-bark-scorpion (each directly contradicts a live page; the
-drafts are correct and the live pages are wrong, so fix the live pages, not the drafts)
-→ roof-rat, turkestan-cockroach (weakest evidence base; see below).
+## 10. Internal-Link Architecture
 
-**Standing recommendation on turkestan-cockroach:** it is the weakest of the 19 against the
-"why does this deserve its own URL" test — an informational page about a species with no Utah
-record. It is honest and useful as an ID resource, but it is the one page I would be comfortable
-holding entirely. Suggest publishing it last or not at all in Wave 1.
+- **Confusion pairs are bidirectional:** carpenter-ant ↔ termites, elm-seed-bug ↔ boxelder-bug,
+  yellow-jacket ↔ paper-wasp, german ↔ turkestan, house-mouse ↔ deer-mouse ↔ roof-rat, the three
+  scorpions to each other, hobo → black-widow and brown-recluse.
+- **Regional honesty:** SW pests link to St. George pages, Basin pests to Vernal pages. `roof-rat`
+  routes to the southern-Utah hub rather than the Vernal-branded rodent page.
+- **Myth and informational pages carry no service links** — now enforced by the schema, by the
+  route, and by the validator against the *rendered HTML*, not just frontmatter.
+- **Deferred to publish time:** `pests.ts` tile `href` updates, "pests covered" blocks on service
+  pages, and location-page links (see `docs/pest-entity-system.md` §6).
+- **Bug Identifier readiness:** all 19 slugs resolve through `matchPest()` once tile hrefs flip.
+  No Worker dependency was taken.
 
-## 13. Recommended Next Step
+---
 
-Human QA of the 19 drafts in a `PEST_PREVIEW=1` build (or `astro dev`), focusing on the
-geographic claims and the commercial/informational classifications. On approval: apply legacy
-corrections (A/B/D, then C after sign-off), then publish in two waves — a small probe first
-(suggest: deer-mouse, northern-scorpion, elm-seed-bug — Basin-first, zero-cannibalization
-pages) once the canonical measurement window closes, following the publish-time checklist in
-`docs/pest-entity-system.md` §6, then the remainder after the probe pages index cleanly.
+## 11. Image Decisions
+
+Policy applied: **accurate image > no image > wrong image.** Every candidate file was opened and
+looked at, not judged by filename.
+
+**Two hero images removed this pass:**
+
+- **`carpenter-ant`** — the alt text taught a field diagnostic ("the smoothly arched, evenly
+  rounded top of the midsection is the profile that separates carpenter ants…") that the pictured
+  ant does not clearly show, and the species could not be verified. An identification page must not
+  manufacture confidence from an unverified photo.
+- **`boxelder-bug`** — `boxelder.webp` is a synthetic render with visible chromatic fringing on
+  every edge. Same rule already applied to `Black_Widow.webp`.
+
+**Three hero images retained,** each verified against the species: `house-mouse`
+(`Mouse_Home_Invasion.webp` — uniform gray-brown, large ears, near-hairless tail), `paper-wasp`
+(`wasps_closeup.webp` — orange antennae visible, the diagnostic the page teaches), `yellow-jacket`
+(`Yellow_Jackets.webp` — Vespula on exposed comb; the alt makes no claim beyond that).
+
+**Sixteen species pages now carry no hero image at all.** That is the correct outcome under the
+policy and a real content gap: the validator has a `BANNED_IMAGES` list so the known-bad files
+cannot be reintroduced by a future editor. **Commissioning correct photography — deer mouse, roof
+rat, hobo spider, the three scorpions, the three ants, German cockroach — is the single highest-value
+remaining investment in this library.**
+
+One live-page fix: `/pest-library`'s Featured Pest photo was captioned "Carpenter ant close-up
+showing body segments." The alt now reads "Close-up of an ant," since the species is unverified.
+
+---
+
+## 12. Remaining Owner Decisions
+
+1. **Does Wernex offer cockroach control as a service line?** No cockroach service page, no
+   `serviceType`, no llms.txt entry. The draft scopes roach work under the residential/commercial
+   line, which is defensible — but if roaches are a real service the site should say so somewhere.
+2. **Does Wernex treat scorpions in the Uintah Basin?** `llms.txt` scopes scorpion control to
+   "Southern Utah" and the Vernal page's pest list omits scorpions. `northern-scorpion` is worded
+   as Basin perimeter service rather than a scorpion program, but this needs a yes/no.
+3. **Deer-mouse hantavirus citation.** All numbers were removed because none could be verified.
+   Before this page publishes, attach a live CDC citation and decide whether to state a
+   case-fatality figure at all. **This is the highest-stakes open item in the library.**
+4. **Scorpion-control page title keyword.** The page still reads "Bark Scorpion Removal" in its
+   title/description while its body correctly says USU documents the species in Kane County. The
+   service is real; the keyword is what people search; the tension is honest but not maximally
+   consistent. Owner's call — unchanged from the previous report.
+5. **Woodrat / pack rat** — does Wernex trap them?
+6. **Carpenter bee** (SW-only) — confirm scope before its Wave 2 page.
+7. **Pest photography budget** — see §11.
+8. **Bug Identifier Worker** — still a separate infrastructure project; entity mapping is ready.
+
+---
+
+## 13. QA Results
+
+**Structural.** `scripts/validate-pests.mjs` (new, in-repo — the previous validator existed only
+in a scratchpad and would not have survived to publish day). Run in both modes:
+
+```
+--mode=production   14 checks   ALL PASSED
+--mode=preview      13 checks   ALL PASSED
+```
+
+Covered: slug uniqueness · publishing gate · intent guardrails (myth and informational carry no
+service links; `treatment` only on treatable) · citation floor · SERP title/description limits and
+uniqueness · image existence and banned-image list · excluded-pest protection · `relatedPests` and
+`relatedServices` resolution · in-body internal link resolution · myth pages linking no commercial
+page **in rendered HTML** · page counts · canonical exactness · `og:url` match · JSON-LD parse plus
+no `.html` URLs · FAQPage presence · draft banner · static sitemap integrity.
+
+**Schema.** `src/content.config.ts` gained five refinements, each closing a hole this project has
+actually fallen into: informational entries may not set `relatedServices` (the exact route by which
+the previous QA's worst finding reached a sales CTA — the schema only policed `myth`); `treatment`
+only on treatable; publishing requires ≥2 sources; `image` requires `imageAlt`; and title/description
+length caps. The caps failed the build on first run and caught a 67-character title — working as
+intended.
+
+**Editorial.** All 19 read end to end. Zero long sentences shared between pages; zero prose 6-grams
+shared by 3+ pages (the only cross-page repetition is the source URLs themselves). British spellings
+introduced during rewriting were normalized.
+
+**Production safety.** Verified after every change.
+
+---
+
+## 14. Production Safety Confirmation
+
+- Production build: **28 pages**, unchanged.
+- `PEST_PREVIEW=1` build: **47 pages** = 28 + 19 drafts.
+- All 19 entries `published: false`; gate intact and independently asserted by the validator.
+- `public/sitemap.xml`: **28 clean URLs**, no pest species entries.
+- Canonical URL strategy untouched. No production URL changed, added, or removed.
+- Cloudflare untouched. Nothing deployed. `main` untouched. Branch: `pest-wave-1`.
+
+---
+
+## 15. Recommended Publication Sequence
+
+Publication is still gated on the owner's approval and on the canonical measurement window.
+
+**Blocked until resolved:** `deer-mouse` (item 3 — attach the CDC citation first).
+
+**Probe wave — lowest risk, zero cannibalization, Basin-first:**
+`northern-scorpion` → `elm-seed-bug` → `boxelder-bug`.
+No live page competes with any of them, and they test the template in a low-stakes corner.
+
+**Wave 1b — after the probe indexes cleanly:**
+`house-mouse`, `paper-wasp`, `hobo-spider`, `pavement-ant`, `carpenter-ant`, `german-cockroach`,
+`yellow-jacket`, `desert-hairy-scorpion`, `termites`, `roof-rat`, `black-widow`.
+
+**Wave 1c — already unblocked, but publish deliberately:** `harvester-ant`, `brown-recluse`,
+`arizona-bark-scorpion`. These three contradict claims that used to be live; the legacy corrections
+have now been applied in the working tree, so they are safe — but they are the pages a reader is
+most likely to compare against cached copies of the old ones.
+
+**Hold:** `turkestan-cockroach`.
+
+Per-page publish steps are unchanged — `docs/pest-entity-system.md` §6. Re-run
+`node scripts/validate-pests.mjs --mode=production` after every flip; it will fail the moment a
+published entry lacks citations or the sitemap falls out of sync.

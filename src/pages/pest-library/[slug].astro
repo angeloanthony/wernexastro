@@ -55,9 +55,13 @@ const SITE = WERNEX.website;
 const canonical = d.canonical ?? `${SITE}/pest-library/${slug}`;
 const isDraft = !d.published;
 
-// Image: frontmatter wins, else this pest's own tile, else its category's tile.
+// Image policy (Aug 2026): a species page may only show an image verified to
+// depict that species, so it uses its frontmatter image or nothing — no tile
+// fallback. Category-level pages may fall back to their tile, which depicts the
+// group rather than one species. No image beats the wrong animal on
+// identification-focused pages.
 const tile = PESTS.find((p) => p.slug === slug) ?? PESTS.find((p) => p.slug === d.parentCategory);
-const heroImage = d.image ?? tile?.image;
+const heroImage = d.image ?? (d.speciesOf ? undefined : tile?.image);
 const heroAlt = d.imageAlt ?? tile?.alt ?? `${d.name} close-up`;
 
 // Layer relationships. A species page breadcrumbs through its category; the
@@ -90,6 +94,12 @@ const REGION_LABELS: Record<string, string> = {
   'uintah-basin': 'Uintah Basin — Vernal, Naples & Roosevelt',
   statewide: 'Found throughout Utah',
 };
+
+// Signs heading: singularize the entity name ("Carpenter Ants" → "Carpenter Ant",
+// "German Cockroaches" → "German Cockroach", "Deer Mice" → "Deer Mouse") and pick
+// the matching article, so the heading reads grammatically for every entity.
+const singularName = d.name.replace(/\bMice\b/, 'Mouse').replace(/ches$/, 'ch').replace(/s$/, '');
+const signsArticle = /^[aeiou]/i.test(singularName) ? 'an' : 'a';
 
 const crumbs = [
   { name: 'Home', href: '/' },
@@ -177,7 +187,7 @@ const schema = graph(
   {d.signs?.length && (
     <section class="section section--alt" style="padding-top:40px;padding-bottom:40px;">
       <div class="container" style="max-width:880px;">
-        <h2 class="reveal" style="font-size:1.4rem;">Signs You Have a {d.name.replace(/s$/, '')} Problem</h2>
+        <h2 class="reveal" style="font-size:1.4rem;">Signs You Have {signsArticle} {singularName} Problem</h2>
         <ul class="reveal" style="margin-top:16px;padding-left:20px;display:grid;gap:8px;color:var(--text-body);line-height:1.6;">
           {d.signs.map((s) => <li>{s}</li>)}
         </ul>

@@ -1,9 +1,9 @@
 ---
 name: Black Widow
-title: Black Widow Spiders in Utah — Identification, Risk & Treatment | Wernex
-description: How to identify western black widow spiders in Utah, where they hide around homes in St. George and the Uintah Basin, real bite risk, and when to call for professional spider control.
+title: Black Widows in Utah — How Dangerous Are They Really? | Wernex
+description: How to identify western black widows in Utah, where they hide around homes, what USU Extension says about bite risk, and when spider control is worth calling.
 emoji: 🕷️
-summary: The western black widow is Utah's only spider of major medical concern. It is common statewide — including both the St. George area and the Uintah Basin — but it is shy, sedentary, and almost always found in undisturbed corners of garages, sheds, and yards rather than living spaces.
+summary: Utah State University Extension calls black widows "the most dangerous spiders to humans in Utah." The western black widow is common statewide — including both the St. George area and the Uintah Basin — but it is shy, sedentary, and almost always found in undisturbed corners of garages, sheds, and yards rather than living spaces.
 signs:
   - Strong, messy, sticky cobwebs low to the ground in garages, window wells, woodpiles, and under patio furniture
   - A shiny black spider hanging upside-down in an irregular web, showing a red hourglass on the underside of the abdomen
@@ -22,10 +22,15 @@ relatedPests:
 relatedServices:
   - /spider-control-st-george
   - /pest-control-vernal
-treatment: Wernex treats black widows with web and egg-sac removal, targeted applications to the cracks, voids, and ground-level harborage where widows actually rest, and a prey-reduction barrier treatment — fewer insects around the foundation means fewer spiders hunting them. Because widows are sedentary web-builders, physically removing webs and sacs matters as much as any product application.
+treatment: "Expect the visit to be more about removal than spraying. Webs and egg sacs come down physically — each sac left behind can hold hundreds of eggs, so a treated garage with the sacs still in the rafters is a garage that repopulates itself. Beyond that we treat the cracks, voids and ground-level harborage where widows rest by day, and run a perimeter barrier aimed at the insects they eat, since a foundation with nothing living around it supports very few spiders."
+sources:
+  - label: USU Extension — Top 20 Arachnids
+    url: https://extension.usu.edu/planthealth/uppdl/top-20-arachnids
+  - label: USU Extension — Scorpions (Utah species list and distributions)
+    url: https://extension.usu.edu/planthealth/research/scorpions
 faqs:
   - q: How dangerous is a black widow bite?
-    a: Black widow venom is a neurotoxin, and Utah State University Extension classifies the black widow as the state's only spider of major medical concern — bites can be serious for young children, the elderly, and people with health conditions. That said, bites are rare. Widows are shy, bite only when pressed against skin, and most bites happen when someone reaches into a woodpile, glove, or storage box without looking. If someone is bitten, seek medical attention.
+    a: Black widow venom is a neurotoxin, and Utah State University Extension calls black widows "the most dangerous spiders to humans in Utah," noting that bites "may be fatal to young children or older adults." That said, bites are rare. Widows are shy, bite only when pressed against skin, and most bites happen when someone reaches into a woodpile, glove, or storage box without looking. If someone is bitten, seek medical attention.
   - q: How do I safely clear a widow out of a window well or garage corner?
     a: Do it in daylight, wearing gloves, with a shop vacuum rather than your hands — vacuuming the spider, the web, and any egg sacs together is both safer and more effective than crushing, and the egg sacs matter most since each can hold hundreds of eggs. Empty the canister into a sealed bag outdoors. Clear the debris, leaves, and stored items the widow was living under at the same time, or the site simply gets recolonized. If a window well has produced widows more than once, a cover is the permanent answer.
   - q: How do I tell a black widow web from other cobwebs?
@@ -35,23 +40,24 @@ faqs:
 published: false
 ---
 
-## Identifying a Black Widow
+## The Honest Answer
+
+Dangerous enough to respect, rare enough not to panic about. Utah State University Extension calls black widows "the most dangerous spiders to humans in Utah" and warns that bites "may be fatal to young children or older adults" — that is the real ceiling, and it is why nobody should shrug this spider off.
+
+The floor matters just as much. Widows are shy, sedentary, and nearly blind outside their webs. They do not hunt people, do not wander into beds, and bite almost exclusively when pressed against skin — a hand into a woodpile, a foot into a stored boot, a shoulder against the back wall of a window well. Most Utah households share a garage with one for years and never know. If a bite does happen, seek medical attention rather than waiting it out.
+
+So the useful question is not "how scared should I be" but "where is she, and what is she doing there" — which the rest of this page answers.
+
+## Making Sure It's Actually a Widow
 
 An adult female western black widow has a shiny, jet-black body about half an inch long — up to an inch and a half across with legs extended — and the famous red hourglass on the **underside** of her round abdomen. Because she hangs upside-down in her web, the hourglass is usually visible in a flashlight beam. Males and juveniles look different: smaller, tan-to-gray, with striped or mottled markings, and they are not medically significant.
 
 Utah has several harmless spiders that get mistaken for widows, including false widows (*Steatoda*) — brownish, no hourglass — and cellar spiders lurking in similar corners. When in doubt, photograph the underside if you can do it safely, or [send us the photo to identify](/bug-identifier).
 
-## Why They're Around Your Home
+## Why She Picked Your Garage — and What Changes That
 
-Black widows go where their prey goes. Foundations that shelter crickets, roaches, earwigs, and other ground insects give a widow everything she needs: food, cover, and quiet. Outdoor lighting that attracts flying insects, cluttered storage, and stacked firewood against the house all make a property more attractive.
+Black widows go where their prey goes. A foundation that shelters crickets, earwigs, and other ground insects offers everything a widow needs: food, cover, and quiet. Outdoor lighting that pulls in flying insects, cluttered storage, and firewood stacked against the house all make a property more attractive, and none of that is about housekeeping — a spotless garage with a bright porch light and a woodpile is still prime real estate.
 
-## Prevention You Can Do Yourself
+Which means the fix is physical rather than chemical, and most of it is yours to do. Gloves and a look before reaching into woodpiles, storage boxes, and window wells eliminate most bite risk immediately. A shop vacuum taken to webs and egg sacs — repeatedly, because one clearing teaches the site nothing — makes a corner unattractive in a way a single spray never does. Move stacked material off the foundation, seal ground-level gaps and vents, and switch a bright porch bulb to a yellow one, and you have removed the food, the cover, and the invitation in one weekend.
 
-- Wear gloves and look first when reaching into woodpiles, storage boxes, and window wells.
-- Knock down webs with a broom or shop vacuum — destroying the web repeatedly makes the site unattractive.
-- Move firewood and stacked material away from the foundation, and seal ground-level gaps and vents.
-- Reduce outdoor lighting near doors, or switch to yellow "bug" bulbs that attract fewer insects.
-
-## When Professional Treatment Makes Sense
-
-If widows keep reappearing after cleanup, the property has a prey base sustaining them. Professional treatment addresses that root cause rather than just the visible spider — which is why our approach pairs targeted crack-and-void applications with web removal and a perimeter barrier that reduces the insects widows feed on.
+If widows keep reappearing after all of that, the property has a prey base sustaining them that cleanup alone will not reach. That is the point where professional treatment earns its keep — not by killing the spider you can see, but by thinning the insects feeding the ones you cannot.

@@ -57,11 +57,11 @@ document.addEventListener('DOMContentLoaded', () => {
       'bed bug': "We offer thorough bed bug treatments with heat and targeted applications. Want to schedule an inspection?",
       'termite': "Termites can cause serious damage! We provide free termite inspections. Shall I help you book one?",
       'ant': "Ant infestations are very common. Our barrier treatments keep them out for good. Ready for a free quote?",
-      'roach': "We use targeted gel baits and barrier sprays for cockroaches. Want to schedule service?",
+      'roach': "Cockroaches are covered under our residential and commercial pest control. The first step is identifying the species, because a kitchen roach and an outdoor one need different work. Want a free inspection?",
       'mouse': "Our rodent control includes exclusion sealing and baiting. Let's get you a free inspection!",
       'rat': "Our rodent control includes exclusion sealing and baiting. Let's get you a free inspection!",
       'spider': "Most spiders are harmless but we can eliminate them! Would you like a free quote?",
-      'mosquito': "Our mosquito abatement program treats breeding sites and applies barrier sprays. Want details?",
+      'mosquito': "Good news: both the St. George area and the Uintah Basin are served by public mosquito abatement districts that respond to service requests. For other biting or invading pests, we can help — want a free quote?",
       'price': "We offer free inspections and competitive pricing! Fill out our quote form or call us directly.",
       'emergency': "We offer same-day emergency service! Please call us directly for fastest response.",
       'default': "Thanks for reaching out! Tell me about your pest issue and I'll point you in the right direction, or call us for immediate help."

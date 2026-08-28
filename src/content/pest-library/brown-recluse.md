@@ -1,10 +1,9 @@
 ---
 name: Brown Recluse
-title: Are Brown Recluse Spiders in Utah? What the Research Shows | Wernex
-description: Brown recluse spiders are not established in Utah, according to Utah State University Extension. What Utah spiders get mistaken for recluses — and the one rare desert relative in Washington County.
+title: "Are Brown Recluse Spiders in Utah? What USU Says | Wernex"
+description: Utah State University Extension states brown recluse spiders do not occur in Utah. What Utahns actually find, and the one desert relative in Washington County.
 emoji: 🕷️
 summary: Utah homeowners regularly report brown recluse sightings and bites — but Utah State University Extension is unambiguous that brown recluse spiders do not occur in Utah. Almost every Utah "recluse" is a harmless cellar spider or funnel weaver. Utah's only recluse relative, the desert recluse, lives in Washington County and is rarely found indoors.
-imageAlt: A harmless Utah jumping spider — Utah has no established brown recluse population
 parentCategory: spiders
 speciesOf: spiders
 scientificName: Loxosceles reclusa
@@ -17,13 +16,18 @@ relatedPests:
   - spiders
   - black-widow
   - hobo-spider
+sources:
+  - label: USU Extension — Top 20 Arachnids
+    url: https://extension.usu.edu/planthealth/uppdl/top-20-arachnids
+  - label: USU Extension — Desert Recluse Spider
+    url: https://extension.usu.edu/planthealth/ipm/notes_nuisance/desert-recluse-spider
 faqs:
   - q: Are there brown recluse spiders in Utah?
     a: No. Utah State University Extension states that brown recluse spiders do not occur in Utah. Verified specimens have never established a population in the state. The spiders most often mistaken for recluses in Utah homes are cellar spiders and funnel weavers, which are harmless.
   - q: Then what spider did I find?
     a: In Utah, a brownish spider indoors is most often a funnel weaver (grass spider), a wolf spider, a male hobo spider wandering in fall, or a long-legged cellar spider. Cellar spiders even carry a violin-shaped smudge that gets them misidentified. None of these is medically dangerous. A clear photo is usually enough for a confident identification.
   - q: What about the desert recluse in southern Utah?
-    a: The desert recluse (Loxosceles deserta) is a genuine recluse relative found in Utah only in Washington County. It lives outdoors in native desert vegetation and rodent burrows and is seldom encountered indoors. Its venom is medically significant, but human encounters are rare — it is not the explanation for the typical indoor "recluse" sighting in St. George, and it does not occur in northern Utah at all.
+    a: The desert recluse (Loxosceles deserta) is a genuine recluse relative that USU Extension reports is "in Utah, only found in Washington County." USU describes it as "found outdoors in native vegetation, pack rat dens, etc." and "seldom found indoors." Its bites "can result in a necrotic ulcer that can take several weeks to heal," but encounters are rare — it is not the explanation for the typical indoor "recluse" sighting in St. George, and it does not occur in northern Utah at all.
   - q: My doctor said my sore might be a recluse bite. Is that possible?
     a: Physicians in non-recluse states frequently attribute wounds to recluse bites, but research has repeatedly shown most such diagnoses in the western US are actually infections (like MRSA), other insect bites, or skin conditions. Without a captured spider identified by an expert, a recluse bite diagnosis in Utah is very unlikely to be correct. If you have a wound that isn't healing, see a doctor — but don't assume a spider.
 published: false
@@ -35,7 +39,7 @@ The brown recluse has one of the biggest reputations in American pest lore — a
 
 What Utahns find instead are lookalikes:
 
-- **Cellar spiders** — long-legged, with a dark smudge on the carapace that people read as a violin. Harmless, and unlike a true recluse they have eight eyes rather than six.
+- **Cellar spiders** — long-legged, with a dark smudge on the carapace that people read as a violin. USU notes they "can resemble brown recluse spiders to the untrained eye." They are harmless, and unlike a true recluse they have eight eyes rather than the recluse's "six eyes arranged in three groups of two."
 - **Funnel weavers / grass spiders** — fast, brown, and common indoors in fall. Harmless.
 - **Hobo spiders** — long blamed for necrotic bites, but USU Extension notes there is no significant scientific evidence that hobo spider bites cause tissue damage.
 - **Wolf spiders** — big and alarming, not medically dangerous.

@@ -1,7 +1,7 @@
 ---
 name: European Paper Wasps
-title: European Paper Wasps in Utah — Identification & Nest Removal | Wernex
-description: The European paper wasp builds the umbrella nests under Utah eaves and mimics yellowjackets. How to tell them apart by the orange antennae, and when nest removal makes sense.
+title: The Wasp Nest Under Your Eaves — European Paper Wasps | Wernex
+description: The European paper wasp builds the umbrella nests under Utah eaves and mimics yellowjackets. Tell them apart by the orange antennae and the dangling legs.
 emoji: 🐝
 summary: The European paper wasp is the wasp building open umbrella-shaped combs under eaves, in gates, and inside play structures across Utah. It looks so much like a yellowjacket that most homeowners misname it — the giveaway is its orange antennae and dangling-legged flight. It is far less aggressive than a yellowjacket, but nests over doorways still earn removal.
 signs:
@@ -26,6 +26,13 @@ relatedServices:
   - /wasp-removal-st-george
   - /pest-control-vernal
 treatment: Paper wasp management is a judgment call we're honest about — a small comb high on a back eave, away from doors and play areas, can often be left alone to hunt caterpillars all summer. Nests over entrances, in gate latches, grills, playsets, or anywhere hands and heads go warrant professional removal, done safely and paired with knocking down the season's satellite combs and treating favored nest sites to discourage rebuilding. Fall and winter combs are empty and can simply be removed; spring is the cheapest time to interrupt new colonies.
+sources:
+  - label: Colorado State University — European Paper Wasp
+    url: https://agsci.colostate.edu/agbio/ipm-pests/european-paper-wasp/
+  - label: USU Extension — Wasps, Yellow Jackets and Hornets
+    url: https://extension.usu.edu/planthealth/structural-and-nuisance/files/pest-press-fact-sheets/pdf/social-wasps_pestpress.pdf
+  - label: USU Extension — Western Yellowjacket
+    url: https://extension.usu.edu/planthealth/ipm/notes_nuisance/western-yellowjacket
 faqs:
   - q: Is this wasp a yellowjacket? It looks exactly like one.
     a: The European paper wasp mimics yellowjacket coloring closely, and it's the most common wasp misidentification in Utah. Check the antennae and the flight — paper wasps have distinctly orange antennae and fly with long legs trailing below, while yellowjackets have black antennae, a stockier body, and fast, direct flight. The nest settles it instantly — an open comb means paper wasp; traffic into a hole in the ground or a wall means yellowjacket.
@@ -48,11 +55,16 @@ A paper wasp comb is a single open layer of hexagonal cells on a stalk — no pa
 
 ## The Mimicry Problem
 
-*Polistes dominula*'s yellowjacket costume causes real confusion in both directions: harmless-ish paper wasps get emergency treatment, while genuinely dangerous enclosed yellowjacket nests get the garden hose. Two seconds of observation sorts it — orange antennae and trailing legs mean paper wasp. Getting this identification right is the single most useful wasp skill a Utah homeowner can have.
+*Polistes dominula*'s yellowjacket costume causes real confusion in both directions: harmless-ish paper wasps get emergency treatment, while dangerous enclosed yellowjacket nests get the garden hose. Two seconds of observation sorts it — orange antennae and trailing legs mean paper wasp. Getting this identification right is the single most useful wasp skill a Utah homeowner can have.
 
-## Coexisting on Your Terms
+## A Calendar, Not a Spray Can
 
-- Winter is free nest control: scrape empty combs off eaves and seal the voids and gaps queens shelter in.
-- In spring, watch for single scouting queens under eaves — a colony stopped in April is a five-minute job.
-- Check gates, grills, mailboxes, and playsets before the season's first use; that's where surprise stings happen.
-- Leave the high, out-of-the-way combs to their caterpillar hunting if you're comfortable — and call us for the ones that share your doorway.
+Paper wasp management is almost entirely a question of timing, and the cheapest month is the one nobody thinks about it.
+
+**Winter** is free. The combs on your eaves are empty — colonies never reuse them — so a scraper and a ladder cost nothing but an afternoon, and sealing the voids and gaps where overwintering queens shelter does more for next summer than anything you can do next summer.
+
+**April** is nearly free. A single queen inspecting an eave is a colony that has not happened yet, and interrupting her is a five-minute job. This is the moment the entire season is decided.
+
+**Early summer** is the check you will be glad you did: gates, grill lids, mailboxes, playground tubes, and anything else with a hollow that gets grabbed without looking. Nearly every paper wasp sting we hear about came from a hand closing on an unseen comb, not from a wasp taking offence at a person in a yard.
+
+**And then, mostly, nothing.** A comb high on a back eave, away from doors and traffic, is a colony of caterpillar hunters working your garden for free. If you can live with it, that is the right answer, and we will say so. Call us for the ones over a doorway.

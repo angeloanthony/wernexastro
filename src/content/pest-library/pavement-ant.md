@@ -1,7 +1,7 @@
 ---
 name: Pavement Ants
 title: Pavement Ants — Northern Utah's Most Common House Ant | Wernex
-description: The small brown ants trailing across a Utah kitchen counter are usually pavement ants. Why they nest under slabs and driveways, and why spring kitchen invasions repeat every year.
+description: The small brown ants trailing across a Utah kitchen are usually pavement ants — USU calls them northern Utah's most common pest ant. Why spring invasions repeat.
 emoji: 🐜
 summary: Utah State University Extension identifies the pavement ant as the most common pest ant in northern Utah, and it is well established in developed areas across the state. The small brown ants trailing over a kitchen counter, or mounding sand between sidewalk cracks, are usually this species — an urban specialist that thrives around slab foundations, driveways, and patios.
 signs:
@@ -12,8 +12,6 @@ signs:
 parentCategory: ants
 speciesOf: ants
 scientificName: Tetramorium immigrans
-image: /images/Ant_CloseUp.webp
-imageAlt: Ant close-up — pavement ants are smaller than the ant shown, about 3 mm long and uniformly dark brown
 regions:
   - statewide
 utahDistribution: Utah State University Extension lists the pavement ant as the most common pest ant in northern Utah, and it is well established in developed areas throughout the state. It is an urban specialist — anywhere with concrete slabs, driveways, sidewalks, and irrigated yards suits it, which describes both Vernal subdivisions and St. George neighborhoods equally well.
@@ -26,7 +24,12 @@ relatedPests:
 relatedServices:
   - /ant-control-st-george
   - /pest-control-vernal
-treatment: Pavement ant colonies live under slabs and pavement where sprays can't reach, so baiting is the backbone of professional control — workers carry slow-acting bait back and feed the queen and brood, which is what actually eliminates the colony. Wernex pairs targeted interior and exterior baiting with a perimeter barrier treatment and identifies the entry cracks and expansion joints the trails are using. Repeated kitchen invasions in slab-on-grade homes are exactly the situation this approach is built for.
+treatment: "Baiting, mostly. A colony living under a slab is out of reach of anything sprayed at the trail, so the workable route is a slow-acting bait the foragers carry down to the queen and brood — which is also why we would rather you did not spray the trail before we arrive, since a scattered trail is a harder colony to reach. We pair interior and exterior baiting with a perimeter barrier treatment and a look at which expansion joints and slab cracks the ants are actually using."
+sources:
+  - label: USU Extension — Pavement Ants
+    url: https://extension.usu.edu/planthealth/research/pavement-ants
+  - label: USU Extension — Carpenter Ants
+    url: https://extension.usu.edu/planthealth/research/carpenter-ants
 faqs:
   - q: What do pavement ants look like?
     a: They're small — about 3 mm, an eighth of an inch — and uniformly dark brown to blackish, with fine grooved lines on the head and thorax visible under magnification. To the naked eye they're simply small brown ants moving in defined trails. The location is often the best clue — trails emerging from slab cracks, expansion joints, or the soil line along a driveway or patio.
@@ -49,7 +52,7 @@ A pavement ant colony under a heated slab has everything: stable temperature, pr
 
 ## Doing Your Part
 
-- Follow the trail before wiping it up — knowing the entry crack is genuinely useful information for treatment.
+- Follow the trail before wiping it up — knowing the entry crack is useful information for treatment.
 - Keep counters and floors clear of crumbs and standing water; rinse recycling.
 - Seal visible gaps around plumbing penetrations and along baseboards near known entry points.
 - Resist the repellent-spray habit: sprays scatter trails and make colonies harder to bait, without touching the queen.

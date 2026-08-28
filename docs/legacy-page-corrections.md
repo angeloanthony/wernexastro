@@ -1,6 +1,8 @@
 # Legacy-Page Surgical Correction Plan — Fire Ant / Brown Recluse / Bark Scorpion Claims
 
-_Prepared Aug 27, 2026. Status: PLAN ONLY — no edits applied. These corrections should land
+_Prepared Aug 27, 2026. **Status update (verification pass): Groups A, B, C and D are APPLIED in the working tree on branch `pest-wave-1`.** This document is now the record of what changed and why, not a pending plan. Two items remain open and are listed at the end. Original text follows._
+
+_Original status: PLAN ONLY — no edits applied. These corrections should land
 before or with Wave 1 publication so the site never contradicts its own pest library.
 Each item lists the exact current text and a proposed replacement; nothing else on these
 pages changes. All page structure, URLs, canonicals, headings, and JSON-LD shape are preserved —
@@ -121,3 +123,49 @@ The pattern throughout: **the service is real and stays; only the species-preval
   structured data continues to describe the page.
 - No URLs, canonicals, page structure, or headings change. This is copy surgery only.
 - After applying: `npm run build` (expect 28 pages) and re-run the pest validation script.
+
+---
+
+## Status at the close of the verification pass (Aug 27, 2026)
+
+**Applied in the working tree** (branch `pest-wave-1`, not deployed):
+
+- **Group A — fire ants.** All six pages corrected. `ant-control-st-george` now reads
+  "harvester ants, pavement ants, and carpenter ants" in the description, og:description, FAQ
+  JSON-LD, visible FAQ, AI summary block, and species card. Southern-Utah hub, Hurricane,
+  Santa Clara, Ivins and LaVerkin corrected as specified.
+- **Group B — brown recluse.** `spider-control-st-george` corrected in all five places; the
+  answer now cites USU directly and the Desert Recluse card is reframed. Southern-Utah hub
+  corrected.
+- **Group C — bark scorpion positioning.** Applied, including the item the original plan
+  missed (`scorpion-control-st-george.astro:52`, the strongest version of the claim on the
+  site) and the same-pattern lines on the Washington, LaVerkin, Santa Clara, Ivins, Zion and
+  vacation-rental pages. `llms.txt` line 22 corrected earlier; **line 60 ("Bark scorpion
+  detection and elimination") corrected during this pass** — it had been left behind and
+  contradicted the page it described.
+- **Group D — chat widget.** The mosquito reply now points to the public abatement districts.
+  **Additionally corrected this pass:** the `'roach'` reply promised "targeted gel baits and
+  barrier sprays for cockroaches." There is no cockroach service line, no `serviceType`, and no
+  gel-bait claim anywhere in the repo — an invented method of exactly the kind this project
+  bans. It now describes cockroach work under the residential/commercial line and leads with
+  identification.
+- **Termite drywood wording (11c).** `termite-control-st-george` now reads "uncommon in Utah,
+  and rarely the species involved here," matching USU and the `/pest-library/termites` page.
+
+**Also corrected during this pass, not in the original plan:**
+
+- `src/pages/pest-library.astro` — the Featured Pest photo was captioned "Carpenter ant
+  close-up showing body segments." The species in that photo could not be verified, so the alt
+  now reads "Close-up of an ant." The section heading and copy still say Carpenter Ants; if the
+  owner wants that section to keep its species framing, it needs a verified carpenter ant photo.
+
+**Still open — owner decisions, not factual corrections:**
+
+1. **`scorpion-control-st-george` title and meta description** still contain "Bark Scorpion
+   Removal" as a service keyword while the page body correctly limits the species to USU's
+   Kane County record. The service is real and the keyword is what people search; the tension
+   is defensible but not maximally consistent. Retitling to "Scorpion Control & Removal"
+   sacrifices a real keyword. **Owner's call — unchanged.**
+2. **Cockroach service scope.** The rewritten chat reply assumes roach work falls under the
+   residential/commercial line. If that is right, the site should say so somewhere; if it is
+   wrong, the reply needs changing again. See `docs/wave-1-report.md` §12.

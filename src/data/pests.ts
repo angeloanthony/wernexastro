@@ -125,8 +125,12 @@ export const PESTS: PestEntry[] = [
     slug: 'black-widow',
     name: 'Black Widow',
     emoji: '🕷️',
+    // Image verified Aug 2026: stylized rendering — red dorsal blotch and banded
+    // legs, which a real adult female western black widow does not have (jet black,
+    // hourglass on the UNDERSIDE). Do not let species pages inherit it, and keep
+    // the alt from teaching the wrong field mark.
     image: '/images/Black_Widow.webp',
-    alt: 'Black widow spider showing the red hourglass marking',
+    alt: 'Stylized black widow spider in a web — real western black widows are jet black with the red hourglass on the underside of the abdomen',
     category: 'spiders',
     href: '/spider-control-st-george',
     aliases: ['black widow', 'widow spider', 'hourglass spider', 'venomous spider'],

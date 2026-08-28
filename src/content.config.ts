@@ -66,8 +66,21 @@ const pestLibrary = defineCollection({
   loader: glob({ pattern: '**/*.{md,mdx}', base: './src/content/pest-library' }),
   schema: z.object({
     name: z.string(),
-    title: z.string(),
-    description: z.string(),
+    /**
+     * SERP title. Capped at 65 characters because Google truncates around there —
+     * a title that truncates loses the part that earns the click, and every one of
+     * these pages is competing on intent rather than brand. Site suffix included.
+     */
+    title: z.string().max(65, 'title truncates in search results — keep it ≤65 characters'),
+    /**
+     * Meta description. Capped at 165 for the same reason; floored at 110 so a page
+     * cannot ship with a stub description that forfeits the snippet to Google's
+     * auto-generated text.
+     */
+    description: z
+      .string()
+      .min(110, 'description is too thin to control the SERP snippet')
+      .max(165, 'description truncates in search results — keep it ≤165 characters'),
     canonical: z.string().url().optional(),
     emoji: z.string().optional(),
     summary: z.string(),
@@ -79,7 +92,12 @@ const pestLibrary = defineCollection({
      * Flipping this to true is the deliberate act of publishing a pest URL.
      */
     published: z.boolean().default(false),
-    /** Hero image path. Omit to fall back to this pest's (or its category's) tile image in src/data/pests.ts. */
+    /**
+     * Hero image path. Set it ONLY when the image is verified to depict this exact
+     * species — no image beats the wrong animal on an identification page. Species
+     * pages (speciesOf set) get no fallback; category pages fall back to their
+     * tile image in src/data/pests.ts, which depicts the group.
+     */
     image: z.string().optional(),
     imageAlt: z.string().optional(),
     signs: z.array(z.string()).optional(),
@@ -116,6 +134,28 @@ const pestLibrary = defineCollection({
     /** Absolute paths to existing service/location pages, e.g. '/scorpion-control-st-george'. */
     relatedServices: z.array(z.string()).optional(),
 
+    /**
+     * Authoritative sources backing this page's Utah claims. USU Extension, UDAF,
+     * Utah DHHS, CDC, USDA, EPA, and other land-grant extension programs count.
+     * Pest-control blogs and SEO sites do not. `note` records what a non-authoritative
+     * source (e.g. local news) is being used for, so the page can label it honestly.
+     *
+     * Required to PUBLISH — see the refine below. A draft may accumulate sources as
+     * research lands, but a live URL that makes Utah distribution or health claims
+     * without citations is exactly the thin, unaccountable page this library exists
+     * not to be.
+     */
+    sources: z
+      .array(
+        z.object({
+          label: z.string(),
+          url: z.string().url(),
+          /** Set when the source is NOT authoritative, saying what it does and does not establish. */
+          note: z.string().optional(),
+        }),
+      )
+      .optional(),
+
     faqs: z.array(z.object({ q: z.string(), a: z.string() })).min(3),
   })
   // A 'myth' entry must not point at a commercial page — that is the exact
@@ -123,6 +163,41 @@ const pestLibrary = defineCollection({
   .refine((d) => d.intent !== 'myth' || !d.relatedServices?.length, {
     message: "intent:'myth' entries must not set relatedServices — they have no treatment market.",
     path: ['relatedServices'],
+  })
+  // ...and neither must an 'informational' entry. This closes the hole the Aug 2026 QA
+  // found the hard way: `arizona-bark-scorpion` reached a commercial CTA for a species it
+  // had just told the reader they probably do not have, simply by declaring
+  // intent:'treatable'. The schema only policed 'myth', so nothing stopped it. An
+  // informational page says "here is what this is" — the moment it also says "and here is
+  // where to buy treatment for it", it is a treatable page and must justify itself as one.
+  .refine((d) => d.intent !== 'informational' || !d.relatedServices?.length, {
+    message:
+      "intent:'informational' entries must not set relatedServices — if Wernex genuinely " +
+      'services this pest, the entry is treatable and must be able to say so honestly.',
+    path: ['relatedServices'],
+  })
+  // `treatment` renders under a "How Wernex Treats X" heading, so it is a service claim.
+  // Only a treatable entry may carry one; anything else is a treatment claim wearing an
+  // informational label.
+  .refine((d) => d.intent === 'treatable' || !d.treatment, {
+    message:
+      "only intent:'treatable' entries may set `treatment` — it renders as a Wernex service claim.",
+    path: ['treatment'],
+  })
+  // Publishing gate, second lock. The first (`published`) controls whether a URL exists;
+  // this one controls whether it has earned the right to. Two authoritative sources is the
+  // floor for a page asserting where a species lives in Utah and whether it can hurt you.
+  .refine((d) => !d.published || (d.sources?.length ?? 0) >= 2, {
+    message:
+      'a published pest page needs at least 2 sources — flip `published` only once the ' +
+      'Utah distribution and risk claims are cited.',
+    path: ['sources'],
+  })
+  // An image without alt text is an accessibility failure; an image whose alt does not
+  // describe the pictured animal is an accuracy failure. Require the pair.
+  .refine((d) => !d.image || !!d.imageAlt, {
+    message: 'an entry that sets `image` must set `imageAlt` describing what is actually pictured.',
+    path: ['imageAlt'],
   })
   // Layer 2 pages declare their species relationship consistently.
   .refine((d) => !d.speciesOf || d.speciesOf === d.parentCategory, {

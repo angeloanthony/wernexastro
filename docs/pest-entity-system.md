@@ -7,6 +7,13 @@ _Update, later Aug 27: Wave 1 authored — 19 drafts, all `published: false`. Se
 `docs/wave-1-report.md` (inventory, holds, validation) and `docs/legacy-page-corrections.md`
 (exact fire-ant / brown-recluse / bark-scorpion corrections, not yet applied)._
 
+_Update, Aug 27 (verification pass): all 19 drafts re-verified against fetched primary
+sources. Evidence records with verbatim quotes now live in **`docs/pest-evidence.md`**; the
+validator is now an in-repo artifact at **`scripts/validate-pests.mjs`**. The schema gained a
+citation requirement and two intent guardrails (§1 below). Legacy corrections Groups A/B/C/D are
+APPLIED in the working tree — the doc is now a record of what changed, not a plan. Recommended
+publishable Wave 1 is 18: `turkestan-cockroach` is held (no Utah record)._
+
 ## 1. Architecture
 
 Three layers, two of which live at `/pest-library/<slug>`:
@@ -39,9 +46,24 @@ cannot leak a pest URL. Verified: production build = 28 pages exactly; preview b
 ### Intent model (enforced by zod)
 
 - `treatable` — Wernex services it; commercial framing honest; `relatedServices` allowed.
-- `informational` — real Utah pest, no service line; neutral CTA only.
+- `informational` — real Utah pest, no service line; neutral CTA only. `relatedServices` is
+  **rejected by schema** (added Aug 2026 — see below).
 - `myth` — searched-for but not established in Utah; `relatedServices` is **rejected by schema**,
   and the route also refuses to let `relatedPests` fall through to a commercial tile href.
+
+### Schema guardrails (all five earn their place — each closes a hole this project fell into)
+
+1. `myth` may not set `relatedServices`.
+2. `informational` may not set `relatedServices`. **This was the gap that produced the worst
+   finding of the previous QA:** `arizona-bark-scorpion` reached a scorpion-service CTA for a
+   species it had just argued is not documented in St. George, simply by declaring
+   `intent: treatable`. The schema policed only `myth`, so nothing stopped it.
+3. `treatment` may be set only on `treatable` — it renders under "How Wernex Treats X", so it is
+   a service claim regardless of what the intent field says.
+4. `published: true` requires **≥2 entries in `sources`**. A live URL asserting where a species
+   lives in Utah and whether it can hurt you must be checkable.
+5. `image` requires `imageAlt`; `title` ≤65 and `description` 110–165 characters so metadata
+   cannot ship truncated.
 
 ### Fixed during this work
 
@@ -61,11 +83,13 @@ Key accuracy findings that shape the content:
 - **Fire ants**: red imported fire ant NOT in Utah (USU). Most Utah "fire ant" reports are
   harvester or field ants; native southern fire ant possibly marginal at the Mojave edge. → myth
   page candidate (see §5 approval item).
-- **Arizona bark scorpion**: USU places Utah's population along the Colorado River, "mainly Kane
-  County" — **no .gov/.edu source confirms an established St. George population**. The scorpions
-  St. George customers actually see are mostly desert hairy, *Paruroctonus becki*, *Vaejovis
-  confusus*. Site copy ("bark scorpion specialists for Southern Utah") should be hedged when the
-  scorpion pages publish.
+- **Arizona bark scorpion**: USU's Utah scorpion fact sheet recognizes 9 Utah species and gives
+  this one a single Utah location — **Kane County**. **No .gov/.edu source confirms an established
+  St. George population.** Note the "Colorado River corridor" phrasing used in earlier drafts was
+  *not* in the fetched source and has been removed. USU also names the species
+  *Centruroides exilicauda*; current usage calls the Arizona bark scorpion *C. sculpturatus*.
+  Site copy ("bark scorpion specialists for Southern Utah") is now hedged; the page title keyword
+  remains an owner decision.
 - **Hobo spider**: USU — no significant evidence of necrotic bites; write with myth-correction
   framing.
 - **Mosquitoes**: both service areas sit inside taxpayer-funded abatement districts (Uintah MAD,
@@ -77,25 +101,37 @@ Key accuracy findings that shape the content:
   establishment record — frame as "emerging, watch for it," never "dominant in St. George."
 - **Roof rat**: real, recent St. George expansion, but documented only by local news — word as
   "recently reported in Washington County."
-- **Termites**: Utah termites are essentially all subterranean (*Reticulitermes* — *tibialis*
-  arid-inland, *hesperus* attributions in older literature); pressure gradient south > north;
-  drywood termites "uncommon in Utah" (USU) — a strong accuracy section, not a page.
-- **Deer mouse**: Utah is Four Corners hantavirus country (~36% case fatality since 1987, Utah
-  DHHS); rural Uintah Basin outbuildings are classic exposure sites — the strongest
-  disease-angle page in the library and a genuinely Vernal-first entity.
-- Other confirmations: black widow statewide (Utah's only major medically significant spider);
+- **Termites**: USU says three types occur in Utah and the "subterranean termite is the most
+  common type of termite in Utah"; "dampwood and drywood termites are both uncommon in Utah."
+  **Corrected Aug 2026:** the south > north pressure gradient and the *R. tibialis* Interior-West
+  range claim were **not** supported by any authoritative Utah source we could fetch, and have
+  been removed from the page rather than hedged.
+- **Deer mouse**: USU calls it a "known carrier of Hantavirus Pulmonary Syndrome"; Utah DHHS
+  describes spread by "inhaling the virus, which is in the droppings, urine and saliva of infected
+  rodents." Rural Uintah Basin outbuildings are classic exposure sites — the strongest
+  disease-angle page in the library and a genuinely Vernal-first entity. **Corrected Aug 2026: the
+  "~36% case fatality since 1987, Utah DHHS" figure could not be verified** — epi.utah.gov
+  publishes no case count or CFR, and CDC case pages returned 403. All numbers were removed from
+  the page. Attach a live CDC citation before publishing. Also corrected: USU describes deer-mouse
+  ears as *smaller* than a house mouse's, contradicting the "larger eyes and ears" field mark the
+  draft had used.
+- Other confirmations: black widow statewide — USU's actual wording is "the most dangerous
+  spiders to humans in Utah", **not** "the only spider of major medical concern", which three
+  drafts had wrongly quoted;
   northern scorpion statewide incl. Uintah Basin; desert hairy scorpion Washington County;
   European paper wasp + western yellowjacket + bald-faced hornet statewide; pavement ant = northern
   Utah's most common pest ant; odorous house ant "emerging"; carpenter ants ~12 Utah spp.,
   genuine structural pests; German/Oriental/American cockroaches established; bed bugs "common in
-  Utah" (USU); elm seed bug invasive since 2014, documented east to Duchesne County (Basin-
-  relevant), peaks in summer heat unlike boxelder's fall; boxelder bug classic fall invader;
+  Utah" (USU); elm seed bug invasive since 2014, documented **to Duchesne County — the western
+  Uintah Basin, not Vernal** (no Uintah County record found; the draft had overstated this),
+  peaks in summer heat unlike boxelder's fall; boxelder bug classic fall invader;
   carpet beetles among Utah's most common indoor pests; Indian meal moth = Utah's top stored-food
   pest; fleas "not common in Utah" (dry climate — honest framing); Lyme risk in Utah very low
   (USU: 119 western blacklegged ticks tested, all negative).
 
-Full per-species source URLs are preserved in the research transcripts; each Wave 1 page must
-cite-check against the USU page for its species before publishing.
+Full per-species evidence records — verbatim quotes, per-claim verdicts, and the list of sources
+that could not be reached — are in **`docs/pest-evidence.md`**. Each entry also carries its own
+`sources` array in frontmatter, and the schema will not let it publish with fewer than two.
 
 ## 3. Candidate matrix (classification: A commercial · B informational · C myth · D exclude)
 

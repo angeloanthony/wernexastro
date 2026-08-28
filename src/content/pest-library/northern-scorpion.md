@@ -1,22 +1,20 @@
 ---
 name: Northern Scorpion
-title: Northern Scorpion — The Scorpion Vernal Homeowners Actually See | Wernex
-description: The northern scorpion is effectively the only scorpion across most of northern Utah, including the Uintah Basin. Identification, mild sting facts, and why Vernal-area sightings are normal desert life.
+title: "Northern Scorpion: The Scorpion Vernal Actually Sees | Wernex"
+description: Yes, Vernal has scorpions. USU records the northern scorpion across all of Utah. Identification, its mild sting, and why window wells keep collecting them.
 emoji: 🦂
-summary: Yes, Vernal has scorpions. The northern scorpion is the most cold-tolerant and northerly scorpion in North America, and it's the species behind essentially every scorpion sighting in the Uintah Basin. It's small, ground-dwelling, and mildly venomous — a sting compares to a bee's — but finding one in a basement window well is still nobody's favorite surprise.
+summary: Yes, Vernal has scorpions. The northern scorpion is the most cold-tolerant and northerly scorpion in North America, and USU records its Utah range as all of Utah — the Uintah Basin included. It's modest in size, ground-dwelling, and mildly venomous — a sting compares to a bee's — but finding one in a basement window well is still nobody's favorite surprise.
 signs:
-  - A small tan-to-brown scorpion, usually 1.5–2 inches, under rocks, boards, bark, or ground clutter
+  - A modest tan-to-brown scorpion — USU puts it in its medium class, 50–100 mm — under rocks, boards, bark, or ground clutter
   - Scorpions in window wells, garages, and ground-level storage — the classic Basin encounter points
   - Blue-green fluorescence under a UV flashlight along foundations and rock landscaping at night
   - Sightings concentrated on south-facing slopes, rocky lots, and properties bordering undeveloped ground
 parentCategory: scorpions
 speciesOf: scorpions
 scientificName: Paruroctonus boreus
-image: /images/Scorpion_Infestation.webp
-imageAlt: Scorpion close-up on sandy ground — northern scorpions are small, slender, and uniformly tan to brown
 regions:
   - statewide
-utahDistribution: The northern scorpion ranges farther north than any other scorpion in North America and is found throughout Utah — Utah State University Extension documents it statewide, including the Uintah Basin, where it is effectively the only scorpion residents encounter. Rocky benches, canyon mouths, and sagebrush lots around Vernal, Naples, and Roosevelt are typical habitat, and it also occurs in southern Utah alongside the larger desert species there.
+utahDistribution: "The northern scorpion ranges farther north than any other scorpion in North America, and Utah State University Extension gives its Utah distribution in two words: all of Utah. That includes the Uintah Basin. USU recognizes nine scorpion species statewide, so it is not the only one a Basin resident could possibly turn up — but it is the one documented everywhere, and the medically significant Arizona bark scorpion is documented only in Kane County, far to the south. Rocky benches, canyon mouths, and sagebrush lots around Vernal, Naples, and Roosevelt are typical habitat, and it also occurs in southern Utah alongside the larger desert species there."
 intent: treatable
 seasonality: Active on warm nights from spring through fall; it tolerates cold better than any other North American scorpion but still overwinters in shelter
 relatedPests:
@@ -25,6 +23,11 @@ relatedPests:
 relatedServices:
   - /pest-control-vernal
 treatment: Wernex's Vernal service is built around the perimeter and the entry points, which is exactly what reduces scorpion encounters — targeted exterior treatment, sealing the ground-level gaps, and cutting back the harborage and ground-insect prey that draw scorpions toward a foundation in the first place. The Basin-specific detail we care most about is window wells, which act as pitfall traps and account for a large share of the scorpions Vernal homeowners actually meet. Covering them is often the single most effective thing done on the property.
+sources:
+  - label: USU Extension — Scorpions (Utah species list and distributions)
+    url: https://extension.usu.edu/planthealth/research/scorpions
+  - label: USU Extension — Top 20 Arachnids
+    url: https://extension.usu.edu/planthealth/uppdl/top-20-arachnids
 faqs:
   - q: Are there really scorpions in Vernal?
     a: Really. The northern scorpion is North America's most northerly scorpion — its range runs well into Canada — and the Uintah Basin sits comfortably inside it. Basin residents mostly encounter them under rocks and boards, in window wells, and occasionally in garages or basements. It's normal high-desert wildlife rather than a sign something has gone wrong with your property, though repeated indoor finds are worth addressing.
@@ -37,7 +40,7 @@ faqs:
 published: false
 ---
 
-## Effectively the Basin's Only Scorpion
+## The Scorpion That Lives Where Others Can't
 
 The northern scorpion (*Paruroctonus boreus*) holds a distinction no other scorpion in the hemisphere can claim: it thrives farther north than any of its relatives, from the desert Southwest up into British Columbia. Cold high desert like the Uintah Basin — fatal to most scorpions — is simply its habitat. It's a modest animal: small, tan, ground-dwelling, hunting crickets and other small insects at night from cover under rocks, bark, and boards.
 
@@ -51,7 +54,4 @@ Northern scorpions don't seek out houses; they follow prey and cover. The usual 
 
 ## Basin-Practical Prevention
 
-- Cover window wells and seal ground-level window frames — the single highest-value fix for the classic Basin encounter.
-- Store firewood, lumber, and rock off the ground and away from the house, and wear gloves when moving it.
-- Fit garage and entry doors with tight sweeps; check them with a flashlight from inside at night.
-- Do one summer UV-flashlight sweep of your foundation after dark — five minutes tells you whether you have a perimeter population or a stray.
+Most of what works is ordinary exclusion done with scorpions in mind. Window-well covers come first, for the reasons above. Beyond that: store firewood, lumber, and landscape rock off the ground and away from the house — wearing gloves whenever you move it — and fit garage and entry doors with sweeps tight enough that no light shows through from inside at night. One UV-flashlight walk of the foundation on a warm summer night settles what a lone sighting can't: whether you have a perimeter population or a passing stray.

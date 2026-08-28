@@ -1,9 +1,9 @@
 ---
 name: Giant Desert Hairy Scorpion
-title: Giant Desert Hairy Scorpion — St. George's Biggest Scorpion | Wernex
-description: The giant desert hairy scorpion is the large scorpion Washington County homeowners actually find. Identification, burrow habits, sting facts, and how to keep them out.
+title: Giant Desert Hairy Scorpion — Utah's Largest | Wernex
+description: The giant desert hairy scorpion is the big scorpion Washington County homeowners find at home. Identification, burrow habits, sting facts, and how to keep them out.
 emoji: 🦂
-summary: The giant desert hairy scorpion is North America's largest scorpion and the impressive one St. George-area homeowners actually encounter — a robust desert burrower that can reach five inches or more. Its size makes it alarming; its venom, in most encounters, is comparatively mild, with a sting most people compare to a bee's.
+summary: The giant desert hairy scorpion is North America's largest scorpion and the one that startles St. George-area homeowners — a robust desert burrower that can reach five inches or more. USU places it in southwestern Utah and in the largest size class on its Utah list. Its size makes it alarming; its venom, in most encounters, is comparatively mild, with a sting most people compare to a bee's.
 signs:
   - A large tan-and-dark scorpion — adults commonly 4–5+ inches — in a garage, window well, or under ground clutter
   - Burrow openings on slopes or under rocks and debris in desert-edge yards
@@ -12,11 +12,9 @@ signs:
 parentCategory: scorpions
 speciesOf: scorpions
 scientificName: Hadrurus arizonensis
-image: /images/Scorpion_Infestation.webp
-imageAlt: Robust desert scorpion on sand, showing the heavy build typical of Utah's larger ground scorpions
 regions:
   - southwest-utah
-utahDistribution: In Utah, the giant desert hairy scorpion is a Mojave Desert species of the state's warm southwestern corner — Washington County is its Utah stronghold, and Utah State University research identifies it among the scorpions St. George residents most commonly encounter. Desert-edge neighborhoods around St. George, Ivins, Santa Clara, and Hurricane, particularly lots backing to washes, lava rock, and open desert, see it most. It does not occur in northern Utah or the Uintah Basin.
+utahDistribution: In Utah, the giant desert hairy scorpion is a Mojave Desert species of the state's warm southwestern corner. Utah State University Extension gives its Utah distribution as southwestern Utah and puts it in the largest of its size classes, over 100 mm — the biggest scorpion on USU's nine-species Utah list. Desert-edge neighborhoods around St. George, Ivins, Santa Clara, and Hurricane, particularly lots backing to washes, lava rock, and open desert, see it most. It does not occur in northern Utah or the Uintah Basin.
 intent: treatable
 seasonality: Warm-season and nocturnal — most surface activity runs late spring through early fall, with daytime hours spent in burrows
 relatedPests:
@@ -26,6 +24,11 @@ relatedPests:
 relatedServices:
   - /scorpion-control-st-george
 treatment: Desert hairy scorpions come to properties for prey and cover, so Wernex treats the system rather than chasing individuals — nighttime UV detection sweeps to establish where scorpions are active, a perimeter barrier that knocks down both scorpions and the insects they hunt, removal of harborage like ground clutter and debris piles, and exclusion sealing of door sweeps, weep screeds, and pipe penetrations. Desert-edge homes benefit from recurring service because the surrounding habitat continually resupplies the population.
+sources:
+  - label: USU Extension — Scorpions (Utah species list and distributions)
+    url: https://extension.usu.edu/planthealth/research/scorpions
+  - label: USU Extension — Top 20 Arachnids
+    url: https://extension.usu.edu/planthealth/uppdl/top-20-arachnids
 faqs:
   - q: How dangerous is a giant desert hairy scorpion sting?
     a: Far less than its size suggests. Its venom is comparatively mild, and most healthy adults experience localized pain and swelling similar to a bee sting. The usual caveats apply — children, the elderly, and anyone showing systemic symptoms like difficulty breathing should get medical attention, and any Utah sting can be discussed with poison control (1-800-222-1222). But this species' fearsome look is mostly look; the medically significant sting in the region belongs to the much smaller Arizona bark scorpion.
@@ -34,13 +37,13 @@ faqs:
   - q: Do desert hairy scorpions climb walls into the house?
     a: Not really — this is a ground scorpion, built for digging rather than climbing, which is a genuine comfort compared with the wall-climbing bark scorpion. Indoor encounters are almost always at floor level — under garage doors with worn sweeps, through ground-level gaps and weep holes, or carried in with firewood, boxes, and potted plants. That entry profile is why door sweeps and ground-level sealing do so much of the protective work.
   - q: What's the fastest way to know how many scorpions are around my home?
-    a: A UV flashlight after full dark. All scorpions fluoresce a bright blue-green under ultraviolet light, and a ten-minute sweep of the foundation, block walls, and yard perimeter gives an honest census that daylight never will. If a sweep turns up multiple scorpions or you're finding them indoors, that's the point where professional treatment beats bug-by-bug removal.
+    a: A UV flashlight after full dark. All scorpions fluoresce a bright blue-green under ultraviolet light, and a ten-minute sweep of the foundation, block walls, and yard perimeter gives you a census daylight never will. If a sweep turns up multiple scorpions or you're finding them indoors, that's the point where professional treatment beats bug-by-bug removal.
 published: false
 ---
 
 ## The Scorpion That Matches the Landscape
 
-The giant desert hairy scorpion (*Hadrurus arizonensis*) is the Mojave Desert's flagship scorpion, and Utah's Dixie is the northeastern corner of its world. Adults are unmistakable: North America's largest scorpion, with a dark back, yellow-tan legs and tail, and fine sensory hairs over the body that give the species its name. It spends its days in burrows that can run several feet deep and emerges at night to ambush insects, spiders — and occasionally other scorpions.
+It is genuinely large. That is the first thing people say when they call about one, and it is why they call: an adult can run five inches or more, which is bigger than most Americans believe scorpions get. This is North America's largest scorpion, *Hadrurus arizonensis*, and Utah's southwestern corner is the northeastern edge of its Mojave range. Adults are unmistakable — a dark back, yellow-tan legs and tail, and the fine sensory hairs across the body that give the species its name. It spends its days in burrows that can run several feet deep and emerges at night to ambush insects, spiders — and occasionally other scorpions.
 
 ## Big Scorpion, Modest Sting
 
@@ -50,10 +53,14 @@ This species runs on hardware rather than chemistry: its powerful pincers subdue
 
 Desert hairy scorpions don't seek houses; they follow prey and cover to the foundation. The reliable attractants are ground clutter (stacked materials, firewood, block piles), landscape rock and railroad ties with cavities beneath, exterior lighting that concentrates insects, and irrigation that concentrates everything in a dry summer. From the foundation, entry is at floor level — garage door corners with worn sweeps are the number-one door in.
 
-## Prevention Checklist for Desert-Edge Lots
+## The Three Things That Actually Keep Them Out
 
-- Fit and maintain garage and entry door sweeps; light showing under a door is a scorpion door.
-- Clear ground-level clutter and store materials off the ground and away from walls.
-- Switch bright white exterior bulbs to yellow "bug" lighting to thin the insect buffet.
-- Wear gloves moving rocks, wood, or stored boxes, and shake out shoes and gear kept in garages.
-- Sweep the perimeter with a UV flashlight a few nights each summer and act on what it shows.
+Scorpion advice tends to arrive as a list of fifteen items, most of which move the needle very little. On a desert-edge lot in Washington County, three things do most of the work.
+
+**Doors first.** This is a ground scorpion that cannot climb well, so nearly every indoor encounter arrives at floor level, and the garage door is the usual door. Stand inside the closed garage at night: if you can see light under the door, a scorpion can walk under it. Fitting and maintaining sweeps outperforms anything sprayed.
+
+**Then the ground within a few feet of the wall.** Stacked materials, firewood, block piles, landscape rock, and railroad ties with cavities beneath them are daytime shelter for scorpions and for the insects they hunt. Moving that material away from the foundation removes the staging ground; a bright white porch bulb swapped for a yellow one removes the insect buffet that drew everything in.
+
+**Then look, rather than guess.** All scorpions fluoresce blue-green under ultraviolet light — USU notes plainly that "scorpions often glow under a blacklight" — so a ten-minute UV walk of the foundation on a warm night tells you what daylight never will. One scorpion on a desert-edge lot is unremarkable. A sweep that lights up several, or any found indoors, is the honest signal that it is time to call someone.
+
+And whatever else you do: gloves before moving rocks, wood, or stored boxes, and a shake-out of shoes and gear left in the garage. Most stings are the result of a hand or a foot arriving somewhere before the eyes did.

@@ -1,13 +1,13 @@
 ---
 name: Western Yellowjackets
-title: Western Yellowjackets in Utah — Nests, Stings & Late-Summer Risk | Wernex
-description: The western yellowjacket is Utah's serious stinging pest — a ground-nesting scavenger whose colonies peak in late summer. Identification, nest habits, and when removal needs a professional.
+title: Yellowjackets in Utah — Why Late Summer Is Sting Season | Wernex
+description: The western yellowjacket nests underground and in wall voids, then turns to scavenging in late summer. Identification, colony cycle, and when to call for removal.
 emoji: 🐝
 summary: Among Utah's many yellow-and-black insects, the western yellowjacket is the one that sends people to urgent care — a ground- and void-nesting wasp whose colonies grow all season and turn to scavenging human food in late summer. That August-to-September stretch, when colonies are huge and hungry, is when picnics, patios, and trash cans become conflict zones statewide.
 signs:
   - A steady stream of wasps entering and leaving a single hole in the ground, a wall vent, or a gap in siding
   - Wasps working trash cans, pet food, and outdoor meals — persistent, returning scavengers in late summer
-  - Muffled scratching or humming inside a wall void near an exterior gap with wasp traffic
+  - Muffled scratching or humming inside a wall void near an exterior gap with wasp traffic — USU lists "old rodent burrows, holes, structural voids" as typical nest sites
   - Multiple stings received near a specific spot in the yard — a defended nest entrance
 parentCategory: wasps
 speciesOf: wasps
@@ -16,7 +16,7 @@ image: /images/Yellow_Jackets.webp
 imageAlt: Yellowjackets on the comb of their nest
 regions:
   - statewide
-utahDistribution: The western yellowjacket is established throughout Utah and is the state's principal pest yellowjacket — abundant in both the Uintah Basin and Washington County. Colonies are annual, founded each spring by a single overwintered queen, which is why the problem seems to appear from nowhere each summer and vanish at the first hard frost. Rural properties, parks, orchards, and any yard with outdoor food sources see the heaviest late-season pressure.
+utahDistribution: "The western yellowjacket is one of the social wasps Utah State University Extension covers as a Utah pest, and it is familiar in both the Uintah Basin and Washington County. USU describes the cycle that drives the complaints: the \"colony dies off every fall; fertilized queens overwinter,\" then \"queens start new every spring; colonies grow throughout the summer months.\" That is why the problem seems to appear from nowhere each summer and vanish at the first hard frost. Rural properties, parks, orchards, and any yard with outdoor food sources see the heaviest late-season pressure."
 intent: treatable
 seasonality: Colonies grow from spring through summer; peak numbers, peak scavenging, and peak sting risk run August through the first hard frost
 relatedPests:
@@ -25,7 +25,12 @@ relatedPests:
 relatedServices:
   - /wasp-removal-st-george
   - /pest-control-vernal
-treatment: Yellowjacket nest removal is the textbook case for professional service — the nests are concealed underground or inside wall voids, the colony defends the entrance in force, and a partly treated wall-void nest can push wasps into the living space. Wernex assesses the situation and locates the true nest (not just the flight path), treats and removes it with the right equipment and protective gear, and applies a residual treatment to the eaves and entry points where wasps rebuild. If the nest turns out to be on a neighboring property, we will tell you that too — the sanitation steps below are what help in the meantime.
+treatment: "This is the one we most often tell people not to attempt themselves. The nest is concealed underground or inside a wall void, the colony defends its entrance in force, and a half-treated wall nest can push wasps into the living space. We locate the actual nest rather than the flight path, treat and remove it with the right equipment and protective gear, and treat the eaves and entry points where the next queen will try to rebuild. If the nest turns out to be on a neighbor's property, we will tell you that too."
+sources:
+  - label: USU Extension — Western Yellowjacket
+    url: https://extension.usu.edu/planthealth/ipm/notes_nuisance/western-yellowjacket
+  - label: USU Extension — Wasps, Yellow Jackets and Hornets
+    url: https://extension.usu.edu/planthealth/structural-and-nuisance/files/pest-press-fact-sheets/pdf/social-wasps_pestpress.pdf
 faqs:
   - q: What's the difference between a yellowjacket and a paper wasp?
     a: Body, nest, and temperament. Yellowjackets are compact and bright yellow-and-black, nest in enclosed spots — ground burrows and wall voids — and defend those nests aggressively. Paper wasps are slimmer with dangling legs in flight, build open umbrella combs under eaves, and are comparatively mild-mannered. The distinction matters practically — an enclosed yellowjacket nest is the one that produces mass-sting incidents.
@@ -42,7 +47,7 @@ published: false
 
 ## Utah's Most Consequential Stinger
 
-Among Utah's many yellow-and-black insects, the western yellowjacket (*Vespula pensylvanica*) is the one that sends people to urgent care. It combines an enclosed, hidden nest, a large late-season colony, energetic nest defense, and a taste for human food — a package no other local stinging insect matches. Understanding its annual cycle is most of understanding the risk.
+Four things have to line up to produce a mass-sting incident in a Utah backyard, and the western yellowjacket (*Vespula pensylvanica*) is the only local insect that supplies all four: a nest you cannot see, a colony that peaks in the thousands exactly when people are outdoors most, vigorous defense of the entrance, and a late-season appetite for the food on your table. None of that is temperament — it is structure and timing, which is why understanding the annual cycle is most of understanding the risk.
 
 ## One Queen to Thousands
 
@@ -52,9 +57,18 @@ Every colony starts in spring as a single overwintered queen digging into an aba
 
 The nests you can't see cause the trouble. Mowing over an unnoticed ground nest is the classic mass-sting scenario in Utah yards; the vibration triggers a colony-wide defensive response. Wall-void nests bring a different hazard — treating the entrance hole with store-bought spray can drive the colony deeper into the wall and occasionally into the house. Both situations are exactly what professional removal is for. Open comb hanging visibly under an eave, by contrast, belongs to the much milder [paper wasp](/pest-library/paper-wasp).
 
-## Reducing the Late-Summer Grind
+## The One Thing Never to Do
 
-- Keep trash cans lidded tightly and rinse recycling — scavengers recruit nestmates to reliable food.
-- Don't leave pet food, fallen fruit, or hummingbird-feeder drips available.
-- Serve outdoor meals with covers handy, and pour sodas into cups — a wasp inside a can is a sting waiting to happen.
-- Walk the yard early in the season; a June nest entrance with light traffic is far easier to deal with than the same nest in September.
+USU Extension's yellowjacket guidance contains a rare all-caps-worthy instruction, and it is worth repeating exactly: **"Never plug entrance holes to nests!"**
+
+The logic is unpleasant but simple. A colony sealed into a wall void does not politely die; it digs. Wasps that cannot leave the way they came in will work toward light and air, and the nearest light and air is frequently the inside of your house. The same goes for a foaming spray emptied into an entrance hole that only reaches the first few inches of a nest running feet into the structure — you have angered a colony of thousands and removed its normal exit.
+
+USU's own recommendation for a nest that has to go is a non-repellent dust applied "in and immediately around entrance hole(s) at night," followed by leaving the hole open, and — for anything in a wall void or in a spot people use — its plainest line on the subject: "Consider outsourcing yellowjacket management." We would obviously say that; it is worth noting that a university with nothing to sell says it too.
+
+## Living Through August
+
+Between the nest you have dealt with and the neighbors' nests you have not, some late-summer scavenging is simply the season. It responds well to removing the reasons to visit: lidded trash cans and rinsed recycling, no pet food or fallen fruit left out, no hummingbird-feeder drips. Outdoors, pour drinks into cups rather than drinking from cans — a wasp inside an aluminium can is the classic Utah mouth sting, and it is entirely preventable.
+
+The hanging traps sold everywhere do help, because western yellowjackets respond strongly to heptyl butyrate lures, but only as a perimeter tool. Hang them away from the patio you are protecting rather than beside it, and do not expect them to touch a nest.
+
+The cheapest fix of all is a calendar one. USU advises monitoring for nests from early summer, and a nest entrance found in June — light traffic, small colony, low stakes — is a fundamentally easier problem than the same hole in September with thousands of defenders behind it.
