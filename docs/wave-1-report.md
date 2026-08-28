@@ -379,9 +379,18 @@ repeated string is a source URL or a `relatedServices` path.
    `northern-scorpion` tiles/hrefs and add them to the ItemList.
 2. **The Bug Identifier upload flow is dead in production.** `identifyBug*`, `handleFileSelect*`,
    `handleDrop*` and `switchTab` have no definitions. On `/pest-library` the upload tab is the
-   default panel and `switchTab` is the only way to reach the working Galaxy iframe, so the working
-   identifier is unreachable there; `/bug-identifier` has no iframe at all. Meanwhile five entity
-   pages and every informational CTA promise free photo ID, and `llms.txt` advertises the feature.
+   default panel and `switchTab` is the only way to reach the Galaxy iframe, so that iframe is
+   unreachable there; `/bug-identifier` has no iframe at all. Meanwhile five entity pages and
+   every informational CTA promise free photo ID, and `llms.txt` advertises the feature.
+   **Update, 2026-08-28 (wiring pass): the Galaxy AI fallback is also dead.** The embedded URL
+   `https://image.galaxy.ai/ai-bug-identifier` returns HTTP 404, as do `image.galaxy.ai/`,
+   `galaxy.ai/ai-bug-identifier` and the `galaxy.ai/` apex — checked with a browser User-Agent
+   and following redirects. So the identifier has **no working path at all**: not the upload
+   flow, not the fallback. This invalidates the "preserve the Galaxy AI functionality" premise
+   the identifier correction was scoped around, and widens the decision beyond a copy edit —
+   `/bug-identifier` is one of the 28 measured production pages, sits in the main nav, and
+   carries `WebApplication` schema offering the tool at price 0. Its fate is an owner decision;
+   see §17.
 3. **Source padding.** `black-widow` and `hobo-spider` each satisfy the two-source floor with a
    fact sheet that does not address their species (scorpions and desert recluse respectively).
    Needs a real second source before either publishes.
@@ -391,3 +400,80 @@ repeated string is a source URL or a `relatedServices` path.
 5. **`northern-scorpion` service claim.** `/pest-control-vernal` lists rodents, spiders, ants,
    wasps, boxelder bugs and cluster flies — not scorpions. The probe's inclusion of this page is
    blocked on owner confirmation.
+
+---
+
+## 17. Hub Wiring Checkpoint — 2026-08-28
+
+Joins the Pest Library hub to the `pestLibrary` content collection. Before this, the hub built
+its tile grid, ItemList JSON-LD and search index from `src/data/pests.ts` while the entity route
+built from the collection — two systems that never met, leaving 17 of 19 entity pages with no
+inbound link from anywhere on the site.
+
+### The invariant
+
+`published` in the content collection is the only publication state. `buildPestCatalog()` is the
+single join; the hub grid, ItemList, `#pest-index` search JSON and `PEST_COUNT` all read that one
+catalog, so they cannot disagree with each other or with the routes the build emitted.
+
+**Publishing a pest is exactly one boolean flip.** No `pests.ts` href, no hub edit, no ItemList
+edit, no search-index edit, no sitemap edit, no validator constant.
+
+### Verified round trip
+
+| | unpublished | both probe entities published |
+|---|---|---|
+| production pages | 28 | 30 |
+| hub tiles | 16 | 18 |
+| `numberOfItems` / ListItems | 16 | 18 |
+| search index entries | 16 | 18 |
+| meta description count | 16 | 18 |
+| entity URLs in served sitemap | 0 | 2 |
+| banned/synthetic images rendered | 0 | 0 |
+| emoji-only tiles | 0 | 2 |
+
+Reverting both booleans returned the build to 28 pages with no entity routes, no hub links, no
+ItemList entries, no search entries and no sitemap entries. Hub HTML with nothing published is
+byte-identical to the pre-wiring output apart from the CSS asset hash.
+
+### Two frozen constants that would have forced manual edits
+
+Found while proving the flip, and fixed:
+
+1. **`public/sitemap.xml` is hand-curated and is the only sitemap `robots.txt` advertises.** The
+   Astro-generated `sitemap-0.xml` gained the entity URLs on publish; the advertised one did not.
+   Publishing would have shipped two live pages that no sitemap pointed at — quietly compromising
+   the measurement the probe exists to produce. The static file keeps its tuned per-page
+   `lastmod`/`changefreq`/`priority` for the 28 static pages (regenerating it wholesale would have
+   rewritten all 28 live entries mid-measurement), and a build hook now **appends** entity URLs to
+   `dist/sitemap.xml`, derived from the entity pages the build actually emitted. Output with
+   nothing published is byte-identical to the curated file.
+2. **`EXPECTED_PROD_PAGES = 28` in the validator.** Now `STATIC_PROD_PAGES + published count`.
+   The publish tripwire is preserved rather than softened: any `published: true` still **fails** a
+   production validation run unless it is acknowledged with `--allow-published`.
+
+### Image-free tiles
+
+Neither probe entity has an image verified to depict its species, and both candidate files are on
+the banned list — `elmsee_bug.webp` does not even depict an elm seed bug. The grid previously
+rendered `<img>` unconditionally. It now has an intentional image-free state reusing the existing
+`.pest-item .placeholder` hook: emoji at photo-tile height, `aria-hidden` so the accessible name
+comes from the tile text rather than an alt claiming an animal is pictured. No stock or synthetic
+photography was added, and the image standard was not relaxed.
+
+### Guardrails added
+
+Validator now fails on: a hub link to an entity URL the build did not emit (a 404 on a live page);
+an unpublished entity appearing as a hub link, ItemList item, search entry or new tile; a published
+entity orphaned from any of those surfaces; the five catalog surfaces disagreeing; a published
+entity missing from the served sitemap; and a banned image rendered on the hub.
+
+### Blocked — owner decision required
+
+The Bug Identifier correction was **not** performed. It was scoped around preserving the Galaxy AI
+iframe, and that iframe is dead too (see §16 item 2). With no working path anywhere in the feature,
+the fix is no longer a copy edit, and `/bug-identifier` is one of the 28 measured pages, is in the
+main nav, and carries `WebApplication` schema. Options, none of which should be chosen by an
+engineer alone: replace the dual dead widgets with a different working identifier; keep the page as
+static identification guidance and drop every automated-ID claim; or fold it into the Pest Library
+and retire the URL — which changes the page count and needs a redirect decision.

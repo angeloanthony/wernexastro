@@ -1002,6 +1002,19 @@ a.pest-item {
    promise a click. Remove the modifier as each Wave 1 page goes live. */
 .pest-item--static { cursor: default; }
 .pest-item .placeholder { min-height: 160px; border-radius: 0; }
+/* Image-free tile: an entity with no image verified to depict its species. Reads as a
+   deliberate state rather than a failed <img>, and sits at the same height as a photo
+   tile so the grid stays even. The emoji is aria-hidden; the tile's accessible name
+   comes from .pest-item__name. */
+.pest-item__emoji {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 3.4rem;
+  line-height: 1;
+  background: var(--off-white, #f7f8f5);
+  border-bottom: 1px solid var(--gray-light, #e8e8e8);
+}
 .pest-item__name {
   padding: 16px;
   font-family: var(--font-display);
