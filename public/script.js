@@ -109,32 +109,33 @@ document.addEventListener('DOMContentLoaded', () => {
   // ── Pest Search / Identifier ──
   const pestSearchInput = document.querySelector('.pest-search input');
   const pestResults = document.querySelector('.pest-search__results');
-  const pests = [
-    { name: 'Ants', emoji: '🐜', link: '#ants' },
-    { name: 'Termites', emoji: '🪵', link: '#termites' },
-    { name: 'Cockroaches', emoji: '🪳', link: '#cockroaches' },
-    { name: 'Bed Bugs', emoji: '🛏️', link: '#bedbugs' },
-    { name: 'Spiders', emoji: '🕷️', link: '#spiders' },
-    { name: 'Mice & Rats', emoji: '🐀', link: '#rodents' },
-    { name: 'Mosquitoes', emoji: '🦟', link: '#mosquitoes' },
-    { name: 'Wasps & Bees', emoji: '🐝', link: '#wasps' },
-    { name: 'Fleas & Ticks', emoji: '🪲', link: '#fleas' },
-    { name: 'Silverfish', emoji: '🐛', link: '#silverfish' },
-    { name: 'Flies', emoji: '🪰', link: '#flies' },
-    { name: 'Earwigs', emoji: '🐛', link: '#earwigs' },
-    { name: 'Scorpions', emoji: '🦂', link: '#scorpions' },
-    { name: 'Beetles', emoji: '🪲', link: '#beetles' },
-    { name: 'Centipedes', emoji: '🐛', link: '#centipedes' },
-  ];
+  // The index is emitted by pest-library.astro from src/data/pests.ts — the same
+  // source that renders the tiles and the ItemList schema. This used to be a
+  // hardcoded copy here and had drifted to 15 entries against 20 visible tiles,
+  // so searching "black widow" or "aphid" returned nothing.
+  const pestIndexEl = document.getElementById('pest-index');
+  let pests = [];
+  if (pestIndexEl) {
+    try {
+      pests = JSON.parse(pestIndexEl.textContent);
+    } catch (err) {
+      pests = [];
+    }
+  }
 
-  if (pestSearchInput && pestResults) {
+  if (pestSearchInput && pestResults && pests.length) {
     pestSearchInput.addEventListener('input', (e) => {
-      const query = e.target.value.toLowerCase();
+      const query = e.target.value.toLowerCase().trim();
       if (query.length < 1) {
         pestResults.classList.remove('open');
         return;
       }
-      const matches = pests.filter(p => p.name.toLowerCase().includes(query));
+      // Match the display name or any alias, so "mouse", "roach" and "hourglass
+      // spider" all resolve the way people actually type them.
+      const matches = pests.filter(p =>
+        p.name.toLowerCase().includes(query) ||
+        (p.aliases || []).some(a => a.toLowerCase().includes(query))
+      );
       if (matches.length) {
         pestResults.innerHTML = matches.map(p => `
           <a href="${p.link}">

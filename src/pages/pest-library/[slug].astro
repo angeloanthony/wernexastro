@@ -1,0 +1,284 @@
+---
+// src/pages/pest-library/[slug].astro
+// Layer 1 (category) and Layer 2 (species) pest entity pages, driven by the
+// pestLibrary content collection. Layer 3 — commercial local intent — stays in
+// the hand-authored /*-control-* pages and is only ever LINKED from here, so an
+// informational pest page never competes with the page meant to convert.
+//
+// PUBLISHING GATE: a production build renders only entries with published:true.
+// Drafts render in `astro dev` and in a local `PEST_PREVIEW=1 npm run build`,
+// nowhere else — so while the canonical-consolidation measurement window is
+// open, deploying the site cannot expose an unpublished pest URL.
+import { getCollection, render, type CollectionEntry } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import FAQ from '../../components/FAQ.astro';
+import { PESTS } from '../../data/pests';
+import { WERNEX } from '../../data/business';
+import { faqPage, graph } from '../../lib/schema';
+
+export async function getStaticPaths() {
+  const includeDrafts = import.meta.env.DEV || process.env.PEST_PREVIEW === '1';
+  const all = await getCollection('pestLibrary');
+  const entries = all.filter((e) => includeDrafts || e.data.published);
+
+  // Guardrails — fail the build loudly rather than ship a taxonomy violation.
+  const excluded = new Set(PESTS.filter((p) => p.status === 'excluded').map((p) => p.slug));
+  const knownCategories = new Set([...PESTS.map((p) => p.category), ...all.map((e) => e.id)]);
+  for (const e of all) {
+    if (excluded.has(e.id)) {
+      throw new Error(
+        `pest-library/${e.id}: this slug is status:'excluded' in src/data/pests.ts. ` +
+          `Excluded pests must not get pages — resolve the exclusion first.`,
+      );
+    }
+    if (!knownCategories.has(e.data.parentCategory)) {
+      throw new Error(
+        `pest-library/${e.id}: parentCategory '${e.data.parentCategory}' matches no ` +
+          `category in src/data/pests.ts and no pest-library entry — orphaned taxonomy.`,
+      );
+    }
+  }
+
+  return entries.map((entry) => ({ params: { slug: entry.id }, props: { entry, siblings: entries } }));
+}
+
+interface Props {
+  entry: CollectionEntry<'pestLibrary'>;
+  siblings: CollectionEntry<'pestLibrary'>[];
+}
+const { entry, siblings } = Astro.props;
+const { Content } = await render(entry);
+const d = entry.data;
+const slug = entry.id;
+const SITE = WERNEX.website;
+const canonical = d.canonical ?? `${SITE}/pest-library/${slug}`;
+const isDraft = !d.published;
+
+// Image: frontmatter wins, else this pest's own tile, else its category's tile.
+const tile = PESTS.find((p) => p.slug === slug) ?? PESTS.find((p) => p.slug === d.parentCategory);
+const heroImage = d.image ?? tile?.image;
+const heroAlt = d.imageAlt ?? tile?.alt ?? `${d.name} close-up`;
+
+// Layer relationships. A species page breadcrumbs through its category; the
+// category crumb targets the category's own page when it exists in this build,
+// else the hub anchor — never a dead URL.
+const isSpecies = Boolean(d.speciesOf);
+const categoryEntry = isSpecies ? siblings.find((e) => e.id === d.parentCategory) : undefined;
+const categoryTile = PESTS.find((p) => p.slug === d.parentCategory);
+const categoryName = categoryEntry?.data.name ?? categoryTile?.name ?? d.parentCategory;
+const categoryHref = categoryEntry ? `/pest-library/${categoryEntry.id}` : `/pest-library#${d.parentCategory}`;
+const childSpecies = !isSpecies ? siblings.filter((e) => e.data.speciesOf === slug) : [];
+
+// Related pests resolve to a real page in this build, else to their hub anchor.
+// On a myth page they must NEVER fall through to a tile's commercial href —
+// that would reintroduce, via the side door, the exact treatment framing the
+// intent guardrail forbids.
+const relatedPests = (d.relatedPests ?? []).flatMap((rs) => {
+  const sib = siblings.find((e) => e.id === rs);
+  if (sib) return [{ name: sib.data.name, emoji: sib.data.emoji ?? '', href: `/pest-library/${rs}` }];
+  const t = PESTS.find((p) => p.slug === rs && p.status !== 'excluded');
+  if (t) {
+    const href = d.intent === 'myth' ? `/pest-library#${rs}` : (t.href ?? `/pest-library#${rs}`);
+    return [{ name: t.name, emoji: t.emoji, href }];
+  }
+  return []; // unknown slug: drop silently rather than emit a broken link
+});
+
+const REGION_LABELS: Record<string, string> = {
+  'southwest-utah': 'Southwest Utah — St. George & Washington County',
+  'uintah-basin': 'Uintah Basin — Vernal, Naples & Roosevelt',
+  statewide: 'Found throughout Utah',
+};
+
+const crumbs = [
+  { name: 'Home', href: '/' },
+  { name: 'Pest Library', href: '/pest-library' },
+  ...(isSpecies ? [{ name: categoryName, href: categoryHref }] : []),
+  { name: d.name, href: `/pest-library/${slug}` },
+];
+
+const og = {
+  'og:title': d.title,
+  'og:description': d.description,
+  'og:type': 'article',
+  'og:url': canonical,
+  'og:locale': 'en_US',
+  'og:site_name': WERNEX.name,
+};
+
+// FAQPage is emitted here (page-scoped @id) — FAQ component below renders the
+// visible Q&A only, so the same items back both without duplicate schema nodes.
+const schema = graph(
+  {
+    '@type': 'WebPage',
+    url: canonical,
+    name: d.title,
+    description: d.description,
+    isPartOf: { '@id': `${SITE}/#website` },
+    about: {
+      '@type': 'Thing',
+      name: d.name,
+      ...(d.scientificName ? { alternateName: d.scientificName } : {}),
+    },
+  },
+  faqPage(d.faqs, canonical),
+);
+---
+<BaseLayout title={d.title} description={d.description} canonical={canonical} og={og} schema={schema} active="/pest-library">
+  <Breadcrumbs items={crumbs} />
+
+  {isDraft && (
+    <div style="background:#fff3cd;border-bottom:2px solid #e0a800;padding:10px 0;text-align:center;font-weight:600;color:#7a5c00;">
+      DRAFT — this page is unpublished and only renders in local preview builds.
+    </div>
+  )}
+
+  <!-- ═══ HERO ═══ -->
+  <section class="section" style="padding-bottom:0;">
+    <div class="container">
+      <div class="two-col reveal">
+        <div>
+          <span class="section-label">{isSpecies ? categoryName : PESTS.some((p) => p.category === slug) ? 'Pest Category' : 'Utah Pest Guide'}</span>
+          <h1 style="margin-top:8px;">{d.emoji && <span aria-hidden="true">{d.emoji} </span>}{d.name}</h1>
+          {d.scientificName && <p style="color:var(--gray);font-style:italic;margin-top:4px;">{d.scientificName}</p>}
+          <p style="margin-top:16px;color:var(--text-body);line-height:1.7;max-width:60ch;">{d.summary}</p>
+        </div>
+        {heroImage && (
+          <div>
+            <img src={heroImage} alt={heroAlt} style="width:100%;border-radius:12px;object-fit:cover;" loading="eager" />
+          </div>
+        )}
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ QUICK FACTS + UTAH DISTRIBUTION ═══ -->
+  <section class="section" style="padding-top:40px;">
+    <div class="container">
+      <div class="two-col reveal">
+        <div class="card"><div class="card__body">
+          <h3>Quick Facts</h3>
+          <ul style="list-style:none;padding:0;margin:12px 0 0;display:grid;gap:10px;color:var(--text-body);">
+            {d.scientificName && <li><strong>Scientific name:</strong> <em>{d.scientificName}</em></li>}
+            {isSpecies && <li><strong>Group:</strong> <a href={categoryHref}>{categoryName}</a></li>}
+            <li><strong>Where in Utah:</strong> {d.regions.map((r) => REGION_LABELS[r]).join(' · ')}</li>
+            {d.seasonality && <li><strong>Most active:</strong> {d.seasonality}</li>}
+          </ul>
+        </div></div>
+        <div>
+          <h2 style="font-size:1.4rem;">Where You'll Find This Pest in Utah</h2>
+          <p style="margin-top:12px;color:var(--text-body);line-height:1.7;">{d.utahDistribution}</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  {d.signs?.length && (
+    <section class="section section--alt" style="padding-top:40px;padding-bottom:40px;">
+      <div class="container" style="max-width:880px;">
+        <h2 class="reveal" style="font-size:1.4rem;">Signs You Have a {d.name.replace(/s$/, '')} Problem</h2>
+        <ul class="reveal" style="margin-top:16px;padding-left:20px;display:grid;gap:8px;color:var(--text-body);line-height:1.6;">
+          {d.signs.map((s) => <li>{s}</li>)}
+        </ul>
+      </div>
+    </section>
+  )}
+
+  <!-- ═══ MAIN CONTENT (markdown body) ═══ -->
+  <section class="section">
+    <div class="container pest-content" style="max-width:880px;">
+      <Content />
+    </div>
+  </section>
+
+  {childSpecies.length > 0 && (
+    <section class="section section--alt" style="padding-top:40px;padding-bottom:40px;">
+      <div class="container" style="max-width:880px;">
+        <div class="text-center reveal" style="margin-bottom:20px;">
+          <span class="section-label">Know Your Species</span>
+          <h2 style="font-size:1.4rem;">{d.name} Found in Utah</h2>
+        </div>
+        <ul style="list-style:none;padding:0;margin:0;display:flex;flex-wrap:wrap;justify-content:center;gap:12px 28px;">
+          {childSpecies.map((s) => (
+            <li><a href={`/pest-library/${s.id}`}>{s.data.emoji} {s.data.name}</a></li>
+          ))}
+        </ul>
+      </div>
+    </section>
+  )}
+
+  {d.intent === 'treatable' && d.treatment && (
+    <section class="section" style="padding-top:40px;padding-bottom:40px;">
+      <div class="container" style="max-width:880px;">
+        <h2 class="reveal" style="font-size:1.4rem;">How Wernex Treats {d.name}</h2>
+        <p class="reveal" style="margin-top:12px;color:var(--text-body);line-height:1.7;">{d.treatment}</p>
+      </div>
+    </section>
+  )}
+
+  <!-- ═══ CTA — framing follows intent ═══ -->
+  <section class="section" style="padding-top:20px;">
+    <div class="container">
+      <div class="cta-banner reveal">
+        {d.intent === 'treatable' ? (
+          <div>
+            <h2>Dealing with {d.name}?</h2>
+            <p>Same-day inspections across Southern Utah and the Uintah Basin.</p>
+          </div>
+        ) : (
+          <div>
+            <h2>Not Sure What You're Seeing?</h2>
+            <p>Send us a photo — our technicians will identify it for free.</p>
+          </div>
+        )}
+        <div class="cta-banner__buttons">
+          <a href="/contact" class="btn btn--primary">{d.intent === 'treatable' ? 'Get a Free Quote →' : 'Ask an Expert →'}</a>
+          <a href={`tel:${WERNEX.phoneTel}`} class="btn btn--white">📞 {WERNEX.phone}</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <FAQ items={d.faqs} heading={`${d.name} FAQs`} emitSchema={false} />
+
+  {(relatedPests.length > 0 || (d.relatedServices?.length ?? 0) > 0) && (
+    <section class="section" style="padding-top:40px;padding-bottom:48px;background:var(--gray-light,#f5f5f5);">
+      <div class="container" style="max-width:880px;">
+        {relatedPests.length > 0 && (
+          <div class="text-center reveal" style="margin-bottom:20px;">
+            <span class="section-label">Related Pests</span>
+            <ul style="list-style:none;padding:0;margin:12px 0 0;display:flex;flex-wrap:wrap;justify-content:center;gap:12px 28px;">
+              {relatedPests.map((r) => <li><a href={r.href}>{r.emoji} {r.name}</a></li>)}
+            </ul>
+          </div>
+        )}
+        {(d.relatedServices?.length ?? 0) > 0 && (
+          <div class="text-center reveal">
+            <span class="section-label">Get Treatment</span>
+            <ul style="list-style:none;padding:0;margin:12px 0 0;display:flex;flex-wrap:wrap;justify-content:center;gap:12px 28px;">
+              {d.relatedServices!.map((href) => {
+                const label = href
+                  .replace(/^\//, '')
+                  .split('-')
+                  .map((w) => (w === 'st' ? 'St.' : w === 'ut' ? 'UT' : w[0].toUpperCase() + w.slice(1)))
+                  .join(' ');
+                return <li><a href={href}>{label}</a></li>;
+              })}
+            </ul>
+          </div>
+        )}
+      </div>
+    </section>
+  )}
+</BaseLayout>
+
+<style>
+  /* Markdown body: match the site's prose rhythm without a global plugin. */
+  .pest-content :global(h2) { font-size: 1.4rem; margin: 32px 0 12px; }
+  .pest-content :global(h3) { font-size: 1.15rem; margin: 24px 0 10px; }
+  .pest-content :global(p) { color: var(--text-body); line-height: 1.7; margin: 0 0 14px; }
+  .pest-content :global(ul), .pest-content :global(ol) { color: var(--text-body); line-height: 1.6; margin: 0 0 14px; padding-left: 22px; }
+  .pest-content :global(li) { margin-bottom: 6px; }
+  .pest-content :global(a) { text-decoration: underline; }
+</style>
