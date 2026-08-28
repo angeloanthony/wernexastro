@@ -112,8 +112,23 @@ const pestLibrary = defineCollection({
     scientificName: z.string().optional(),
 
     // ── Utah accuracy gate ────────────────────────────────────────────
-    /** Which parts of the service area this pest actually occurs in. */
+    /**
+     * Which parts of the SERVICE AREA this pest is relevant to. This field routes
+     * and segments; it is not a distribution finding. The route used to render it
+     * verbatim as the "Where in Utah" fact, which is how `brown-recluse` — a page
+     * whose entire purpose is that the species does not live here — shipped a Quick
+     * Facts line reading "Found throughout Utah". Set `rangeNote` on any entry whose
+     * real range does not match one of these labels.
+     */
     regions: z.array(z.enum(['southwest-utah', 'uintah-basin', 'statewide'])).min(1),
+    /**
+     * Overrides the rendered "Where in Utah" fact with an authored one. Required on
+     * myth entries and on any entry whose `utahDistribution` hedges, narrows, or
+     * denies what `regions` implies — the scannable fact in Quick Facts is the line
+     * a reader (or an AI summarizer) lifts, so it must never assert more than the
+     * prose below it does.
+     */
+    rangeNote: z.string().min(20).optional(),
     /** Prose on where in Utah it is found and where it is not. Forces real local data. */
     utahDistribution: z.string().min(80),
     /**
@@ -175,6 +190,15 @@ const pestLibrary = defineCollection({
       "intent:'informational' entries must not set relatedServices — if Wernex genuinely " +
       'services this pest, the entry is treatable and must be able to say so honestly.',
     path: ['relatedServices'],
+  })
+  // A myth page asserts the species is NOT established here, so it can never let the
+  // `regions` enum speak for it — "Found throughout Utah" in Quick Facts would refute
+  // the page from inside its own summary box.
+  .refine((d) => d.intent !== 'myth' || !!d.rangeNote, {
+    message:
+      "intent:'myth' entries must set `rangeNote` — otherwise Quick Facts renders the " +
+      '`regions` enum as a presence claim the page exists to deny.',
+    path: ['rangeNote'],
   })
   // `treatment` renders under a "How Wernex Treats X" heading, so it is a service claim.
   // Only a treatable entry may carry one; anything else is a treatment claim wearing an

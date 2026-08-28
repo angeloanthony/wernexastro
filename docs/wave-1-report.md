@@ -101,7 +101,7 @@ distribution uncertainty in its own text rather than burying it.
 | Termites | USU: subterranean most common; drywood/dampwood "uncommon in Utah" | **Removed the unverifiable north–south pressure gradient** |
 | Roof rat | No university/state record; local news since ~2021 | Named the outlets, and stated that their quantitative claims trace to pest-control operators |
 | Turkestan cockroach | **No Utah record found anywhere** | Hold recommended |
-| Fire ants | USU: "NOT known to occur in Utah, **but parts of southwestern Utah are suitable for IFA establishment**" | The second half had been omitted site-wide; now on the harvester-ant page |
+| Fire ants | USU: "IFA are **NOT** known to occur in Utah"; separately, "Parts of Washington, Iron, and Kane Counties **may be** suitable for colony establishment, particularly in areas that have accessible water from irrigation or natural sources" | The caveat had been omitted site-wide; now on the harvester-ant page. Audit note: it was first added as a compressed quote reading "parts of southwestern Utah are suitable for IFA establishment", which dropped USU's hedge and its water qualifier — corrected to USU's own wording |
 
 ---
 
@@ -341,3 +341,53 @@ most likely to compare against cached copies of the old ones.
 Per-page publish steps are unchanged — `docs/pest-entity-system.md` §6. Re-run
 `node scripts/validate-pests.mjs --mode=production` after every flip; it will fail the moment a
 published entry lacks citations or the sitemap falls out of sync.
+
+
+---
+
+## 16. Pre-Publication Audit — 2026-08-27
+
+Adversarial review of the whole Wave 1 system before the probe. Production safety re-verified
+(28 pages, no entity routes, both sitemaps clean). Twelve of the fourteen source URLs that could be
+fetched were checked quote-by-quote; every direct quotation on the black widow, brown recluse, hobo
+spider, desert recluse, elm seed bug, yellowjacket, termite, deer mouse, pavement ant, German
+cockroach and harvester-ant mound passages verified verbatim against USU. Independent n-gram scan
+reproduced §12's finding: **zero prose 6-grams or 8-grams shared by three or more pages** — every
+repeated string is a source URL or a `relatedServices` path.
+
+### Corrected in this pass
+
+| Area | Finding | Fix |
+|---|---|---|
+| **Geography (structural)** | Quick Facts rendered the `regions` enum as the "Where in Utah" fact. Six pages therefore asserted presence their own prose denies — `brown-recluse` read "Found throughout Utah", `turkestan-cockroach` and `arizona-bark-scorpion` both read "Southwest Utah — St. George & Washington County", and `hobo-spider`, `elm-seed-bug` and `roof-rat` overstated their documented ranges. The intent gate policed commerce; nothing policed geography | Added optional `rangeNote`, which overrides the rendered fact; required on `myth` by schema refine; set on all six pages; validator now fails a myth page that renders a presence label |
+| **Preview leak** | A `PEST_PREVIEW=1` build emitted all 19 draft URLs into the generated `sitemap-0.xml`, with production canonicals and no `noindex`. The DRAFT banner is a human signal, not a crawler signal | `noindex,nofollow` on every unpublished entity page (via a new `BaseLayout` prop); sitemap `filter` excludes entity URLs in preview mode; validator checks both |
+| **Citation accuracy** | `boxelder-bug` quoted three different USU pages while citing one that contains none of the quoted text; the "sunning"/"southern-facing walls" fragment traces to a fact sheet whose URL now 302s to an inaccessible PDF | Cited the two live USU pages that carry the binomial and the overwintering quote; dropped the unverifiable fragment, kept the verifiable one |
+| **Strengthened quote** | `harvester-ant` quoted USU as saying "parts of southwestern Utah are suitable for IFA establishment" — USU says "may be suitable ... particularly in areas that have accessible water" | Replaced with USU's wording in both the FAQ and the body |
+| **Unsupported superlative** | `desert-hairy-scorpion` credited USU with calling it "the biggest scorpion on USU's nine-species Utah list". USU's table puts three species in the same >100 mm class | Reworded to "alongside two other Utah species" |
+| **Wrong field mark** | `brown-recluse` told readers cellar spiders have eight eyes "rather than the recluse's six" — the cited USU page says cellar spiders have "6 eyes and a 'violin' pattern behind their eyes" | Replaced with USU's actual wording; eye count dropped as a homeowner field mark |
+| **Sibling contradiction** | `northern-scorpion` placed the bark scorpion "along the Colorado River corridor"; `arizona-bark-scorpion` says Kane County | Aligned to Kane County |
+| **Dead citation** | `extension.usu.edu/planthealth/research/carpenter-ants` 302s to a DigitalCommons PDF that returns 403. Cited by three entries | Repointed to the live structural-pest-id-guide URL |
+| **Geographic overreach** | `pavement-ant` extended USU's "northern Utah's most common pest ant" to "throughout the state ... St. George neighborhoods equally well" | Scoped to what USU says, with the gap stated |
+| **Legacy contradiction** | `/scorpion-control-st-george` answered "Can scorpions climb into upper floors?" with "Yes. Bark scorpions are excellent climbers" — on a page that already says USU places bark scorpions only in Kane County, and against `desert-hairy-scorpion`, which says the local species is a poor climber | Answer made species-honest; the hand-written FAQPage JSON-LD on that page was synced to match (legacy pages duplicate FAQ text in two places and drift silently) |
+| **Stale records** | `pests.ts` fire-ant note listed six pages still naming fire ants; only `ant-control-st-george` does, and correctly. `pestIndex.ts` claimed `matchPest()` backs the search box; nothing calls it | Both comments corrected |
+
+### Not fixed — carried forward
+
+1. **The hub does not link the entity pages.** `pest-library.astro` renders tiles from `pests.ts`;
+   only `black-widow` and `termites` share a slug with an entry. At publish time the other 17 URLs
+   would be orphaned. Fix before the probe: give `boxelder-bug`, `elm-seed-bug` and
+   `northern-scorpion` tiles/hrefs and add them to the ItemList.
+2. **The Bug Identifier upload flow is dead in production.** `identifyBug*`, `handleFileSelect*`,
+   `handleDrop*` and `switchTab` have no definitions. On `/pest-library` the upload tab is the
+   default panel and `switchTab` is the only way to reach the working Galaxy iframe, so the working
+   identifier is unreachable there; `/bug-identifier` has no iframe at all. Meanwhile five entity
+   pages and every informational CTA promise free photo ID, and `llms.txt` advertises the feature.
+3. **Source padding.** `black-widow` and `hobo-spider` each satisfy the two-source floor with a
+   fact sheet that does not address their species (scorpions and desert recluse respectively).
+   Needs a real second source before either publishes.
+4. **`hobo-spider` classification.** It is `treatable` with a Vernal service link while its own
+   prose says Basin establishment is undocumented and that most Vernal brown spiders are not hobos.
+   Editorial call, not a mechanical fix.
+5. **`northern-scorpion` service claim.** `/pest-control-vernal` lists rodents, spiders, ants,
+   wasps, boxelder bugs and cluster flies — not scorpions. The probe's inclusion of this page is
+   blocked on owner confirmation.

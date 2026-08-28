@@ -11,6 +11,7 @@ signs:
 parentCategory: cockroaches
 speciesOf: cockroaches
 scientificName: Blatta lateralis
+rangeNote: "No Utah record — established in neighboring Arizona and Nevada; watch for it in the St. George area"
 regions:
   - southwest-utah
 utahDistribution: The Turkestan cockroach is well documented across the urban Southwest — including neighboring Nevada and Arizona — where it has become the dominant outdoor roach in many cities. Utah is a different story so far. We are not aware of a Utah State University or state agency record establishing it in Utah, so the honest description is a species to watch for in the St. George area rather than a confirmed resident, with any suspected find worth photographing and reporting for identification.

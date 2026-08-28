@@ -12,8 +12,11 @@ interface Props {
   og?: Record<string, string>;
   schema?: string | null;
   active?: string;
+  /** Emit robots noindex. Used for pages that can render in a preview build but must
+   *  never be indexed if that build is ever deployed by mistake. */
+  noindex?: boolean;
 }
-const { title, description, canonical, og = {}, schema = null, active = '' } = Astro.props;
+const { title, description, canonical, og = {}, schema = null, active = '', noindex = false } = Astro.props;
 ---
 <!DOCTYPE html>
 <html lang="en">
@@ -45,6 +48,8 @@ const { title, description, canonical, og = {}, schema = null, active = '' } = A
 
   <!-- SEO: CANONICAL -->
   <link rel="canonical" href={canonical}>
+
+  {noindex && <meta name="robots" content="noindex,nofollow" />}
 
   <!-- SEO: OPEN GRAPH (preserved per-page) -->
   {og['og:title'] && <meta property="og:title" content={og['og:title']} />}

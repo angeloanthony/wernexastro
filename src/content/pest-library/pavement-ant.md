@@ -1,9 +1,9 @@
 ---
 name: Pavement Ants
 title: Pavement Ants — Northern Utah's Most Common House Ant | Wernex
-description: The small brown ants trailing across a Utah kitchen are usually pavement ants — USU calls them northern Utah's most common pest ant. Why spring invasions repeat.
+description: The small brown ants trailing across a northern Utah kitchen are usually pavement ants — USU's most common pest ant here. Why the spring invasion repeats every year.
 emoji: 🐜
-summary: Utah State University Extension identifies the pavement ant as the most common pest ant in northern Utah, and it is well established in developed areas across the state. The small brown ants trailing over a kitchen counter, or mounding sand between sidewalk cracks, are usually this species — an urban specialist that thrives around slab foundations, driveways, and patios.
+summary: Utah State University Extension identifies the pavement ant as northern Utah's most common pest ant in and around homes. The small brown ants trailing over a kitchen counter, or mounding sand between sidewalk cracks, are usually this species — an urban specialist that thrives around slab foundations, driveways, and patios.
 signs:
   - Small piles of excavated sand or soil pushed up between sidewalk, driveway, or patio cracks
   - Steady trails of small dark-brown ants along baseboards, counters, or garage floors, often leading to a slab crack or expansion joint
@@ -12,9 +12,10 @@ signs:
 parentCategory: ants
 speciesOf: ants
 scientificName: Tetramorium immigrans
+rangeNote: "Northern Utah per USU; present in developed areas elsewhere in the state, though not ranked there"
 regions:
   - statewide
-utahDistribution: Utah State University Extension lists the pavement ant as the most common pest ant in northern Utah, and it is well established in developed areas throughout the state. It is an urban specialist — anywhere with concrete slabs, driveways, sidewalks, and irrigated yards suits it, which describes both Vernal subdivisions and St. George neighborhoods equally well.
+utahDistribution: Utah State University Extension calls the pavement ant "northern Utah's most common pest ant in and around homes and structures" — a claim USU scopes to the northern half of the state, so we scope ours the same way. It is an urban specialist that takes to concrete slabs, driveways, sidewalks, and irrigated yards, which describes Vernal subdivisions exactly; St. George neighborhoods offer the same habitat, but we have not found a Utah source that ranks it there.
 intent: treatable
 seasonality: Most active spring through summer; indoor invasions spike in early spring and during hot, dry spells when colonies follow moisture inside
 relatedPests:
@@ -29,7 +30,7 @@ sources:
   - label: USU Extension — Pavement Ants
     url: https://extension.usu.edu/planthealth/research/pavement-ants
   - label: USU Extension — Carpenter Ants
-    url: https://extension.usu.edu/planthealth/research/carpenter-ants
+    url: https://extension.usu.edu/planthealth/ipm/structural-pest-id-guide/carpenter-ants
 faqs:
   - q: What do pavement ants look like?
     a: They're small — about 3 mm, an eighth of an inch — and uniformly dark brown to blackish, with fine grooved lines on the head and thorax visible under magnification. To the naked eye they're simply small brown ants moving in defined trails. The location is often the best clue — trails emerging from slab cracks, expansion joints, or the soil line along a driveway or patio.

@@ -95,6 +95,13 @@ const REGION_LABELS: Record<string, string> = {
   statewide: 'Found throughout Utah',
 };
 
+// The "Where in Utah" line is the most liftable claim on the page — it is what a
+// featured snippet or an AI summary quotes. `regions` is a service-area routing
+// field, so an authored `rangeNote` always wins over the enum label; without that
+// override the myth and not-established pages assert, in their own summary box,
+// exactly the presence their prose spends the page refuting.
+const rangeFact = d.rangeNote ?? d.regions.map((r) => REGION_LABELS[r]).join(' · ');
+
 // Signs heading: singularize the entity name ("Carpenter Ants" → "Carpenter Ant",
 // "German Cockroaches" → "German Cockroach", "Deer Mice" → "Deer Mouse") and pick
 // the matching article, so the heading reads grammatically for every entity.
@@ -135,7 +142,7 @@ const schema = graph(
   faqPage(d.faqs, canonical),
 );
 ---
-<BaseLayout title={d.title} description={d.description} canonical={canonical} og={og} schema={schema} active="/pest-library">
+<BaseLayout title={d.title} description={d.description} canonical={canonical} og={og} schema={schema} active="/pest-library" noindex={isDraft}>
   <Breadcrumbs items={crumbs} />
 
   {isDraft && (
@@ -172,7 +179,7 @@ const schema = graph(
           <ul style="list-style:none;padding:0;margin:12px 0 0;display:grid;gap:10px;color:var(--text-body);">
             {d.scientificName && <li><strong>Scientific name:</strong> <em>{d.scientificName}</em></li>}
             {isSpecies && <li><strong>Group:</strong> <a href={categoryHref}>{categoryName}</a></li>}
-            <li><strong>Where in Utah:</strong> {d.regions.map((r) => REGION_LABELS[r]).join(' · ')}</li>
+            <li><strong>Where in Utah:</strong> {rangeFact}</li>
             {d.seasonality && <li><strong>Most active:</strong> {d.seasonality}</li>}
           </ul>
         </div></div>

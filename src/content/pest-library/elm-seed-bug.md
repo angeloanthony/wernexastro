@@ -11,6 +11,7 @@ signs:
   - Heavy accumulations of seed debris under elm and Siberian elm trees, where the bugs breed
 parentCategory: elm-seed-bug
 scientificName: Arocatus melanocephalus
+rangeNote: "Documented east to Duchesne County — Roosevelt-area properties are inside the range; no published Uintah County (Vernal) record"
 regions:
   - uintah-basin
 utahDistribution: "Utah detected the elm seed bug in 2014, two years after its first North American record in Idaho. Utah State University Extension describes it as \"now widely distributed along the Wasatch Front and Cache Co.,\" reported as far as Duchesne, Tooele and Grand counties. Duchesne County is the record that matters here: it is the western Uintah Basin, so Roosevelt-area properties sit inside the documented range. Vernal does not — we have found no published Uintah County record, so for Vernal itself this is a species to watch for rather than one the literature places there. Anywhere with seeding elms, especially the Siberian elms lining older Basin neighborhoods and farmsteads, can support large numbers. Its status in Utah's far southwest is likewise undocumented."
@@ -24,8 +25,8 @@ treatment: Exterior perimeter and entry-point treatment is what reduces an elm s
 sources:
   - label: USU Extension — Elm Seed Bug
     url: https://extension.usu.edu/planthealth/research/elm-seed-bug
-  - label: USU Extension — Boxelder Bug
-    url: https://extension.usu.edu/planthealth/ipm/ornamental-pest-guide/arthopods/plant-lace-seed-bugs/boxelder-bug
+  - label: USU Extension — Boxelder Bug (Structural Pest ID Guide)
+    url: https://extension.usu.edu/planthealth/ipm/structural-pest-id-guide/boxelder-bug
 faqs:
   - q: What is this bug? It showed up in swarms and it's new to me.
     a: "Quite possibly it is new to you — the elm seed bug reached the United States only in 2012 and Utah in 2014, so Basin homeowners have had only a little over a decade of history with it. It's a true bug about a third of an inch long, and USU gives it a field mark worth memorising: \"dark, rusty-red and black coloration\" with \"an upside-down black triangle set inside two rusty-red triangles\" on its back. It feeds on elm seeds. Its claim to fame is invading homes en masse, and being hard to keep out once a local elm population booms."

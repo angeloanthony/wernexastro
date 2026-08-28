@@ -46,7 +46,7 @@ The northern scorpion (*Paruroctonus boreus*) holds a distinction no other scorp
 
 ## Not the Scorpion From the News Stories
 
-Scorpion anxiety in Utah is largely imported from Arizona coverage of the [Arizona bark scorpion](/pest-library/arizona-bark-scorpion) — a genuinely medically significant species whose documented Utah range is limited to the state's far south along the Colorado River corridor. Nothing like it lives in the Basin. A Vernal scorpion sighting involves the northern scorpion and a bee-sting-class venom. If you travel between homes here and in St. George, the scorpions change with the zip code — the big [desert hairy](/pest-library/desert-hairy-scorpion) belongs to that landscape, not this one.
+Scorpion anxiety in Utah is largely imported from Arizona coverage of the [Arizona bark scorpion](/pest-library/arizona-bark-scorpion) — a genuinely medically significant species that USU Extension documents in one Utah location, Kane County. Nothing like it lives in the Basin. A Vernal scorpion sighting involves the northern scorpion and a bee-sting-class venom. If you travel between homes here and in St. George, the scorpions change with the zip code — the big [desert hairy](/pest-library/desert-hairy-scorpion) belongs to that landscape, not this one.
 
 ## Why They End Up Indoors
 

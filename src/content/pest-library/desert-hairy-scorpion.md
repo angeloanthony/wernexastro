@@ -14,7 +14,7 @@ speciesOf: scorpions
 scientificName: Hadrurus arizonensis
 regions:
   - southwest-utah
-utahDistribution: In Utah, the giant desert hairy scorpion is a Mojave Desert species of the state's warm southwestern corner. Utah State University Extension gives its Utah distribution as southwestern Utah and puts it in the largest of its size classes, over 100 mm — the biggest scorpion on USU's nine-species Utah list. Desert-edge neighborhoods around St. George, Ivins, Santa Clara, and Hurricane, particularly lots backing to washes, lava rock, and open desert, see it most. It does not occur in northern Utah or the Uintah Basin.
+utahDistribution: In Utah, the giant desert hairy scorpion is a Mojave Desert species of the state's warm southwestern corner. Utah State University Extension gives its Utah distribution as southwestern Utah and puts it in the largest of its size classes, over 100 mm, alongside two other Utah species. Desert-edge neighborhoods around St. George, Ivins, Santa Clara, and Hurricane, particularly lots backing to washes, lava rock, and open desert, see it most. It does not occur in northern Utah or the Uintah Basin.
 intent: treatable
 seasonality: Warm-season and nocturnal — most surface activity runs late spring through early fall, with daytime hours spent in burrows
 relatedPests:

@@ -240,7 +240,7 @@ export const PESTS: PestEntry[] = [
     category: 'ants',
     href: null,
     status: 'excluded',
-    note: 'Red imported fire ants are not established in Utah and USU does not list them as a Utah structural pest. Search intent for "fire ant" is southeastern US. Fails eligibility gates 1 and 3. Image retained in /public/images if this is ever revisited. llms.txt Ant Control wording corrected Aug 2026; several service/location pages (ant-control-st-george, southern-utah hub, santa-clara, hurricane, ivins, laverkin) still name fire ants — documented for a future content-accuracy pass, do not mass-edit.',
+    note: 'Red imported fire ants are not established in Utah and USU does not list them as a Utah structural pest. Search intent for "fire ant" is southeastern US. Fails eligibility gates 1 and 3. Image retained in /public/images if this is ever revisited. llms.txt Ant Control wording corrected Aug 2026. Re-verified in the pre-publication audit: the only remaining site mention is ant-control-st-george, which now names them correctly as the mistaken identification ("often mistaken for fire ants (which are not established in Utah)"). No further content pass is outstanding.',
   },
   {
     slug: 'emerald-ash-borer',

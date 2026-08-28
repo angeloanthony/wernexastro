@@ -86,6 +86,7 @@ const entries = files.map((f) => {
     parentCategory: p.val('parentCategory'),
     speciesOf: p.val('speciesOf'),
     utahDistribution: p.val('utahDistribution'),
+    rangeNote: p.val('rangeNote'),
     relatedPests: p.list('relatedPests'),
     relatedServices: p.list('relatedServices'),
     regions: p.list('regions'),
@@ -115,6 +116,10 @@ for (const e of entries) {
   if (e.intent !== 'treatable' && e.treatment) fail(`${e.slug}: non-treatable entry sets treatment`);
   if (e.published && e.sourceCount < 2) fail(`${e.slug}: published with ${e.sourceCount} sources (need 2+)`);
   if (e.image && !e.imageAlt) fail(`${e.slug}: image without imageAlt`);
+  // Quick Facts renders `regions` as "Where in Utah". On a myth page that turns the
+  // service-area enum into a presence claim the page exists to deny — which is exactly
+  // how brown-recluse shipped a "Found throughout Utah" line. rangeNote overrides it.
+  if (e.intent === 'myth' && !e.rangeNote) fail(`${e.slug}: myth entry has no rangeNote — Quick Facts will assert Utah presence`);
   if (e.speciesOf && e.speciesOf !== e.parentCategory) fail(`${e.slug}: speciesOf != parentCategory`);
   if (!e.regions.length) fail(`${e.slug}: no regions`);
   if ((e.utahDistribution || '').length < 80) fail(`${e.slug}: utahDistribution too short`);
@@ -243,6 +248,14 @@ if (!fs.existsSync(DIST)) {
     if (og !== want) fail(`${slug}: og:url is ${og}, expected ${want}`);
     if (/href="[^"]*\.html"/.test(h)) fail(`${slug}: emits a .html internal link`);
     if (!/DRAFT — this page is unpublished/.test(h) && e && !e.published) fail(`${slug}: draft banner missing`);
+    // A draft carries a production canonical. If a PEST_PREVIEW build is ever deployed,
+    // noindex is the only thing between that canonical and the index.
+    if (e && !e.published && !/name="robots" content="noindex/.test(h)) fail(`${slug}: unpublished page is missing robots noindex`);
+    // The most liftable claim on the page must agree with the page.
+    const rangeFact = (h.match(/Where in Utah:<\/strong> ([^<]*)/) || [])[1];
+    if (e?.intent === 'myth' && /Found throughout Utah|Southwest Utah|Uintah Basin/.test(rangeFact || '')) {
+      fail(`${slug}: myth page renders "Where in Utah: ${rangeFact}" — asserts the presence it denies`);
+    }
 
     for (const m of h.matchAll(/<script type="application\/ld\+json"[^>]*>([\s\S]*?)<\/script>/g)) {
       let parsed;
@@ -267,6 +280,23 @@ if (!fs.existsSync(DIST)) {
     }
   }
   if (pestHtml.length) pass(`${pestHtml.length} pest pages: canonical/og:url exact, JSON-LD parses, FAQPage present, no .html URLs, images exist`);
+
+  // The @astrojs/sitemap output is a SECOND sitemap, generated from whatever the build
+  // emitted. public/sitemap.xml being clean says nothing about it, and a deployed preview
+  // build would publish 19 draft URLs through this file.
+  const gen = path.join(DIST, 'sitemap-0.xml');
+  if (fs.existsSync(gen)) {
+    const g = fs.readFileSync(gen, 'utf8');
+    const glocs = [...g.matchAll(/<loc>([^<]+)<\/loc>/g)].map((m) => m[1]);
+    const draftLeak = glocs.filter((u) => {
+      const m = u.match(/\/pest-library\/(.+)$/);
+      return m && !entries.find((x) => x.slug === m[1] && x.published);
+    });
+    if (draftLeak.length) fail(`generated sitemap-0.xml lists unpublished pest URLs: ${draftLeak.join(', ')}`);
+    else pass(`generated sitemap-0.xml (${glocs.length} URLs): no unpublished pest entries`);
+  } else {
+    warn('no dist/sitemap-0.xml — generated sitemap not checked');
+  }
 
   // Static sitemap must never list a pest species URL while drafts are unpublished.
   const sm = fs.readFileSync('public/sitemap.xml', 'utf8');

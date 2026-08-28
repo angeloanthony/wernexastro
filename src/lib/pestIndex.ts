@@ -2,11 +2,17 @@
 // The one place the client-facing pest entity index is built. Everything that
 // needs to resolve "what the user typed / what the AI identified" to a pest
 // entity consumes THIS shape, derived from src/data/pests.ts:
-//   - the Pest Library search box (pest-library.astro emits it as #pest-index)
+//   - the Pest Library search box, via the #pest-index JSON that pest-library.astro
+//     emits from buildPestIndex(). NOTE: public/script.js consumes that JSON but runs
+//     its own substring filter — it does not import matchPest().
 //   - the Bug Identifier result→entity mapping, when its upload flow is restored
 //     (the identify* client functions were never migrated into this repo — see
 //     the implementation report). Whoever rebuilds it must map the AI's answer
 //     through matchPest() below instead of hard-coding URLs.
+//
+// matchPest() therefore has NO caller today. It is the resolver the identifier is meant
+// to use; it is not currently load-bearing, and nothing breaks if it is wrong. Test it
+// before trusting it.
 //
 // `link` policy: an entity points at its own /pest-library/<slug> page once that
 // page is published (pests.ts href is updated at publish time), else at an

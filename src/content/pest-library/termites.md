@@ -26,7 +26,7 @@ sources:
   - label: USU Extension — Coming to Terms with Termites
     url: https://extension.usu.edu/planthealth/news/termites
   - label: USU Extension — Carpenter Ants
-    url: https://extension.usu.edu/planthealth/research/carpenter-ants
+    url: https://extension.usu.edu/planthealth/ipm/structural-pest-id-guide/carpenter-ants
 faqs:
   - q: Does Utah really have termites?
     a: "Yes. This surprises people who associate termites with the humid South, but USU Extension states that three types occur here and that the \"subterranean termite is the most common type of termite in Utah.\" What Utah largely lacks is drywood termites, which infest wood directly without soil contact — USU says \"dampwood and drywood termites are both uncommon in Utah.\" The practical consequence: most of the termite content you will read online is about species and situations that do not apply to your house."

@@ -23,6 +23,13 @@ export default defineConfig({
     sitemap({
       changefreq: 'monthly',
       priority: 0.7,
+      // A PEST_PREVIEW=1 build renders the unpublished pest drafts. Those pages carry
+      // production canonicals, so if such a build were ever deployed by mistake the
+      // generated sitemap would hand Google 19 draft URLs. Drafts only ever exist in a
+      // preview build, so excluding every entity URL in that mode is exact: a normal
+      // build contains only published entries and lists them normally.
+      filter: (page) =>
+        process.env.PEST_PREVIEW !== '1' || !/\/pest-library\/[^/]+$/.test(page.replace(/\.html$/, '')),
       // build.format:'file' makes Astro emit ".../about.html" entries; rewrite them
       // to the extensionless URLs Cloudflare actually serves, so the generated
       // sitemap agrees with public/sitemap.xml and never lists a redirecting URL.

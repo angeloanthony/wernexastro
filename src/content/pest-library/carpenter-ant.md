@@ -27,7 +27,7 @@ relatedServices:
 treatment: With carpenter ants, finding the nest is the job — surface spraying kills foragers without touching the colony in the wall or the parent nest in the yard. Wernex traces foraging trails to the source, places targeted baits the workers carry back to the colony, and protects the structure with an exterior barrier treatment. Expect us to point out the moisture condition that made your wood attractive in the first place, too; sometimes the ants are the symptom and a repair is the real fix.
 sources:
   - label: USU Extension — Carpenter Ants
-    url: https://extension.usu.edu/planthealth/research/carpenter-ants
+    url: https://extension.usu.edu/planthealth/ipm/structural-pest-id-guide/carpenter-ants
   - label: USU Extension — Coming to Terms with Termites
     url: https://extension.usu.edu/planthealth/news/termites
 faqs:

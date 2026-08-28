@@ -12,6 +12,7 @@ signs:
 parentCategory: rodents
 speciesOf: rodents
 scientificName: Rattus rattus
+rangeNote: "Locally reported in Washington County since about 2021 — news reporting, not a university or state-agency distribution record"
 regions:
   - southwest-utah
 utahDistribution: Roof rats are long established across the warm urban Southwest, and since roughly 2021 St. George-area news outlets — St. George News, FOX 13, KUTV — have reported them arriving and spreading in Washington County. That is a plausible expansion given the climate and the city's road connections to Las Vegas and Mesquite, where the species is entrenched. What we have not found is a university or state-agency distribution record placing roof rats in Utah, and much of the detail in that reporting is attributed to pest-control operators, who sell rat control. Treat it as real local reporting, weigh who is speaking, and note that it is a different class of evidence from the USU citations elsewhere in this library. Practical translation — Washington County homeowners should take attic rodent signs seriously; northern Utah homeowners almost certainly have a different rodent.

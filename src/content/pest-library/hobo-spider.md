@@ -11,6 +11,7 @@ signs:
 parentCategory: spiders
 speciesOf: spiders
 scientificName: Eratigena agrestis
+rangeNote: "Common across northern Utah; establishment in the Uintah Basin itself is not documented"
 regions:
   - uintah-basin
 utahDistribution: The hobo spider is a European import that became abundant across the Intermountain Northwest and is common across northern Utah. Whether it is established in the Uintah Basin specifically is not well documented, and most of the fast brown spiders found in Vernal basements each fall are funnel weavers or giant house spiders rather than confirmed hobos. It is a spider of cooler northern country; in the warm southwestern corner of the state around St. George it is not the brown spider homeowners are finding, which is one of several reasons "hobo bite" reports there deserve skepticism.

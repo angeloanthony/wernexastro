@@ -12,6 +12,7 @@ signs:
 parentCategory: scorpions
 speciesOf: scorpions
 scientificName: Centruroides sculpturatus
+rangeNote: "Kane County only, per USU Extension — not documented in the St. George area or anywhere else we serve"
 regions:
   - southwest-utah
 utahDistribution: "Utah State University Extension recognizes nine scorpion species in Utah and lists exactly one Utah location for this one: Kane County, at the far northern edge of a range centered on Arizona. We have found no university, state agency, or museum record of an established population in the St. George area. Scorpions certainly live in Washington County neighborhoods — USU places the giant desert hairy scorpion in southwestern Utah — but the bark scorpion is not the species Utah's own documentation puts there."
