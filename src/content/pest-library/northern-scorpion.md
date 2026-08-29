@@ -37,7 +37,7 @@ faqs:
     a: Window wells are pitfall traps. Scorpions hunting along the foundation at night drop in and can't climb the smooth walls back out, so the well collects them — along with the crickets and other insects they hunt. Covers solve the trap problem; sealing the window frame and keeping the well free of leaf litter solves the "and then they got inside" problem.
   - q: Do I need regular pest control just because I saw one scorpion?
     a: One scorpion on a rural Basin lot is unremarkable. What tips the calculus is repetition and location — multiple sightings, scorpions indoors, or a UV sweep showing numbers along the foundation. Those indicate the property is supporting a population within striking distance of the house, and a perimeter treatment plus prey reduction and sealing is the proportionate response.
-published: false
+published: true
 ---
 
 ## The Scorpion That Lives Where Others Can't

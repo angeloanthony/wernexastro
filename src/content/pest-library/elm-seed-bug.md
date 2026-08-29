@@ -15,13 +15,10 @@ rangeNote: "Documented east to Duchesne County — Roosevelt-area properties are
 regions:
   - uintah-basin
 utahDistribution: "Utah detected the elm seed bug in 2014, two years after its first North American record in Idaho. Utah State University Extension describes it as \"now widely distributed along the Wasatch Front and Cache Co.,\" reported as far as Duchesne, Tooele and Grand counties. Duchesne County is the record that matters here: it is the western Uintah Basin, so Roosevelt-area properties sit inside the documented range. Vernal does not — we have found no published Uintah County record, so for Vernal itself this is a species to watch for rather than one the literature places there. Anywhere with seeding elms, especially the Siberian elms lining older Basin neighborhoods and farmsteads, can support large numbers. Its status in Utah's far southwest is likewise undocumented."
-intent: treatable
+intent: informational
 seasonality: Adults invade structures during peak summer heat — late June through August — then again seek overwintering shelter in fall; the summer wave is the defining one
 relatedPests:
   - boxelder-bug
-relatedServices:
-  - /pest-control-vernal
-treatment: Exterior perimeter and entry-point treatment is what reduces an elm seed bug invasion, and with this pest the timing is unusual — the pressure comes in high summer rather than fall, so treatment scheduled around the ordinary autumn calendar misses it entirely. Wernex concentrates on the sunny walls and window frames where the bugs stage, and will point out the sealing work — screens, weatherstripping, soffit gaps — that does the durable good. Indoors, vacuuming (with prompt disposal, because of the odor) beats spraying. Where a heavily seeding elm overhangs the house, we will say so — the tree is the source, and no perimeter treatment outperforms a reduced seed load.
 sources:
   - label: USU Extension — Elm Seed Bug
     url: https://extension.usu.edu/planthealth/research/elm-seed-bug
