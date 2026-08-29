@@ -1958,7 +1958,7 @@ side effect of this publish.
 | `public/sitemap.xml` | **unchanged** — still the curated 28 |
 | Remaining drafts | 17 still `published: false` |
 | Bug Identifier | untouched |
-| Deployed | **No.** The repository is ready; the deploy is the owner's call. |
+| Deployed | **No at the time §31 was written.** ~~The repository is ready; the deploy is the owner's call.~~ **Superseded:** the owner committed this work as `c1a7163` and deployed later the same day. The probe is live — see §32. |
 
 ### R6 accepted knowingly
 
@@ -1966,3 +1966,170 @@ side effect of this publish.
 confirmed the service is real (Q1) and chose to publish as-is to keep the measurement baseline clean.
 The Vernal-page addition is deferred until after the window rather than introducing a second variable
 mid-probe. R6 stays open in §28.
+
+---
+
+# PART IV — PROBE LIVE
+
+## 32. Deployment and probe status — measurement window OPEN
+
+_Recorded 2026-08-28. **Documentation only.** No site behavior, content, route, schema, sitemap
+logic, service page, entity file, or deployment configuration was changed by this checkpoint._
+
+### 32.1 Deployment record
+
+| | |
+|---|---|
+| Status | **Deployed and live** |
+| Date | 2026-08-28 |
+| Branch | `pest-wave-1` |
+| Commit | `c1a7163` |
+| Production URLs | **30** |
+| Published pest entities | **2** |
+| Unpublished drafts | **17** |
+
+**Published (live):**
+
+- `https://www.wernexpestcontrol.com/pest-library/boxelder-bug` — `intent: treatable`
+- `https://www.wernexpestcontrol.com/pest-library/northern-scorpion` — `intent: treatable`
+
+**`elm-seed-bug` remains unpublished.** It was converted to `intent: informational` in §30 and is
+deliberately held back so that the current test is not contaminated by a third page making a
+different kind of claim. It stays available as an informational control if one is later needed.
+
+The remaining 16 drafts are likewise unpublished and unchanged.
+
+### 32.2 URL verification methodology — canonical, not HTTP status
+
+**This site returns HTTP 200 with the homepage for nonexistent URLs.** A 200 therefore proves
+nothing about whether a route exists, and any future verification of this probe that relies on
+status codes alone will produce a false positive on every URL it tests.
+
+**The authoritative test for this probe is the canonical tag:**
+
+| Result | Meaning |
+|---|---|
+| Canonical is **self-referencing** | The entity route is **real** |
+| Canonical is `https://www.wernexpestcontrol.com/` | **Soft 404** — the route does not exist |
+
+Verified 2026-08-28 against production:
+
+| URL | HTTP | Canonical | Verdict |
+|---|---|---|---|
+| `/pest-library/boxelder-bug` | 200 | self | **REAL** |
+| `/pest-library/northern-scorpion` | 200 | self | **REAL** |
+| `/pest-library/elm-seed-bug` | 200 | `/` | soft 404 |
+| `/pest-library/completely-made-up-xyz123` | 200 | `/` | soft 404 |
+| `/this-page-does-not-exist-98765` | 200 | `/` | soft 404 |
+
+**Integrity of the two live pages, confirmed:**
+
+- Both serve their own content — `Boxelder Bugs in Utah — Fall Wall Swarms & Prevention | Wernex`
+  and `Northern Scorpion: The Scorpion Vernal Actually Sees | Wernex`
+- Both carry self-referencing canonicals
+- Both contain 2 JSON-LD blocks including a `FAQPage`
+- `/pest-library/boxelder-bug.html` → **308** → clean URL
+- `/pest-library/boxelder-bug/` → **308** → clean URL
+- Live `sitemap.xml`: **30 URLs**, containing only these two entity pages
+- Generated `sitemap-0.xml`: agrees
+- **No unpublished draft is advertised in any sitemap**
+
+### 32.3 Correction — the "all 19 live" misreading
+
+During the post-deploy check, an initial test reported that **all 19 entity URLs returned HTTP 200**
+and concluded that the deploy had shipped a `PEST_PREVIEW=1` build leaking every draft.
+
+**That conclusion was wrong.** It relied on HTTP status alone, on a site where every nonexistent URL
+returns 200. Re-testing by canonical showed 2 real pages and 17 soft 404s. The error was corrected
+within the same session, before any action was taken on it.
+
+**To be unambiguous: the drafts were never published.** The publishing gate held exactly as designed —
+`published: false` produced no route, no sitemap entry, and no hub link. The 17 draft URLs return the
+homepage because *nothing exists at those paths*, which is the correct outcome expressed through an
+incorrect status code.
+
+This is recorded because the same trap will catch the next person who verifies this probe. **Check
+canonicals, not status codes.**
+
+### 32.4 Pre-existing soft-404 condition — DOCUMENTED, NOT FIXED
+
+| Fact | Detail |
+|---|---|
+| Cause | There is no `src/pages/404.astro`, so Astro emits no `404.html`. Cloudflare Pages falls back to `index.html` for unmatched URLs and serves it with HTTP 200. |
+| Verified | `curl` of arbitrary paths returns `HTTP/1.1 200 OK`, `Server: cloudflare`, homepage body, canonical `/`. |
+| Age | **Predates this probe.** Not caused by the pest entity system, the publish, or the deployment. |
+| Nature | Soft-404 / masked-404. The canonical-to-homepage behavior means search engines consolidate these responses to `/` rather than indexing them as separate URLs, which materially limits the harm. |
+| Effect on the probe | **None.** The two real probe pages resolve correctly and self-canonicalize. |
+| Possible future fix | A dedicated `src/pages/404.astro`, which Cloudflare Pages would then serve with a proper 404 status. |
+| Status | **OUT OF SCOPE. Backlog item. Do not fix during the measurement window.** |
+
+Fixing this mid-probe would change site-wide crawl behavior while the experiment is running and
+introduce a variable the probe was not designed to isolate. It is a real issue and it can wait.
+
+### 32.5 Pre-registered measurement criteria
+
+**These criteria are pre-registered.** They were set before any data arrived and **must not be
+revised later because the observed results are inconvenient.** The purpose of writing them down now
+is to make post-hoc rationalization visible if it is ever attempted.
+
+**The question the probe exists to answer:**
+
+> Do individual, well-researched pest entity pages produce search visibility that the existing broad
+> service pages do not already capture?
+
+**Primary success signal:**
+
+- **New non-branded search queries attributable to the entity pages** — particularly pest-specific
+  queries and local/Basin identification or service-intent queries.
+
+**Secondary signals:**
+
+- impressions
+- average position
+- clicks
+- whether Google associates the entity URL with treatment/service intent
+- whether the queries represent **genuinely new coverage** rather than queries the broad service
+  pages already received
+
+**Clicks are explicitly NOT the primary measure.** At this volume and this stage they are noise.
+
+**Interpretation principle:**
+
+| Observation | Reading |
+|---|---|
+| Many **new** relevant queries, modest clicks | **Meaningful success.** The architecture is reaching intent the service pages were not reaching. |
+| Many impressions, but queries largely duplicate coverage already owned by `/pest-control-vernal` and the other broad pages | **Much weaker.** Volume without new coverage means the entity page is competing with our own pages rather than expanding reach. |
+
+### 32.6 Confounds — both must be applied when reading the results
+
+**1. Boxelder bug seasonality.** `boxelder-bug` was published **28 August**. The page's own content
+places the swarm in **September** — "Each fall, box elder bugs swarm sunny south- and west-facing
+walls." Rising impressions through September and October will partly, and possibly mostly, reflect
+normal seasonal search demand. **Do not read boxelder-bug growth as evidence that the entity-page
+architecture caused it.** Seasonality is a confounding variable and must be stated in any conclusion
+drawn from this page. `northern-scorpion` is much flatter seasonally (USU: active spring through
+fall), so the two pages are **not** directly comparable head-to-head.
+
+**2. Geographic scope.** Both probe pages are **Vernal/Uintah Basin-first** by design —
+`northern-scorpion` is the Basin scorpion and `boxelder-bug` is named on the Vernal service page.
+The probe therefore tests whether entity pages can earn **Basin/local intent**. It establishes
+**nothing** about Washington County / southern Utah, where the majority of the site's service and
+location pages sit. **Do not generalize the result to the full Utah service territory.** A separate
+St. George-first test would be required for that, and it is not what is running.
+
+### 32.7 Governing rule until the probe is evaluated
+
+**No new pest entity may be published until this probe has been evaluated.** This includes
+`elm-seed-bug`, the 16 other drafts, and every candidate in the matrix above.
+
+- The existence of 43 defensible candidates is **not** a reason to publish them.
+- The candidate matrix is a **research inventory, not a publishing quota or a page-count commitment**.
+- **The 150 figure is not a target and never was a finding** — see §29.
+- The next publishing decision must be informed by **observed search behavior from these two pages**,
+  not by the size of the candidate pool.
+
+The likely outcomes are three, and the probe exists to distinguish them: **more entity pages**
+(deeper coverage), **fewer entity pages and stronger existing pages** (broader optimization), or a
+mixture. Nothing in this document predicts which.
+
+**The probe is the governor. Leave it alone and let it collect data.**
