@@ -233,11 +233,15 @@ pages; bark scorpion / desert hairy / roof rat are St. George-first; nothing pre
 4. **Chat widget mosquito reply** in `public/script.js` claims a "mosquito abatement program"
    Wernex has no service page for.
 5. **Woodrats/pack rats**: A-class only if Wernex actually traps them under the rodent line.
-6. **Bug Identifier upload flow is dead code**: `identifyBug*`/`handleFileSelect*`/`switchTab`
-   are referenced by onclick attributes on `/bug-identifier` and `/pest-library` but defined
-   nowhere in the repo or its git history — the buttons throw. Restoring it needs the Cloudflare
-   Worker endpoint (not in repo). When rebuilt, map results through `matchPest()` in
-   `src/lib/pestIndex.ts` → pest page → service CTA, instead of dumping users at /contact.
+6. **Bug Identifier — OUT OF SCOPE, DO NOT MODIFY.** The owner has confirmed it is a working
+   production AI feature (photo upload → identification). Do not remove or rewrite its upload UI,
+   AI claims, schema, or navigation, and do not infer from this repository that it is broken.
+   `identifyBug*`/`handleFileSelect*`/`switchTab` are referenced by onclick attributes on
+   `/bug-identifier` and `/pest-library` but are defined nowhere in the repo or its git history —
+   which means the feature depends on something outside this repository, NOT that it fails. Live
+   production matches what this repo builds, so deploying does not affect it. See
+   docs/wave-1-report.md §16 item 2. If the entity mapping is ever wired in, results should route
+   through `matchPest()` in `src/lib/pestIndex.ts` → pest page → service CTA.
 
 ## 6. Publish-time checklist (per page, when authorized)
 

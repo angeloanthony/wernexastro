@@ -377,20 +377,32 @@ repeated string is a source URL or a `relatedServices` path.
    only `black-widow` and `termites` share a slug with an entry. At publish time the other 17 URLs
    would be orphaned. Fix before the probe: give `boxelder-bug`, `elm-seed-bug` and
    `northern-scorpion` tiles/hrefs and add them to the ItemList.
-2. **The Bug Identifier upload flow is dead in production.** `identifyBug*`, `handleFileSelect*`,
+2. **The Bug Identifier — SEE THE OWNER DETERMINATION BELOW BEFORE READING THIS.** The original
+   static-analysis finding was that `identifyBug*`, `handleFileSelect*`,
    `handleDrop*` and `switchTab` have no definitions. On `/pest-library` the upload tab is the
    default panel and `switchTab` is the only way to reach the Galaxy iframe, so that iframe is
    unreachable there; `/bug-identifier` has no iframe at all. Meanwhile five entity pages and
    every informational CTA promise free photo ID, and `llms.txt` advertises the feature.
-   **Update, 2026-08-28 (wiring pass): the Galaxy AI fallback is also dead.** The embedded URL
-   `https://image.galaxy.ai/ai-bug-identifier` returns HTTP 404, as do `image.galaxy.ai/`,
-   `galaxy.ai/ai-bug-identifier` and the `galaxy.ai/` apex — checked with a browser User-Agent
-   and following redirects. So the identifier has **no working path at all**: not the upload
-   flow, not the fallback. This invalidates the "preserve the Galaxy AI functionality" premise
-   the identifier correction was scoped around, and widens the decision beyond a copy edit —
-   `/bug-identifier` is one of the 28 measured production pages, sits in the main nav, and
-   carries `WebApplication` schema offering the tool at price 0. Its fate is an owner decision;
-   see §17.
+   **OWNER DETERMINATION, 2026-08-28 — SUPERSEDES THE ABOVE. DO NOT ACT ON IT.**
+   The owner has confirmed from real-world use that the Bug Identifier is a **working production
+   AI feature**: users can upload or take a photo and get an identification. `/bug-identifier` is
+   therefore **explicitly out of scope** — do not remove or rewrite its upload UI, its AI claims,
+   its `WebApplication` schema, or its navigation entry, and do not convert it to a static guide
+   or retire the URL.
+
+   The static analysis that produced the note above is retained only to explain why the feature
+   is not reconstructable from this repository. Its findings were: the `identifyBug*`,
+   `handleFileSelect*`, `handleDrop*` and `switchTab` handlers have no definitions in any commit;
+   `public/script.js` has never defined them at any revision; no `wrangler.*`, `_worker*`,
+   `functions/` or env file has ever existed here; and the `image.galaxy.ai` embed on
+   `/pest-library` returns 404. Live production was also checked and matches what this repo
+   builds, so **deploying this repository does not alter `/bug-identifier`.**
+
+   The correct conclusion is therefore NOT that the feature is broken. It is that
+   **`/bug-identifier` depends on something that lives outside this repository**, which is
+   precisely why source-tree inference must not be used as grounds to "clean it up". Verified
+   behaviour outranks repository inference. Leave it alone.
+
 3. **Source padding.** `black-widow` and `hobo-spider` each satisfy the two-source floor with a
    fact sheet that does not address their species (scorpions and desert recluse respectively).
    Needs a real second source before either publishes.
@@ -468,12 +480,12 @@ an unpublished entity appearing as a hub link, ItemList item, search entry or ne
 entity orphaned from any of those surfaces; the five catalog surfaces disagreeing; a published
 entity missing from the served sitemap; and a banned image rendered on the hub.
 
-### Blocked — owner decision required
+### Bug Identifier — out of scope
 
-The Bug Identifier correction was **not** performed. It was scoped around preserving the Galaxy AI
-iframe, and that iframe is dead too (see §16 item 2). With no working path anywhere in the feature,
-the fix is no longer a copy edit, and `/bug-identifier` is one of the 28 measured pages, is in the
-main nav, and carries `WebApplication` schema. Options, none of which should be chosen by an
-engineer alone: replace the dual dead widgets with a different working identifier; keep the page as
-static identification guidance and drop every automated-ID claim; or fold it into the Pest Library
-and retire the URL — which changes the page count and needs a redirect decision.
+No identifier change was made, and none should be. The owner has confirmed `/bug-identifier` is a
+**working production AI feature** (see §16 item 2, which supersedes the earlier static-analysis
+note). Its upload UI, AI claims, `WebApplication` schema and navigation entry all stay as they are.
+
+Live production was verified to match what this repository builds — same title, H1, inline handlers
+and `script.js` — so **publishing the Pest Library probe carries no risk to the identifier.** The
+feature depends on something outside this repo; do not infer from the source tree that it is broken.
