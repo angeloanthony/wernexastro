@@ -16,6 +16,9 @@ import fs from 'node:fs';
 import path from 'node:path';
 
 const MODE = (process.argv.find((a) => a.startsWith('--mode=')) || '--mode=production').split('=')[1];
+/** Acknowledges that published:true entries are intentional. Without it, any published entry
+ *  fails a production run — the tripwire guarding the canonical measurement window. */
+const ALLOW_PUBLISHED = process.argv.includes('--allow-published');
 if (!['production', 'preview'].includes(MODE)) {
   console.error('--mode must be production or preview');
   process.exit(2);
@@ -24,7 +27,8 @@ if (!['production', 'preview'].includes(MODE)) {
 const SRC = 'src/content/pest-library';
 const DIST = 'dist';
 const SITE = 'https://www.wernexpestcontrol.com';
-const EXPECTED_PROD_PAGES = 28;
+/** Static, hand-authored pages. This number changes only when a real page is added. */
+const STATIC_PROD_PAGES = 28;
 
 const fails = [];
 const warns = [];
@@ -93,6 +97,11 @@ const entries = files.map((f) => {
   };
 });
 
+/** Production page count = static pages + however many entities are published. Derived, so
+ *  publishing stays a single boolean flip with no constant to remember to bump. */
+const PUBLISHED_COUNT = entries.filter((e) => e.published).length;
+const EXPECTED_PROD_PAGES = STATIC_PROD_PAGES + PUBLISHED_COUNT;
+
 // ── Source-level checks ─────────────────────────────────────────────────────
 const slugs = new Set();
 for (const e of entries) {
@@ -103,8 +112,16 @@ pass(`${entries.length} entries, all slugs unique`);
 
 // Publishing gate
 const published = entries.filter((e) => e.published);
-if (MODE === 'production' && published.length) {
-  fail(`${published.length} entries are published:true — production must stay at ${EXPECTED_PROD_PAGES} pages until authorized: ${published.map((e) => e.slug).join(', ')}`);
+if (MODE === 'production' && published.length && !ALLOW_PUBLISHED) {
+  fail(
+    `${published.length} entry/entries are published:true (${published.map((e) => e.slug).join(', ')}). ` +
+      `Production must stay at ${STATIC_PROD_PAGES} pages until publication is authorized. ` +
+      `If this publish IS authorized, re-run with --allow-published.`,
+  );
+} else if (MODE === 'production' && published.length) {
+  warn(
+    `AUTHORIZED PUBLISH: ${published.map((e) => e.slug).join(', ')} — expecting ${EXPECTED_PROD_PAGES} pages.`,
+  );
 } else if (MODE === 'production') {
   pass('publishing gate: all entries published:false');
 }
@@ -165,6 +182,12 @@ pass(`hero images: ${entries.filter((e) => e.image).length} set, all exist and n
 
 // Excluded pests must never gain a page.
 const pestsTs = fs.readFileSync('src/data/pests.ts', 'utf8');
+/** Images already used by hand-authored tiles in pests.ts. Some are banned for ENTITY pages
+ *  (wrong species for a specific ID page) while remaining acceptable as category tiles, so the
+ *  hub check below only flags a banned image that no tile legitimately declares. */
+const PESTS_TS_TILE_IMAGES = new Set([...pestsTs.matchAll(/image: '([^']+)'/g)].map((m) => m[1]));
+/** Slugs that have a hand-authored tile in pests.ts (category tiles predate the entity system). */
+const PESTS_TS_TILE_SLUGS = new Set([...pestsTs.matchAll(/slug: '([^']+)'/g)].map((m) => m[1]));
 const excluded = [...pestsTs.matchAll(/slug: '([^']+)',[\s\S]{0,600}?status: 'excluded'/g)].map((m) => m[1]);
 for (const slug of excluded) if (slugs.has(slug)) fail(`excluded pest has a page: ${slug}`);
 pass(`excluded pests (${excluded.join(', ') || 'none'}) have no pages`);
@@ -224,7 +247,13 @@ if (!fs.existsSync(DIST)) {
   if (MODE === 'production') {
     if (total !== EXPECTED_PROD_PAGES) fail(`production build has ${total} pages, expected ${EXPECTED_PROD_PAGES}`);
     else pass(`production build: exactly ${EXPECTED_PROD_PAGES} pages`);
-    if (pestHtml.length) fail(`production build leaked ${pestHtml.length} pest pages`);
+    // A production build may emit exactly the PUBLISHED entities and nothing else. Anything
+    // else in this directory is a draft that escaped the publishing gate.
+    const emittedDrafts = pestHtml
+      .map((f) => f.replace(/\.html$/, ''))
+      .filter((slug) => !entries.find((e) => e.slug === slug && e.published));
+    if (emittedDrafts.length) fail(`production build leaked unpublished pest pages: ${emittedDrafts.join(', ')}`);
+    else if (pestHtml.length) pass(`production build emits ${pestHtml.length} published entity route(s), no drafts`);
     else pass('production build emits no /pest-library/<slug> routes');
   } else {
     const expected = EXPECTED_PROD_PAGES + entries.length;
@@ -281,6 +310,76 @@ if (!fs.existsSync(DIST)) {
   }
   if (pestHtml.length) pass(`${pestHtml.length} pest pages: canonical/og:url exact, JSON-LD parses, FAQPage present, no .html URLs, images exist`);
 
+  // ── Hub join integrity ────────────────────────────────────────────────────
+  // The hub, the ItemList, the search index and the pest count all derive from one catalog
+  // built off the collection's `published` flag. These checks assert that against the BUILT
+  // HTML rather than the source, because the failure this replaced — 17 orphaned entity
+  // pages — was invisible in source and only existed in the output.
+  const hubPath = path.join(DIST, 'pest-library.html');
+  if (!fs.existsSync(hubPath)) {
+    fail('dist/pest-library.html missing — cannot verify the hub join');
+  } else {
+    const hub = fs.readFileSync(hubPath, 'utf8');
+    const publishedSlugs = entries.filter((e) => e.published).map((e) => e.slug);
+    const draftSlugs = entries.filter((e) => !e.published).map((e) => e.slug);
+
+    // Every /pest-library/<slug> the hub links must be a page the build actually emitted.
+    // A link to a URL that does not exist is a 404 on a live, indexed page.
+    const emitted = new Set(
+      fs.existsSync(pestDir) ? fs.readdirSync(pestDir).filter((x) => x.endsWith('.html')).map((x) => x.replace(/\.html$/, '')) : [],
+    );
+    const hubEntityLinks = [...hub.matchAll(/href="\/pest-library\/([a-z0-9-]+)"/g)].map((m) => m[1]);
+    for (const slug of new Set(hubEntityLinks)) {
+      if (!emitted.has(slug)) fail(`hub links /pest-library/${slug} but the build emitted no such page (404)`);
+    }
+
+    // An unpublished entity must appear on the hub in NO form: not a link, not an ItemList
+    // item, not a search-index entry, not a tile anchor.
+    const hubItemUrls = [...hub.matchAll(/"url":"[^"]*\/pest-library\/([a-z0-9-]+)"/g)].map((m) => m[1]);
+    let idx = [];
+    const idxRaw = hub.match(/id="pest-index"[^>]*>([[\s\S]*?])<\/script>/);
+    if (idxRaw) { try { idx = JSON.parse(idxRaw[1]); } catch { fail('#pest-index JSON does not parse'); } }
+    const idxEntitySlugs = idx.filter((i) => i.link?.startsWith('/pest-library/')).map((i) => i.link.split('/').pop());
+    for (const slug of draftSlugs) {
+      if (hubEntityLinks.includes(slug)) fail(`unpublished ${slug} is linked from the hub`);
+      if (hubItemUrls.includes(slug)) fail(`unpublished ${slug} appears in the hub ItemList`);
+      if (idxEntitySlugs.includes(slug)) fail(`unpublished ${slug} appears in the hub search index`);
+      // Only meaningful for an entity with no tile of its own in pests.ts. `black-widow` and
+      // `termites` are pre-existing CATEGORY tiles that happen to share a slug with an entity —
+      // their anchors predate the entity system and are not evidence of a leaked draft.
+      if (!PESTS_TS_TILE_SLUGS.has(slug) && new RegExp(`id="${slug}"`).test(hub)) {
+        fail(`unpublished ${slug} renders a hub tile`);
+      }
+    }
+    // ...and a published entity must appear in all of them. Orphan check.
+    for (const slug of publishedSlugs) {
+      if (!hubEntityLinks.includes(slug)) fail(`published ${slug} is orphaned — no hub link`);
+      if (!hubItemUrls.includes(slug)) fail(`published ${slug} missing from the hub ItemList`);
+      if (!idxEntitySlugs.includes(slug)) fail(`published ${slug} missing from the hub search index`);
+    }
+
+    // The three surfaces and the visible count must all describe the same catalog.
+    const tileCount = (hub.match(/class="pest-item reveal/g) || []).length;
+    const numberOfItems = Number((hub.match(/"numberOfItems":(\d+)/) || [])[1]);
+    const itemCount = (hub.match(/"@type":"ListItem"/g) || []).length;
+    const metaCount = Number((hub.match(/content="Identify (\d+) pests/) || [])[1]);
+    if (new Set([tileCount, numberOfItems, itemCount, idx.length, metaCount]).size !== 1) {
+      fail(
+        `hub catalog surfaces disagree — tiles=${tileCount} numberOfItems=${numberOfItems} ` +
+          `listItems=${itemCount} searchIndex=${idx.length} metaCount=${metaCount}`,
+      );
+    } else {
+      pass(`hub join: ${tileCount} tiles = ItemList = search index = meta count; ${publishedSlugs.length} published entity/entities linked, ${draftSlugs.length} draft(s) absent`);
+    }
+
+    // A tile with no verified image must not silently fall back to a banned/synthetic file.
+    for (const [img, why] of Object.entries(BANNED_IMAGES)) {
+      if (hub.includes(`src="${img}"`) && !PESTS_TS_TILE_IMAGES.has(img)) {
+        fail(`hub renders banned image ${img} — ${why}`);
+      }
+    }
+  }
+
   // The @astrojs/sitemap output is a SECOND sitemap, generated from whatever the build
   // emitted. public/sitemap.xml being clean says nothing about it, and a deployed preview
   // build would publish 19 draft URLs through this file.
@@ -298,10 +397,25 @@ if (!fs.existsSync(DIST)) {
     warn('no dist/sitemap-0.xml — generated sitemap not checked');
   }
 
-  // Static sitemap must never list a pest species URL while drafts are unpublished.
-  const sm = fs.readFileSync('public/sitemap.xml', 'utf8');
+  // The SERVED sitemap — robots.txt advertises /sitemap.xml, and the build appends published
+  // entity URLs to it. public/sitemap.xml is only the curated base for the static pages, so
+  // checking that file alone cannot prove what actually ships.
+  const servedSitemap = path.join(DIST, 'sitemap.xml');
+  const sm = fs.readFileSync(fs.existsSync(servedSitemap) ? servedSitemap : 'public/sitemap.xml', 'utf8');
   const locs = [...sm.matchAll(/<loc>([^<]+)<\/loc>/g)].map((m) => m[1]);
-  if (locs.length !== EXPECTED_PROD_PAGES) fail(`public/sitemap.xml has ${locs.length} URLs, expected ${EXPECTED_PROD_PAGES}`);
+  // In preview the drafts are built but must never be advertised, so the served sitemap
+  // stays at the static baseline there.
+  const expectedLocs = MODE === 'preview' ? STATIC_PROD_PAGES : EXPECTED_PROD_PAGES;
+  if (locs.length !== expectedLocs) fail(`served sitemap.xml has ${locs.length} URLs, expected ${expectedLocs}`);
+  // Every published entity must actually appear in the advertised sitemap. A live page that
+  // no sitemap points at is invisible to the measurement the probe exists to produce.
+  if (MODE === 'production') {
+    for (const e of entries.filter((x) => x.published)) {
+      if (!locs.includes(`${SITE}/pest-library/${e.slug}`)) {
+        fail(`published entity ${e.slug} is missing from the served sitemap.xml`);
+      }
+    }
+  }
   const leaked = locs.filter((u) => /\/pest-library\/./.test(u));
   const unpublishedLeak = leaked.filter((u) => {
     const s = u.split('/pest-library/')[1];
@@ -310,7 +424,7 @@ if (!fs.existsSync(DIST)) {
   if (unpublishedLeak.length) fail(`sitemap lists unpublished pest URLs: ${unpublishedLeak.join(', ')}`);
   if (locs.some((u) => u.endsWith('.html'))) fail('sitemap contains a .html URL');
   if (locs.some((u) => u !== SITE + '/' && u.endsWith('/'))) fail('sitemap contains a trailing-slash URL');
-  pass(`public/sitemap.xml: ${locs.length} clean URLs, no unpublished pest entries`);
+  pass(`served sitemap.xml: ${locs.length} clean URLs, no unpublished pest entries, all published entities listed`);
 }
 
 // ── Report ──────────────────────────────────────────────────────────────────

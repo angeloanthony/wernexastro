@@ -37,7 +37,7 @@ faqs:
     a: No — they can't breed indoors, and there's no winter population growth happening. The bugs emerging around your windows on warm winter days are the same individuals that entered in fall, roused from dormancy by wall-void warmth. Vacuum them up and take comfort that the supply is finite. It also means insecticide inside the house in winter is pointless; the fix for next year happens at the walls next September.
   - q: Does removing a boxelder tree end the problem?
     a: Sometimes, partially — female boxelder trees (the seed-bearing ones) are the population's engine, and removing one adjacent to the house can cut local numbers substantially. But boxelder bugs fly well and Utah neighborhoods hold many host trees, so removal is rarely a complete cure and a healthy shade tree is worth a lot in Utah. We'd usually rather seal and time-treat the house than fell the tree.
-published: false
+published: true
 ---
 
 ## Utah's Most Punctual Pest

@@ -347,3 +347,35 @@ the Turkestan cockroach.
 These are the open citation tasks listed in the Wave 1 report. None of them blocks the drafts
 from existing; two of them (`deer-mouse` CFR, termite gradient) were resolved by **removing
 the unverifiable claim**, which is the correct outcome under this library's evidence standard.
+
+---
+
+## 10. Open source discrepancies — record, do not resolve by picking a side
+
+Preserved deliberately. A disagreement between two authoritative sources is evidence about the
+state of the evidence, and collapsing it early is how a page ends up asserting more than anyone
+can support. Each of these is a small reconciliation task to be done on its own, before the
+affected language reaches a published page — not something to settle while doing other work.
+
+### Pavement ant — commonness claim and binomial both differ between USU pages
+
+| | USU *Pavement Ants* fact sheet | USU *Top 20 Identified Insects* (UPPDL) |
+|---|---|---|
+| URL | `extension.usu.edu/planthealth/research/pavement-ants` | `extension.usu.edu/pests/uppdl/top-20-insects` |
+| Claim | "northern Utah's most common pest ant in and around homes and structures" | "By far the most common household pest Utahn's experience during the spring months is the pavement ant" |
+| Geographic qualifier | **northern Utah** | **none** — reads statewide |
+| Scope of superlative | most common *pest ant* | most common *household pest*, seasonally scoped to spring |
+| Binomial | *Tetramorium immigrans*, explicitly noting it supersedes *T. caespitum* on genetic grounds | *Tetramorium caespitum* |
+
+**Status: unresolved.** `pavement-ant.md` currently uses the **narrower** claim (northern Utah,
+"most common pest ant") and the **newer** binomial (*T. immigrans*), which is the conservative
+reading of both. That is safe to leave in place.
+
+**Constraint until reconciled: do not use the broader superlative.** "Utah's most common household
+pest" must not appear on a published page on this evidence — the two USU pages differ in
+geographic qualifier, in what class of pest the superlative ranks, and in seasonal scope.
+
+Also note the *Top 20* page's own framing: it is a list of what is most frequently **submitted to
+the diagnostic lab**, not a frequency ranking of Utah pests. Eleven of its twenty entries are
+landscape/ornamental and two are beneficial insects, so its superlatives should be read as
+observations rather than as a survey result.

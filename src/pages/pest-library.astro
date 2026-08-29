@@ -1,10 +1,29 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import { VISIBLE_PESTS } from '../data/pests';
-import { buildPestIndex } from '../lib/pestIndex';
+import { getCollection } from 'astro:content';
+import { buildPestCatalog, buildPestIndex } from '../lib/pestIndex';
 
 const SITE = 'https://www.wernexpestcontrol.com';
-const PEST_COUNT = VISIBLE_PESTS.length;
+
+// THE JOIN. The pestLibrary collection's `published` flag is the single source
+// of publication state: flipping it is the entire act of publishing a pest URL.
+// Everything on this page — tile grid, ItemList JSON-LD, #pest-index search
+// JSON, and the count in the meta description — derives from the catalog built
+// here, so none of it can disagree with which entity pages the build emitted.
+// Deliberately `published` only (not the PEST_PREVIEW draft set): the hub must
+// never link a URL that a production build would not emit, and drafts carry
+// noindex — a hub link would leak crawl equity into pages that refuse it.
+const publishedEntities = (await getCollection('pestLibrary'))
+  .filter((e) => e.data.published)
+  .map((e) => ({
+    slug: e.id,
+    name: e.data.name,
+    emoji: e.data.emoji,
+    image: e.data.image,
+    imageAlt: e.data.imageAlt,
+  }));
+const catalog = buildPestCatalog(publishedEntities);
+const PEST_COUNT = catalog.length;
 
 const title = 'Utah Pest Library — Identify Ants, Termites, Spiders &amp; More | Wernex';
 const description = `Identify ${PEST_COUNT} pests common in Utah homes with photos, facts, and prevention tips. Ants, termites, scorpions, rodents, bed bugs & more. Free AI bug ID tool. Call (435) 673-9503.`;
@@ -12,9 +31,9 @@ const canonical = 'https://www.wernexpestcontrol.com/pest-library';
 const active = '/pest-library';
 const og = { "og:title": 'Utah Pest Library — Identify Common Household Pests | Wernex', "og:description": `Photos, facts, and prevention tips for ${PEST_COUNT} pests common in Utah homes. Free AI bug identifier included.`, "og:type": 'website', "og:url": 'https://www.wernexpestcontrol.com/pest-library', "og:locale": 'en_US', "og:site_name": 'Wernex Termite & Pest Control' };
 
-// ItemList is generated from VISIBLE_PESTS so it can never again describe a
-// different inventory than the one rendered below. Each item points at its own
-// anchor today; when Wave 1 publishes, swap the url to `/pest-library/${p.slug}`.
+// ItemList is generated from the same catalog as the grid, so it can never
+// describe a different inventory than the one rendered below. A published
+// entity's item carries its own URL; everything else stays a hub anchor.
 const schema = JSON.stringify({
   "@context": "https://schema.org",
   "@graph": [
@@ -30,11 +49,11 @@ const schema = JSON.stringify({
       "@type": "ItemList",
       "name": "Utah Pest Identification Guide",
       "numberOfItems": PEST_COUNT,
-      "itemListElement": VISIBLE_PESTS.map((p, i) => ({
+      "itemListElement": catalog.map((p, i) => ({
         "@type": "ListItem",
         "position": i + 1,
         "name": p.name,
-        "url": `${SITE}/pest-library#${p.slug}`,
+        "url": p.isEntity ? `${SITE}/pest-library/${p.slug}` : `${SITE}/pest-library#${p.slug}`,
       })),
     },
   ],
@@ -52,10 +71,10 @@ const schema = JSON.stringify({
         <input type="text" placeholder="Search for a pest (e.g. ants, termites, spiders...)">
         <div class="pest-search__results"></div>
       </div>
-      {/* Search index emitted from the same source as the grid, so script.js can
-          never drift out of sync with what is on the page. Built by the shared
-          lib/pestIndex helper — the same index the Bug Identifier mapping uses. */}
-      <script type="application/json" id="pest-index" is:inline set:html={JSON.stringify(buildPestIndex())}></script>
+      {/* Search index emitted from the same catalog as the grid and the ItemList,
+          so script.js can never drift out of sync with what is on the page.
+          Published entities resolve to their own /pest-library/<slug> URLs. */}
+      <script type="application/json" id="pest-index" is:inline set:html={JSON.stringify(buildPestIndex(catalog))}></script>
     </div>
   </section>
 
@@ -64,7 +83,7 @@ const schema = JSON.stringify({
     <div class="container">
       <div class="pest-grid">
 
-        {VISIBLE_PESTS.map((pest) => {
+        {catalog.map((pest) => {
           const Tile = pest.href ? 'a' : 'div';
           return (
             <Tile
@@ -72,7 +91,17 @@ const schema = JSON.stringify({
               id={pest.slug}
               href={pest.href ?? undefined}
             >
-              <img src={pest.image} alt={pest.alt} loading="lazy" />
+              {pest.image ? (
+                <img src={pest.image} alt={pest.alt} loading="lazy" />
+              ) : (
+                /* Intentional image-free tile. An entity reaches this branch only when it
+                   has no image VERIFIED to depict its species — the library's rule is
+                   accurate image > no image > wrong image, and a tile teaches an
+                   identification just as a hero does. The emoji is decorative, so it is
+                   aria-hidden and the accessible name comes from .pest-item__name below;
+                   never an alt that claims an animal is pictured when none is. */
+                <div class="placeholder pest-item__emoji"><span aria-hidden="true">{pest.emoji}</span></div>
+              )}
               <div class="pest-item__name">{pest.name}</div>
             </Tile>
           );
