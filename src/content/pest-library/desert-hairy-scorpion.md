@@ -23,7 +23,7 @@ relatedPests:
   - black-widow
 relatedServices:
   - /scorpion-control-st-george
-treatment: Desert hairy scorpions come to properties for prey and cover, so Wernex treats the system rather than chasing individuals — nighttime UV detection sweeps to establish where scorpions are active, a perimeter barrier that knocks down both scorpions and the insects they hunt, removal of harborage like ground clutter and debris piles, and exclusion sealing of door sweeps, weep screeds, and pipe penetrations. Desert-edge homes benefit from recurring service because the surrounding habitat continually resupplies the population.
+treatment: Desert hairy scorpions come to properties for prey and cover, so Wernex treats the system rather than chasing individuals — nighttime UV detection sweeps to establish where scorpions are active, a perimeter barrier that knocks down both scorpions and the insects they hunt, and removal of harborage like ground clutter and debris piles. Desert-edge homes benefit from recurring service because the surrounding habitat continually resupplies the population.
 sources:
   - label: USU Extension — Scorpions (Utah species list and distributions)
     url: https://extension.usu.edu/planthealth/research/scorpions

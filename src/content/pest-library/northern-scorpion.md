@@ -22,7 +22,7 @@ relatedPests:
   - arizona-bark-scorpion
 relatedServices:
   - /pest-control-vernal
-treatment: Wernex's Vernal service is built around the perimeter and the entry points, which is exactly what reduces scorpion encounters — targeted exterior treatment, sealing the ground-level gaps, and cutting back the harborage and ground-insect prey that draw scorpions toward a foundation in the first place. The Basin-specific detail we care most about is window wells, which act as pitfall traps and account for a large share of the scorpions Vernal homeowners actually meet. Covering them is often the single most effective thing done on the property.
+treatment: Wernex's Vernal service is built around the perimeter and the entry points, which is exactly what reduces scorpion encounters — targeted exterior treatment and cutting back the harborage and ground-insect prey that draw scorpions toward a foundation in the first place. The Basin-specific detail we care most about is window wells, which act as pitfall traps and account for a large share of the scorpions Vernal homeowners actually meet. Covering them is often the single most effective thing done on the property.
 sources:
   - label: USU Extension — Scorpions (Utah species list and distributions)
     url: https://extension.usu.edu/planthealth/research/scorpions
@@ -36,7 +36,7 @@ faqs:
   - q: Why do I find scorpions in my basement window wells?
     a: Window wells are pitfall traps. Scorpions hunting along the foundation at night drop in and can't climb the smooth walls back out, so the well collects them — along with the crickets and other insects they hunt. Covers solve the trap problem; sealing the window frame and keeping the well free of leaf litter solves the "and then they got inside" problem.
   - q: Do I need regular pest control just because I saw one scorpion?
-    a: One scorpion on a rural Basin lot is unremarkable. What tips the calculus is repetition and location — multiple sightings, scorpions indoors, or a UV sweep showing numbers along the foundation. Those indicate the property is supporting a population within striking distance of the house, and a perimeter treatment plus prey reduction and sealing is the proportionate response.
+    a: One scorpion on a rural Basin lot is unremarkable. What tips the calculus is repetition and location — multiple sightings, scorpions indoors, or a UV sweep showing numbers along the foundation. Those indicate the property is supporting a population within striking distance of the house, and a perimeter treatment plus prey reduction is the proportionate response.
 published: true
 ---
 
