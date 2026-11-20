@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import GoogleReviewButton from '../components/GoogleReviewButton.astro';
 
 const title = 'Pest Control in St. George UT — Same-Day Service &amp; Eco-Friendly Treatments | Wernex';
 const description = '4.5-star rated pest control in St. George, UT. Same-day inspections, eco-friendly treatments, and a 30-day satisfaction guarantee. Call (435) 673-9503 for a free quote.';
@@ -481,6 +482,9 @@ const schema = `{
       </div>
       <div class="text-center" style="margin-top: 36px;">
         <a href="/testimonials" class="btn btn--lime">Read All Reviews →</a>
+      </div>
+      <div style="margin: 40px auto 0; padding-top: 32px; max-width: 560px; border-top: 1px solid rgba(139,195,74,0.15);">
+        <GoogleReviewButton dark prompt="Had Wernex out to your place? Tell your neighbors how it went." />
       </div>
     </div>
   </section>

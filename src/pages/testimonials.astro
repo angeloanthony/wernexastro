@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import GoogleReviewButton from '../components/GoogleReviewButton.astro';
 
 const title = 'Customer Reviews — 4.5★ Rated Pest Control in St. George UT | Wernex';
 const description = 'Read real Google reviews of Wernex Termite & Pest Control — a 4.5-star rating across 27 reviews. See why Southern Utah homeowners have trusted Wernex for 30+ years. Call (435) 673-9503.';
@@ -183,9 +184,7 @@ const schema = `{
         <span class="section-label">Your Experience</span>
         <h2>Had a Great Experience?</h2>
         <p style="color: var(--gray); margin: 12px 0 28px; max-width: 480px;" class="mx-auto">We'd love to hear from you! Leave us a review and help your neighbors find trusted pest control. Or <a href="/contact">schedule your own free inspection</a>.</p>
-        <div style="display: flex; justify-content: center; gap: 16px; flex-wrap: wrap;">
-          <a href="https://www.google.com/search?q=wernex+pest+control" target="_blank" rel="noopener" class="btn btn--primary">Leave a Google Review →</a>
-        </div>
+        <GoogleReviewButton prompt="It only takes a minute." />
       </div>
     </div>
   </section>

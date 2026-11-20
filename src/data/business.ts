@@ -30,6 +30,9 @@ export const WERNEX = {
     weekday: "Mon–Fri 7am–7pm",
     saturday: "Sat 8am–5pm",
   },
+  // Opens Google's "write a review" dialog for the Business Profile directly.
+  // Used by the header badge (Header.astro) and GoogleReviewButton.astro.
+  googleWriteReview: "https://g.page/r/CX1Z51OhHTpYEBM/review",
   socials: {
     facebook: "https://www.facebook.com/wernexpestcontrol",
     instagram: "https://www.instagram.com/wernexpestcontrol",
